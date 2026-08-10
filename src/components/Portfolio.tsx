@@ -78,38 +78,40 @@ export default function Portfolio() {
               </p>
               
               <div className="flex flex-col gap-6 mb-8">
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 w-full">
                   <a
                     href="https://apps.apple.com/sg/app/saalihat/id6760661366"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-[#d5ad5b] hover:bg-white text-black font-bold transition-all shadow-md group"
+                    className="flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#d5ad5b] hover:bg-white text-black text-base font-bold transition-all shadow-md group"
                   >
-                    <span className="text-xl"></span> App Store
+                    <span className="text-2xl leading-none"></span>
+                    <span>App Store</span>
                   </a>
                   <a
                     href="https://play.google.com/store/apps/details?id=com.mustechgroup.saalihat"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-[#d5ad5b] hover:bg-white text-black font-bold transition-all shadow-md group"
+                    className="flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#d5ad5b] hover:bg-white text-black text-base font-bold transition-all shadow-md group"
                   >
-                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M4 2.5v19l16-9.5z"/></svg> Google Play
+                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current shrink-0" xmlns="http://www.w3.org/2000/svg"><path d="M4 2.5v19l16-9.5z"/></svg>
+                    <span>Google Play</span>
                   </a>
                 </div>
                 
                 {/* QR Codes for Desktop Users */}
-                <div className="hidden sm:flex items-center gap-6 pt-2">
+                <div className="hidden sm:flex items-center gap-8 pt-4">
                   <div className="flex flex-col items-center gap-2">
-                    <div className="w-20 h-20 bg-white rounded-xl overflow-hidden border border-white/10 p-1 shadow-sm">
-                      <Image src="/saalihat/apple-qr.jpg" alt="Apple QR" width={80} height={80} className="w-full h-full object-cover rounded-lg" />
+                    <div className="w-28 h-28 bg-white rounded-2xl overflow-hidden border border-white/20 p-1.5 shadow-md">
+                      <Image src="/saalihat/apple-qr.jpg" alt="Apple QR" width={110} height={110} className="w-full h-full object-cover rounded-xl" />
                     </div>
-                    <span className="text-zinc-400 text-[10px] uppercase font-bold tracking-wider">iOS App</span>
+                    <span className="text-zinc-300 text-[11px] uppercase font-bold tracking-wider">iOS App</span>
                   </div>
                   <div className="flex flex-col items-center gap-2">
-                    <div className="w-20 h-20 bg-white rounded-xl overflow-hidden border border-white/10 p-1 shadow-sm">
-                      <Image src="/saalihat/google-qr.jpg" alt="Google QR" width={80} height={80} className="w-full h-full object-cover rounded-lg" />
+                    <div className="w-28 h-28 bg-white rounded-2xl overflow-hidden border border-white/20 p-1.5 shadow-md">
+                      <Image src="/saalihat/google-qr.jpg" alt="Google QR" width={110} height={110} className="w-full h-full object-cover rounded-xl" />
                     </div>
-                    <span className="text-zinc-400 text-[10px] uppercase font-bold tracking-wider">Android App</span>
+                    <span className="text-zinc-300 text-[11px] uppercase font-bold tracking-wider">Android App</span>
                   </div>
                 </div>
               </div>

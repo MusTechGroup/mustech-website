@@ -78,7 +78,7 @@ export default function PrivacyPolicyContent() {
                 <Database className="w-6 h-6" />
               </div>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
-                1. Data Collection (Data Minimization)
+                1. Data Collection (Data Minimisation)
               </h2>
             </div>
             <p>
@@ -215,11 +215,11 @@ export default function PrivacyPolicyContent() {
                 <p className="text-base font-bold text-[var(--color-primary-dark)]">MusTech Group</p>
                 <p className="text-sm font-mono text-[var(--color-primary-dark)]/70">ACRA Reg: 202609163C</p>
               </div>
-              <div className="p-6 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/10 shadow-sm flex flex-col justify-center">
+              <div className="p-5 sm:p-6 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/10 shadow-sm flex flex-col justify-center overflow-hidden">
                 <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-wider mb-1">Official Support Email</span>
                 <a
                   href="mailto:saalihat_support@mustechgroup.com"
-                  className="text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors mb-1 truncate"
+                  className="text-xs sm:text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors mb-1 break-all"
                 >
                   saalihat_support@mustechgroup.com
                 </a>
