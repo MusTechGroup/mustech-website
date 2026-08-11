@@ -28,7 +28,7 @@ export default function Hero() {
               href="#pillars"
               className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full bg-[var(--color-primary-dark)] hover:bg-[var(--color-primary)] text-white font-bold text-base transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]"
             >
-              <span>Learn More</span>
+              <span>Explore Our Values</span>
               <ArrowUpRight className="w-5 h-5" />
             </Link>
           </div>
@@ -56,13 +56,13 @@ export default function Hero() {
               {/* Saalihat Copy */}
               <div className="md:col-span-9">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary-dark)] text-xs font-bold uppercase tracking-wider mb-4 border border-[var(--color-primary)]/20">
-                  Flagship Community Platform
+                  Core Community Platform
                 </div>
                 <h2 className="font-brand text-3xl sm:text-4xl font-bold text-[var(--color-primary-dark)] mb-4">
                   Saalihat
                 </h2>
                 <p className="text-base sm:text-lg text-[var(--color-primary-dark)]/90 leading-relaxed">
-                  Saalihat is our flagship community platform, designed to help Singaporean Muslims discover local mosque events, find community, and build beautiful spiritual habits. Born from a spur-of-the-moment conversation about how events at mosques are buried by proximity — Saalihat exists to close that gap.
+                  Saalihat is our core community platform, designed to help Singaporean Muslims discover local mosque events, find community, and build beautiful spiritual habits. Born from a spur-of-the-moment conversation about how events at mosques are buried by proximity, Saalihat was built to close that gap.
                 </p>
               </div>
               

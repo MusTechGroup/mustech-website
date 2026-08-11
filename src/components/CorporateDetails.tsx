@@ -56,13 +56,13 @@ export default function CorporateDetails() {
           <div className="lg:col-span-5 rounded-[2rem] p-8 sm:p-10 bg-[var(--brand-bg)] border border-[var(--color-primary)]/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
             <div>
               <div className="flex items-center justify-between mb-6 pb-6 border-b border-black/5">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-white border border-[var(--color-primary)]/20 flex items-center justify-center">
-                    <Building2 className="w-6 h-6 text-[var(--color-primary)]" />
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-white border border-[var(--color-primary)]/20 flex items-center justify-center shrink-0 shadow-sm">
+                    <Building2 className="w-7 h-7 text-[var(--color-primary)]" />
                   </div>
                   <div>
-                    <h3 className="font-brand text-xl font-bold text-[var(--color-primary-dark)]">MusTech Group</h3>
-                    <p className="text-xs text-[var(--color-primary-dark)]/60">Holding Company & Venture Studio</p>
+                    <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">MusTech Group</h3>
+                    <p className="text-xs font-semibold text-[var(--color-accent)] uppercase tracking-wider mt-1">Holding Entity & Venture Studio</p>
                   </div>
                 </div>
               </div>
@@ -70,23 +70,23 @@ export default function CorporateDetails() {
               {/* Entity Information Rows */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between p-3.5 rounded-xl bg-white border border-black/5">
-                  <span className="text-xs text-[var(--color-primary-dark)]/70 font-medium">Jurisdiction</span>
-                  <span className="text-xs font-bold text-[var(--color-primary-dark)] flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[var(--color-primary)]" /> Singapore
+                  <span className="text-sm text-[var(--color-primary-dark)]/70">Jurisdiction</span>
+                  <span className="text-sm font-semibold text-[var(--color-primary-dark)] flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-[var(--color-primary)]" /> Singapore
                   </span>
                 </div>
 
                 <div className="flex items-center justify-between p-3.5 rounded-xl bg-white border border-black/5">
-                  <span className="text-xs text-[var(--color-primary-dark)]/70 font-medium">ACRA Reg (UEN)</span>
-                  <span className="text-xs font-mono font-bold text-[var(--color-primary-dark)] bg-[var(--brand-bg)] px-2.5 py-1 rounded border border-black/10">
+                  <span className="text-sm text-[var(--color-primary-dark)]/70">ACRA Reg (UEN)</span>
+                  <span className="text-sm font-mono font-semibold text-[var(--color-primary-dark)] bg-[var(--brand-bg)] px-2.5 py-1 rounded border border-black/10">
                     202609163C
                   </span>
                 </div>
 
                 <div className="flex items-center justify-between p-3.5 rounded-xl bg-white border border-black/5">
-                  <span className="text-xs text-[var(--color-primary-dark)]/70 font-medium">Compliance</span>
-                  <span className="text-xs font-medium text-[var(--color-primary-dark)] flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[var(--color-primary)]" /> SG PDPA
+                  <span className="text-sm text-[var(--color-primary-dark)]/70">Compliance</span>
+                  <span className="text-sm font-semibold text-[var(--color-primary-dark)] flex items-center gap-1.5">
+                    <ShieldCheck className="w-4 h-4 text-[var(--color-primary)]" /> SG PDPA
                   </span>
                 </div>
               </div>
@@ -96,41 +96,41 @@ export default function CorporateDetails() {
           {/* Right Card: Founder Profile */}
           <div className="lg:col-span-7 rounded-[2rem] p-8 sm:p-10 bg-[var(--brand-bg)] border border-[var(--color-primary)]/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
             <div>
-              <div className="flex items-start justify-between mb-6 pb-6 border-b border-black/5">
+              <div className="flex items-center justify-between mb-6 pb-6 border-b border-black/5">
                 <div className="flex items-center gap-4">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-[var(--color-primary)]/20 shadow-sm shrink-0 bg-[var(--color-primary)]/10">
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-[var(--color-primary)]/20 shadow-sm shrink-0 bg-[var(--color-primary)]/10">
                     <Image
                       src="/brand/founder.jpg"
                       alt="Taufiq Rashid"
                       fill
-                      sizes="64px"
+                      sizes="56px"
                       className="object-cover"
                     />
                   </div>
                   <div>
                     <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">Taufiq Rashid</h3>
-                    <p className="text-sm font-semibold text-[var(--color-accent)] uppercase tracking-wider mt-1">Founder & Technical Product Lead</p>
+                    <p className="text-xs font-semibold text-[var(--color-accent)] uppercase tracking-wider mt-1">Founder & Technical Product Lead</p>
                   </div>
                 </div>
               </div>
 
               {/* Founder Information */}
               <div className="space-y-4">
-                <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans">
+                <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans text-sm sm:text-base">
                   Taufiq brings over a decade of regional data architecture, analytics, and business intelligence leadership across global giants including <strong>Google, LVMH (Sephora), WPP, and OCBC Bank</strong>.
                 </p>
-                <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans">
+                <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans text-sm sm:text-base">
                   This background combines enterprise data leadership and rigorous stakeholder management with hands-on technical AI application development. MusTech Group is the culmination of this experience, dedicated to building community-first impact.
                 </p>
                 
                 <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="flex items-center gap-2 p-3 rounded-xl bg-white border border-black/5">
+                  <div className="flex items-center gap-2 p-3.5 rounded-xl bg-white border border-black/5">
                     <Award className="w-4 h-4 text-[var(--color-primary)]" />
-                    <span className="text-sm font-medium text-[var(--color-primary-dark)]">10+ Years Data Leadership</span>
+                    <span className="text-sm font-semibold text-[var(--color-primary-dark)]">10+ Years Data Leadership</span>
                   </div>
-                  <div className="flex items-center gap-2 p-3 rounded-xl bg-white border border-black/5">
+                  <div className="flex items-center gap-2 p-3.5 rounded-xl bg-white border border-black/5">
                     <ShieldCheck className="w-4 h-4 text-[var(--color-primary)]" />
-                    <span className="text-sm font-medium text-[var(--color-primary-dark)]">APAC Strategy & Governance</span>
+                    <span className="text-sm font-semibold text-[var(--color-primary-dark)]">APAC Strategy & Governance</span>
                   </div>
                 </div>
               </div>
@@ -138,7 +138,7 @@ export default function CorporateDetails() {
           </div>
         </div>
 
-        {/* Bottom Wide Card: Official Communications (Softened Brightness) */}
+        {/* Bottom Wide Card: Official Communications */}
         <div id="contact" className="w-full rounded-[2rem] p-8 sm:p-10 bg-[var(--brand-bg)] border border-[var(--color-primary)]/20 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-5">
             <div className="w-14 h-14 rounded-2xl bg-white border border-[var(--color-primary)]/20 flex items-center justify-center shrink-0 shadow-sm">
@@ -152,9 +152,9 @@ export default function CorporateDetails() {
 
           <div className="flex flex-col gap-3 w-full sm:w-auto">
             {/* General & Partnership Inquiries */}
-            <div className="p-3 pr-4 rounded-xl bg-white border border-black/5 flex items-center justify-between gap-6 shadow-sm">
+            <div className="p-3.5 pr-4 rounded-xl bg-white border border-black/5 flex items-center justify-between gap-6 shadow-sm">
               <div>
-                <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-wider block mb-0.5">
+                <span className="text-xs font-semibold text-[var(--color-accent)] uppercase tracking-wider block mb-0.5">
                   General & Partnerships
                 </span>
                 <a href="mailto:admin@mustechgroup.com" className="text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors">
@@ -180,9 +180,9 @@ export default function CorporateDetails() {
             </div>
 
             {/* Support */}
-            <div className="p-3 pr-4 rounded-xl bg-white border border-black/5 flex items-center justify-between gap-6 shadow-sm">
+            <div className="p-3.5 pr-4 rounded-xl bg-white border border-black/5 flex items-center justify-between gap-6 shadow-sm">
               <div>
-                <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-wider block mb-0.5">
+                <span className="text-xs font-semibold text-[var(--color-accent)] uppercase tracking-wider block mb-0.5">
                   Saalihat Support
                 </span>
                 <a href="mailto:saalihat_support@mustechgroup.com" className="text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors">

@@ -17,7 +17,7 @@ export default function PrivacyPolicyContent() {
   const lastUpdated = "July 2025";
 
   return (
-    <div className="pt-32 pb-24 relative overflow-hidden bg-white">
+    <div className="pt-48 sm:pt-64 pb-24 relative overflow-hidden bg-white">
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--color-secondary)]/5 rounded-full blur-3xl pointer-events-none" />
 

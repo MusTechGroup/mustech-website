@@ -82,7 +82,7 @@ export default function Navbar() {
               href="/#saalihat"
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[var(--color-primary-dark)] hover:bg-[var(--color-primary)] text-white text-sm font-bold transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
             >
-              <span>Learn More</span>
+              <span>Explore Saalihat</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
@@ -152,7 +152,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[var(--color-primary-dark)] text-white font-bold text-center shadow-md shadow-black/10"
               >
-                Learn More
+                Explore Saalihat
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>

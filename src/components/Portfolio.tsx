@@ -16,7 +16,7 @@ export default function Portfolio() {
             Ecosystem & <span className="text-[var(--color-accent)]">Pipelines</span>
           </h2>
           <p className="text-[var(--color-primary-dark)]/80 text-base sm:text-lg font-sans">
-            Our collective builds and scales community-first applications. From flagship spiritual platforms to critical civic infrastructure.
+            Our collective builds and scales community-first applications. From anchor spiritual platforms to critical civic infrastructure.
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function Portfolio() {
                 />
                 <div>
                   <h3 className="font-brand text-2xl font-bold tracking-tight text-[#d5ad5b]">Saalihat</h3>
-                  <p className="text-zinc-400 uppercase tracking-[0.2em] text-[10px] font-semibold">Flagship Platform</p>
+                  <p className="text-zinc-400 uppercase tracking-[0.2em] text-[10px] font-semibold">Primary Platform</p>
                 </div>
               </div>
             </div>
