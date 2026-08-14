@@ -6,10 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#08090d] border-t border-[var(--color-primary)]/20 pt-16 pb-12 relative overflow-hidden">
-      {/* Background ambient light */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-gradient-to-t from-[var(--color-primary)]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
-
+    <footer className="bg-[#12141a] border-t border-[var(--color-primary)]/20 pt-16 pb-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           
@@ -30,8 +27,8 @@ export default function Footer() {
             </p>
 
             <div className="pt-1">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#12151c] text-zinc-300 text-xs border border-white/5 font-mono">
-                ACRA Reg: 202609163C (Singapore)
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-white/5 text-zinc-300 text-xs border border-white/10 font-mono">
+                ACRA Registered: 202609163C · Singapore
               </span>
             </div>
           </div>
