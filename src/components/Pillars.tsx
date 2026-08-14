@@ -47,7 +47,7 @@ export default function Pillars() {
             </div>
             <div className="lg:w-2/3 p-8 lg:p-12 flex flex-col justify-center bg-white/40">
               <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-lg sm:text-xl">
-                We build systems where user data is minimized by default. Information is stored locally whenever possible, never brokered to third parties, and protected under stringent Singapore PDPA standards.
+                We build systems where user data is minimised by default. Information is stored locally whenever possible, never brokered to third parties, and protected under stringent Singapore PDPA standards.
               </p>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Pillars() {
             </div>
             <div className="lg:w-2/3 p-8 lg:p-12 flex flex-col justify-center bg-white/40">
               <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-lg sm:text-xl">
-                Success is measured by genuine utility. Every line of code exists to solve systemic fragmentation, empower grassroots organizations, and provide dignity to the people we serve.
+                Success is measured by genuine utility. Every line of code exists to solve systemic fragmentation, empower grassroots organisations, and provide dignity to the people we serve.
               </p>
             </div>
           </div>

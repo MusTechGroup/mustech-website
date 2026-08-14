@@ -138,7 +138,7 @@ export default function PrivacyPolicyContent() {
               </h2>
             </div>
             <p>
-              We <strong className="text-[var(--color-primary-dark)]">do not sell, rent, or trade your personal information</strong>. We do not integrate with third-party advertising networks that track your behavior across other apps. Data is only processed through secure, industry-standard infrastructure strictly for operational purposes.
+              We <strong className="text-[var(--color-primary-dark)]">do not sell, rent, or trade your personal information</strong>. We do not integrate with third-party advertising networks that track your behaviour across other apps. Data is only processed through secure, industry-standard infrastructure strictly for operational purposes.
             </p>
           </section>
 

@@ -28,7 +28,7 @@ export default function Portfolio() {
                 Connecting Muslims to verified community events and sacred knowledge.
               </h4>
               <p className="text-zinc-400 text-lg leading-relaxed mb-4">
-                Saalihat (صالحات) solves a persistent fragmentation across Southeast Asia: vital mosque lectures, charitable programs, and community circles are scattered across disparate social media channels and physical boards. Saalihat aggregates this fragmented ecosystem into a single, verified, real-time schedule.
+                Saalihat (صالحات) solves a persistent fragmentation across Southeast Asia: vital mosque lectures, charitable programmes, and community circles are scattered across disparate social media channels and physical boards. Saalihat aggregates this fragmented ecosystem into a single, verified, real-time schedule.
               </p>
               <p className="text-zinc-400 text-lg leading-relaxed mb-12">
                 Engineered with an offline-first architecture and absolute privacy, Saalihat helps believers cultivate lasting spiritual habits without ads, user tracking, or data brokering.

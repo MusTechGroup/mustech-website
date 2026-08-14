@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Privacy Policy | MusTech Group & Saalihat",
   description:
-    "Official Privacy Policy for Saalihat and MusTech Group. Built on the Islamic ethical principle of Amanah (sacred trust) with strict data minimization.",
+    "Official Privacy Policy for Saalihat and MusTech Group. Built on the Islamic ethical principle of Amanah (sacred trust) with strict data minimisation.",
   openGraph: {
     title: "Privacy Policy | MusTech Group",
     description: "Official Privacy Policy for Saalihat app and MusTech Group.",
