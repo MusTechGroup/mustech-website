@@ -72,6 +72,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth antialiased">
       <body className="min-h-screen flex flex-col bg-[var(--brand-bg)] text-[var(--color-primary-dark)] font-sans">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-[var(--brand-bg)] text-[var(--color-primary-dark)] px-4 py-2 border border-black/10 shadow-lg font-bold text-sm">
+          Skip to main content
+        </a>
         {children}
       </body>
     </html>

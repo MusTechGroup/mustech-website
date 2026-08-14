@@ -1,46 +1,31 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import { 
   Building2, 
   Mail, 
   MapPin, 
-  Check, 
-  Copy, 
   ShieldCheck, 
   Send,
   Award
 } from "lucide-react";
+import CopyButton from "./CopyButton";
 
 export default function CorporateDetails() {
-  const [copiedAdmin, setCopiedAdmin] = useState(false);
-  const [copiedSupport, setCopiedSupport] = useState(false);
-
-  const copyToClipboard = (text: string, type: "admin" | "support") => {
-    navigator.clipboard.writeText(text);
-    if (type === "admin") {
-      setCopiedAdmin(true);
-      setTimeout(() => setCopiedAdmin(false), 2000);
-    } else {
-      setCopiedSupport(true);
-      setTimeout(() => setCopiedSupport(false), 2000);
-    }
-  };
 
   return (
-    <section id="credentials" className="py-24 relative overflow-hidden bg-[var(--brand-bg)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Editorial Section Header */}
-        <div id="about" className="flex flex-col md:flex-row items-baseline justify-between mb-16 pb-8 border-b border-black/5">
-          <h2 className="font-brand text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary-dark)] tracking-tight">
-            Corporate Entity & Leadership
-          </h2>
-          <p className="text-base sm:text-lg text-[var(--color-primary-dark)]/80 font-sans max-w-xl md:text-right mt-6 md:mt-0">
-            MusTech Group operates as a registered Singapore technology holding entity, driving regional measurement programs, ethical data governance, and ecosystem development.
-          </p>
-        </div>
+    <>
+      <div id="about" className="scroll-mt-32" aria-hidden="true" />
+      <section id="credentials" className="py-24 relative overflow-hidden bg-[var(--brand-bg)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Editorial Section Header */}
+          <div className="flex flex-col md:flex-row items-baseline justify-between mb-16 pb-8 border-b border-black/5">
+            <h2 className="font-brand text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary-dark)] tracking-tight">
+              Corporate Entity & Leadership
+            </h2>
+            <p className="text-base sm:text-lg text-[var(--color-primary-dark)]/80 font-sans max-w-xl md:text-right mt-6 md:mt-0">
+              MusTech Group operates as a registered Singapore technology holding entity, building privacy-first mobile applications and civic digital infrastructure across Southeast Asia.
+            </p>
+          </div>
 
         {/* Prospectus Layout */}
         <div className="editorial-panel p-0 border border-black/5 flex flex-col mb-16">
@@ -132,9 +117,7 @@ export default function CorporateDetails() {
                   <a href="mailto:admin@mustechgroup.com" className="text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors">
                     admin@mustechgroup.com
                   </a>
-                  <button onClick={() => copyToClipboard("admin@mustechgroup.com", "admin")} className="text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] p-1" title="Copy email address" aria-label="Copy admin email">
-                    {copiedAdmin ? <Check className="w-4 h-4 text-[var(--color-primary)]" /> : <Copy className="w-4 h-4" />}
-                  </button>
+                  <CopyButton textToCopy="admin@mustechgroup.com" ariaLabel="Copy admin email" />
                 </div>
               </div>
               {/* Support */}
@@ -146,9 +129,7 @@ export default function CorporateDetails() {
                   <a href="mailto:saalihat_support@mustechgroup.com" className="text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors">
                     saalihat_support@mustechgroup.com
                   </a>
-                  <button onClick={() => copyToClipboard("saalihat_support@mustechgroup.com", "support")} className="text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] p-1" title="Copy support email address" aria-label="Copy support email">
-                    {copiedSupport ? <Check className="w-4 h-4 text-[var(--color-primary)]" /> : <Copy className="w-4 h-4" />}
-                  </button>
+                  <CopyButton textToCopy="saalihat_support@mustechgroup.com" ariaLabel="Copy support email" />
                 </div>
               </div>
             </div>
@@ -157,6 +138,7 @@ export default function CorporateDetails() {
         </div>
 
       </div>
-    </section>
+      </section>
+    </>
   );
 }

@@ -28,7 +28,7 @@ export default function Portfolio() {
                 Connecting Muslims to verified community events and sacred knowledge.
               </h4>
               <p className="text-zinc-400 text-lg leading-relaxed mb-4">
-                Saalihat (صالحات) solves a chronic problem across Southeast Asia: vital mosque lectures, charitable programs, and community circles are scattered across disparate social media channels and physical boards. Saalihat aggregates this fragmented ecosystem into a single, verified, real-time schedule.
+                Saalihat (صالحات) solves a persistent fragmentation across Southeast Asia: vital mosque lectures, charitable programs, and community circles are scattered across disparate social media channels and physical boards. Saalihat aggregates this fragmented ecosystem into a single, verified, real-time schedule.
               </p>
               <p className="text-zinc-400 text-lg leading-relaxed mb-12">
                 Engineered with an offline-first architecture and absolute privacy, Saalihat helps believers cultivate lasting spiritual habits without ads, user tracking, or data brokering.
@@ -49,13 +49,13 @@ export default function Portfolio() {
                 <div className="hidden sm:flex items-center gap-8 border-t border-white/10 pt-8">
                   <div className="flex items-center gap-4">
                     <div className="p-2 border border-white/20 bg-white/5">
-                      <Image src="/saalihat/apple-qr.jpg" alt="Apple QR" width={80} height={80} className="w-20 h-20 object-cover" />
+                      <Image src="/saalihat/apple-qr.jpg" alt="QR code to download Saalihat on the Apple App Store" width={80} height={80} className="w-20 h-20 object-cover" />
                     </div>
                     <span className="text-zinc-500 text-[10px] uppercase font-bold tracking-[0.1em] max-w-[80px]">Scan for iOS</span>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="p-2 border border-white/20 bg-white/5">
-                      <Image src="/saalihat/google-qr.jpg" alt="Google QR" width={80} height={80} className="w-20 h-20 object-cover" />
+                      <Image src="/saalihat/google-qr.jpg" alt="QR code to download Saalihat on Google Play" width={80} height={80} className="w-20 h-20 object-cover" />
                     </div>
                     <span className="text-zinc-500 text-[10px] uppercase font-bold tracking-[0.1em] max-w-[80px]">Scan for Android</span>
                   </div>

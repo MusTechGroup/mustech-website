@@ -104,7 +104,7 @@ export default function Footer() {
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
                 <Link
-                  href="/home/privacy-policy"
+                  href="/privacy-policy"
                   className="text-[var(--color-custard)] hover:text-white transition-colors font-medium flex items-center gap-1.5"
                 >
                   <ShieldCheck className="w-3.5 h-3.5 text-[var(--color-primary-light)]" />
@@ -118,7 +118,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:saalihat_support@mustechgroup.com"
+                  href="mailto:saalihat_support@mustechgroup.com?subject=Data%20Deletion%20Request"
                   className="text-zinc-400 hover:text-white transition-colors"
                 >
                   Data Deletion Request
@@ -135,7 +135,7 @@ export default function Footer() {
             © {currentYear} <span className="text-zinc-400 font-medium">MusTech Group</span>. All rights reserved. Registered in Singapore.
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/home/privacy-policy" className="hover:text-zinc-300 transition-colors">
+            <Link href="/privacy-policy" className="hover:text-zinc-300 transition-colors">
               Privacy Policy
             </Link>
             <span>·</span>

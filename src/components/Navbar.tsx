@@ -110,6 +110,8 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`p-2.5 border transition-colors ${isDarkSection ? 'border-white/20 bg-white/10 text-white hover:bg-white/20' : 'border-black/10 bg-white/80 text-[var(--color-primary-dark)] hover:bg-black/5'}`}
               aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {mobileMenuOpen ? (
                 <X className="w-5 h-5" />
@@ -123,7 +125,7 @@ export default function Navbar() {
 
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
-        <div className={`md:hidden px-4 pt-4 pb-6 border-b mt-2 ${isDarkSection ? 'bg-[#0e1117] border-white/10 text-white' : 'bg-[var(--brand-bg)] border-black/10 text-[var(--color-primary-dark)]'}`}>
+        <div id="mobile-menu" className={`md:hidden px-4 pt-4 pb-6 border-b mt-2 ${isDarkSection ? 'bg-[#0e1117] border-white/10 text-white' : 'bg-[var(--brand-bg)] border-black/10 text-[var(--color-primary-dark)]'}`}>
           <div className="flex flex-col gap-1 divide-y divide-black/5">
             <Link
               href="/#about"

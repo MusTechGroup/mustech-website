@@ -17,7 +17,7 @@ export default function Hero() {
 
           {/* Subheading */}
           <p className="text-lg sm:text-xl md:text-2xl text-[var(--color-primary-dark)]/80 font-sans leading-relaxed max-w-3xl">
-            MusTech Group builds purposeful digital tools for the global Muslim community. Under our <strong>Tayyib Architecture</strong> framework, every product is engineered for utility, data privacy, and meaningful habits—never addiction or endless scrolling.
+            MusTech Group builds purposeful digital tools for the global Muslim community. Under our <strong>Tayyib Architecture</strong> framework—a standard for ethical, non-addictive software design—every product is engineered for utility, data privacy, and meaningful habits.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export default function Hero() {
             href="#saalihat"
             className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--color-primary-dark)]/60 hover:text-[var(--color-primary)] transition-colors"
           >
-            <span>Explore Portfolio & Governance</span>
+            <span>See Saalihat in Action</span>
             <ArrowDown className="w-4 h-4" />
           </Link>
         </div>

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Scale, ArrowLeft, ShieldCheck, Mail, Building2, CheckCircle2 } from "lucide-react";
+import { Scale, ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Terms of Service | MusTech Group",
@@ -11,42 +11,39 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[var(--brand-bg)] text-[var(--color-primary-dark)]">
       <Navbar />
-      <main className="flex-grow pt-32 pb-24 relative overflow-hidden">
-        {/* Ambient Glow */}
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#a9263a]/25 via-transparent to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
-
+      <main id="main-content" className="flex-grow pt-32 pb-24 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Link */}
           <div className="mb-8">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[var(--color-primary-dark)]/60 hover:text-[var(--color-primary)] transition-colors"
             >
-              <ArrowLeft className="w-4 h-4 text-[#c6394f]" />
+              <ArrowLeft className="w-4 h-4 text-[var(--color-primary)]" />
               <span>Return to MusTech Group Home</span>
             </Link>
           </div>
 
           {/* Header */}
-          <div className="text-center pb-10 mb-10 border-b border-white/10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#a9263a]/15 border border-[#a9263a]/30 text-[#fae6db] text-xs font-semibold uppercase tracking-wider mb-4">
-              <Scale className="w-3.5 h-3.5 text-[#c6394f]" />
+          <div className="text-center pb-10 mb-10 border-b border-black/10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-black/10 text-[var(--color-primary-dark)] text-xs font-semibold uppercase tracking-wider mb-4">
+              <Scale className="w-3.5 h-3.5 text-[var(--color-primary)]" />
               Legal & Usage Agreement
             </div>
-            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">
-              Terms of <span className="text-gradient-crimson">Service</span>
+            <h1 className="font-brand text-3xl sm:text-5xl font-bold text-[var(--color-primary-dark)] tracking-tight mb-4">
+              Terms of Service
             </h1>
-            <p className="text-sm text-zinc-400">
-              Operating Entity: <strong className="text-[#fae6db]">MusTech Group (ACRA: 202609163C)</strong>
+            <p className="text-sm text-[var(--color-primary-dark)]/70">
+              Operating Entity: <strong className="text-[var(--color-primary-dark)]">MusTech Group (ACRA: 202609163C)</strong>
             </p>
           </div>
 
-          <div className="space-y-8 text-zinc-300 text-sm sm:text-base leading-relaxed">
+          <div className="space-y-8 text-[var(--color-primary-dark)]/80 text-sm sm:text-base leading-relaxed font-sans">
             
-            <section className="p-6 sm:p-8 rounded-3xl bg-[#12151c] border border-white/5 space-y-3">
-              <h2 className="font-serif text-xl font-bold text-white">
+            <section className="editorial-panel p-6 sm:p-8 border border-black/10 space-y-3">
+              <h2 className="font-brand text-xl font-bold text-[var(--color-primary-dark)]">
                 1. Acceptance of Terms
               </h2>
               <p>
@@ -54,8 +51,8 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <section className="p-6 sm:p-8 rounded-3xl bg-[#12151c] border border-white/5 space-y-3">
-              <h2 className="font-serif text-xl font-bold text-white">
+            <section className="editorial-panel p-6 sm:p-8 border border-black/10 space-y-3">
+              <h2 className="font-brand text-xl font-bold text-[var(--color-primary-dark)]">
                 2. Intellectual Property Rights
               </h2>
               <p>
@@ -63,17 +60,17 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <section className="p-6 sm:p-8 rounded-3xl bg-[#12151c] border border-white/5 space-y-3">
-              <h2 className="font-serif text-xl font-bold text-white">
+            <section className="editorial-panel p-6 sm:p-8 border border-black/10 space-y-3">
+              <h2 className="font-brand text-xl font-bold text-[var(--color-primary-dark)]">
                 3. Use of Services & Information Accuracy
               </h2>
               <p>
-                Saalihat acts as an informational directory for mosque events, kuliahs, and prayer schedules. While we make every effort to ensure accuracy through community and institutional verification, event schedules may change at the discretion of individual venues.
+                Saalihat acts as an informational directory for mosque events, Kuliahs, and prayer schedules. While we make every effort to ensure accuracy through community and institutional verification, event schedules may change at the discretion of individual venues.
               </p>
             </section>
 
-            <section className="p-6 sm:p-8 rounded-3xl bg-[#12151c] border border-white/5 space-y-3">
-              <h2 className="font-serif text-xl font-bold text-white">
+            <section className="editorial-panel p-6 sm:p-8 border border-black/10 space-y-3">
+              <h2 className="font-brand text-xl font-bold text-[var(--color-primary-dark)]">
                 4. Ethical Conduct & Prohibited Uses
               </h2>
               <p>
@@ -81,8 +78,8 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <section className="p-6 sm:p-8 rounded-3xl bg-[#12151c] border border-white/5 space-y-3">
-              <h2 className="font-serif text-xl font-bold text-white">
+            <section className="editorial-panel p-6 sm:p-8 border border-black/10 space-y-3">
+              <h2 className="font-brand text-xl font-bold text-[var(--color-primary-dark)]">
                 5. Governing Law & Jurisdiction
               </h2>
               <p>
@@ -90,21 +87,21 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <section className="p-6 sm:p-8 rounded-3xl bg-[#12151c] border border-[#a9263a]/30 space-y-4">
-              <h2 className="font-serif text-xl font-bold text-white">
+            <section className="editorial-panel p-6 sm:p-8 border border-black/10 space-y-4">
+              <h2 className="font-brand text-xl font-bold text-[var(--color-primary-dark)]">
                 6. Contact for Legal Inquiries
               </h2>
               <p>
                 For questions regarding these Terms of Service or corporate inquiries, please contact:
               </p>
-              <div className="p-4 rounded-2xl bg-[#181c26] border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="p-4 bg-[var(--brand-bg)] border border-black/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                  <p className="text-sm font-bold text-white">MusTech Group</p>
-                  <p className="text-xs font-mono text-[#fae6db]">ACRA Reg: 202609163C</p>
+                  <p className="text-sm font-bold text-[var(--color-primary-dark)]">MusTech Group</p>
+                  <p className="text-xs font-mono text-[var(--color-primary-dark)]/70">ACRA Reg: 202609163C</p>
                 </div>
                 <a
                   href="mailto:admin@mustechgroup.com"
-                  className="text-sm font-semibold text-[#fae6db] hover:underline"
+                  className="text-sm font-bold text-[var(--color-primary)] hover:underline"
                 >
                   admin@mustechgroup.com
                 </a>

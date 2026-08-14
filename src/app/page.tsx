@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-grow">
+      <main id="main-content" className="flex-grow">
         <Hero />
         <Portfolio />
         <Pillars />

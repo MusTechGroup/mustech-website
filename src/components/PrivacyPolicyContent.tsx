@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 export default function PrivacyPolicyContent() {
-  const lastUpdated = "July 2025";
+  const lastUpdated = "August 2026";
 
   return (
     <div className="pt-48 sm:pt-64 pb-24 relative overflow-hidden bg-white">
@@ -52,9 +52,9 @@ export default function PrivacyPolicyContent() {
         </div>
 
         {/* Amanah Trust Callout Card */}
-        <div className="bg-white rounded-[2rem] p-8 sm:p-10 mb-12 border border-[var(--color-primary)]/10 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="editorial-panel p-8 sm:p-10 mb-12 flex flex-col justify-between border border-black/10">
           <div className="flex flex-col sm:flex-row items-start gap-6">
-            <div className="w-12 h-12 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/20 flex items-center justify-center shrink-0 shadow-sm">
+            <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center shrink-0">
               <ShieldCheck className="w-6 h-6 text-[var(--color-primary)]" />
             </div>
             <div className="space-y-3">
@@ -72,9 +72,9 @@ export default function PrivacyPolicyContent() {
         <div className="space-y-8 text-[var(--color-primary-dark)]/80 text-sm sm:text-base leading-relaxed font-sans">
           
           {/* Section 1 */}
-          <section className="p-8 sm:p-10 rounded-[2rem] bg-white border border-[var(--color-primary)]/10 shadow-sm space-y-4">
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/20 flex items-center justify-center text-[var(--color-primary)] shrink-0">
+              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
                 <Database className="w-6 h-6" />
               </div>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -101,9 +101,9 @@ export default function PrivacyPolicyContent() {
           </section>
 
           {/* Section 2 */}
-          <section className="p-8 sm:p-10 rounded-[2rem] bg-white border border-[var(--color-primary)]/10 shadow-sm space-y-4">
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/20 flex items-center justify-center text-[var(--color-primary)] shrink-0">
+              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
                 <FileText className="w-6 h-6" />
               </div>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -128,9 +128,9 @@ export default function PrivacyPolicyContent() {
           </section>
 
           {/* Section 3 */}
-          <section className="p-8 sm:p-10 rounded-[2rem] bg-white border border-[var(--color-primary)]/10 shadow-sm space-y-4">
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/20 flex items-center justify-center text-[var(--color-primary)] shrink-0">
+              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
                 <Lock className="w-6 h-6" />
               </div>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -138,14 +138,14 @@ export default function PrivacyPolicyContent() {
               </h2>
             </div>
             <p>
-              We <strong className="text-[var(--color-primary-dark)]">do not sell, rent, or trade your personal information</strong>. We do not integrate with third-party advertising networks that track your behavior across other apps. Data is only processed through secure, industry-standard infrastructure (such as our database hosting) strictly for operational purposes.
+              We <strong className="text-[var(--color-primary-dark)]">do not sell, rent, or trade your personal information</strong>. We do not integrate with third-party advertising networks that track your behavior across other apps. Data is only processed through secure, industry-standard infrastructure strictly for operational purposes.
             </p>
           </section>
 
           {/* Section 4 */}
-          <section className="p-8 sm:p-10 rounded-[2rem] bg-white border border-[var(--color-primary)]/10 shadow-sm space-y-4">
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/20 flex items-center justify-center text-[var(--color-primary)] shrink-0">
+              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
                 <Trash2 className="w-6 h-6" />
               </div>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -153,12 +153,12 @@ export default function PrivacyPolicyContent() {
               </h2>
             </div>
             <p>
-              You maintain full ownership of your data. If you have provided us with any personal information (such as via email support or future account creation features) and wish for it to be permanently deleted from our active records, you may request deletion at any time by contacting us directly. We will process your request promptly and thoroughly.
+              You maintain full ownership of your data. If you have provided us with any personal information and wish for it to be permanently deleted from our active records, you may request deletion at any time by contacting us directly.
             </p>
             <div className="pt-4">
               <a
                 href="mailto:saalihat_support@mustechgroup.com?subject=Data%20Deletion%20Request"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--brand-bg)] hover:bg-[var(--color-primary)] hover:text-white border border-[var(--color-primary)]/20 text-sm font-bold text-[var(--color-primary-dark)] transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary-dark)] hover:bg-[var(--color-primary)] text-white text-xs font-bold uppercase tracking-wider transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 Submit Data Deletion Request
@@ -167,9 +167,9 @@ export default function PrivacyPolicyContent() {
           </section>
 
           {/* Section 5 */}
-          <section className="p-8 sm:p-10 rounded-[2rem] bg-white border border-[var(--color-primary)]/10 shadow-sm space-y-4">
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/20 flex items-center justify-center text-[var(--color-primary)] shrink-0">
+              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
                 <Baby className="w-6 h-6" />
               </div>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -177,14 +177,14 @@ export default function PrivacyPolicyContent() {
               </h2>
             </div>
             <p>
-              Saalihat is designed as a family-friendly community directory. We do not knowingly collect personal, identifiable information from children under the age of 13. If you believe a child has provided us with personal data without parental consent, please contact us so we can delete it immediately.
+              Saalihat is designed as a family-friendly community directory. We do not knowingly collect personal, identifiable information from children under the age of 13.
             </p>
           </section>
 
           {/* Section 6 */}
-          <section className="p-8 sm:p-10 rounded-[2rem] bg-white border border-[var(--color-primary)]/10 shadow-sm space-y-4">
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/20 flex items-center justify-center text-[var(--color-primary)] shrink-0">
+              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
                 <RefreshCw className="w-6 h-6" />
               </div>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -192,14 +192,14 @@ export default function PrivacyPolicyContent() {
               </h2>
             </div>
             <p>
-              If we add new features that require a change in how we handle data, we will update this policy and notify users within the app. We will never retroactively change our stance on selling data.
+              If we add new features that require a change in how we handle data, we will update this policy and notify users within the app.
             </p>
           </section>
 
           {/* Section 7 */}
-          <section className="p-8 sm:p-10 rounded-[2rem] bg-white border border-[var(--color-primary)]/10 shadow-sm space-y-4">
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
             <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/20 flex items-center justify-center text-[var(--color-primary)] shrink-0">
+              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
                 <Building2 className="w-6 h-6" />
               </div>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -209,17 +209,17 @@ export default function PrivacyPolicyContent() {
             <p>
               If you have any questions about this Privacy Policy or how your data is handled, please reach out to our team:
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-              <div className="p-6 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/10 shadow-sm flex flex-col justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+              <div className="p-5 bg-[var(--brand-bg)] border border-black/10 flex flex-col justify-center">
                 <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-wider mb-1">Developer / Holding Entity</span>
                 <p className="text-base font-bold text-[var(--color-primary-dark)]">MusTech Group</p>
-                <p className="text-sm font-mono text-[var(--color-primary-dark)]/70">ACRA Reg: 202609163C</p>
+                <p className="text-xs font-mono text-[var(--color-primary-dark)]/70">ACRA Reg: 202609163C</p>
               </div>
-              <div className="p-5 sm:p-6 rounded-2xl bg-[var(--brand-bg)] border border-[var(--color-primary)]/10 shadow-sm flex flex-col justify-center overflow-hidden">
+              <div className="p-5 bg-[var(--brand-bg)] border border-black/10 flex flex-col justify-center overflow-hidden">
                 <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-wider mb-1">Official Support Email</span>
                 <a
                   href="mailto:saalihat_support@mustechgroup.com"
-                  className="text-xs sm:text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors mb-1 break-all"
+                  className="text-xs font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors mb-1 break-all"
                 >
                   saalihat_support@mustechgroup.com
                 </a>
