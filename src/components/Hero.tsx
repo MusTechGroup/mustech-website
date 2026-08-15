@@ -1,13 +1,25 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 bg-[var(--brand-bg)] border-b border-black/5">
+    <section className="relative pt-20 pb-16 md:pt-28 md:pb-24 bg-[var(--brand-bg)] border-b border-black/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Massive Centered Typography */}
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto mb-16">
+          <div className="relative w-32 h-32 sm:w-44 sm:h-44 md:w-52 md:h-52 mb-8">
+            <Image
+              src="/brand/Logo_Large_ClearBg.png"
+              alt="MusTech Group Emblem"
+              fill
+              priority
+              sizes="(max-width: 768px) 176px, 208px"
+              className="object-contain"
+            />
+          </div>
+
           <div className="text-[11px] font-bold uppercase tracking-[0.25em] text-[var(--color-primary)] mb-6 border border-black/10 px-4 py-1.5">
             Singapore · Ethical Digital Infrastructure · Holding Entity
           </div>
