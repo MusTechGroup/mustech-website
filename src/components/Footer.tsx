@@ -62,10 +62,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Products & Mobile */}
+          {/* Products & Ecosystem */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold text-[var(--color-custard)] uppercase tracking-wider">
-              Flagship App
+              Ecosystem & Platforms
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
@@ -75,22 +75,22 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://apps.apple.com/sg/app/saalihat/id6760661366"
+                  href="https://jenazah.sg"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-[var(--color-custard)] transition-colors flex items-center gap-1"
                 >
-                  iOS App Store <ExternalLink className="w-3 h-3 text-zinc-500" />
+                  jenazah.sg (Civic Tech) <ExternalLink className="w-3 h-3 text-zinc-500" />
                 </a>
               </li>
               <li>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.mustechgroup.saalihat"
+                  href="https://tarabase.co"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-[var(--color-custard)] transition-colors flex items-center gap-1"
                 >
-                  Google Play Store <ExternalLink className="w-3 h-3 text-zinc-500" />
+                  tarabase.co (HBB Tech) <ExternalLink className="w-3 h-3 text-zinc-500" />
                 </a>
               </li>
             </ul>

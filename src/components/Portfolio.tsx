@@ -116,6 +116,30 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
+
+      {/* Tarabase.co Pipeline Section */}
+      <div className="w-full bg-[var(--brand-bg)] py-20 border-b border-black/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch">
+            <div className="md:w-1/3 bg-white p-12 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-black/5">
+              <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-brand text-4xl font-bold tracking-tight text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors mb-2">tarabase.co</a>
+              <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Demonstration Live · HBB Digital Infrastructure</p>
+            </div>
+            <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
+              <h4 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">
+                Digital Front-of-House & Kitchen Command Center for Home-Based Businesses
+              </h4>
+              <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
+                Home-based food creators and artisanal bakers face chaotic chat-based order fragmentation and payment confirmation friction. <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] underline underline-offset-4">tarabase.co</a> is a zero-commission digital ecosystem providing automated capacity slotting, kitchen production scheduling, and instant P2P payment verification powered by our Amanah AI engine.
+              </p>
+              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse" />
+                Phase 0 Demonstration Live
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
