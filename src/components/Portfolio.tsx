@@ -93,12 +93,21 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* Jenazah.sg Pipeline Section (Back to Modern Editorial) */}
+      {/* Ecosystem & Pipeline Infrastructure Section */}
       <div className="w-full bg-[var(--brand-bg)] py-20 border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          
+          {/* Jenazah.sg Panel */}
           <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch">
             <div className="md:w-1/3 bg-white p-12 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-black/5">
-              <a href="https://jenazah.sg" target="_blank" rel="noopener noreferrer" className="font-brand text-4xl font-bold tracking-tight text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors mb-2">jenazah.sg</a>
+              <a 
+                href="https://jenazah.sg" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="font-brand text-4xl font-bold tracking-tight text-[#4A5D3F] hover:opacity-85 transition-opacity mb-2"
+              >
+                jenazah.sg
+              </a>
               <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">In Active Development · Singapore Civic Tech</p>
             </div>
             <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
@@ -106,23 +115,26 @@ export default function Portfolio() {
                 Compassionate Civic Infrastructure for Bereaved Families
               </h4>
               <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
-                When a loved one passes, grieving families face immense emotional distress alongside urgent administrative complexities. <a href="https://jenazah.sg" target="_blank" rel="noopener noreferrer" className="font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] underline underline-offset-4">jenazah.sg</a> is an empathy-first platform that provides Singaporean families with calm, step-by-step guidance—from official death registration via LifeSG to funeral arrangements, mosque coordination, and community notices.
+                When a loved one passes, grieving families face immense emotional distress alongside urgent administrative complexities. <a href="https://jenazah.sg" target="_blank" rel="noopener noreferrer" className="font-bold text-[#4A5D3F] hover:underline underline-offset-4">jenazah.sg</a> is an empathy-first platform that provides Singaporean families with calm, step-by-step guidance—from official death registration via LifeSG to funeral arrangements, mosque coordination, and community notices.
               </p>
-              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)]">
-                <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse" />
+              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#4A5D3F]">
+                <span className="w-2 h-2 rounded-full bg-[#4A5D3F] animate-pulse" />
                 Active Development
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Tarabase.co Pipeline Section */}
-      <div className="w-full bg-[var(--brand-bg)] py-20 border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Tarabase.co Panel */}
           <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch">
             <div className="md:w-1/3 bg-white p-12 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-black/5">
-              <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-brand text-4xl font-bold tracking-tight text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors mb-2">tarabase.co</a>
+              <a 
+                href="https://tarabase.co" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="font-brand text-4xl font-bold tracking-tight text-[#814038] hover:opacity-85 transition-opacity mb-2"
+              >
+                tarabase.co
+              </a>
               <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Demonstration Live · HBB Digital Infrastructure</p>
             </div>
             <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
@@ -130,14 +142,15 @@ export default function Portfolio() {
                 Digital Front-of-House & Kitchen Command Center for Home-Based Businesses
               </h4>
               <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
-                Home-based food creators and artisanal bakers face chaotic chat-based order fragmentation and payment confirmation friction. <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] underline underline-offset-4">tarabase.co</a> is a zero-commission digital ecosystem providing automated capacity slotting, kitchen production scheduling, and instant P2P payment verification powered by our Amanah AI engine.
+                Home-based food creators and artisanal bakers face chaotic chat-based order fragmentation and payment confirmation friction. <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-bold text-[#814038] hover:underline underline-offset-4">tarabase.co</a> is a zero-commission digital ecosystem providing automated capacity slotting, kitchen production scheduling, and instant P2P payment verification powered by our Amanah AI engine.
               </p>
-              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)]">
-                <span className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse" />
+              <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#814038]">
+                <span className="w-2 h-2 rounded-full bg-[#814038] animate-pulse" />
                 Phase 0 Demonstration Live
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
