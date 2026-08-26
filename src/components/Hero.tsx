@@ -8,9 +8,9 @@ export default function Hero() {
         
         {/* Massive Centered Typography */}
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto mb-16">
-          <div className="text-[11px] font-bold uppercase tracking-[0.25em] text-[var(--color-primary)] mb-6 border border-black/10 px-4 py-1.5">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-[var(--color-primary)] mb-6">
             Singapore · Ethical Digital Infrastructure
-          </div>
+          </p>
           <h1 className="font-brand text-5xl sm:text-7xl lg:text-[7.5rem] font-bold tracking-tight text-[var(--color-primary-dark)] leading-[1.05] mb-8">
             A Global Ethical<br />Tech Collective.
           </h1>

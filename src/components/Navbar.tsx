@@ -85,7 +85,7 @@ export default function Navbar() {
               Corporate Entity
             </Link>
             <Link
-              href="/home/privacy-policy"
+              href="/privacy-policy"
               className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 ${isDarkSection ? 'hover:bg-white/10' : 'hover:bg-black/5'}`}
             >
               <ShieldCheck className="w-3.5 h-3.5 opacity-60" />
@@ -156,7 +156,7 @@ export default function Navbar() {
               Corporate Entity (ACRA)
             </Link>
             <Link
-              href="/home/privacy-policy"
+              href="/privacy-policy"
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2.5 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors flex items-center gap-2"
             >

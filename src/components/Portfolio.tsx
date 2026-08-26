@@ -15,8 +15,8 @@ export default function Portfolio() {
             
             {/* Content Side */}
             <div className="lg:col-span-6 flex flex-col justify-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-white/20 text-[#d5ad5b] text-[10px] font-bold uppercase tracking-[0.2em] mb-8 w-max">
-                FLAGSHIP MOBILE PLATFORM
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-[#d5ad5b] mb-6">
+                Flagship Mobile Platform
               </div>
               
               <div className="flex items-center gap-4 mb-8">
@@ -64,29 +64,23 @@ export default function Portfolio() {
             </div>
 
             {/* Visual Side - Editorial Single Frame */}
-            <div className="lg:col-span-6 relative w-full flex justify-center py-10 lg:py-0 overflow-hidden sm:overflow-visible">
-              
+            <div className="lg:col-span-6 relative w-full flex flex-col items-center justify-center py-10 lg:py-0">
               <div className="relative w-64 h-[520px] sm:w-72 sm:h-[580px] border border-white/20 bg-[#0e1117] p-2">
                 <div className="relative w-full h-full border border-white/10">
                   <Image src="/saalihat/Screenshot_1.png" alt="Saalihat App Interface" fill sizes="(max-width: 768px) 100vw, 400px" className="object-cover" />
                 </div>
-                
-                {/* Editorial Annotations */}
-                <div className="hidden sm:flex absolute top-1/4 -left-12 lg:-left-16 items-center gap-2 z-30">
-                  <div className="bg-[#0e1117] border border-white/20 px-3 py-1.5 text-[10px] uppercase tracking-[0.15em] font-bold text-white whitespace-nowrap">
-                    Offline-First Architecture
-                  </div>
-                  <div className="w-8 h-[1px] bg-white/30" />
-                </div>
-                
-                <div className="hidden sm:flex absolute bottom-1/4 -right-12 lg:-right-16 items-center gap-2 z-30">
-                  <div className="w-8 h-[1px] bg-white/30" />
-                  <div className="bg-[#0e1117] border border-white/20 px-3 py-1.5 text-[10px] uppercase tracking-[0.15em] font-bold text-white whitespace-nowrap">
-                    Zero-Tracking Verified
-                  </div>
-                </div>
               </div>
               
+              <div className="flex items-center gap-6 mt-6 text-zinc-400 text-xs font-medium">
+                <span className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#d5ad5b]" />
+                  Offline-First Architecture
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#d5ad5b]" />
+                  Zero-Tracking Verified
+                </span>
+              </div>
             </div>
             
           </div>
@@ -108,18 +102,18 @@ export default function Portfolio() {
               >
                 jenazah.sg
               </a>
-              <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">In Active Development · Singapore Civic Tech</p>
+              <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Active Civic Infrastructure · Singapore Civic Tech</p>
             </div>
             <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
               <h4 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">
                 Compassionate Civic Infrastructure for Bereaved Families
               </h4>
               <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
-                When a loved one passes, grieving families face immense emotional distress alongside urgent administrative complexities. <a href="https://jenazah.sg" target="_blank" rel="noopener noreferrer" className="font-bold text-[#4A5D3F] hover:underline underline-offset-4">jenazah.sg</a> is an empathy-first platform that provides Singaporean families with calm, step-by-step guidance—from official death registration via LifeSG to funeral arrangements, mosque coordination, and community notices.
+                When a loved one passes, grieving families face immense emotional distress alongside urgent administrative complexities. <a href="https://jenazah.sg" target="_blank" rel="noopener noreferrer" className="font-bold text-[#4A5D3F] hover:underline underline-offset-4">jenazah.sg</a> is an empathy-first platform that provides Singaporean families with calm, step-by-step guidance: from official death registration via LifeSG to funeral arrangements, mosque coordination, and community notices.
               </p>
               <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#4A5D3F]">
                 <span className="w-2 h-2 rounded-full bg-[#4A5D3F] animate-pulse" />
-                Active Development
+                Active Civic Infrastructure
               </div>
             </div>
           </div>
@@ -135,18 +129,18 @@ export default function Portfolio() {
               >
                 tarabase.co
               </a>
-              <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Demonstration Live · HBB Digital Infrastructure</p>
+              <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Phase 1 Pilot Live · HBB Digital Infrastructure</p>
             </div>
             <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
               <h4 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">
-                Digital Front-of-House & Kitchen Command Center for Home-Based Businesses
+                Digital Front-of-House &amp; Kitchen Command Centre for Home-Based Businesses
               </h4>
               <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
                 Home-based food creators and artisanal bakers face chaotic chat-based order fragmentation and payment confirmation friction. <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-bold text-[#814038] hover:underline underline-offset-4">tarabase.co</a> is a zero-commission digital ecosystem providing automated capacity slotting, kitchen production scheduling, and instant P2P payment verification.
               </p>
               <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#814038]">
                 <span className="w-2 h-2 rounded-full bg-[#814038] animate-pulse" />
-                Phase 0 Demonstration Live
+                Phase 1 Pilot Live
               </div>
             </div>
           </div>

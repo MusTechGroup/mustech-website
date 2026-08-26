@@ -57,15 +57,15 @@ export default function CorporateDetails() {
                   Combining deep experience in large-scale analytics infrastructure with full-stack product engineering, he founded MusTech Group to build mission-driven software that solves neglected civic and community challenges.
                 </p>
 
-                <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center gap-2 px-3 py-1.5 border border-black/10 bg-[var(--brand-bg)]">
-                    <Award className="w-3.5 h-3.5 text-[var(--color-primary)]" />
-                    <span className="text-xs font-bold text-[var(--color-primary-dark)] uppercase tracking-wider">10+ Years Data Leadership</span>
-                  </div>
-                  <div className="flex items-center gap-2 px-3 py-1.5 border border-black/10 bg-[var(--brand-bg)]">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[var(--color-primary)]" />
-                    <span className="text-xs font-bold text-[var(--color-primary-dark)] uppercase tracking-wider">APAC Strategy</span>
-                  </div>
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 border-t border-black/5 text-xs text-[var(--color-primary-dark)]/70">
+                  <span className="flex items-center gap-2 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
+                    10+ Years Enterprise Data Architecture
+                  </span>
+                  <span className="flex items-center gap-2 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
+                    APAC Technology Strategy
+                  </span>
                 </div>
               </div>
             </div>
@@ -103,15 +103,15 @@ export default function CorporateDetails() {
               <div>
                 <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-1">Official Communications</h3>
                 <p className="text-sm text-[var(--color-primary-dark)]/70">
-                  Direct inquiries, partnerships, and developer support. Response time: 1–2 business days (SGT).
+                  Direct enquiries, civic partnerships, and developer support. Response time: 1 - 2 business days (SGT).
                 </p>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-              {/* General & Partnership Inquiries */}
+              {/* General & Partnership Enquiries */}
               <div className="p-4 border border-black/10 flex flex-col gap-2 min-w-[240px] bg-[var(--brand-bg)]/40">
                 <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-[0.2em]">
-                  General & Partnerships
+                  General &amp; Partnerships
                 </span>
                 <div className="flex items-center justify-between gap-3">
                   <a href="mailto:admin@mustechgroup.com" className="text-sm font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors">

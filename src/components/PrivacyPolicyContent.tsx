@@ -1,229 +1,224 @@
 import Link from "next/link";
-import { 
-  ShieldCheck, 
-  Lock, 
-  Database, 
-  Trash2, 
-  Baby, 
-  FileText, 
-  Mail, 
-  CheckCircle2, 
-  ArrowLeft,
-  Building2,
-  RefreshCw
-} from "lucide-react";
+import { ArrowLeft, Mail } from "lucide-react";
+import CopyButton from "./CopyButton";
 
 export default function PrivacyPolicyContent() {
   const lastUpdated = "August 2026";
 
   return (
-    <div className="pt-48 sm:pt-64 pb-24 relative overflow-hidden bg-white">
-      {/* Background accents */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--color-secondary)]/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="pt-32 sm:pt-36 pb-24 bg-[var(--brand-bg)]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Back Link */}
-        <div className="mb-8">
+        {/* Back Link / Breadcrumb */}
+        <div className="mb-10">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[var(--color-primary-dark)]/60 hover:text-[var(--color-primary)] transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--color-primary-dark)]/60 hover:text-[var(--color-primary)] transition-colors"
           >
-            <ArrowLeft className="w-4 h-4 text-[var(--color-primary)]" />
+            <ArrowLeft className="w-3.5 h-3.5" />
             <span>Return to MusTech Group Home</span>
           </Link>
         </div>
 
         {/* Policy Header */}
-        <div className="text-center pb-10 mb-10 border-b border-black/5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--brand-bg)] border border-[var(--color-primary)]/20 text-[var(--color-primary-dark)] text-xs font-semibold uppercase tracking-wider mb-4">
-            <ShieldCheck className="w-3.5 h-3.5 text-[var(--color-primary)]" />
-            Official App Store & Google Play Privacy Policy
-          </div>
-          <h1 className="font-brand text-3xl sm:text-5xl font-bold text-[var(--color-primary-dark)] tracking-tight mb-4">
+        <div className="pb-10 mb-12 border-b border-black/10">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3">
+            Governance &amp; Data Protection
+          </p>
+          <h1 className="font-brand text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary-dark)] tracking-tight mb-4">
             Privacy Policy
           </h1>
-          <p className="text-sm text-[var(--color-primary-dark)]/70">
-            Governing Application: <strong className="text-[var(--color-primary-dark)]">Saalihat</strong> · Operating Entity: <strong className="text-[var(--color-primary-dark)]">MusTech Group (ACRA: 202609163C)</strong>
+          <p className="text-base sm:text-lg text-[var(--color-primary-dark)]/80 font-sans leading-relaxed max-w-3xl mb-8">
+            The official data stewardship standard for MusTech Group and the Saalihat mobile application. Engineered for strict data minimisation, zero advertising tracking, and absolute user sovereignty.
           </p>
-          <p className="text-xs text-[var(--color-primary-dark)]/50 mt-1">
-            Last Updated & Reviewed: {lastUpdated}
-          </p>
-        </div>
 
-        {/* Amanah Trust Callout Card */}
-        <div className="editorial-panel p-8 sm:p-10 mb-12 flex flex-col justify-between border border-black/10">
-          <div className="flex flex-col sm:flex-row items-start gap-6">
-            <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-6 h-6 text-[var(--color-primary)]" />
+          {/* Governance Metadata Bar */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-black/5 text-xs text-[var(--color-primary-dark)]/80">
+            <div>
+              <span className="block text-[10px] uppercase font-bold tracking-wider text-[var(--color-primary-dark)]/50 mb-0.5">Governing Entity</span>
+              <span className="font-semibold text-[var(--color-primary-dark)]">MusTech Group</span>
+              <span className="block text-[11px] font-mono text-[var(--color-primary-dark)]/60">UEN: 202609163C</span>
             </div>
-            <div className="space-y-3">
-              <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
-                Privacy as an Amanah (Sacred Trust)
-              </h2>
-              <p className="text-sm sm:text-base text-[var(--color-primary-dark)]/80 leading-relaxed font-sans">
-                At <strong>MusTech Group</strong>, we view the privacy of our users as an <strong className="text-[var(--color-primary)]">Amanah (a sacred trust)</strong>. We built <strong>Saalihat</strong> to serve the community, not to exploit its data. This Privacy Policy explains how we collect, use, and protect your information in compliance with Islamic ethics, the Apple App Store Guidelines, and the Google Play Developer Policies.
-              </p>
+            <div>
+              <span className="block text-[10px] uppercase font-bold tracking-wider text-[var(--color-primary-dark)]/50 mb-0.5">Application Scope</span>
+              <span className="font-semibold text-[var(--color-primary-dark)]">Saalihat Mobile Platform</span>
+              <span className="block text-[11px] text-[var(--color-primary-dark)]/60">iOS &amp; Android Ecosystem</span>
+            </div>
+            <div>
+              <span className="block text-[10px] uppercase font-bold tracking-wider text-[var(--color-primary-dark)]/50 mb-0.5">Jurisdiction &amp; Review</span>
+              <span className="font-semibold text-[var(--color-primary-dark)]">Republic of Singapore</span>
+              <span className="block text-[11px] text-[var(--color-primary-dark)]/60">Effective: {lastUpdated}</span>
             </div>
           </div>
         </div>
 
-        {/* Structured Clauses */}
-        <div className="space-y-8 text-[var(--color-primary-dark)]/80 text-sm sm:text-base leading-relaxed font-sans">
+        {/* Amanah Foundation Charter Panel */}
+        <div className="editorial-panel p-8 sm:p-10 mb-12 border border-black/10 bg-white">
+          <div className="flex flex-col gap-3">
+            <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-[0.2em]">
+              Foundational Charter
+            </span>
+            <h2 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)]">
+              Privacy as an Amanah (Sacred Trust)
+            </h2>
+            <p className="text-sm sm:text-base text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mt-2">
+              At <strong>MusTech Group</strong>, we believe digital technology should protect human dignity rather than extract behavioural capital. Under our <strong>Tayyib Architecture</strong> framework, user privacy is not a regulatory checkbox - it is an <strong>Amanah</strong> (a sacred trust). We build <strong>Saalihat</strong> to serve civic and spiritual life without commercial surveillance, behavioural profiling, or third-party data monetisation.
+            </p>
+          </div>
+        </div>
+
+        {/* Legal & Operational Clauses */}
+        <div className="space-y-6 text-[var(--color-primary-dark)]/80 text-sm sm:text-base leading-relaxed font-sans">
           
           {/* Section 1 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
-                <Database className="w-6 h-6" />
-              </div>
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+            <div className="border-b border-black/5 pb-4">
+              <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 01</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
-                1. Data Collection (Data Minimisation)
+                Data Minimisation by Design
               </h2>
             </div>
             <p>
-              We believe in collecting only what is strictly necessary to make the Saalihat app function.
+              Saalihat is engineered so that you can access verified mosque schedules, lectures, and community programmes without creating an account or submitting personal identifying information.
             </p>
-            <ul className="space-y-4 pt-2">
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[var(--color-primary)] shrink-0 mt-0.5" />
+            <div className="space-y-3 pt-2">
+              <div className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0 mt-2" />
                 <div>
-                  <strong className="text-[var(--color-primary-dark)] block mb-1">Local Data:</strong> Features such as &quot;Bookmarking&quot; events are saved via Local Device Storage. This data remains on your physical device and is not continuously transmitted to our servers.
+                  <strong className="text-[var(--color-primary-dark)]">Local Device Storage:</strong> Personal preferences, saved reminders, and bookmarked lectures reside exclusively in on-device storage. This data is not uploaded to our remote database servers.
                 </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[var(--color-primary)] shrink-0 mt-0.5" />
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0 mt-2" />
                 <div>
-                  <strong className="text-[var(--color-primary-dark)] block mb-1">Usage Data:</strong> We may collect anonymous, non-identifying crash logs and app performance data (such as page load times) to fix bugs and improve the app experience.
+                  <strong className="text-[var(--color-primary-dark)]">Non-Identifying Technical Telemetry:</strong> We may collect anonymised crash logs and baseline latency metrics strictly to maintain app stability across varying network conditions in Southeast Asia.
                 </div>
-              </li>
-            </ul>
+              </div>
+            </div>
           </section>
 
           {/* Section 2 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
-                <FileText className="w-6 h-6" />
-              </div>
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+            <div className="border-b border-black/5 pb-4">
+              <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 02</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
-                2. How We Use Your Information
+                Purpose of Information Processing
               </h2>
             </div>
-            <p>Any data collected is used exclusively to:</p>
-            <ul className="space-y-3 pt-2">
+            <p>Any technical data processed during app execution is utilised solely for:</p>
+            <ul className="space-y-2 pt-1 pl-1">
               <li className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" />
-                <span>Provide and maintain the Saalihat directory of mosque events and Kuliahs.</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+                <span>Delivering accurate, verified schedules for mosque lectures and community initiatives.</span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" />
-                <span>Ensure the technical stability, performance, and uptime of the application.</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+                <span>Diagnosing technical faults, edge pipeline latency, and client-side rendering anomalies.</span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[var(--color-primary)] shrink-0" />
-                <span>Provide direct user support when you contact our developer team.</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0" />
+                <span>Responding directly to user enquiries and technical support tickets.</span>
               </li>
             </ul>
           </section>
 
           {/* Section 3 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
-                <Lock className="w-6 h-6" />
-              </div>
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+            <div className="border-b border-black/5 pb-4">
+              <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 03</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
-                3. Third-Party Sharing (Our Guarantee)
+                Absolute Prohibition on Data Monetisation
               </h2>
             </div>
             <p>
-              We <strong className="text-[var(--color-primary-dark)]">do not sell, rent, or trade your personal information</strong>. We do not integrate with third-party advertising networks that track your behaviour across other apps. Data is only processed through secure, industry-standard infrastructure strictly for operational purposes.
+              MusTech Group guarantees that we <strong className="text-[var(--color-primary-dark)]">never sell, rent, trade, or broker personal information</strong> to third parties, data aggregators, or marketing syndicates.
+            </p>
+            <p>
+              Saalihat contains zero third-party advertising SDKs, zero cross-app tracking scripts, and zero behavioural fingerprinting tools.
             </p>
           </section>
 
           {/* Section 4 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
-                <Trash2 className="w-6 h-6" />
-              </div>
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+            <div className="border-b border-black/5 pb-4">
+              <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 04</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
-                4. User Rights and Data Deletion
+                User Rights &amp; Permanent Data Erasure
               </h2>
             </div>
             <p>
-              You maintain full ownership of your data. If you have provided us with any personal information and wish for it to be permanently deleted from our active records, you may request deletion at any time by contacting us directly.
+              Under the Singapore Personal Data Protection Act (PDPA) and international privacy frameworks, users retain complete sovereignty over their data. If you have provided identifying information through our support channels and wish for it to be purged, you may submit a direct erasure request.
             </p>
-            <div className="pt-4">
+            <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <a
                 href="mailto:saalihat_support@mustechgroup.com?subject=Data%20Deletion%20Request"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary-dark)] hover:bg-[var(--color-primary)] text-white text-xs font-bold uppercase tracking-wider transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary-dark)] hover:bg-[var(--color-primary)] text-white text-xs font-bold uppercase tracking-wider transition-colors"
               >
-                <Mail className="w-4 h-4" />
-                Submit Data Deletion Request
+                <Mail className="w-3.5 h-3.5" />
+                <span>Submit Data Erasure Request</span>
               </a>
+              <span className="text-xs text-[var(--color-primary-dark)]/60 font-mono">
+                SLA: Processed within 2 business days
+              </span>
             </div>
           </section>
 
           {/* Section 5 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
-                <Baby className="w-6 h-6" />
-              </div>
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+            <div className="border-b border-black/5 pb-4">
+              <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 05</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
-                5. Children&apos;s Privacy
+                Protection of Children&apos;s Digital Welfare
               </h2>
             </div>
             <p>
-              Saalihat is designed as a family-friendly community directory. We do not knowingly collect personal, identifiable information from children under the age of 13.
+              Saalihat is built as an educational and civic community directory suitable for all ages. We do not knowingly solicit or collect personal identifiable data from children under 13 years of age.
             </p>
           </section>
 
           {/* Section 6 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
-                <RefreshCw className="w-6 h-6" />
-              </div>
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+            <div className="border-b border-black/5 pb-4">
+              <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 06</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
-                6. Changes to This Policy
+                Regulatory Standards &amp; App Store Compliance
               </h2>
             </div>
             <p>
-              If we add new features that require a change in how we handle data, we will update this policy and notify users within the app.
+              This policy complies with the statutory mandates of the <strong>Singapore Personal Data Protection Act 2012 (PDPA)</strong>, the <strong>Apple App Store Review Guidelines (Section 5.1 - Privacy)</strong>, and the <strong>Google Play Developer Distribution Agreement</strong>.
             </p>
           </section>
 
-          {/* Section 7 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 space-y-4">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 bg-[var(--brand-bg)] border border-black/10 flex items-center justify-center text-[var(--color-primary)] shrink-0">
-                <Building2 className="w-6 h-6" />
-              </div>
+          {/* Section 7: Official DPO & Contact */}
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-6">
+            <div className="border-b border-black/5 pb-4">
+              <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 07</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
-                7. Contact & Developer Details
+                Data Protection Officer &amp; Official Enquiries
               </h2>
             </div>
             <p>
-              If you have any questions about this Privacy Policy or how your data is handled, please reach out to our team:
+              For formal data enquiries, regulatory notices, or privacy policy questions, please contact our designated compliance team:
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-5 bg-[var(--brand-bg)] border border-black/10 flex flex-col justify-center">
-                <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-wider mb-1">Developer / Holding Entity</span>
+                <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-wider mb-1">Holding Entity</span>
                 <p className="text-base font-bold text-[var(--color-primary-dark)]">MusTech Group</p>
                 <p className="text-xs font-mono text-[var(--color-primary-dark)]/70">ACRA Reg: 202609163C</p>
+                <p className="text-xs text-[var(--color-primary-dark)]/60 mt-1">Republic of Singapore</p>
               </div>
-              <div className="p-5 bg-[var(--brand-bg)] border border-black/10 flex flex-col justify-center overflow-hidden">
-                <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-wider mb-1">Official Support Email</span>
-                <a
-                  href="mailto:saalihat_support@mustechgroup.com"
-                  className="text-xs font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors mb-1 break-all"
-                >
-                  saalihat_support@mustechgroup.com
-                </a>
-                <p className="text-xs text-[var(--color-primary-dark)]/70">Singapore (SGT / UTC+8)</p>
+              <div className="p-5 bg-[var(--brand-bg)] border border-black/10 flex flex-col justify-center">
+                <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-wider mb-1">Data Protection &amp; Support</span>
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <a
+                    href="mailto:saalihat_support@mustechgroup.com"
+                    className="text-xs font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors break-all"
+                  >
+                    saalihat_support@mustechgroup.com
+                  </a>
+                  <CopyButton textToCopy="saalihat_support@mustechgroup.com" ariaLabel="Copy support email" />
+                </div>
+                <p className="text-xs text-[var(--color-primary-dark)]/60">Response SLA: 1 - 2 business days (SGT)</p>
               </div>
             </div>
           </section>
