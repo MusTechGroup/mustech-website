@@ -65,8 +65,8 @@ export default function Portfolio() {
 
             {/* Visual Side - Editorial Single Frame */}
             <div className="lg:col-span-6 relative w-full flex flex-col items-center justify-center py-10 lg:py-0">
-              <div className="relative w-64 h-[520px] sm:w-72 sm:h-[580px] border border-white/20 bg-[#0e1117] p-2 shadow-2xl">
-                <div className="relative w-full h-full border border-white/10 overflow-hidden bg-black">
+              <div className="relative w-64 sm:w-72 border border-white/20 bg-[#0e1117] p-2 shadow-2xl">
+                <div className="relative w-full aspect-[1096/2560] border border-white/10 overflow-hidden bg-black">
                   <video
                     autoPlay
                     loop
@@ -74,7 +74,7 @@ export default function Portfolio() {
                     playsInline
                     preload="auto"
                     poster="/saalihat/Screenshot_1.png"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain block"
                   >
                     <source src="/saalihat/saalihat_boomerang.webm" type="video/webm" />
                     <source src="/saalihat/saalihat_boomerang.mp4" type="video/mp4" />
@@ -83,7 +83,7 @@ export default function Portfolio() {
                       alt="Saalihat App Live Demo"
                       fill
                       sizes="(max-width: 768px) 100vw, 400px"
-                      className="object-cover"
+                      className="object-contain"
                       unoptimized
                     />
                   </video>
