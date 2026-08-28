@@ -8,16 +8,13 @@ export default function Hero() {
         
         {/* Massive Centered Typography */}
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto mb-16">
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-[var(--color-primary)] mb-6">
-            Singapore · Ethical Digital Infrastructure
-          </p>
           <h1 className="font-brand text-5xl sm:text-7xl lg:text-[7.5rem] font-bold tracking-tight text-[var(--color-primary-dark)] leading-[1.05] mb-8">
             A Global Ethical<br />Tech Collective.
           </h1>
 
           {/* Subheading */}
           <p className="text-lg sm:text-xl md:text-2xl text-[var(--color-primary-dark)]/80 font-sans leading-relaxed max-w-3xl">
-            MusTech Group builds purposeful digital tools for the global Muslim community. Under our <strong>Tayyib Architecture</strong> framework—a standard for ethical, non-addictive software design—every product is engineered for utility, data privacy, and meaningful habits.
+            MusTech Group builds purposeful digital tools for the global Muslim community. Under our <strong>Tayyib Architecture</strong> framework for ethical, non-addictive software design, every product is engineered for utility, data privacy, and meaningful habits.
           </p>
         </div>
 
