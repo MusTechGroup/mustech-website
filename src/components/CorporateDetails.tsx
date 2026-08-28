@@ -35,19 +35,19 @@ export default function CorporateDetails() {
             
             {/* Founder Profile */}
             <div className="lg:w-2/3 p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-black/5 bg-white flex flex-col md:flex-row gap-8 items-start">
-              <div className="relative w-36 h-48 sm:w-44 sm:h-56 shrink-0 border border-black/15 bg-zinc-100 overflow-hidden">
+              <div className="relative w-36 h-44 sm:w-44 sm:h-52 shrink-0 border border-black/15 bg-zinc-100 overflow-hidden">
                 <Image
                   src="/brand/founder.jpg"
                   alt="Taufiq Rashid"
                   fill
                   sizes="(max-width: 640px) 144px, 176px"
-                  className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
+                  className="object-cover object-[center_40%] grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
 
               <div className="flex-1">
                 <div className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-[0.2em] mb-2">Leadership</div>
-                <h3 className="font-brand text-3xl sm:text-4xl font-bold text-[var(--color-primary-dark)] mb-1">Taufiq Rashid</h3>
+                <h3 className="font-brand text-3xl font-bold text-[var(--color-primary-dark)] mb-1">Taufiq Rashid</h3>
                 <p className="text-xs font-semibold text-[var(--color-primary-dark)]/70 mb-6">Founder &amp; Data Analytics Lead</p>
                 
                 <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans text-base mb-4">
