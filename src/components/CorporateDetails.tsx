@@ -51,7 +51,7 @@ export default function CorporateDetails() {
                 <p className="text-xs font-semibold text-[var(--color-primary-dark)]/70 mb-6">Founder &amp; Data Analytics Lead</p>
                 
                 <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans text-base mb-4">
-                  Taufiq brings over a decade of enterprise data analytics and strategic leadership across global institutions, currently driving data initiatives at WPP Media alongside prior experience at Google, LVMH (Sephora), and OCBC Bank.
+                  Taufiq brings over a decade of enterprise data analytics and strategic leadership across global institutions, currently driving regional data initiatives across APAC at WPP Media alongside prior experience at Google, LVMH (Sephora), and OCBC Bank.
                 </p>
                 <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans text-base mb-8">
                   Combining deep experience in large-scale analytics with commercial business strategy, he founded MusTech Group to build mission-driven software that solves civic and community challenges. He is also an academic consultant, having conducted lectures and industry panels across SMU, ESSEC Business School, and HKU.
@@ -60,7 +60,7 @@ export default function CorporateDetails() {
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 border-t border-black/5 text-xs text-[var(--color-primary-dark)]/70">
                   <span className="flex items-center gap-2 font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
-                    Enterprise Data Analytics
+                    APAC Data Analytics Leadership
                   </span>
                   <span className="flex items-center gap-2 font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
