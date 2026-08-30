@@ -31,7 +31,7 @@ export default function Portfolio() {
                 Saalihat (صالحات) solves a persistent fragmentation across Southeast Asia: vital mosque lectures, charitable programmes, and community circles are scattered across disparate social media channels and physical boards. Saalihat aggregates this fragmented ecosystem into a single, verified, real-time schedule.
               </p>
               <p className="text-zinc-400 text-lg leading-relaxed mb-12">
-                Engineered with an offline-first architecture and absolute privacy, Saalihat helps believers cultivate lasting spiritual habits without ads, user tracking, or data brokering.
+                Engineered for real-time schedule delivery and absolute privacy, Saalihat helps believers cultivate lasting spiritual habits without ads, user tracking, or data brokering.
               </p>
               
               <div className="flex flex-col gap-8">
@@ -93,7 +93,7 @@ export default function Portfolio() {
               <div className="flex items-center gap-6 mt-6 text-zinc-400 text-xs font-medium">
                 <span className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#d5ad5b]" />
-                  Offline-First Architecture
+                  Zero-Ad Experience
                 </span>
                 <span className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#d5ad5b]" />
