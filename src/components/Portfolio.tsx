@@ -112,14 +112,20 @@ export default function Portfolio() {
           
           {/* Jenazah.sg Panel */}
           <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch">
-            <div className="md:w-1/3 bg-white p-12 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-black/5">
+            <div className="md:w-1/3 bg-white p-10 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-black/5">
               <a 
                 href="https://jenazah.sg" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="font-brand text-4xl font-bold tracking-tight text-[#4A5D3F] hover:opacity-85 transition-opacity mb-2"
+                className="flex flex-col items-center gap-2 hover:opacity-85 transition-opacity mb-2 group"
               >
-                jenazah.sg
+                <Image
+                  src="/jenazah/logo.png"
+                  alt="jenazah.sg Official Brand Logo"
+                  width={150}
+                  height={100}
+                  className="h-20 w-auto object-contain transition-transform group-hover:scale-105"
+                />
               </a>
               <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Active Civic Infrastructure · Singapore Civic Tech</p>
             </div>
