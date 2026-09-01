@@ -90,7 +90,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-[var(--color-custard)] transition-colors flex items-center gap-1"
                 >
-                  Tarabase (HBB Tech) <ExternalLink className="w-3 h-3 text-zinc-500" />
+                  TaraBase (HBB Tech) <ExternalLink className="w-3 h-3 text-zinc-500" />
                 </a>
               </li>
             </ul>

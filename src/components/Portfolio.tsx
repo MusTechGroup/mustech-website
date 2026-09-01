@@ -143,7 +143,7 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Tarabase Panel */}
+          {/* TaraBase Panel */}
           <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch">
             <div className="md:w-1/3 bg-white p-10 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-black/5">
               <a 
@@ -167,7 +167,7 @@ export default function Portfolio() {
                 Digital Front-of-House for Home-Based Businesses
               </h4>
               <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
-                Home-based food creators and artisanal bakers face chaotic chat-based order fragmentation and payment confirmation friction. <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-bold text-[#814038] hover:underline underline-offset-4">Tarabase</a> is a zero-commission digital ecosystem providing automated capacity slotting, kitchen production scheduling, and instant P2P payment verification.
+                Home-based food creators and artisanal bakers face chaotic chat-based order fragmentation and payment confirmation friction. <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-bold text-[#814038] hover:underline underline-offset-4">TaraBase</a> is a zero-commission digital ecosystem providing automated capacity slotting, kitchen production scheduling, and instant P2P payment verification.
               </p>
               <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#814038]">
                 <span className="w-2 h-2 rounded-full bg-[#814038] animate-pulse" />
