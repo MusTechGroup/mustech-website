@@ -137,25 +137,31 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Tarabase.co Panel */}
+          {/* Tarabase Panel */}
           <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch">
-            <div className="md:w-1/3 bg-white p-12 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-black/5">
+            <div className="md:w-1/3 bg-white p-10 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-black/5">
               <a 
                 href="https://tarabase.co" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="font-brand text-4xl font-bold tracking-tight text-[#814038] hover:opacity-85 transition-opacity mb-2"
+                className="flex flex-col items-center gap-2 hover:opacity-85 transition-opacity mb-2 group"
               >
-                tarabase.co
+                <Image
+                  src="/tarabase/logo.png"
+                  alt="TaraBase Official Brand Logo"
+                  width={140}
+                  height={95}
+                  className="h-16 w-auto object-contain transition-transform group-hover:scale-105"
+                />
               </a>
               <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Phase 1 Pilot Live · HBB Digital Infrastructure</p>
             </div>
             <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
               <h4 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">
-                Digital Front-of-House &amp; Kitchen Command Centre for Home-Based Businesses
+                Digital Front-of-House for Home-Based Businesses
               </h4>
               <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
-                Home-based food creators and artisanal bakers face chaotic chat-based order fragmentation and payment confirmation friction. <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-bold text-[#814038] hover:underline underline-offset-4">tarabase.co</a> is a zero-commission digital ecosystem providing automated capacity slotting, kitchen production scheduling, and instant P2P payment verification.
+                Home-based food creators and artisanal bakers face chaotic chat-based order fragmentation and payment confirmation friction. <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-bold text-[#814038] hover:underline underline-offset-4">Tarabase</a> is a zero-commission digital ecosystem providing automated capacity slotting, kitchen production scheduling, and instant P2P payment verification.
               </p>
               <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#814038]">
                 <span className="w-2 h-2 rounded-full bg-[#814038] animate-pulse" />
