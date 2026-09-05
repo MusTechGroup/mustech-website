@@ -9,7 +9,7 @@ This version has breaking changes - APIs, conventions, and file structure may al
 # mustech-website - Corporate Holding Company Portal
 
 ## Purpose & Scope
-This is the **public-facing** corporate website for **MusTech Group** (`mustechgroup.com`). It communicates the master conglomerate vision, portfolio products (Saalihat, Jenazah, Tarabase), and Amanah ethical technology standards.
+This is the **public-facing** corporate website for **MusTech Group** (`mustechgroup.com`). It communicates the master conglomerate vision, portfolio products (Saalihat, Jenazah, TaraBase), and Amanah ethical technology standards.
 
 > [!WARNING]
 > This is a PUBLIC website. NEVER expose internal operational links, staging endpoints, or admin credentials. `supabaseAdmin` is FORBIDDEN here.
