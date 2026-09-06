@@ -42,7 +42,7 @@ export default function CorporateDetails() {
                   fill
                   priority
                   sizes="(max-width: 640px) 144px, 176px"
-                  className="object-cover object-[center_40%] transition-transform duration-500 hover:scale-105"
+                  className="object-cover object-[center_30%] transition-transform duration-500 hover:scale-105"
                 />
               </div>
 
