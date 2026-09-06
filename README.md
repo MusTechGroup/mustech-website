@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MusTech Group Corporate Portal (`mustechgroup.com`)
 
-## Getting Started
+The official public-facing corporate website for **MusTech Group**, communicating the master conglomerate vision, portfolio products (Saalihat, Jenazah.sg, TaraBase), and Amanah ethical technology standards.
 
-First, run the development server:
+---
+
+## Technical Architecture
+
+* **Framework**: Next.js (App Router, Static Export `output: 'export'`)
+* **Styling**: Tailwind CSS + Custom Brand Tokens
+* **Edge Hosting**: Cloudflare Pages
+* **Edge Routing**: Native `public/_redirects` and `public/_headers`
+* **CI/CD**: GitHub Actions via `cloudflare/wrangler-action`
+
+---
+
+## Local Development
+
+Run the Next.js local development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Building and Previewing for Cloudflare Pages
 
-## Learn More
+1. **Build Static Export**:
+   ```bash
+   npm run build
+   ```
+   Compiles static HTML, CSS, JavaScript, and copies edge redirects and headers into `out/`.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Preview Locally with Wrangler**:
+   ```bash
+   npm run pages:dev
+   ```
+   Simulates Cloudflare Pages locally, including routing rules and header enforcement.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Deploy to Cloudflare Pages via CLI**:
+   ```bash
+   npm run pages:deploy
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Automated CI/CD Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deployments trigger automatically on pushes to `main` via `.github/workflows/deploy.yml`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Required GitHub Secrets:
+* `CLOUDFLARE_API_TOKEN`: Cloudflare API token with Pages edit permissions.
+* `CLOUDFLARE_ACCOUNT_ID`: Cloudflare account identifier.
+
+---
+
+## Custom Domains & DNS Cutover
+
+* **Production Domain**: `mustechgroup.com`
+* **Canonical Subdomain**: `www.mustechgroup.com`
+* **Cloudflare Pages Project Name**: `mustech-website`

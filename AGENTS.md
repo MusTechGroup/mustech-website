@@ -18,3 +18,9 @@ This is the **public-facing** corporate website for **MusTech Group** (`mustechg
 - **Palette**: Custard (`#f8df98`), Teal (`#077d95`), Moss (`#233219`), Background Cream (`#fdfaf0`).
 - **Typography**: Lao MN (Headings & Hero) + Sans-serif (Body).
 - **Icons**: Sourced from `/public/brand/Logo_Large_ClearBg.png`.
+
+## Deployment & Hosting
+- **Target**: Cloudflare Pages (`mustech-website`)
+- **Mode**: Static Export (`output: 'export'`)
+- **Edge Routing**: `public/_redirects` and `public/_headers`
+
