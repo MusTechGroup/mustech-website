@@ -46,13 +46,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo & Brand Name - Editorial Scaled */}
           <Link href="/" className="flex items-center gap-4 group">
-            <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105">
+            <div className="relative flex items-center transition-transform duration-300 group-hover:scale-105">
+              {/* The emblem with its file margin trimmed (Logo_Large_ClearBg.png), so its
+                  height is the artwork's height and it lines up with the nav. */}
               <Image
-                src="/brand/Logo_Large_ClearBg.png"
+                src="/brand/mustech-emblem-trim.png"
                 alt="MusTech Group Emblem"
-                width={64}
-                height={64}
-                className={`object-contain transition-all duration-300 ${isDarkSection ? "brightness-0 invert opacity-90" : ""}`}
+                width={387}
+                height={277}
+                className={`h-11 sm:h-12 w-auto object-contain transition-all duration-300 ${isDarkSection ? "brightness-0 invert opacity-90" : ""}`}
                 priority
               />
             </div>

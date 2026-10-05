@@ -2,6 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 
+// One frame for every product logo on the page: margin-trimmed files at one height, in
+// columns of one width, each with a one-line caption. The status sits on the right.
+const LOGO_COLUMN =
+  "md:w-1/3 bg-white px-10 py-12 flex flex-col items-center justify-center gap-5 border-b md:border-b-0 md:border-r border-black/5";
+const LOGO_LINK = "flex h-28 items-center justify-center hover:opacity-85 transition-opacity group";
+const LOGO = "h-28 w-auto max-w-[12rem] object-contain transition-transform group-hover:scale-105";
+const LOGO_CAPTION = "text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center whitespace-nowrap";
+
 export default function Portfolio() {
   return (
     <section id="saalihat" className="w-full">
@@ -20,8 +28,9 @@ export default function Portfolio() {
               </div>
               
               <div className="flex items-center gap-4 mb-8">
-                <Image src="/saalihat/logo.jpg" alt="Saalihat App Logo" width={56} height={56} className="object-contain border border-white/20 bg-black/40" />
-                <h3 className="font-brand text-5xl font-bold tracking-tight text-white">Saalihat</h3>
+                {/* The app icon at the name's own height, rounded as it is on a phone. */}
+                <Image src="/saalihat/logo.jpg" alt="Saalihat App Logo" width={48} height={48} className="h-12 w-12 rounded-xl object-cover ring-1 ring-white/15" />
+                <h3 className="font-brand text-5xl font-bold leading-none tracking-tight text-white">Saalihat</h3>
               </div>
 
               <h4 className="font-brand text-3xl sm:text-4xl font-bold text-[#d5ad5b] mb-6 leading-tight">
@@ -111,23 +120,12 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
           {/* Jenazah.sg Panel */}
-          <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch">
-            <div className="md:w-1/3 bg-white p-10 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-black/5">
-              <a 
-                href="https://jenazah.sg" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex flex-col items-center gap-2 hover:opacity-85 transition-opacity mb-2 group"
-              >
-                <Image
-                  src="/jenazah/logo.png"
-                  alt="jenazah.sg Official Brand Logo"
-                  width={150}
-                  height={100}
-                  className="h-20 w-auto object-contain transition-transform group-hover:scale-105"
-                />
+          <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch md:min-h-[18rem]">
+            <div className={LOGO_COLUMN}>
+              <a href="https://jenazah.sg" target="_blank" rel="noopener noreferrer" className={LOGO_LINK}>
+                <Image src="/jenazah/logo-trim.png" alt="jenazah.sg Official Brand Logo" width={979} height={905} className={LOGO} />
               </a>
-              <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Active Civic Infrastructure · Singapore Civic Tech</p>
+              <p className={LOGO_CAPTION}>Singapore · Civic tech</p>
             </div>
             <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
               <h4 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">
@@ -144,23 +142,12 @@ export default function Portfolio() {
           </div>
 
           {/* TaraBase Panel */}
-          <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch">
-            <div className="md:w-1/3 bg-white p-10 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-black/5">
-              <a 
-                href="https://tarabase.co" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex flex-col items-center gap-2 hover:opacity-85 transition-opacity mb-2 group"
-              >
-                <Image
-                  src="/tarabase/logo.png"
-                  alt="TaraBase Official Brand Logo"
-                  width={783}
-                  height={767}
-                  className="h-32 w-auto object-contain transition-transform group-hover:scale-105"
-                />
+          <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch md:min-h-[18rem]">
+            <div className={LOGO_COLUMN}>
+              <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className={LOGO_LINK}>
+                <Image src="/tarabase/logo.png" alt="TaraBase Official Brand Logo" width={783} height={767} className={LOGO} />
               </a>
-              <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Now taking pilot kitchens · HBB Digital Infrastructure</p>
+              <p className={LOGO_CAPTION}>Singapore · Home businesses</p>
             </div>
             <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
               <h4 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">
