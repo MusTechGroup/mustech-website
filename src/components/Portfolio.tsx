@@ -160,7 +160,7 @@ export default function Portfolio() {
                   className="h-32 w-auto object-contain transition-transform group-hover:scale-105"
                 />
               </a>
-              <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Phase 1 Pilot Live · HBB Digital Infrastructure</p>
+              <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Now taking pilot kitchens · HBB Digital Infrastructure</p>
             </div>
             <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
               <h4 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">
@@ -171,7 +171,7 @@ export default function Portfolio() {
               </p>
               <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#814038]">
                 <span className="w-2 h-2 rounded-full bg-[#814038] animate-pulse" />
-                Phase 1 Pilot Live
+                Now taking pilot kitchens
               </div>
             </div>
           </div>
