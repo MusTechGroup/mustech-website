@@ -155,9 +155,9 @@ export default function Portfolio() {
                 <Image
                   src="/tarabase/logo.png"
                   alt="TaraBase Official Brand Logo"
-                  width={140}
-                  height={95}
-                  className="h-16 w-auto object-contain transition-transform group-hover:scale-105"
+                  width={783}
+                  height={767}
+                  className="h-32 w-auto object-contain transition-transform group-hover:scale-105"
                 />
               </a>
               <p className="text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center">Phase 1 Pilot Live · HBB Digital Infrastructure</p>
