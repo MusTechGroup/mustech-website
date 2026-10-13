@@ -3,7 +3,13 @@ import Image from "next/image";
 import { ShieldCheck, Heart, ExternalLink } from "lucide-react";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = parseInt(
+    new Date().toLocaleString("en-SG", {
+      timeZone: "Asia/Singapore",
+      year: "numeric",
+    }),
+    10
+  );
 
   return (
     <footer className="bg-[#12141a] border-t border-[var(--color-primary)]/20 pt-16 pb-12 relative overflow-hidden">

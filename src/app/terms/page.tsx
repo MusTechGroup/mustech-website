@@ -5,8 +5,33 @@ import Footer from "@/components/Footer";
 import { Scale, ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | MusTech Group",
+  title: "Terms of Service",
   description: "Terms of Service and Conditions of Use for MusTech Group and its digital applications.",
+  alternates: {
+    canonical: "/terms",
+  },
+  openGraph: {
+    title: "Terms of Service | MusTech Group",
+    description: "Terms of Service and Conditions of Use for MusTech Group and its digital applications.",
+    url: "https://www.mustechgroup.com/terms",
+    siteName: "MusTech Group",
+    locale: "en_SG",
+    type: "website",
+    images: [
+      {
+        url: "/brand/Logo_Large_ClearBg.png",
+        width: 1200,
+        height: 630,
+        alt: "MusTech Group Corporate Identity",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service | MusTech Group",
+    description: "Terms of Service and Conditions of Use for MusTech Group and its digital applications.",
+    images: ["/brand/Logo_Large_ClearBg.png"],
+  },
 };
 
 export default function TermsPage() {

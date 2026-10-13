@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
+import { logToMizan } from "@/lib/mizan";
 
 interface CopyButtonProps {
   textToCopy: string;
@@ -18,6 +19,12 @@ export default function CopyButton({ textToCopy, ariaLabel = "Copy to clipboard"
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
+      logToMizan(null, {
+        service_name: "mustech-website-frontend",
+        error_type: "clipboard_copy_failed",
+        severity: "error",
+        payload: { textToCopy },
+      });
       console.error("Failed to copy text: ", err);
     }
   };
