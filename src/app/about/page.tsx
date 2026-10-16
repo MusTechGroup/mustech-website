@@ -66,7 +66,7 @@ const aboutSchema = {
       jobTitle: "Founder & Data Analytics Lead",
       image: "https://www.mustechgroup.com/brand/founder.jpg",
       description:
-        "Over a decade of enterprise data analytics and strategic leadership across APAC at WPP Media, Google, LVMH, and OCBC Bank. Academic consultant across SMU, ESSEC, and HKU.",
+        "Over a decade of enterprise data analytics and strategic leadership across APAC at WPP Media, Google, LVMH, and OCBC Bank. Academic consultant across SMU, ESSEC, HKU, and CityU.",
     },
   },
 };
@@ -137,7 +137,7 @@ export default function AboutPage() {
                     Taufiq brings over a decade of enterprise data analytics and strategic leadership across global institutions, currently driving regional data initiatives across APAC at WPP Media alongside prior experience at Google, LVMH (Sephora), and OCBC Bank.
                   </p>
                   <p className="text-[var(--color-primary-dark)]/85 leading-relaxed font-sans text-sm sm:text-base mb-6">
-                    Combining deep experience in large-scale analytics with commercial business strategy, he founded MusTech Group to build mission-driven software that solves civic and community challenges. He is also an academic consultant across Singapore Management University, ESSEC Business School, and the University of Hong Kong.
+                    Combining deep experience in large-scale analytics with commercial business strategy, he founded MusTech Group to build mission-driven software that solves civic and community challenges. He is also an academic consultant across Singapore Management University, ESSEC Business School, the University of Hong Kong, and City University of Hong Kong.
                   </p>
 
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 pt-3 border-t border-black/5 text-xs text-[var(--color-primary-dark)]/80 font-medium">
@@ -145,7 +145,7 @@ export default function AboutPage() {
                     <span>·</span>
                     <span>Commercial Strategy</span>
                     <span>·</span>
-                    <span>Academic Consultant (SMU · ESSEC · HKU)</span>
+                    <span>Academic Consultant (SMU · ESSEC · HKU · CityU)</span>
                   </div>
                 </div>
               </div>

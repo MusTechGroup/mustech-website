@@ -247,7 +247,7 @@ export default function JumpstartPage() {
                   He speaks business, outcomes, and plain language, never technical for the sake of technical. That is how Jumpstart is taught.
                 </p>
                 <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
-                  He has led enterprise data analytics across APAC for over a decade, and is an academic consultant at SMU, ESSEC, and HKU.{" "}
+                  He has led enterprise data analytics across APAC for over a decade, and is an academic consultant at SMU, ESSEC, HKU, and City University of Hong Kong.{" "}
                   <Link href="/#about" className="font-semibold underline hover:text-[var(--color-primary)]">
                     Full profile
                   </Link>
