@@ -127,7 +127,7 @@ export default function Portfolio() {
               <a href="https://jenazah.sg" target="_blank" rel="noopener noreferrer" className={LOGO_LINK}>
                 <AnimatedJenazahLogo priority />
               </a>
-              <p className={LOGO_CAPTION}>Singapore · Civic tech</p>
+              <p className={LOGO_CAPTION}>Civic Tech · Bereavement Care</p>
             </div>
             <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
               <h4 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">
@@ -149,7 +149,7 @@ export default function Portfolio() {
               <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className={LOGO_LINK}>
                 <AnimatedTarabaseLogo priority />
               </a>
-              <p className={LOGO_CAPTION}>Singapore · Home businesses</p>
+              <p className={LOGO_CAPTION}>Commerce · Micro-Merchants</p>
             </div>
             <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
               <h4 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">
@@ -171,7 +171,7 @@ export default function Portfolio() {
               <Link href="/jumpstart" className={LOGO_LINK}>
                 <AnimatedJumpstartLogo compact priority />
               </Link>
-              <p className={LOGO_CAPTION}>Singapore · Agentic founder foundry</p>
+              <p className={LOGO_CAPTION}>Autonomous AI · Founder Masterclass</p>
             </div>
             <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
               <h4 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">
