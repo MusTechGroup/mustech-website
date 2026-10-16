@@ -1,13 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import AnimatedJenazahLogo from "@/components/AnimatedJenazahLogo";
+import AnimatedTarabaseLogo from "@/components/AnimatedTarabaseLogo";
+import AnimatedJumpstartLogo from "@/components/AnimatedJumpstartLogo";
 
 // One frame for every product logo on the page: margin-trimmed files at one height, in
 // columns of one width, each with a one-line caption. The status sits on the right.
 const LOGO_COLUMN =
-  "md:w-1/3 bg-white px-10 py-12 flex flex-col items-center justify-center gap-5 border-b md:border-b-0 md:border-r border-black/5";
-const LOGO_LINK = "flex h-28 items-center justify-center hover:opacity-85 transition-opacity group";
-const LOGO = "h-28 w-auto max-w-[12rem] object-contain transition-transform group-hover:scale-105";
+  "md:w-1/3 bg-white px-8 py-10 flex flex-col items-center justify-center gap-5 border-b md:border-b-0 md:border-r border-black/5 overflow-visible";
+const LOGO_LINK = "flex h-28 items-center justify-center hover:opacity-95 transition-opacity group relative overflow-visible";
 const LOGO_CAPTION = "text-[var(--color-primary-dark)]/50 text-[10px] font-bold uppercase tracking-[0.2em] text-center whitespace-nowrap";
 
 export default function Portfolio() {
@@ -123,7 +125,7 @@ export default function Portfolio() {
           <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch md:min-h-[18rem]">
             <div className={LOGO_COLUMN}>
               <a href="https://jenazah.sg" target="_blank" rel="noopener noreferrer" className={LOGO_LINK}>
-                <Image src="/jenazah/logo-trim.png" alt="jenazah.sg Official Brand Logo" width={979} height={905} className={LOGO} />
+                <AnimatedJenazahLogo priority />
               </a>
               <p className={LOGO_CAPTION}>Singapore · Civic tech</p>
             </div>
@@ -145,7 +147,7 @@ export default function Portfolio() {
           <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch md:min-h-[18rem]">
             <div className={LOGO_COLUMN}>
               <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className={LOGO_LINK}>
-                <Image src="/tarabase/logo.png" alt="TaraBase Official Brand Logo" width={783} height={767} className={LOGO} />
+                <AnimatedTarabaseLogo priority />
               </a>
               <p className={LOGO_CAPTION}>Singapore · Home businesses</p>
             </div>
@@ -167,7 +169,7 @@ export default function Portfolio() {
           <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch md:min-h-[18rem]">
             <div className={LOGO_COLUMN}>
               <Link href="/jumpstart" className={LOGO_LINK}>
-                <Image src="/jumpstart/logo-trim.png" alt="MusTech Jumpstart Official Brand Logo" width={988} height={426} className={LOGO} />
+                <AnimatedJumpstartLogo compact priority />
               </Link>
               <p className={LOGO_CAPTION}>Singapore · Agentic founder foundry</p>
             </div>

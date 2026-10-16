@@ -6,26 +6,28 @@ import Image from "next/image";
 interface AnimatedJumpstartLogoProps {
   className?: string;
   priority?: boolean;
+  compact?: boolean;
 }
 
 export default function AnimatedJumpstartLogo({
   className = "",
   priority = true,
+  compact = false,
 }: AnimatedJumpstartLogoProps) {
   const [isStriking, setIsStriking] = useState(false);
   const [sparkKey, setSparkKey] = useState(0);
 
+  const triggerLightning = () => {
+    setIsStriking(true);
+    setSparkKey((prev) => prev + 1);
+
+    // Flash sequence: quick burst and settle (exact rhythm as on jumpstart page)
+    setTimeout(() => setIsStriking(false), 380);
+  };
+
   useEffect(() => {
     // Periodic organic electric strike rhythm:
     // Strikes automatically every 4.5 seconds with a quick flash sequence
-    const triggerLightning = () => {
-      setIsStriking(true);
-      setSparkKey((prev) => prev + 1);
-
-      // Flash sequence: quick burst and settle
-      setTimeout(() => setIsStriking(false), 380);
-    };
-
     const interval = setInterval(() => {
       triggerLightning();
     }, 4500);
@@ -35,15 +37,15 @@ export default function AnimatedJumpstartLogo({
 
   const handleManualStrike = () => {
     if (!isStriking) {
-      setIsStriking(true);
-      setSparkKey((prev) => prev + 1);
-      setTimeout(() => setIsStriking(false), 450);
+      triggerLightning();
     }
   };
 
   return (
     <div
-      className={`relative inline-block select-none group cursor-pointer ${className}`}
+      className={`relative inline-flex items-center justify-center select-none group cursor-pointer ${
+        compact ? "h-28 w-auto max-w-[12rem]" : "inline-block"
+      } ${className}`}
       onClick={handleManualStrike}
       onMouseEnter={handleManualStrike}
     >
@@ -58,7 +60,9 @@ export default function AnimatedJumpstartLogo({
 
       {/* Primary Brand Image */}
       <div
-        className={`relative z-10 transition-all duration-150 ${
+        className={`relative z-10 transition-all duration-150 flex items-center justify-center ${
+          compact ? "h-28 w-auto max-w-[12rem]" : "w-full h-auto"
+        } ${
           isStriking
             ? "filter drop-shadow-[0_0_16px_rgba(245,203,29,0.9)] scale-[1.02]"
             : "filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.06)] group-hover:scale-[1.02] group-hover:drop-shadow-[0_0_14px_rgba(245,203,29,0.6)]"
@@ -70,11 +74,11 @@ export default function AnimatedJumpstartLogo({
           width={988}
           height={426}
           priority={priority}
-          className="w-full h-auto object-contain"
+          className={`${compact ? "h-28 w-auto max-w-[12rem] object-contain" : "w-full h-auto object-contain"}`}
         />
       </div>
 
-      {/* Classic Multi-Strike SVG Lightning Bolts Overlay */}
+      {/* Classic Multi-Strike SVG Lightning Bolts Overlay (Exact Jumpstart Master Lightning) */}
       <svg
         key={sparkKey}
         viewBox="0 0 988 426"
@@ -88,7 +92,7 @@ export default function AnimatedJumpstartLogo({
         <path
           d="M 60 40 L 95 110 L 75 125 L 120 195 L 90 205 L 140 280 L 115 290 L 160 360"
           stroke="#fff7c2"
-          strokeWidth="3.5"
+          strokeWidth={compact ? "4.5" : "3.5"}
           strokeLinecap="round"
           strokeLinejoin="round"
           className="lightning-bolt"
@@ -101,7 +105,7 @@ export default function AnimatedJumpstartLogo({
         <path
           d="M 430 10 L 390 85 L 415 95 L 360 180 L 385 190 L 330 260"
           stroke="#ffffff"
-          strokeWidth="3"
+          strokeWidth={compact ? "4" : "3"}
           strokeLinecap="round"
           strokeLinejoin="round"
           className="lightning-bolt"
@@ -114,7 +118,7 @@ export default function AnimatedJumpstartLogo({
         <path
           d="M 580 80 L 550 130 L 565 138 L 530 185"
           stroke="#fff4a3"
-          strokeWidth="2.5"
+          strokeWidth={compact ? "3.5" : "2.5"}
           strokeLinecap="round"
           strokeLinejoin="round"
           className="lightning-bolt"
@@ -127,7 +131,7 @@ export default function AnimatedJumpstartLogo({
         <path
           d="M 320 220 L 410 215 L 435 228 L 530 220 L 570 230 L 680 222"
           stroke="#ffffff"
-          strokeWidth="2"
+          strokeWidth={compact ? "3" : "2"}
           strokeLinecap="round"
           strokeLinejoin="round"
           className="lightning-bolt"
