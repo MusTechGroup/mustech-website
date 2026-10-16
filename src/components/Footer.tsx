@@ -75,6 +75,12 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
+                <Link href="/jumpstart" className="text-[var(--color-custard)] hover:text-white transition-colors flex items-center gap-1.5 font-medium">
+                  <span>Jumpstart (Founder Foundry)</span>
+                  <span className="text-[9px] px-1 py-0.2 bg-[#f5cb1d]/20 text-[#f5cb1d] font-mono">NEW</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/#saalihat" className="text-zinc-400 hover:text-white transition-colors">
                   Saalihat Overview
                 </Link>

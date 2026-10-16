@@ -69,6 +69,13 @@ export default function Navbar() {
               About
             </Link>
             <Link
+              href="/jumpstart"
+              className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 ${isDarkSection ? 'hover:bg-white/10 text-[#f5cb1d]' : 'hover:bg-black/5 text-[#814038]'}`}
+            >
+              <span>Jumpstart</span>
+              <span className="text-[9px] px-1 py-0.2 bg-[#f5cb1d]/20 text-[#814038] font-mono font-bold border border-[#f5cb1d]/40">NEW</span>
+            </Link>
+            <Link
               href="/#saalihat"
               className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors ${isDarkSection ? 'hover:bg-white/10' : 'hover:bg-black/5'}`}
             >
@@ -135,6 +142,14 @@ export default function Navbar() {
               className="px-3 py-2.5 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
             >
               About
+            </Link>
+            <Link
+              href="/jumpstart"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2.5 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors flex items-center justify-between"
+            >
+              <span>Jumpstart (Founder Foundry)</span>
+              <span className="text-[10px] px-1.5 py-0.5 bg-[#f5cb1d]/20 text-[#814038] font-mono font-bold border border-[#f5cb1d]/40">NEW</span>
             </Link>
             <Link
               href="/#saalihat"

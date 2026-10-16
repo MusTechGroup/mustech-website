@@ -3,7 +3,7 @@ import { ArrowLeft, Mail } from "lucide-react";
 import CopyButton from "./CopyButton";
 
 export default function PrivacyPolicyContent() {
-  const lastUpdated = "August 2026";
+  const lastUpdated = "October 2026";
 
   return (
     <div className="pt-32 sm:pt-36 pb-24 bg-[var(--brand-bg)]">
@@ -29,7 +29,7 @@ export default function PrivacyPolicyContent() {
             Privacy Policy
           </h1>
           <p className="text-base sm:text-lg text-[var(--color-primary-dark)]/80 font-sans leading-relaxed max-w-3xl mb-8">
-            The official data stewardship standard for MusTech Group and the Saalihat mobile application. Engineered for strict data minimisation, zero advertising tracking, and absolute user sovereignty.
+            The official data stewardship standard for MusTech Group, the Saalihat mobile application, and MusTech Jumpstart. Engineered for strict data minimisation, zero advertising tracking, and absolute user sovereignty.
           </p>
 
           {/* Governance Metadata Bar */}
@@ -42,7 +42,7 @@ export default function PrivacyPolicyContent() {
             <div>
               <span className="block text-[10px] uppercase font-bold tracking-wider text-[var(--color-primary-dark)]/50 mb-0.5">Application Scope</span>
               <span className="font-semibold text-[var(--color-primary-dark)]">Saalihat Mobile Platform</span>
-              <span className="block text-[11px] text-[var(--color-primary-dark)]/60">iOS &amp; Android Ecosystem</span>
+              <span className="block text-[11px] text-[var(--color-primary-dark)]/60">iOS &amp; Android Ecosystem, plus Jumpstart sign-ups</span>
             </div>
             <div>
               <span className="block text-[10px] uppercase font-bold tracking-wider text-[var(--color-primary-dark)]/50 mb-0.5">Jurisdiction &amp; Review</span>
@@ -189,10 +189,52 @@ export default function PrivacyPolicyContent() {
             </p>
           </section>
 
-          {/* Section 7: Official DPO & Contact */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-6">
+          {/* Section 7: MusTech Jumpstart sign-ups */}
+          <section id="jumpstart" className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4 scroll-mt-32">
             <div className="border-b border-black/5 pb-4">
               <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 07</span>
+              <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
+                MusTech Jumpstart Sign-ups
+              </h2>
+            </div>
+            <p>
+              When you register your interest in MusTech Jumpstart, we collect only what the form asks for:
+            </p>
+            <ul className="space-y-2 pt-1 pl-1">
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0 mt-2" />
+                <span>Your name, your email address, and the stage of your venture.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] shrink-0 mt-2" />
+                <span>When you signed up, and how many times you submitted the form.</span>
+              </li>
+            </ul>
+            <p>
+              <strong className="text-[var(--color-primary-dark)]">Purpose:</strong> We use these details only to contact you about Jumpstart, such as the cohort schedule and how to register. We do not add you to any other mailing list, and Clause 03 applies in full.
+            </p>
+            <p>
+              <strong className="text-[var(--color-primary-dark)]">Storage and access:</strong> Your details are stored in a database hosted in Singapore. The public website can add a sign-up but cannot read, change, or list them. Only MusTech Group&apos;s administrators can view them.
+            </p>
+            <p>
+              <strong className="text-[var(--color-primary-dark)]">Retention:</strong> We keep your details for 12 months after you last signed up, then delete them.
+            </p>
+            <p>
+              <strong className="text-[var(--color-primary-dark)]">Withdrawal:</strong> You can ask us to remove your details at any time by emailing{" "}
+              <a
+                href="mailto:jumpstart@mustechgroup.com?subject=Remove%20my%20Jumpstart%20details"
+                className="font-semibold underline hover:text-[var(--color-primary)]"
+              >
+                jumpstart@mustechgroup.com
+              </a>
+              .
+            </p>
+          </section>
+
+          {/* Section 8: Official DPO & Contact */}
+          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-6">
+            <div className="border-b border-black/5 pb-4">
+              <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 08</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
                 Data Protection Officer &amp; Official Enquiries
               </h2>

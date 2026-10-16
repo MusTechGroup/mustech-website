@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 // One frame for every product logo on the page: margin-trimmed files at one height, in
 // columns of one width, each with a one-line caption. The status sits on the right.
@@ -159,6 +159,37 @@ export default function Portfolio() {
               <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#814038]">
                 <span className="w-2 h-2 rounded-full bg-[#814038] animate-pulse" />
                 Now taking pilot kitchens
+              </div>
+            </div>
+          </div>
+
+          {/* MusTech Jumpstart Panel */}
+          <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch md:min-h-[18rem]">
+            <div className={LOGO_COLUMN}>
+              <Link href="/jumpstart" className={LOGO_LINK}>
+                <Image src="/jumpstart/logo-trim.png" alt="MusTech Jumpstart Official Brand Logo" width={988} height={426} className={LOGO} />
+              </Link>
+              <p className={LOGO_CAPTION}>Singapore · Agentic founder foundry</p>
+            </div>
+            <div className="md:w-2/3 p-12 flex flex-col justify-center bg-white/30">
+              <h4 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">
+                The Bespoke Autonomous Organisation &amp; AI Masterclass
+              </h4>
+              <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
+                We pre-build an entire AI organisation aligned directly to your venture&apos;s needs. <Link href="/jumpstart" className="font-bold text-[#814038] hover:underline underline-offset-4">MusTech Jumpstart</Link> is a hands-on executive masterclass teaching founders how to deploy autonomous agentic workflows, custom LLM systems, and cost-controlled operations.
+              </p>
+              <div className="flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#814038]">
+                  <span className="w-2 h-2 rounded-full bg-[#f5cb1d] animate-pulse" />
+                  Inaugural cohort · Registering interest
+                </div>
+                <Link
+                  href="/jumpstart"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors group"
+                >
+                  <span>Explore Masterclass</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
               </div>
             </div>
           </div>
