@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Mail } from "lucide-react";
+import Link from "next/link";
+import { Mail, ArrowUpRight } from "lucide-react";
 import CopyButton from "./CopyButton";
 
 export default function CorporateDetails() {
@@ -81,6 +82,16 @@ export default function CorporateDetails() {
                     <span className="text-xs text-[var(--color-primary-dark)]/70 uppercase font-semibold tracking-wider">Standard</span>
                     <span className="text-xs font-bold text-[var(--color-primary-dark)]">Singapore PDPA</span>
                   </div>
+                </div>
+
+                <div className="pt-6 mt-6 border-t border-black/5">
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors group"
+                  >
+                    <span>Full Entity &amp; Leadership Profile</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </Link>
                 </div>
               </div>
             </div>

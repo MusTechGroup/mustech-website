@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import AnimatedJenazahLogo from "@/components/AnimatedJenazahLogo";
 import AnimatedTarabaseLogo from "@/components/AnimatedTarabaseLogo";
 import AnimatedJumpstartLogo from "@/components/AnimatedJumpstartLogo";
@@ -129,8 +129,19 @@ export default function Portfolio() {
               <p className="text-[var(--color-primary-dark)]/85 leading-relaxed font-sans text-base mb-6">
                 When a loved one passes, grieving families face immense emotional distress alongside urgent administrative steps. <a href="https://jenazah.sg" target="_blank" rel="noopener noreferrer" className="font-bold text-[#4A5D3F] hover:underline underline-offset-4">jenazah.sg</a> provides Singaporean families with calm, step-by-step guidance: from official death registration via LifeSG to funeral arrangements, mosque coordination, and community notices.
               </p>
-              <div className="text-xs font-bold uppercase tracking-wider text-[#4A5D3F]">
-                Active in Singapore
+              <div className="flex items-center justify-between flex-wrap gap-4">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#4A5D3F]">
+                  Active in Singapore
+                </div>
+                <a
+                  href="https://jenazah.sg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#4A5D3F] hover:underline underline-offset-4 min-h-[44px]"
+                >
+                  <span>Visit jenazah.sg</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           </div>
@@ -150,8 +161,19 @@ export default function Portfolio() {
               <p className="text-[var(--color-primary-dark)]/85 leading-relaxed font-sans text-base mb-6">
                 Home-based food creators face chaotic chat-based order fragmentation and payment verification friction. <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-bold text-[#814038] hover:underline underline-offset-4">TaraBase</a> provides automated capacity slotting, kitchen production scheduling, and instant PayNow payment verification.
               </p>
-              <div className="text-xs font-bold uppercase tracking-wider text-[#814038]">
-                Pilot Kitchens Active
+              <div className="flex items-center justify-between flex-wrap gap-4">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#814038]">
+                  Pilot Kitchens Active
+                </div>
+                <a
+                  href="https://tarabase.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#814038] hover:underline underline-offset-4 min-h-[44px]"
+                >
+                  <span>Visit TaraBase</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
           </div>
@@ -184,6 +206,17 @@ export default function Portfolio() {
                 </Link>
               </div>
             </div>
+          </div>
+
+          {/* Portfolio Deep Dive Link */}
+          <div className="flex justify-center pt-4">
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white border border-black/10 hover:border-black/30 text-[var(--color-primary-dark)] text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+            >
+              <span>Explore All Platforms &amp; Architecture Details</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[var(--color-primary)]" />
+            </Link>
           </div>
 
         </div>

@@ -149,7 +149,7 @@ export default function TermsPage() {
               <div className="border-b border-black/5 pb-4">
                 <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 06</span>
                 <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
-                  Corporate Inquiries &amp; Legal Notices
+                  Corporate Enquiries &amp; Legal Notices
                 </h2>
               </div>
               <p>

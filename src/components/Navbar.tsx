@@ -63,7 +63,7 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <nav className={`hidden md:flex items-center divide-x ${isDarkSection ? 'divide-white/20 border-white/20 bg-white/5' : 'divide-black/10 border-black/10 bg-white/60'} border backdrop-blur-md`}>
             <Link
-              href="/#about"
+              href="/about"
               className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors ${isDarkSection ? 'hover:bg-white/10' : 'hover:bg-black/5'}`}
             >
               About
@@ -75,22 +75,22 @@ export default function Navbar() {
               <span>Jumpstart</span>
             </Link>
             <Link
-              href="/#saalihat"
+              href="/portfolio"
               className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors ${isDarkSection ? 'hover:bg-white/10' : 'hover:bg-black/5'}`}
             >
               Portfolio
             </Link>
             <Link
-              href="/#pillars"
+              href="/philosophy"
               className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors ${isDarkSection ? 'hover:bg-white/10' : 'hover:bg-black/5'}`}
             >
               Philosophy
             </Link>
             <Link
-              href="/#credentials"
+              href="/about#credentials"
               className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors ${isDarkSection ? 'hover:bg-white/10' : 'hover:bg-black/5'}`}
             >
-              Corporate Entity
+              Governance
             </Link>
             <Link
               href="/privacy-policy"
@@ -104,7 +104,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <Link
-              href="/#saalihat"
+              href="/portfolio#saalihat"
               className={`inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors border ${isDarkSection ? 'bg-white text-black border-white hover:bg-transparent hover:text-white' : 'bg-[var(--color-primary-dark)] text-white border-[var(--color-primary-dark)] hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)]'}`}
             >
               <span>Explore Saalihat</span>
@@ -136,7 +136,7 @@ export default function Navbar() {
         <div id="mobile-menu" className={`md:hidden px-4 pt-3 pb-6 border-b mt-2 shadow-lg ${isDarkSection ? 'bg-[#0e1117] border-white/10 text-white' : 'bg-[var(--brand-bg)] border-black/10 text-[var(--color-primary-dark)]'}`}>
           <div className="flex flex-col divide-y divide-black/5">
             <Link
-              href="/#about"
+              href="/about"
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-3 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
             >
@@ -150,21 +150,21 @@ export default function Navbar() {
               Jumpstart
             </Link>
             <Link
-              href="/#saalihat"
+              href="/portfolio"
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-3 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
             >
               Portfolio
             </Link>
             <Link
-              href="/#pillars"
+              href="/philosophy"
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-3 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
             >
               Philosophy
             </Link>
             <Link
-              href="/#credentials"
+              href="/about#credentials"
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-3 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
             >
@@ -180,7 +180,7 @@ export default function Navbar() {
             </Link>
             <div className="pt-4 mt-2 border-t border-black/5">
               <Link
-                href="/#saalihat"
+                href="/portfolio#saalihat"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full min-h-[44px] flex items-center justify-center gap-2 px-5 py-3 bg-[var(--color-primary-dark)] text-white text-xs font-bold uppercase tracking-wider text-center transition-colors hover:bg-[var(--color-primary)]"
               >

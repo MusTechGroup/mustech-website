@@ -1,4 +1,5 @@
-import { Lock, HeartHandshake, Code2 } from "lucide-react";
+import Link from "next/link";
+import { Lock, HeartHandshake, Code2, ArrowUpRight } from "lucide-react";
 
 export default function Pillars() {
   return (
@@ -85,6 +86,17 @@ export default function Pillars() {
             </div>
           </div>
 
+        </div>
+
+        {/* Full Manifesto Link */}
+        <div className="flex justify-center mt-12 sm:mt-16">
+          <Link
+            href="/philosophy"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-white border border-black/10 hover:border-black/30 text-[var(--color-primary-dark)] text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+          >
+            <span>Read Full Tayyib Architecture Manifesto</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-[var(--color-primary)]" />
+          </Link>
         </div>
       </div>
     </section>

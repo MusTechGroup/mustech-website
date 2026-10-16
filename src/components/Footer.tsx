@@ -46,22 +46,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="/#about" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/about" className="text-zinc-400 hover:text-white transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/#pillars" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/philosophy" className="text-zinc-400 hover:text-white transition-colors">
                   Pillars &amp; Values
                 </Link>
               </li>
               <li>
-                <Link href="/#credentials" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/about#credentials" className="text-zinc-400 hover:text-white transition-colors">
                   Corporate Governance
                 </Link>
               </li>
               <li>
-                <Link href="/#contact" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/about#contact" className="text-zinc-400 hover:text-white transition-colors">
                   Contact &amp; Enquiries
                 </Link>
               </li>
@@ -75,12 +75,17 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="/jumpstart" className="text-[var(--color-custard)] hover:text-white transition-colors font-medium">
+                <Link href="/portfolio" className="text-[var(--color-custard)] hover:text-white transition-colors font-medium">
+                  All Platforms
+                </Link>
+              </li>
+              <li>
+                <Link href="/jumpstart" className="text-zinc-400 hover:text-white transition-colors">
                   Jumpstart
                 </Link>
               </li>
               <li>
-                <Link href="/#saalihat" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/portfolio#saalihat" className="text-zinc-400 hover:text-white transition-colors">
                   Saalihat
                 </Link>
               </li>
