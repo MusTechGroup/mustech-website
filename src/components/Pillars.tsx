@@ -19,18 +19,21 @@ export default function Pillars() {
         </div>
 
         {/* 3 Principles (Amanah, Tijarah, Mizan) in Strict Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black/5 mb-24 border-b border-black/5 pb-16">
-          <div className="flex flex-col px-4 py-8 md:p-8 md:pl-0">
-            <span className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">Amanah <span className="text-base font-sans font-normal text-[var(--color-primary-dark)]/60 ml-2">(Sacred Trust)</span></span>
-            <span className="text-base text-[var(--color-primary-dark)]/80 leading-relaxed">Absolute data privacy, zero ad-tracking, and complete transparency in how systems operate.</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black/5 mb-16 sm:mb-24 border-b border-black/5 pb-12 sm:pb-16">
+          <div className="flex flex-col py-6 md:p-8 md:pl-0">
+            <span className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-1">Amanah</span>
+            <span className="text-xs uppercase font-semibold tracking-wider text-[var(--color-primary)] mb-3">Sacred Trust</span>
+            <span className="text-sm sm:text-base text-[var(--color-primary-dark)]/85 leading-relaxed">Absolute data privacy, zero ad-tracking, and complete transparency in how systems operate.</span>
           </div>
-          <div className="flex flex-col px-4 py-8 md:p-8">
-            <span className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">Tijarah <span className="text-base font-sans font-normal text-[var(--color-primary-dark)]/60 ml-2">(Ethical Enterprise)</span></span>
-            <span className="text-base text-[var(--color-primary-dark)]/80 leading-relaxed">Commercially sustainable ventures built without predatory monetization or user exploitation.</span>
+          <div className="flex flex-col py-6 md:p-8">
+            <span className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-1">Tijarah</span>
+            <span className="text-xs uppercase font-semibold tracking-wider text-[var(--color-primary)] mb-3">Ethical Enterprise</span>
+            <span className="text-sm sm:text-base text-[var(--color-primary-dark)]/85 leading-relaxed">Commercially sustainable ventures built without predatory monetisation or user exploitation.</span>
           </div>
-          <div className="flex flex-col px-4 py-8 md:p-8 md:pr-0">
-            <span className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-4">Mizan <span className="text-base font-sans font-normal text-[var(--color-primary-dark)]/60 ml-2">(Equilibrium)</span></span>
-            <span className="text-base text-[var(--color-primary-dark)]/80 leading-relaxed">Software engineered to elevate spiritual and civic habits, not capture infinite user attention.</span>
+          <div className="flex flex-col py-6 md:p-8 md:pr-0">
+            <span className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-1">Mizan</span>
+            <span className="text-xs uppercase font-semibold tracking-wider text-[var(--color-primary)] mb-3">Equilibrium</span>
+            <span className="text-sm sm:text-base text-[var(--color-primary-dark)]/85 leading-relaxed">Software engineered to elevate spiritual and civic habits, not capture infinite user attention.</span>
           </div>
         </div>
 
@@ -39,14 +42,14 @@ export default function Pillars() {
           
           {/* Row 1 */}
           <div className="flex flex-col lg:flex-row items-stretch border-b border-black/5">
-            <div className="lg:w-1/3 p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col justify-center items-start bg-white">
-              <Lock className="w-8 h-8 text-[var(--color-primary)] mb-6" />
-              <h3 className="font-brand text-3xl font-bold text-[var(--color-primary-dark)] mb-4">
-                Data Sovereignty & Privacy
+            <div className="lg:w-1/3 p-6 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col justify-center items-start bg-white">
+              <Lock className="w-7 h-7 sm:w-8 sm:h-8 text-[var(--color-primary)] mb-4 sm:mb-6" />
+              <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] mb-2">
+                Data Sovereignty &amp; Privacy
               </h3>
             </div>
-            <div className="lg:w-2/3 p-8 lg:p-12 flex flex-col justify-center bg-white/40">
-              <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-lg sm:text-xl">
+            <div className="lg:w-2/3 p-6 sm:p-8 lg:p-12 flex flex-col justify-center bg-white/40">
+              <p className="text-[var(--color-primary-dark)]/85 leading-relaxed text-base sm:text-lg">
                 We build systems where user data is minimised by default. Information is stored locally whenever possible, never brokered to third parties, and protected under stringent Singapore PDPA standards.
               </p>
             </div>
@@ -54,29 +57,29 @@ export default function Pillars() {
 
           {/* Row 2 */}
           <div className="flex flex-col lg:flex-row items-stretch border-b border-black/5">
-            <div className="lg:w-1/3 p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col justify-center items-start bg-white">
-              <Code2 className="w-8 h-8 text-[var(--color-primary)] mb-6" />
-              <h3 className="font-brand text-3xl font-bold text-[var(--color-primary-dark)] mb-4">
+            <div className="lg:w-1/3 p-6 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col justify-center items-start bg-white">
+              <Code2 className="w-7 h-7 sm:w-8 sm:h-8 text-[var(--color-primary)] mb-4 sm:mb-6" />
+              <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] mb-2">
                 Resilient Modern Engineering
               </h3>
             </div>
-            <div className="lg:w-2/3 p-8 lg:p-12 flex flex-col justify-center bg-white/40">
-              <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-lg sm:text-xl">
-                We utilize high-performance cloud pipelines, intelligent data scraping, and edge-native architectures to transform unstructured civic information into fast, accessible tools.
+            <div className="lg:w-2/3 p-6 sm:p-8 lg:p-12 flex flex-col justify-center bg-white/40">
+              <p className="text-[var(--color-primary-dark)]/85 leading-relaxed text-base sm:text-lg">
+                We utilise high-performance cloud pipelines, intelligent data scraping, and edge-native architectures to transform unstructured civic information into fast, accessible tools.
               </p>
             </div>
           </div>
 
           {/* Row 3 */}
           <div className="flex flex-col lg:flex-row items-stretch">
-            <div className="lg:w-1/3 p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col justify-center items-start bg-white">
-              <HeartHandshake className="w-8 h-8 text-[var(--color-primary)] mb-6" />
-              <h3 className="font-brand text-3xl font-bold text-[var(--color-primary-dark)] mb-4">
-                Civic & Community Purpose
+            <div className="lg:w-1/3 p-6 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-black/5 flex flex-col justify-center items-start bg-white">
+              <HeartHandshake className="w-7 h-7 sm:w-8 sm:h-8 text-[var(--color-primary)] mb-4 sm:mb-6" />
+              <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] mb-2">
+                Civic &amp; Community Purpose
               </h3>
             </div>
-            <div className="lg:w-2/3 p-8 lg:p-12 flex flex-col justify-center bg-white/40">
-              <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-lg sm:text-xl">
+            <div className="lg:w-2/3 p-6 sm:p-8 lg:p-12 flex flex-col justify-center bg-white/40">
+              <p className="text-[var(--color-primary-dark)]/85 leading-relaxed text-base sm:text-lg">
                 Success is measured by genuine utility. Every line of code exists to solve systemic fragmentation, empower grassroots organisations, and provide dignity to the people we serve.
               </p>
             </div>

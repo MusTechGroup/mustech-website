@@ -53,7 +53,7 @@ export default function PrivacyPolicyContent() {
         </div>
 
         {/* Amanah Foundation Charter Panel */}
-        <div className="editorial-panel p-8 sm:p-10 mb-12 border border-black/10 bg-white">
+        <div className="editorial-panel p-6 sm:p-8 md:p-10 mb-12 border border-black/10 bg-white">
           <div className="flex flex-col gap-3">
             <span className="text-[10px] font-bold text-[var(--color-accent)] uppercase tracking-[0.2em]">
               Foundational Charter
@@ -71,7 +71,7 @@ export default function PrivacyPolicyContent() {
         <div className="space-y-6 text-[var(--color-primary-dark)]/80 text-sm sm:text-base leading-relaxed font-sans">
           
           {/* Section 1 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+          <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4">
             <div className="border-b border-black/5 pb-4">
               <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 01</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -98,7 +98,7 @@ export default function PrivacyPolicyContent() {
           </section>
 
           {/* Section 2 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+          <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4">
             <div className="border-b border-black/5 pb-4">
               <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 02</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -123,7 +123,7 @@ export default function PrivacyPolicyContent() {
           </section>
 
           {/* Section 3 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+          <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4">
             <div className="border-b border-black/5 pb-4">
               <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 03</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -139,7 +139,7 @@ export default function PrivacyPolicyContent() {
           </section>
 
           {/* Section 4 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+          <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4">
             <div className="border-b border-black/5 pb-4">
               <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 04</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -164,7 +164,7 @@ export default function PrivacyPolicyContent() {
           </section>
 
           {/* Section 5 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+          <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4">
             <div className="border-b border-black/5 pb-4">
               <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 05</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -177,7 +177,7 @@ export default function PrivacyPolicyContent() {
           </section>
 
           {/* Section 6 */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+          <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4">
             <div className="border-b border-black/5 pb-4">
               <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 06</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -190,7 +190,7 @@ export default function PrivacyPolicyContent() {
           </section>
 
           {/* Section 7: MusTech Jumpstart sign-ups */}
-          <section id="jumpstart" className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4 scroll-mt-32">
+          <section id="jumpstart" className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4 scroll-mt-32">
             <div className="border-b border-black/5 pb-4">
               <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 07</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -232,7 +232,7 @@ export default function PrivacyPolicyContent() {
           </section>
 
           {/* Section 8: Official DPO & Contact */}
-          <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-6">
+          <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-6">
             <div className="border-b border-black/5 pb-4">
               <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 08</span>
               <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">

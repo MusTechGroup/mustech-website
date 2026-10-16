@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ShieldCheck, Heart, ExternalLink } from "lucide-react";
+import { ShieldCheck, ExternalLink } from "lucide-react";
 
 export default function Footer() {
   const currentYear = parseInt(
@@ -33,7 +33,7 @@ export default function Footer() {
             </p>
 
             <div className="pt-1">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-white/5 text-zinc-300 text-xs border border-white/10 font-mono">
+              <span className="text-zinc-400 text-xs font-mono">
                 ACRA Registered: 202609163C · Singapore
               </span>
             </div>
@@ -52,7 +52,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/#pillars" className="text-zinc-400 hover:text-white transition-colors">
-                  Pillars & Values
+                  Pillars &amp; Values
                 </Link>
               </li>
               <li>
@@ -62,7 +62,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/#contact" className="text-zinc-400 hover:text-white transition-colors">
-                  Contact & Inquiries
+                  Contact &amp; Enquiries
                 </Link>
               </li>
             </ul>
@@ -71,18 +71,17 @@ export default function Footer() {
           {/* Products & Ecosystem */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold text-[var(--color-custard)] uppercase tracking-wider">
-              Ecosystem & Platforms
+              Ecosystem &amp; Platforms
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="/jumpstart" className="text-[var(--color-custard)] hover:text-white transition-colors flex items-center gap-1.5 font-medium">
-                  <span>Jumpstart (Founder Foundry)</span>
-                  <span className="text-[9px] px-1 py-0.2 bg-[#f5cb1d]/20 text-[#f5cb1d] font-mono">NEW</span>
+                <Link href="/jumpstart" className="text-[var(--color-custard)] hover:text-white transition-colors font-medium">
+                  Jumpstart
                 </Link>
               </li>
               <li>
                 <Link href="/#saalihat" className="text-zinc-400 hover:text-white transition-colors">
-                  Saalihat Overview
+                  Saalihat
                 </Link>
               </li>
               <li>
@@ -90,9 +89,9 @@ export default function Footer() {
                   href="https://jenazah.sg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-400 hover:text-[var(--color-custard)] transition-colors flex items-center gap-1"
+                  className="text-zinc-400 hover:text-[var(--color-custard)] transition-colors inline-flex items-center gap-1"
                 >
-                  jenazah.sg (Civic Tech) <ExternalLink className="w-3 h-3 text-zinc-500" />
+                  jenazah.sg <ExternalLink className="w-3 h-3 text-zinc-500" />
                 </a>
               </li>
               <li>
@@ -100,9 +99,9 @@ export default function Footer() {
                   href="https://tarabase.co"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-400 hover:text-[var(--color-custard)] transition-colors flex items-center gap-1"
+                  className="text-zinc-400 hover:text-[var(--color-custard)] transition-colors inline-flex items-center gap-1"
                 >
-                  TaraBase (HBB Tech) <ExternalLink className="w-3 h-3 text-zinc-500" />
+                  TaraBase <ExternalLink className="w-3 h-3 text-zinc-500" />
                 </a>
               </li>
             </ul>

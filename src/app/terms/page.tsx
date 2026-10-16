@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Scale, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -85,7 +85,7 @@ export default function TermsPage() {
 
           <div className="space-y-6 text-[var(--color-primary-dark)]/80 text-sm sm:text-base leading-relaxed font-sans">
             
-            <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+            <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4">
               <div className="border-b border-black/5 pb-4">
                 <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 01</span>
                 <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -97,7 +97,7 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+            <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4">
               <div className="border-b border-black/5 pb-4">
                 <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 02</span>
                 <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -109,7 +109,7 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+            <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4">
               <div className="border-b border-black/5 pb-4">
                 <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 03</span>
                 <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -121,7 +121,7 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+            <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4">
               <div className="border-b border-black/5 pb-4">
                 <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 04</span>
                 <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -133,7 +133,7 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-4">
+            <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-4">
               <div className="border-b border-black/5 pb-4">
                 <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 05</span>
                 <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">
@@ -145,7 +145,7 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <section className="editorial-panel p-8 sm:p-10 border border-black/10 bg-white space-y-6">
+            <section className="editorial-panel p-6 sm:p-8 md:p-10 border border-black/10 bg-white space-y-6">
               <div className="border-b border-black/5 pb-4">
                 <span className="text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider block mb-1">Clause 06</span>
                 <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)]">

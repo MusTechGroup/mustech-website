@@ -8,7 +8,7 @@ export type MizanLog = {
   stack_trace?: string;
 };
 
-// Fire-and-forget audit write. Never throws — Mizan failures must not block user paths.
+// Fire-and-forget audit write. Never throws: Mizan failures must not block user paths.
 // Using 'any' for SupabaseClient since mustech-website doesn't install supabase-js.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function logToMizan(sb: any, log: MizanLog): Promise<void> {

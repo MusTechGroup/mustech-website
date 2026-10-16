@@ -32,7 +32,7 @@ export default function CopyButton({ textToCopy, ariaLabel = "Copy to clipboard"
   return (
     <button 
       onClick={handleCopy}
-      className="text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] p-1 transition-colors"
+      className="text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] min-w-[44px] min-h-[44px] flex items-center justify-center p-2.5 -m-1 transition-colors"
       title={title}
       aria-label={ariaLabel}
     >

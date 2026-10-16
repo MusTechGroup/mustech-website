@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { 
-  Sparkles,
   Award,
   Layers,
   Scale,
@@ -70,91 +69,90 @@ export default function JumpstartPage() {
       <Navbar />
 
       <main id="main-content" className="flex-grow pt-28 sm:pt-36">
-        {/* Slide 1: The Core Hero (Amplified with Agentic AI & Autonomous Organisation framing) */}
-        <section className="relative pb-20 border-b border-black/5 overflow-hidden">
+        {/* Slide 1: The Core Hero */}
+        <section className="relative pb-16 sm:pb-20 border-b border-black/5 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-14">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#f5cb1d]/15 border border-[#f5cb1d]/30 text-[var(--color-primary-dark)] text-xs font-bold uppercase tracking-[0.2em] mb-8">
-                <Sparkles className="w-4 h-4 text-[#814038]" />
-                <span>Agentic AI · Autonomous Enterprise Masterclass</span>
-              </div>
+            <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-12 sm:mb-14">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#814038] mb-6 block">
+                Executive Masterclass
+              </span>
 
               {/* Animated Lightning Logo */}
-              <div className="w-72 sm:w-96 mb-8">
+              <div className="w-64 sm:w-80 md:w-96 mb-6 sm:mb-8">
                 <AnimatedJumpstartLogo priority />
               </div>
 
-              <h1 className="font-brand text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--color-primary-dark)] leading-[1.08] mb-6">
+              <h1 className="font-brand text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-primary-dark)] leading-[1.1] mb-6">
                 Architecting the Autonomous Organisation.
               </h1>
 
-              <p className="text-lg sm:text-xl text-[var(--color-primary-dark)]/80 font-sans leading-relaxed max-w-2xl mb-10">
+              <p className="text-base sm:text-lg md:text-xl text-[var(--color-primary-dark)]/85 font-sans leading-relaxed max-w-2xl mb-8 sm:mb-10">
                 Move beyond toy prompts and fragile automations. MusTech Jumpstart is an executive masterclass teaching founders how to design, orchestrate, and operate bespoke, agentic software organisations from the ground up.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                 <a
                   href="#register"
-                  className="w-full sm:w-auto px-8 py-4 bg-[var(--color-primary-dark)] text-white hover:bg-[var(--color-primary)] text-xs font-bold uppercase tracking-[0.2em] transition-colors shadow-sm"
+                  className="w-full sm:w-auto px-8 py-3.5 min-h-[44px] flex items-center justify-center bg-[var(--color-primary-dark)] text-white hover:bg-[var(--color-primary)] text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
                 >
                   Register Early Interest
                 </a>
                 <a
                   href="#overview"
-                  className="w-full sm:w-auto px-8 py-4 bg-white border border-black/10 text-[var(--color-primary-dark)] hover:bg-black/5 text-xs font-bold uppercase tracking-[0.2em] transition-colors"
+                  className="w-full sm:w-auto px-8 py-3.5 min-h-[44px] flex items-center justify-center bg-white border border-black/10 text-[var(--color-primary-dark)] hover:bg-black/5 text-xs font-bold uppercase tracking-wider transition-colors"
                 >
-                  What You Will Learn
+                  Curriculum Overview
                 </a>
               </div>
             </div>
 
             {/* Micro Credential Bar */}
-            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black/10 border-t border-b border-black/10 py-6 max-w-5xl mx-auto text-xs text-[var(--color-primary-dark)]/80">
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black/10 border-t border-b border-black/10 py-4 sm:py-6 max-w-5xl mx-auto text-xs text-[var(--color-primary-dark)]/85">
               <div className="flex items-center justify-center gap-3 py-3 md:py-0 px-4">
                 <Award className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                <span>Taught by Enterprise Data Lead (ex-Google, WPP, LVMH)</span>
+                <span>Enterprise Data Lead (ex-Google, WPP, LVMH)</span>
               </div>
               <div className="flex items-center justify-center gap-3 py-3 md:py-0 px-4">
                 <Layers className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                <span>Multi-Agent Orchestration &amp; Deterministic Guardrails</span>
+                <span>Multi-Agent Orchestration &amp; Guardrails</span>
               </div>
               <div className="flex items-center justify-center gap-3 py-3 md:py-0 px-4">
                 <Scale className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                <span>Anti-Israf Token Economics &amp; Sovereign Architecture</span>
+                <span>Anti-Israf Token Economics &amp; Sovereignty</span>
               </div>
             </div>
 
           </div>
         </section>
 
-        {/* Slide 2: The Core Pillars (Bespoke Autonomous Organisation First, Marketing & Founder Focused) */}
-        <section id="overview" className="py-20 border-b border-black/5 bg-white scroll-mt-24">
+        {/* Slide 2: The Core Pillars */}
+        <section id="overview" className="py-16 sm:py-20 border-b border-black/5 bg-white scroll-mt-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3 block">
-                The Masterclass Experience
+            <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+              <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)] mb-2 block">
+                Curriculum Focus
               </span>
-              <h2 className="font-brand text-3xl sm:text-4xl font-bold text-[var(--color-primary-dark)] tracking-tight mb-4">
+              <h2 className="font-brand text-2xl sm:text-4xl font-bold text-[var(--color-primary-dark)] tracking-tight mb-4">
                 What Jumpstart Delivers for Your Venture
               </h2>
-              <p className="text-[var(--color-primary-dark)]/80 font-sans text-base leading-relaxed">
+              <p className="text-[var(--color-primary-dark)]/85 font-sans text-sm sm:text-base leading-relaxed">
                 Not another prompt guide or toy demonstration. We equip you with a functioning, autonomous AI organisation designed to scale.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Pillar 1: The Bespoke Autonomous Enterprise (Priority #1) */}
-              <div className="p-8 border border-black/10 bg-[var(--brand-bg)]/40 flex flex-col justify-between">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+              {/* Pillar 1: Autonomous Operations Engine */}
+              <div className="p-6 sm:p-8 border border-black/10 bg-[var(--brand-bg)]/40 flex flex-col justify-between">
                 <div>
                   <div className="w-12 h-12 bg-white border border-black/10 flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-sm">
                     <Building2 className="w-6 h-6" />
                   </div>
-                  <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
-                    The Bespoke Autonomous Organisation
+                  <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
+                    Autonomous Operations Engine
                   </h3>
-                  <p className="text-sm text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
-                    We pre-build an entire AI organisation aligned directly to your venture&apos;s needs. Instead of getting bogged down in manual busywork, your company operates with coordinated AI agents managing research, operations, and customer touchpoints.
+                  <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
+                    We pre-build a functioning multi-agent system configured for your company. Instead of getting bogged down in manual tasks, your venture operates with coordinated AI agents managing research, operations, and communications.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-black/5 text-xs text-[var(--color-primary)] font-semibold flex items-center gap-2">
@@ -163,17 +161,17 @@ export default function JumpstartPage() {
                 </div>
               </div>
 
-              {/* Pillar 2: Agentic AI & Custom LLM Workflows */}
-              <div className="p-8 border border-black/10 bg-[var(--brand-bg)]/40 flex flex-col justify-between">
+              {/* Pillar 2: Agentic Workflows */}
+              <div className="p-6 sm:p-8 border border-black/10 bg-[var(--brand-bg)]/40 flex flex-col justify-between">
                 <div>
                   <div className="w-12 h-12 bg-white border border-black/10 flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-sm">
                     <Cpu className="w-6 h-6" />
                   </div>
-                  <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
+                  <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
                     Agentic AI &amp; Custom Workflows
                   </h3>
-                  <p className="text-sm text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
-                    Deploy autonomous AI agents that actually complete real tasks without getting stuck or hallucinating. Connect intelligent models directly into your database, communication channels, and production tools.
+                  <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
+                    Deploy autonomous AI agents that complete multi-step tasks without getting stuck or hallucinating. Connect intelligent models directly into your database, communication channels, and production tools.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-black/5 text-xs text-[var(--color-primary)] font-semibold flex items-center gap-2">
@@ -182,17 +180,17 @@ export default function JumpstartPage() {
                 </div>
               </div>
 
-              {/* Pillar 3: Cost-Controlled & Production Ready */}
-              <div className="p-8 border border-black/10 bg-[var(--brand-bg)]/40 flex flex-col justify-between">
+              {/* Pillar 3: Practical AI Economics */}
+              <div className="p-6 sm:p-8 border border-black/10 bg-[var(--brand-bg)]/40 flex flex-col justify-between">
                 <div>
                   <div className="w-12 h-12 bg-white border border-black/10 flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-sm">
                     <Coins className="w-6 h-6" />
                   </div>
-                  <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
+                  <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
                     Cost-Controlled &amp; Production Ready
                   </h3>
-                  <p className="text-sm text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
-                    Cut through the hype. Master practical AI economics so your business scales profitably without runaway API bills. Build with sovereign data privacy, predictable costs, and verified digital trust.
+                  <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
+                    Master practical AI economics so your business scales profitably without runaway token bills. Build with sovereign data privacy, predictable operating costs, and verified digital trust.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-black/5 text-xs text-[var(--color-primary)] font-semibold flex items-center gap-2">
@@ -218,23 +216,23 @@ export default function JumpstartPage() {
                   className="object-cover object-top"
                 />
               </div>
-              <div className="md:col-span-3 p-8 sm:p-12 flex flex-col justify-center">
-                <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-2">
+              <div className="md:col-span-3 p-6 sm:p-8 md:p-12 flex flex-col justify-center">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-2 block">
                   Your Instructor
-                </div>
-                <h3 className="font-brand text-3xl sm:text-4xl font-bold text-[var(--color-primary-dark)] mb-6">
+                </span>
+                <h3 className="font-brand text-2xl sm:text-4xl font-bold text-[var(--color-primary-dark)] mb-6">
                   Taufiq Rashid
                 </h3>
-                <p className="text-lg text-[var(--color-primary-dark)] leading-relaxed font-sans mb-4">
+                <p className="text-base sm:text-lg text-[var(--color-primary-dark)] leading-relaxed font-sans mb-4">
                   Jumpstart teaches the system Taufiq uses to run MusTech Group.
                 </p>
-                <p className="text-sm text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-4">
+                <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-4">
                   MusTech Group runs Saalihat, Jenazah.sg, and TaraBase with one founder and a team of AI agents. Every workflow in this course comes from that operation: how the agents are organised, how their work is checked, and how decisions still reach the founder.
                 </p>
-                <p className="text-sm text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-4">
+                <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-4">
                   Throughout his career, Taufiq has taught technical work to people who are not technical:
                 </p>
-                <ul className="mb-4 space-y-2 border-l-2 border-[var(--color-accent)]/40 pl-4 text-sm text-[var(--color-primary-dark)]/80 leading-relaxed font-sans">
+                <ul className="mb-4 space-y-2 border-l-2 border-[var(--color-accent)]/40 pl-4 text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans">
                   <li>
                     <strong className="text-[var(--color-primary-dark)]">WPP Media:</strong> trained analysts in Singapore, Australia, India, Japan, and Korea to use AI and build their own agents.
                   </li>
@@ -245,10 +243,10 @@ export default function JumpstartPage() {
                     <strong className="text-[var(--color-primary-dark)]">Google:</strong> ran SQL training for marketers.
                   </li>
                 </ul>
-                <p className="text-sm text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-4">
+                <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-4">
                   He speaks business, outcomes, and plain language, never technical for the sake of technical. That is how Jumpstart is taught.
                 </p>
-                <p className="text-sm text-[var(--color-primary-dark)]/80 leading-relaxed font-sans mb-6">
+                <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
                   He has led enterprise data analytics across APAC for over a decade, and is an academic consultant at SMU, ESSEC, and HKU.{" "}
                   <Link href="/#about" className="font-semibold underline hover:text-[var(--color-primary)]">
                     Full profile
@@ -260,13 +258,13 @@ export default function JumpstartPage() {
         </section>
 
         {/* Slide 4: Early Interest Waitlist */}
-        <section id="register" className="py-20 bg-[var(--brand-bg)] scroll-mt-24">
+        <section id="register" className="py-16 sm:py-20 bg-[var(--brand-bg)] scroll-mt-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-xl mx-auto mb-10">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-2 block">
+            <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
+              <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-2 block">
                 Inaugural Cohort
               </span>
-              <h2 className="font-brand text-3xl sm:text-4xl font-bold text-[var(--color-primary-dark)] tracking-tight">
+              <h2 className="font-brand text-2xl sm:text-4xl font-bold text-[var(--color-primary-dark)] tracking-tight">
                 Register Your Interest
               </h2>
             </div>

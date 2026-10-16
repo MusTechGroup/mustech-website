@@ -73,7 +73,6 @@ export default function Navbar() {
               className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 ${isDarkSection ? 'hover:bg-white/10 text-[#f5cb1d]' : 'hover:bg-black/5 text-[#814038]'}`}
             >
               <span>Jumpstart</span>
-              <span className="text-[9px] px-1 py-0.2 bg-[#f5cb1d]/20 text-[#814038] font-mono font-bold border border-[#f5cb1d]/40">NEW</span>
             </Link>
             <Link
               href="/#saalihat"
@@ -117,7 +116,7 @@ export default function Navbar() {
           <div className="flex md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2.5 border transition-colors ${isDarkSection ? 'border-white/20 bg-white/10 text-white hover:bg-white/20' : 'border-black/10 bg-white/80 text-[var(--color-primary-dark)] hover:bg-black/5'}`}
+              className={`p-3 border min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors ${isDarkSection ? 'border-white/20 bg-white/10 text-white hover:bg-white/20' : 'border-black/10 bg-white/80 text-[var(--color-primary-dark)] hover:bg-black/5'}`}
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
@@ -134,57 +133,56 @@ export default function Navbar() {
 
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
-        <div id="mobile-menu" className={`md:hidden px-4 pt-4 pb-6 border-b mt-2 ${isDarkSection ? 'bg-[#0e1117] border-white/10 text-white' : 'bg-[var(--brand-bg)] border-black/10 text-[var(--color-primary-dark)]'}`}>
-          <div className="flex flex-col gap-1 divide-y divide-black/5">
+        <div id="mobile-menu" className={`md:hidden px-4 pt-3 pb-6 border-b mt-2 shadow-lg ${isDarkSection ? 'bg-[#0e1117] border-white/10 text-white' : 'bg-[var(--brand-bg)] border-black/10 text-[var(--color-primary-dark)]'}`}>
+          <div className="flex flex-col divide-y divide-black/5">
             <Link
               href="/#about"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
+              className="px-3 py-3 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
             >
               About
             </Link>
             <Link
               href="/jumpstart"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors flex items-center justify-between"
+              className="px-3 py-3 text-sm font-bold tracking-wide uppercase hover:bg-black/5 text-[#814038] transition-colors"
             >
-              <span>Jumpstart (Founder Foundry)</span>
-              <span className="text-[10px] px-1.5 py-0.5 bg-[#f5cb1d]/20 text-[#814038] font-mono font-bold border border-[#f5cb1d]/40">NEW</span>
+              Jumpstart
             </Link>
             <Link
               href="/#saalihat"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
+              className="px-3 py-3 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
             >
-              Portfolio (Saalihat)
+              Portfolio
             </Link>
             <Link
               href="/#pillars"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
+              className="px-3 py-3 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
             >
               Philosophy
             </Link>
             <Link
               href="/#credentials"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
+              className="px-3 py-3 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors"
             >
-              Corporate Entity (ACRA)
+              Corporate Governance
             </Link>
             <Link
               href="/privacy-policy"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors flex items-center gap-2"
+              className="px-3 py-3 text-sm font-bold tracking-wide uppercase hover:bg-black/5 transition-colors flex items-center gap-2"
             >
               <ShieldCheck className="w-4 h-4 opacity-70" />
               Privacy Policy
             </Link>
-            <div className="pt-4 mt-2">
+            <div className="pt-4 mt-2 border-t border-black/5">
               <Link
                 href="/#saalihat"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 px-5 py-3 bg-[var(--color-primary-dark)] text-white text-xs font-bold uppercase tracking-wider text-center transition-colors hover:bg-[var(--color-primary)]"
+                className="w-full min-h-[44px] flex items-center justify-center gap-2 px-5 py-3 bg-[var(--color-primary-dark)] text-white text-xs font-bold uppercase tracking-wider text-center transition-colors hover:bg-[var(--color-primary)]"
               >
                 Explore Saalihat
                 <ArrowUpRight className="w-4 h-4" />

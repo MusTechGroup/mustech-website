@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Send, CheckCircle2, Mail, Sparkles, Loader2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, Mail, Loader2, AlertCircle } from "lucide-react";
 import { registerInterest, type VentureStage } from "@/lib/jumpstartInterest";
 
 type Field = "email" | "name" | "stage";
@@ -70,26 +70,25 @@ export default function JumpstartRegisterForm() {
 
   return (
     <div id="register" className="scroll-mt-28 w-full max-w-xl mx-auto">
-      <div className="editorial-panel p-8 sm:p-12 border border-black/10 bg-white shadow-sm">
+      <div className="editorial-panel p-6 sm:p-8 md:p-12 border border-black/10 bg-white shadow-sm">
         {submitted ? (
           <div className="flex flex-col items-center text-center py-8" role="status">
             <div className="w-14 h-14 rounded-full bg-[#92ae94]/20 text-[#233219] flex items-center justify-center mb-6">
               <CheckCircle2 className="w-8 h-8 text-[var(--color-primary)]" />
             </div>
-            <h3 className="font-brand text-3xl font-bold text-[var(--color-primary-dark)] mb-3">
+            <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] mb-3">
               Interest Received
             </h3>
-            <p className="text-[var(--color-primary-dark)]/80 leading-relaxed font-sans max-w-md mb-6">
+            <p className="text-[var(--color-primary-dark)]/85 leading-relaxed font-sans max-w-md mb-6">
               Thank you for registering your interest in <strong>MusTech Jumpstart</strong>. We will email you at <strong>{email}</strong> once the inaugural cohort schedule is finalised.
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="flex flex-col items-start mb-6">
-              <div className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-2">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Early Expression of Interest</span>
-              </div>
+              <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-1 block">
+                Early Expression of Interest
+              </span>
               <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] tracking-tight">
                 Secure Priority Access
               </h3>
@@ -194,12 +193,12 @@ export default function JumpstartRegisterForm() {
                 type="submit"
                 disabled={sending}
                 aria-busy={sending}
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-[var(--color-primary-dark)] hover:bg-[var(--color-primary)] disabled:opacity-60 disabled:cursor-wait text-white text-xs font-bold uppercase tracking-[0.2em] transition-colors shadow-sm"
+                className="w-full flex items-center justify-center gap-2 px-8 py-3.5 min-h-[44px] bg-[var(--color-primary-dark)] hover:bg-[var(--color-primary)] disabled:opacity-60 disabled:cursor-wait text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
               >
                 {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 <span>{sending ? "Registering…" : "Register Interest for Inaugural Cohort"}</span>
               </button>
-              <p className="mt-3 text-center text-[11px] text-[var(--color-primary-dark)]/60">
+              <p className="mt-3 text-center text-xs text-[var(--color-primary-dark)]/70">
                 We use these details only to contact you about Jumpstart.{" "}
                 <Link href="/privacy-policy#jumpstart" className="font-semibold underline hover:text-[var(--color-primary)]">
                   Privacy Policy
@@ -207,9 +206,9 @@ export default function JumpstartRegisterForm() {
               </p>
             </div>
 
-            <div className="flex items-center justify-center gap-2 pt-2 text-[11px] text-[var(--color-primary-dark)]/60">
+            <div className="flex items-center justify-center gap-2 pt-2 text-xs text-[var(--color-primary-dark)]/70">
               <Mail className="w-3.5 h-3.5" />
-              <span>Direct correspondence: <a href="mailto:jumpstart@mustechgroup.com?subject=MusTech%20Jumpstart%20Inquiry" className="font-semibold underline hover:text-[var(--color-primary)]">jumpstart@mustechgroup.com</a></span>
+              <span>Direct correspondence: <a href="mailto:jumpstart@mustechgroup.com?subject=MusTech%20Jumpstart%20Enquiry" className="font-semibold underline hover:text-[var(--color-primary)]">jumpstart@mustechgroup.com</a></span>
             </div>
           </form>
         )}
