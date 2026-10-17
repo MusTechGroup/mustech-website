@@ -218,7 +218,7 @@ export default function AnimatedTarabaseLogo({
             WORDMARK ("TaraBase")
             Grounded beneath the boat, matching the official identity.
            ------------------------------------------------------------------- */}
-        <div className="relative z-10 mt-1 h-5 w-auto flex items-center justify-center">
+        <div className="relative z-10 mt-2.5 h-5 w-auto flex items-center justify-center">
           <Image
             src="/brand/tarabase-wordmark.png"
             alt="TaraBase Wordmark"

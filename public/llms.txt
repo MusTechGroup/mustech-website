@@ -1,0 +1,50 @@
+# MusTech Group (MUSTECH GROUP PTE. LTD.)
+
+> MusTech Group is a Singapore-based technology holding company (ACRA UEN: 202609163C) building privacy-first mobile applications, civic digital infrastructure, and autonomous AI systems for the global Muslim community. Governed by our proprietary Tayyib Architecture framework (Amanah, Tijarah, Mizan), all MusTech properties operate with zero third-party ad-tracking and strict Singapore PDPA compliance.
+
+## Corporate Identity & Governance
+- **Legal Entity:** MUSTECH GROUP PTE. LTD.
+- **ACRA UEN:** 202609163C
+- **Headquarters:** Singapore
+- **Founder:** Taufiq Rashid (APAC Data Analytics Leadership across WPP Media, Google, LVMH/Sephora, and OCBC Bank; Academic Consultant across Singapore Management University (SMU), ESSEC Business School, University of Hong Kong (HKU), and City University of Hong Kong (CityU))
+- **General & Partnership Enquiries:** admin@mustechgroup.com
+- **Saalihat Platform Support:** saalihat_support@mustechgroup.com
+- **Ecosystem Standard:** Built on Amanah Digital Standards
+
+## Product & Platform Ecosystem
+
+### 1. Saalihat (iOS & Android Mobile Platform)
+- **Summary:** Verified community lecture and mosque event directory across Singapore. Transforms scattered poster images and chat announcements into a structured, searchable mobile schedule with ARS speaker verification and zero behavioural tracking.
+- **iOS App Store:** https://apps.apple.com/sg/app/saalihat/id6760661366
+- **Google Play Store:** https://play.google.com/store/apps/details?id=com.mustechgroup.saalihat
+- **Architecture & Walkthrough:** https://www.mustechgroup.com/portfolio#saalihat
+
+### 2. jenazah.sg (Civic Bereavement Navigation)
+- **Summary:** Stateless bereavement navigation and live funeral coordination platform for Singaporean Muslim families. Guides families step-by-step through funeral rites coordination, mosque prayer logistics, and bilingual WhatsApp community notices.
+- **Website:** https://jenazah.sg
+- **Architecture & Walkthrough:** https://www.mustechgroup.com/portfolio#jenazah-deep-dive
+
+### 3. TaraBase (Zero-Commission Kitchen & Micro-Merchant OS)
+- **Summary:** Zero-commission operating system giving home bakers, cooks, and small-batch makers their own Telegram storefront with atomic database batch-count locks and direct PayNow settlement with automated receipt verification.
+- **Website:** https://tarabase.co
+- **Architecture & Walkthrough:** https://www.mustechgroup.com/portfolio#tarabase-deep-dive
+
+### 4. MusTech Jumpstart (Executive Agentic AI Masterclass)
+- **Summary:** Hands-on executive programme where MusTech Group pre-builds a tailored autonomous AI organisation around a founder's venture and teaches multi-agent orchestration, Anti-Israf token optimisation, and defensive SQL architecture.
+- **Programme Page:** https://www.mustechgroup.com/jumpstart
+
+## Tayyib Architecture Framework
+1. **Amanah (Data Sovereignty & Privacy):** Local-first storage, zero third-party advertising SDKs, and strict Singapore PDPA compliance.
+2. **Tijarah (Ethical Enterprise):** Zero-commission merchant alignment and honest commercial sustainability without user exploitation.
+3. **Mizan (Equilibrium):** Respect for human finitude; sub-2-second task completion without infinite scroll feeds or dark patterns.
+4. **Resilient Engineering:** Atomic PostgreSQL state mutations, SHA-256 optical hash caches (Anti-Israf), and Mizan audit logging.
+5. **Civic Purpose:** Practical utility in critical real-world moments across bereavement care, micro-commerce, and sacred knowledge.
+
+## Key Canonical URLs
+- **Home:** https://www.mustechgroup.com/
+- **Portfolio & Walkthroughs:** https://www.mustechgroup.com/portfolio
+- **Tayyib Architecture & Philosophy:** https://www.mustechgroup.com/philosophy
+- **Leadership & Corporate Governance:** https://www.mustechgroup.com/about
+- **MusTech Jumpstart Masterclass:** https://www.mustechgroup.com/jumpstart
+- **Privacy Policy:** https://www.mustechgroup.com/privacy-policy
+- **Terms of Service:** https://www.mustechgroup.com/terms

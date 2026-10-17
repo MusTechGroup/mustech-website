@@ -18,7 +18,7 @@ export default function Footer() {
           
           {/* Brand & Corporate Summary */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="inline-block mb-4">
+            <Link href="/" className="inline-block mb-3">
               <Image
                 src="/brand/Logo_Large_ClearBg.png"
                 alt="MusTech Group Logo"
@@ -28,41 +28,50 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Singapore-based technology holding company creating mobile applications and ethical digital infrastructure built on trust, privacy, and community value.
+            <p className="text-[#fdfaf0]/65 text-xs sm:text-sm leading-relaxed max-w-sm">
+              Singapore technology holding company building ethical mobile applications and civic digital infrastructure.
             </p>
 
-            <div className="pt-1">
-              <span className="text-zinc-400 text-xs font-mono">
-                ACRA Registered: 202609163C · Singapore
-              </span>
+            <div className="pt-2 space-y-1 text-xs text-[#fdfaf0]/70">
+              <a
+                href="mailto:admin@mustechgroup.com"
+                className="block hover:text-white transition-colors"
+              >
+                General &amp; Partnerships: <span className="text-[#fdfaf0]/95 font-medium">admin@mustechgroup.com</span>
+              </a>
+              <a
+                href="mailto:saalihat_support@mustechgroup.com"
+                className="block hover:text-white transition-colors"
+              >
+                Saalihat Support: <span className="text-[#fdfaf0]/95 font-medium">saalihat_support@mustechgroup.com</span>
+              </a>
             </div>
           </div>
 
           {/* Quick Navigation */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold text-[var(--color-custard)] uppercase tracking-wider">
-              Company
+              Navigation
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="/about" className="text-zinc-400 hover:text-white transition-colors">
-                  About Us
+                <Link href="/portfolio" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
+                  Portfolio
                 </Link>
               </li>
               <li>
-                <Link href="/philosophy" className="text-zinc-400 hover:text-white transition-colors">
-                  Pillars &amp; Values
+                <Link href="/jumpstart" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
+                  MusTech Jumpstart
                 </Link>
               </li>
               <li>
-                <Link href="/about#credentials" className="text-zinc-400 hover:text-white transition-colors">
-                  Corporate Governance
+                <Link href="/about" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
+                  Governance &amp; Leadership
                 </Link>
               </li>
               <li>
-                <Link href="/about#contact" className="text-zinc-400 hover:text-white transition-colors">
-                  Contact &amp; Enquiries
+                <Link href="/philosophy" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
+                  Philosophy
                 </Link>
               </li>
             </ul>
@@ -80,12 +89,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/jumpstart" className="text-zinc-400 hover:text-white transition-colors">
-                  Jumpstart
-                </Link>
-              </li>
-              <li>
-                <Link href="/portfolio#saalihat" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/portfolio#saalihat" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
                   Saalihat
                 </Link>
               </li>
@@ -94,9 +98,9 @@ export default function Footer() {
                   href="https://jenazah.sg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-400 hover:text-[var(--color-custard)] transition-colors inline-flex items-center gap-1"
+                  className="text-[#fdfaf0]/65 hover:text-[var(--color-custard)] transition-colors inline-flex items-center gap-1"
                 >
-                  jenazah.sg <ExternalLink className="w-3 h-3 text-zinc-500" />
+                  jenazah.sg <ExternalLink className="w-3 h-3 text-[#fdfaf0]/50" />
                 </a>
               </li>
               <li>
@@ -104,9 +108,9 @@ export default function Footer() {
                   href="https://tarabase.co"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-400 hover:text-[var(--color-custard)] transition-colors inline-flex items-center gap-1"
+                  className="text-[#fdfaf0]/65 hover:text-[var(--color-custard)] transition-colors inline-flex items-center gap-1"
                 >
-                  TaraBase <ExternalLink className="w-3 h-3 text-zinc-500" />
+                  TaraBase <ExternalLink className="w-3 h-3 text-[#fdfaf0]/50" />
                 </a>
               </li>
             </ul>
@@ -115,7 +119,7 @@ export default function Footer() {
           {/* Legal & App Store Compliance */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold text-[var(--color-custard)] uppercase tracking-wider">
-              Legal & Compliance
+              Legal &amp; Compliance
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
@@ -128,14 +132,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-zinc-400 hover:text-white transition-colors">
+                <Link href="/terms" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
                 <a
                   href="mailto:saalihat_support@mustechgroup.com?subject=Data%20Deletion%20Request"
-                  className="text-zinc-400 hover:text-white transition-colors"
+                  className="text-[#fdfaf0]/65 hover:text-white transition-colors"
                 >
                   Data Deletion Request
                 </a>
@@ -145,17 +149,21 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-          <div>
-            © {currentYear} <span className="text-zinc-400 font-medium">MusTech Group</span>. All rights reserved. Registered in Singapore.
+        {/* Bottom bar — Single Canonical Place for UEN & Ecosystem Signature */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#fdfaf0]/55">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-center sm:text-left">
+            <span>
+              © {currentYear} <span className="text-[#fdfaf0]/85 font-semibold">MUSTECH GROUP PTE. LTD. (UEN: 202609163C)</span>
+            </span>
+            <span className="hidden sm:inline">·</span>
+            <span className="text-[#fdfaf0]/65">A MusTech Group Initiative · Built on Amanah Digital Standards</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/privacy-policy" className="hover:text-zinc-300 transition-colors">
+            <Link href="/privacy-policy" className="hover:text-[#fdfaf0]/90 transition-colors">
               Privacy Policy
             </Link>
             <span>·</span>
-            <Link href="/terms" className="hover:text-zinc-300 transition-colors">
+            <Link href="/terms" className="hover:text-[#fdfaf0]/90 transition-colors">
               Terms
             </Link>
           </div>

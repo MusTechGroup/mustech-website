@@ -4,219 +4,295 @@ import { ArrowUpRight, ExternalLink } from "lucide-react";
 import AnimatedJenazahLogo from "@/components/AnimatedJenazahLogo";
 import AnimatedTarabaseLogo from "@/components/AnimatedTarabaseLogo";
 import AnimatedJumpstartLogo from "@/components/AnimatedJumpstartLogo";
-
-// One frame for every product logo on the page: margin-trimmed files at one height, in
-// columns of one width, each with a one-line caption.
-const LOGO_COLUMN =
-  "md:w-1/3 bg-white px-6 py-8 md:px-8 md:py-10 flex flex-col items-center justify-center gap-4 border-b md:border-b-0 md:border-r border-black/5 overflow-visible";
-const LOGO_LINK = "flex h-24 md:h-28 items-center justify-center hover:opacity-95 transition-opacity group relative overflow-visible";
-const LOGO_CAPTION = "text-[var(--color-primary-dark)]/60 text-xs font-semibold uppercase tracking-wider text-center whitespace-nowrap";
+import Reveal from "@/components/Reveal";
 
 export default function Portfolio() {
   return (
     <section id="saalihat" className="w-full">
-      {/* Immersive Saalihat Section (Site-within-a-site) */}
-      <div className="w-full bg-[#0e1117] py-16 sm:py-24 lg:py-28 relative overflow-hidden text-white border-y border-white/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#c49a45]/5 to-transparent pointer-events-none" />
-        
+      {/* Saalihat Flagship Showcase (Solid Dark Stage with Animated Boomerang GIF/Video) */}
+      <div className="w-full bg-[#0e1117] py-20 sm:py-28 relative overflow-hidden text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Content Side */}
-            <div className="lg:col-span-6 flex flex-col justify-center">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#d5ad5b] mb-4">
-                Flagship Mobile Platform
-              </span>
-              
-              <div className="flex items-center gap-4 mb-6">
-                <Image src="/saalihat/logo.jpg" alt="Saalihat App Logo" width={48} height={48} className="h-12 w-12 rounded-xl object-cover ring-1 ring-white/15" />
-                <h3 className="font-brand text-4xl sm:text-5xl font-bold leading-none tracking-tight text-white">Saalihat</h3>
+            <Reveal className="lg:col-span-6 flex flex-col justify-center" direction="left">
+              <div className="flex items-center gap-5 mb-8">
+                <Image
+                  src="/saalihat/logo.jpg"
+                  alt="Saalihat App Logo"
+                  width={56}
+                  height={56}
+                  className="h-14 w-14 rounded-xl object-cover ring-1 ring-white/15 shrink-0"
+                />
+                <h2 className="font-brand text-4xl sm:text-5xl font-bold leading-none tracking-tight text-white">
+                  Saalihat
+                </h2>
               </div>
 
-              <h4 className="font-brand text-2xl sm:text-3xl lg:text-4xl font-bold text-[#d5ad5b] mb-4 leading-tight">
-                Connecting Muslims to verified community events and sacred knowledge.
-              </h4>
-              <p className="text-zinc-300 text-base sm:text-lg leading-relaxed mb-8">
-                Saalihat (صالحات) aggregates mosque lectures, charitable programmes, and community circles across Southeast Asia into a single, verified schedule. Engineered for absolute privacy, it helps believers cultivate lasting spiritual habits without advertising, behavioural tracking, or data brokering.
+              <p className="font-brand text-2xl sm:text-3xl text-[#d5ad5b] mb-4 leading-snug">
+                Connecting Muslims in Singapore to verified mosque events and sacred knowledge.
+              </p>
+              <p className="text-[#fdfaf0]/80 text-base sm:text-lg leading-relaxed mb-8">
+                Saalihat (صالحات) aggregates mosque lectures, charitable programmes, and community circles across Singapore into a single, verified schedule without advertising or behavioural tracking.
               </p>
               
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col sm:flex-row gap-4 w-full">
-                  <a href="https://apps.apple.com/sg/app/saalihat/id6760661366" target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#d5ad5b] hover:bg-white text-black text-xs font-bold uppercase tracking-wider transition-all group min-h-[44px]">
-                    <span className="text-xl leading-none"></span>
+                  <a
+                    href="https://apps.apple.com/sg/app/saalihat/id6760661366"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#d5ad5b] hover:bg-white text-black text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-0.5 active:translate-y-[1px] min-h-[44px]"
+                  >
+                    <span className="text-lg leading-none"></span>
                     <span>Download on iOS</span>
                   </a>
-                  <a href="https://play.google.com/store/apps/details?id=com.mustechgroup.saalihat" target="_blank" rel="noopener noreferrer" className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#d5ad5b] hover:bg-white text-black text-xs font-bold uppercase tracking-wider transition-all group min-h-[44px]">
-                    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current shrink-0" xmlns="http://www.w3.org/2000/svg"><path d="M4 2.5v19l16-9.5z"/></svg>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.mustechgroup.saalihat"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#d5ad5b] hover:bg-white text-black text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-0.5 active:translate-y-[1px] min-h-[44px]"
+                  >
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current shrink-0" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 2.5v19l16-9.5z" />
+                    </svg>
                     <span>Get it on Android</span>
                   </a>
                 </div>
                 
-                <div className="hidden sm:flex items-center gap-8 border-t border-white/10 pt-6">
+                {/* Desktop-only QR row */}
+                <div className="hidden lg:flex items-center gap-8 border-t border-white/10 pt-6">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 border border-white/20 bg-white/5">
-                      <Image src="/saalihat/apple-qr.jpg" alt="QR code to download Saalihat on the Apple App Store" width={72} height={72} className="w-18 h-18 object-cover" />
-                    </div>
-                    <span className="text-zinc-400 text-xs font-medium">Scan for iOS</span>
+                    <Image
+                      src="/saalihat/apple-qr.jpg"
+                      alt="QR code to download Saalihat on the Apple App Store"
+                      width={56}
+                      height={56}
+                      className="w-14 h-14 object-cover"
+                    />
+                    <span className="text-[#fdfaf0]/60 text-xs">Scan for iOS</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="p-2 border border-white/20 bg-white/5">
-                      <Image src="/saalihat/google-qr.jpg" alt="QR code to download Saalihat on Google Play" width={72} height={72} className="w-18 h-18 object-cover" />
-                    </div>
-                    <span className="text-zinc-400 text-xs font-medium">Scan for Android</span>
+                    <Image
+                      src="/saalihat/google-qr.jpg"
+                      alt="QR code to download Saalihat on Google Play"
+                      width={56}
+                      height={56}
+                      className="w-14 h-14 object-cover"
+                    />
+                    <span className="text-[#fdfaf0]/60 text-xs">Scan for Android</span>
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
-            {/* Visual Side */}
-            <div className="lg:col-span-6 relative w-full flex flex-col items-center justify-center py-6 lg:py-0">
-              <div className="relative w-60 sm:w-72 border border-white/20 bg-[#0e1117] p-2 shadow-2xl">
-                <div className="relative w-full aspect-[1096/2560] border border-white/10 overflow-hidden bg-black">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    poster="/saalihat/Screenshot_1.png"
-                    className="w-full h-full object-contain block"
-                  >
-                    <source src="/saalihat/saalihat_boomerang.webm" type="video/webm" />
-                    <source src="/saalihat/saalihat_boomerang.mp4" type="video/mp4" />
+            {/* Visual Side: Center Animated Saalihat Boomerang GIF/Video Flanked by Clean Retina Screens with 3D Fan-Out on Hover */}
+            <Reveal className="lg:col-span-6 relative w-full flex flex-col items-center justify-center py-6 lg:py-0" delayMs={150} direction="scale">
+              <div className="group/phones relative flex items-center justify-center w-full max-w-lg cursor-pointer">
+                {/* Left Secondary Floating Screen */}
+                <div className="hidden sm:block w-44 -mr-8 opacity-85 scale-90 animate-float-slow z-0 border border-white/20 bg-[#0e1117] p-1.5 shadow-2xl rounded-xl transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover/phones:-translate-x-4 group-hover/phones:-rotate-3 group-hover/phones:opacity-100">
+                  <div className="relative aspect-[1260/1980] overflow-hidden rounded-lg bg-black">
                     <Image
-                      src="/saalihat/saalihat_boomerang.gif"
-                      alt="Saalihat App Live Demo"
+                      src="/saalihat/clean-screen-1.png"
+                      alt="Saalihat Upcoming Mosque Events Screen"
                       fill
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className="object-contain"
-                      unoptimized
+                      sizes="200px"
+                      className="object-contain object-top"
                     />
-                  </video>
+                  </div>
+                </div>
+
+                {/* Primary Center Animated Boomerang GIF/Video Mockup */}
+                <div className="relative w-60 sm:w-64 border border-white/25 bg-[#0e1117] p-2 shadow-[0_24px_80px_rgba(0,0,0,0.85)] z-10 rounded-2xl transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover/phones:scale-[1.04] group-hover/phones:border-[#d5ad5b]/60">
+                  <div className="relative w-full aspect-[1096/2560] overflow-hidden rounded-xl bg-black">
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      poster="/saalihat/clean-screen-1.png"
+                      className="w-full h-full object-contain block"
+                    >
+                      <source src="/saalihat/saalihat_boomerang.webm" type="video/webm" />
+                      <source src="/saalihat/saalihat_boomerang.mp4" type="video/mp4" />
+                      <Image
+                        src="/saalihat/saalihat_boomerang.gif"
+                        alt="Saalihat App Live Animated Walkthrough"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 280px"
+                        className="object-contain"
+                        unoptimized
+                      />
+                    </video>
+                  </div>
+                </div>
+
+                {/* Right Secondary Floating Screen */}
+                <div className="hidden sm:block w-44 -ml-8 opacity-85 scale-90 animate-float-reverse z-0 border border-white/20 bg-[#0e1117] p-1.5 shadow-2xl rounded-xl transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover/phones:translate-x-4 group-hover/phones:rotate-3 group-hover/phones:opacity-100">
+                  <div className="relative aspect-[1260/1980] overflow-hidden rounded-lg bg-black">
+                    <Image
+                      src="/saalihat/clean-screen-2.png"
+                      alt="Saalihat Mosque Details Screen"
+                      fill
+                      sizes="200px"
+                      className="object-contain object-top"
+                    />
+                  </div>
                 </div>
               </div>
               
-              <div className="flex items-center gap-6 mt-4 text-zinc-400 text-xs font-medium">
+              <div className="flex items-center gap-4 mt-8 text-[#fdfaf0]/60 text-xs">
                 <span>Zero Ads</span>
                 <span>·</span>
                 <span>No Tracking</span>
                 <span>·</span>
                 <span>PDPA Compliant</span>
               </div>
-            </div>
+            </Reveal>
             
           </div>
         </div>
       </div>
 
-      {/* Ecosystem & Platforms Section */}
-      <div className="w-full bg-[var(--brand-bg)] py-16 sm:py-20 border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      {/* Concise Homepage Overview of Sister Platforms (Full Deep-Dive Lives on /portfolio) */}
+      <div className="w-full bg-[var(--brand-bg)] py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Jenazah.sg Panel */}
-          <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch md:min-h-[16rem]">
-            <div className={LOGO_COLUMN}>
-              <a href="https://jenazah.sg" target="_blank" rel="noopener noreferrer" className={LOGO_LINK}>
-                <AnimatedJenazahLogo priority />
-              </a>
-              <p className={LOGO_CAPTION}>Bereavement Care</p>
-            </div>
-            <div className="md:w-2/3 p-6 sm:p-8 md:p-12 flex flex-col justify-center bg-white/30">
-              <h4 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] mb-3">
-                Compassionate Guidance for Bereaved Families
-              </h4>
-              <p className="text-[var(--color-primary-dark)]/85 leading-relaxed font-sans text-base mb-6">
-                When a loved one passes, grieving families face immense emotional distress alongside urgent administrative steps. <a href="https://jenazah.sg" target="_blank" rel="noopener noreferrer" className="font-bold text-[#4A5D3F] hover:underline underline-offset-4">jenazah.sg</a> provides Singaporean families with calm, step-by-step guidance: from official death registration via LifeSG to funeral arrangements, mosque coordination, and community notices.
+          <Reveal className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 mb-12 border-b border-black/10">
+            <div>
+              <h2 className="font-brand text-3xl sm:text-4xl font-bold text-[var(--color-primary-dark)] tracking-tight">
+                Civic &amp; Commercial Platforms
+              </h2>
+              <p className="text-base text-[var(--color-primary-dark)]/75 mt-1">
+                Web infrastructure for bereavement navigation, micro-merchant commerce, and AI operations.
               </p>
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#4A5D3F]">
-                  Active in Singapore
+            </div>
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)] hover:opacity-75 active:translate-y-[1px] transition-all shrink-0 group"
+            >
+              <span>View interactive walkthroughs &amp; full portfolio</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </Reveal>
+
+          {/* Concise 3-Column Executive Summary Grid — Solid Brand Identity Stages, Zero Pills & Aligned Headers */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            
+            {/* 1. jenazah.sg Concise Card */}
+            <Reveal className="h-full">
+              <div id="jenazah" className="editorial-panel relative bg-white border border-black/10 flex flex-col justify-between h-full overflow-hidden scroll-mt-28 group">
+                {/* Constellation Sage Top Accent Bar */}
+                <span className="absolute inset-x-0 top-0 h-1.5 bg-[#92ae94] z-20" />
+                <div>
+                  {/* Solid Brand Stage with Centered Logo (No Pill) */}
+                  <a
+                    href="https://jenazah.sg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative h-52 w-full bg-[#FDFCF8] border-b border-black/10 flex items-center justify-center p-8 transition-colors duration-300 group-hover:bg-[#92ae94]/10"
+                  >
+                    <AnimatedJenazahLogo />
+                  </a>
+
+                  {/* Centered Executive Summary Body with Aligned Header Height */}
+                  <div className="p-8 text-center">
+                    <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug lg:min-h-[4rem] flex items-center justify-center">
+                      Compassionate Bereavement Guidance
+                    </h3>
+                    <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-sm sm:text-base">
+                      Provides Singaporean families with calm, step-by-step funeral rites coordination, mosque prayer logistics, and live WhatsApp community notices.
+                    </p>
+                  </div>
                 </div>
+
                 <a
                   href="https://jenazah.sg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#4A5D3F] hover:underline underline-offset-4 min-h-[44px]"
+                  className="px-8 py-4 border-t border-black/10 flex items-center justify-center gap-2 text-sm font-semibold text-[#4A5D3F] bg-[#FDFCF8]/60 hover:bg-[#92ae94]/15 transition-colors"
                 >
-                  <span>Visit jenazah.sg</span>
+                  <span>Launch jenazah.sg</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
-            </div>
-          </div>
+            </Reveal>
 
-          {/* TaraBase Panel */}
-          <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch md:min-h-[16rem]">
-            <div className={LOGO_COLUMN}>
-              <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className={LOGO_LINK}>
-                <AnimatedTarabaseLogo priority />
-              </a>
-              <p className={LOGO_CAPTION}>Micro-Merchant Commerce</p>
-            </div>
-            <div className="md:w-2/3 p-6 sm:p-8 md:p-12 flex flex-col justify-center bg-white/30">
-              <h4 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] mb-3">
-                Digital Front-of-House for Home-Based Businesses
-              </h4>
-              <p className="text-[var(--color-primary-dark)]/85 leading-relaxed font-sans text-base mb-6">
-                Home-based food creators face chaotic chat-based order fragmentation and payment verification friction. <a href="https://tarabase.co" target="_blank" rel="noopener noreferrer" className="font-bold text-[#814038] hover:underline underline-offset-4">TaraBase</a> provides automated capacity slotting, kitchen production scheduling, and instant PayNow payment verification.
-              </p>
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#814038]">
-                  Pilot Kitchens Active
+            {/* 2. TaraBase Concise Card */}
+            <Reveal delayMs={80} className="h-full">
+              <div id="tarabase" className="editorial-panel relative bg-white border border-black/10 flex flex-col justify-between h-full overflow-hidden scroll-mt-28 group">
+                {/* Constellation Clay Top Accent Bar */}
+                <span className="absolute inset-x-0 top-0 h-1.5 bg-[#814038] z-20" />
+                <div>
+                  {/* Solid Brand Stage with Centered Logo (No Pill) */}
+                  <a
+                    href="https://tarabase.co"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative h-52 w-full bg-[#FAF8F5] border-b border-black/10 flex items-center justify-center p-8 transition-colors duration-300 group-hover:bg-[#814038]/[0.06]"
+                  >
+                    <AnimatedTarabaseLogo />
+                  </a>
+
+                  {/* Centered Executive Summary Body with Aligned Header Height */}
+                  <div className="p-8 text-center">
+                    <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug lg:min-h-[4rem] flex items-center justify-center">
+                      Zero-Commission Kitchen Operating System
+                    </h3>
+                    <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-sm sm:text-base">
+                      Gives home bakers, cooks, and small-batch makers their own Telegram shop with daily batch limits and direct PayNow settlement with automated receipt checks.
+                    </p>
+                  </div>
                 </div>
+
                 <a
                   href="https://tarabase.co"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#814038] hover:underline underline-offset-4 min-h-[44px]"
+                  className="px-8 py-4 border-t border-black/10 flex items-center justify-center gap-2 text-sm font-semibold text-[#814038] bg-[#FAF8F5]/60 hover:bg-[#814038]/10 transition-colors"
                 >
-                  <span>Visit TaraBase</span>
+                  <span>Explore TaraBase</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
-            </div>
-          </div>
+            </Reveal>
 
-          {/* MusTech Jumpstart Panel */}
-          <div className="editorial-panel p-0 flex flex-col md:flex-row items-stretch md:min-h-[16rem]">
-            <div className={LOGO_COLUMN}>
-              <Link href="/jumpstart" className={LOGO_LINK}>
-                <AnimatedJumpstartLogo compact priority />
-              </Link>
-              <p className={LOGO_CAPTION}>Founder Masterclass</p>
-            </div>
-            <div className="md:w-2/3 p-6 sm:p-8 md:p-12 flex flex-col justify-center bg-white/30">
-              <h4 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] mb-3">
-                Autonomous Organisation &amp; AI Masterclass
-              </h4>
-              <p className="text-[var(--color-primary-dark)]/85 leading-relaxed font-sans text-base mb-6">
-                We pre-build a tailored AI organisation aligned directly to your venture&apos;s operational needs. <Link href="/jumpstart" className="font-bold text-[#814038] hover:underline underline-offset-4">MusTech Jumpstart</Link> teaches founders how to deploy autonomous agentic workflows, custom LLM systems, and cost-controlled operations.
-              </p>
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-[#814038]">
-                  Inaugural Cohort Registering
+            {/* 3. MusTech Jumpstart Concise Card */}
+            <Reveal delayMs={160} className="h-full">
+              <div className="editorial-panel relative bg-white border border-black/10 flex flex-col justify-between h-full overflow-hidden group">
+                {/* Constellation Teal Top Accent Bar */}
+                <span className="absolute inset-x-0 top-0 h-1.5 bg-[#077d95] z-20" />
+                <div>
+                  {/* Solid Brand Stage with Centered Logo (No Pill) */}
+                  <Link
+                    href="/jumpstart"
+                    className="relative h-52 w-full bg-[#fdfaf0] border-b border-black/10 flex items-center justify-center p-8 transition-colors duration-300 group-hover:bg-[#077d95]/[0.06]"
+                  >
+                    <AnimatedJumpstartLogo compact />
+                  </Link>
+
+                  {/* Centered Executive Summary Body with Aligned Header Height */}
+                  <div className="p-8 text-center">
+                    <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug lg:min-h-[4rem] flex items-center justify-center">
+                      Autonomous AI Masterclass for Founders
+                    </h3>
+                    <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-sm sm:text-base">
+                      An executive programme where we pre-build a tailored AI organisation aligned to your venture and teach you how to run autonomous agentic workflows.
+                    </p>
+                  </div>
                 </div>
+
                 <Link
                   href="/jumpstart"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors group min-h-[44px]"
+                  className="px-8 py-4 border-t border-black/10 flex items-center justify-center gap-2 text-sm font-semibold text-[#077d95] bg-[#fdfaf0]/60 hover:bg-[#077d95]/10 transition-colors"
                 >
-                  <span>Explore Masterclass</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <span>Explore Jumpstart</span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </Link>
               </div>
-            </div>
-          </div>
+            </Reveal>
 
-          {/* Portfolio Deep Dive Link */}
-          <div className="flex justify-center pt-4">
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white border border-black/10 hover:border-black/30 text-[var(--color-primary-dark)] text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
-            >
-              <span>Explore All Platforms &amp; Architecture Details</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[var(--color-primary)]" />
-            </Link>
           </div>
 
         </div>

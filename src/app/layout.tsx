@@ -15,24 +15,26 @@ export const metadata: Metadata = {
     template: "%s | MusTech Group",
   },
   description:
-    "MusTech Group is a Singapore-based technology holding company specialising in mobile application development, ethical digital infrastructure, and data-driven community ecosystems. Developer of Saalihat.",
+    "MusTech Group (MUSTECH GROUP PTE. LTD.) is a Singapore-based technology holding company building ethical digital infrastructure, mobile applications, and civic platforms: Saalihat, jenazah.sg, TaraBase, and MusTech Jumpstart.",
   alternates: {
     canonical: "/",
   },
   keywords: [
     "MusTech Group",
-    "Jumpstart",
+    "MUSTECH GROUP PTE. LTD.",
+    "Saalihat",
+    "jenazah.sg",
+    "TaraBase",
+    "MusTech Jumpstart",
     "Agentic AI Masterclass",
     "Autonomous Organisation",
-    "LLM Engineering",
-    "Founder Programme Singapore",
-    "Saalihat",
+    "Singapore Bereavement Directory",
+    "Home-Based Business Telegram Shop",
     "Singapore Tech Company",
     "Ethical Technology",
     "Islamic Tech Ecosystem",
     "Tayyib Architecture",
-    "Community Solutions",
-    "Amanah Tech",
+    "Amanah Digital Standards",
     "Mobile Application Development",
   ],
   authors: [{ name: "MusTech Group" }],
@@ -50,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "MusTech Group",
     title: "MusTech Group | Ethical Technology Holding Company",
     description:
-      "Singapore-based technology holding company specialising in mobile application development and data-driven community solutions. Creator of Saalihat.",
+      "Singapore technology holding company building privacy-first mobile applications and civic digital infrastructure: Saalihat, jenazah.sg, TaraBase, and MusTech Jumpstart.",
     images: [
       {
         url: "/brand/Logo_Large_ClearBg.png",
@@ -64,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MusTech Group | Ethical Technology Holding Company",
     description:
-      "Singapore-based technology holding company specialising in mobile application development and data-driven community solutions.",
+      "Singapore technology holding company building privacy-first mobile applications and civic digital infrastructure: Saalihat, jenazah.sg, TaraBase, and MusTech Jumpstart.",
     images: ["/brand/Logo_Large_ClearBg.png"],
   },
   icons: {
@@ -78,24 +80,52 @@ const corporationSchema = [
     "@context": "https://schema.org",
     "@type": "Corporation",
     name: "MusTech Group",
-    legalName: "MusTech Group Pte. Ltd.",
+    legalName: "MUSTECH GROUP PTE. LTD.",
     identifier: "202609163C",
     taxID: "202609163C",
     url: "https://www.mustechgroup.com",
     logo: "https://www.mustechgroup.com/brand/Logo_Large_ClearBg.png",
     image: "https://www.mustechgroup.com/brand/Logo_Large_ClearBg.png",
     description:
-      "Singapore-based technology holding company specialising in ethical digital infrastructure, mobile applications, and community platforms.",
+      "Singapore-based technology holding company specialising in ethical digital infrastructure, mobile applications, and community platforms under the Tayyib Architecture framework.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Singapore",
       addressCountry: "SG",
     },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        email: "admin@mustechgroup.com",
+        contactType: "general enquiries and partnerships",
+        areaServed: "SG",
+        availableLanguage: ["English", "Malay"],
+      },
+      {
+        "@type": "ContactPoint",
+        email: "saalihat_support@mustechgroup.com",
+        contactType: "customer support",
+        areaServed: "SG",
+        availableLanguage: ["English", "Malay"],
+      },
+    ],
+    sameAs: [
+      "https://jenazah.sg",
+      "https://tarabase.co",
+      "https://apps.apple.com/sg/app/saalihat/id6760661366",
+      "https://play.google.com/store/apps/details?id=com.mustechgroup.saalihat",
+    ],
     founder: {
       "@type": "Person",
       name: "Taufiq Rashid",
       jobTitle: "Founder & Data Analytics Lead",
       image: "https://www.mustechgroup.com/brand/founder.jpg",
+      affiliation: [
+        { "@type": "CollegeOrUniversity", name: "Singapore Management University" },
+        { "@type": "CollegeOrUniversity", name: "ESSEC Business School" },
+        { "@type": "CollegeOrUniversity", name: "University of Hong Kong" },
+        { "@type": "CollegeOrUniversity", name: "City University of Hong Kong" },
+      ],
     },
     subOrganization: [
       {
@@ -115,7 +145,7 @@ const corporationSchema = [
         name: "Saalihat",
         operatingSystem: "iOS, Android",
         applicationCategory: "LifestyleApplication",
-        description: "Islamic community lecture aggregator and mosque directory in Southeast Asia.",
+        description: "Islamic community lecture aggregator and mosque directory in Singapore.",
         sameAs: [
           "https://apps.apple.com/sg/app/saalihat/id6760661366",
           "https://play.google.com/store/apps/details?id=com.mustechgroup.saalihat",
