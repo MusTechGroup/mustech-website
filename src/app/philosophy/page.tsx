@@ -54,7 +54,7 @@ const philosophySchema = {
 
 export default function PhilosophyPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#233219] text-[#fdfaf0]">
+    <div className="flex flex-col min-h-screen bg-[var(--brand-bg)] text-[var(--color-primary-dark)]">
       <JsonLd schema={philosophySchema} />
       <Navbar />
       <PhilosophyInteractive />

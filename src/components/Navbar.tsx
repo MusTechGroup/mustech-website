@@ -27,10 +27,6 @@ export default function Navbar() {
 
   useEffect(() => {
     const checkDarkSections = () => {
-      if (pathname === "/philosophy") {
-        setIsDarkSection(true);
-        return;
-      }
       const darkIds = ["saalihat", "philosophy"];
       const navHeight = 64;
       const isOverDark = darkIds.some((id) => {

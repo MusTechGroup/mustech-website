@@ -219,54 +219,70 @@ export default function AboutPage() {
             </div>
           </Reveal>
 
-          {/* 2. Founder & Executive Background (No Redundant ACRA/Email Block) */}
+          {/* 2. Founder & Executive Background (Prominent Portrait + Academic Consultant) */}
           <Reveal delayMs={140} className="mb-20">
             <div
               id="credentials"
               className="editorial-panel bg-white border border-black/10 p-8 sm:p-10 lg:p-12 scroll-mt-28"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center gap-6 pb-8 border-b border-black/10 mb-8">
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden border border-black/10 bg-[#233219]/10 shrink-0">
-                  <Image
-                    src="/brand/founder.jpg"
-                    alt="Taufiq Rashid, Founder of MusTech Group"
-                    fill
-                    priority
-                    sizes="112px"
-                    className="object-cover object-[center_20%]"
-                  />
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+                {/* Large Dignified Portrait */}
+                <div className="lg:col-span-5 flex flex-col">
+                  <div className="relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-auto lg:h-full min-h-[380px] sm:min-h-[460px] w-full rounded-xl overflow-hidden border border-black/10 bg-[#233219]/10 shadow-sm">
+                    <Image
+                      src="/brand/founder.jpg"
+                      alt="Taufiq Rashid, Founder of MusTech Group"
+                      fill
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 460px"
+                      className="object-cover object-[center_20%]"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] mb-1">
-                    Founder &amp; Data Analytics Lead
-                  </p>
-                  <h2 className="font-brand text-3xl sm:text-4xl font-bold text-[var(--color-primary-dark)]">
-                    Taufiq Rashid
-                  </h2>
-                </div>
-              </div>
 
-              <div className="space-y-4 text-base text-[var(--color-primary-dark)]/80 leading-relaxed max-w-4xl">
-                <p>
-                  Taufiq brings over a decade of enterprise data analytics and strategic leadership across global institutions, currently driving regional data initiatives across APAC at WPP Media alongside prior experience at Google, LVMH (Sephora), and OCBC Bank.
-                </p>
-                <p>
-                  Combining deep experience in large-scale analytics with commercial business strategy, he founded MusTech Group to build mission-driven software that solves civic and community challenges. He is also an academic consultant across Singapore Management University (SMU), ESSEC Business School, the University of Hong Kong (HKU), and City University of Hong Kong (CityU).
-                </p>
-              </div>
+                {/* Editorial Bio & Credentials */}
+                <div className="lg:col-span-7 flex flex-col justify-between">
+                  <div>
+                    <div className="pb-6 border-b border-black/10 mb-6">
+                      <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] mb-2">
+                        Founder &amp; Data Analytics Lead
+                      </p>
+                      <h2 className="font-brand text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary-dark)] tracking-tight">
+                        Taufiq Rashid
+                      </h2>
+                    </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-black/10 pt-6 mt-8 text-sm text-[var(--color-primary-dark)]/75">
-                <div>
-                  <p className="font-semibold text-[var(--color-primary-dark)] mb-1">
-                    Enterprise Leadership
-                  </p>
-                  <p>WPP Media · Google · LVMH · OCBC Bank</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-[var(--color-primary-dark)] mb-1">
-                    Academic Affiliations
-                  </p>
-                  <p>SMU · ESSEC Business School · HKU · CityU</p>
+                    <div className="space-y-4 text-base text-[var(--color-primary-dark)]/85 leading-relaxed">
+                      <p>
+                        Taufiq brings over a decade of enterprise data analytics and strategic leadership across global institutions, currently driving regional data initiatives across APAC at WPP Media alongside prior experience at Google, LVMH (Sephora), and OCBC Bank.
+                      </p>
+                      <p>
+                        Combining deep experience in large-scale analytics with commercial business strategy, he founded MusTech Group to build mission-driven software that solves civic and community challenges across Singapore.
+                      </p>
+                      <p>
+                        He teaches the autonomous multi-agent operating systems used to build and run MusTech Group in <strong>MusTech Jumpstart</strong>, translating complex production AI workflows into pragmatic outcomes for founders.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-black/10 pt-6 mt-8 text-sm">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] mb-1.5">
+                        Enterprise Leadership
+                      </p>
+                      <p className="font-medium text-[var(--color-primary-dark)] leading-relaxed">
+                        WPP Media · Google · LVMH · OCBC Bank
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] mb-1.5">
+                        Academic Consultant
+                      </p>
+                      <p className="font-medium text-[var(--color-primary-dark)] leading-relaxed">
+                        SMU · ESSEC Business School · HKU · CityU
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
