@@ -104,18 +104,19 @@ export default function AboutPage() {
             </p>
           </Reveal>
 
-          {/* 1. Operating Model & Governance (Beefed-Up 01 · Solo Founder + AI Agents) */}
+          {/* 1. Operating Model & Governance: Homogeneous Presentation with Mobile Swipe Boxes */}
           <Reveal delayMs={80} className="mb-12">
             <div
               id="governance"
-              className="editorial-panel bg-white border border-black/10 p-8 sm:p-10 lg:p-12 scroll-mt-28"
+              className="editorial-panel bg-white border border-black/10 p-5 sm:p-10 lg:p-12 scroll-mt-28"
             >
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 mb-8 border-b border-black/10">
+              {/* Top Banner Header */}
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 mb-10 border-b border-black/10">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-1.5">
-                    Autonomous Engineering &amp; Guardrails
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] mb-1.5">
+                    Autonomous Engineering &amp; Operating Model
                   </p>
-                  <h2 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)]">
+                  <h2 className="font-brand text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-primary-dark)]">
                     Built with Antigravity &amp; Claude
                   </h2>
                 </div>
@@ -128,92 +129,208 @@ export default function AboutPage() {
                 </Link>
               </div>
 
-              {/* Beefed-Up Feature Block: 01 · Solo Founder + AI Agents */}
-              <div className="bg-[var(--brand-bg)]/60 border border-black/10 p-6 sm:p-8 lg:p-10 mb-8">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                  <div className="lg:col-span-5">
-                    <span className="inline-block text-xs font-bold uppercase tracking-widest text-[var(--color-primary)] mb-2">
-                      The Solo Founder OS
+              {/* Subsection A: The 4 Operating Model Checkpoints */}
+              <div className="mb-12">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] block">
+                      Operating Checkpoints
                     </span>
-                    <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] mb-4">
-                      01 · Solo Founder + AI Agents
+                    <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mt-1">
+                      Multi-Agent Fleet Guardrails
                     </h3>
-                    <p className="text-sm sm:text-base text-[var(--color-primary-dark)]/85 leading-relaxed mb-4">
-                      MusTech Group operates <strong>Saalihat</strong>, <strong>jenazah.sg</strong>, <strong>TaraBase</strong>, and <strong>MusTech Jumpstart</strong> with one founder directing a coordinated fleet of AI agents inside <strong>Google Antigravity</strong> and <strong>Claude</strong>.
-                    </p>
-                    <p className="text-sm sm:text-base text-[var(--color-primary-dark)]/80 leading-relaxed">
-                      Rather than treating AI as a chatbot, our workspace is wired as an autonomous engineering and operations organisation where agents execute specialised roles under strict architectural laws, and every release decision routes back to the founder.
-                    </p>
                   </div>
+                  <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/70 max-w-md">
+                    Specialised AI agents execute parallel tasks under four non-negotiable architectural gates.
+                  </p>
+                </div>
 
-                  <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="bg-white border border-black/10 p-5">
+                {/* 4 Cards: Swipeable Track on Mobile (< md:), 4-Col Grid on Desktop (md:+) */}
+                <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 touch-pan-x items-stretch">
+                  {/* Card 1 */}
+                  <div className="bg-[var(--brand-bg)]/50 border border-black/10 p-5 sm:p-6 flex flex-col justify-between w-[78vw] max-w-[280px] md:w-auto md:max-w-none shrink-0 snap-start md:shrink">
+                    <div>
+                      <div className="flex items-center justify-between pb-3 mb-3 border-b border-black/10">
+                        <span className="font-brand text-lg font-bold text-[var(--color-primary)]">
+                          01
+                        </span>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
+                          Fleet
+                        </span>
+                      </div>
                       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] mb-2">
                         <CheckCircle2 className="w-4 h-4 shrink-0" />
-                        <span>Multi-Agent Role Separation</span>
+                        <span>Role Separation</span>
                       </div>
-                      <p className="text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
                         Dedicated agents handle full-stack TypeScript and SQL development, mosque poster OCR pipelines, UI performance audits, and adversarial security testing in parallel.
                       </p>
                     </div>
+                  </div>
 
-                    <div className="bg-white border border-black/10 p-5">
+                  {/* Card 2 */}
+                  <div className="bg-[var(--brand-bg)]/50 border border-black/10 p-5 sm:p-6 flex flex-col justify-between w-[78vw] max-w-[280px] md:w-auto md:max-w-none shrink-0 snap-start md:shrink">
+                    <div>
+                      <div className="flex items-center justify-between pb-3 mb-3 border-b border-black/10">
+                        <span className="font-brand text-lg font-bold text-[var(--color-primary)]">
+                          02
+                        </span>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
+                          Gates
+                        </span>
+                      </div>
                       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] mb-2">
                         <CheckCircle2 className="w-4 h-4 shrink-0" />
-                        <span>4-Stage Production Gates</span>
+                        <span>4-Stage Gates</span>
                       </div>
-                      <p className="text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
-                        Every feature passes four mandatory checkpoints: Schema &amp; Failure Contract, Database-Enforced Rules, Defensive Implementation, and an Adversarial Audit before shipping.
+                      <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
+                        Every feature passes four mandatory checkpoints: Schema Contract, Database-Enforced Rules, Defensive Implementation, and Adversarial Audit before shipping.
                       </p>
                     </div>
+                  </div>
 
-                    <div className="bg-white border border-black/10 p-5">
+                  {/* Card 3 */}
+                  <div className="bg-[var(--brand-bg)]/50 border border-black/10 p-5 sm:p-6 flex flex-col justify-between w-[78vw] max-w-[280px] md:w-auto md:max-w-none shrink-0 snap-start md:shrink">
+                    <div>
+                      <div className="flex items-center justify-between pb-3 mb-3 border-b border-black/10">
+                        <span className="font-brand text-lg font-bold text-[var(--color-primary)]">
+                          03
+                        </span>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
+                          Isolation
+                        </span>
+                      </div>
                       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] mb-2">
                         <CheckCircle2 className="w-4 h-4 shrink-0" />
-                        <span>Strict Workspace Isolation</span>
+                        <span>Workspace Isolation</span>
                       </div>
-                      <p className="text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
-                        Hard routing laws separate internal operations consoles from public websites, ensuring an agent working on internal tooling can never accidentally deploy to a public domain.
+                      <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
+                        Hard routing laws separate internal operations consoles from public websites, ensuring an agent working on internal tooling can never deploy to a public domain.
                       </p>
                     </div>
+                  </div>
 
-                    <div className="bg-white border border-black/10 p-5">
+                  {/* Card 4 */}
+                  <div className="bg-[var(--brand-bg)]/50 border border-black/10 p-5 sm:p-6 flex flex-col justify-between w-[78vw] max-w-[280px] md:w-auto md:max-w-none shrink-0 snap-start md:shrink">
+                    <div>
+                      <div className="flex items-center justify-between pb-3 mb-3 border-b border-black/10">
+                        <span className="font-brand text-lg font-bold text-[var(--color-primary)]">
+                          04
+                        </span>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
+                          Amanah
+                        </span>
+                      </div>
                       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] mb-2">
                         <CheckCircle2 className="w-4 h-4 shrink-0" />
-                        <span>Founder-in-the-Loop Sign-Off</span>
+                        <span>Founder Sign-Off</span>
                       </div>
-                      <p className="text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
                         Agents prepare database migrations, code diffs, and verified event queues, while final production deployments, schema changes, and speaker merges require explicit founder approval.
                       </p>
                     </div>
                   </div>
                 </div>
+
+                {/* Mobile swipe helper */}
+                <div className="flex md:hidden items-center justify-between mt-2 pt-2 border-t border-black/10 text-xs text-[var(--color-primary-dark)]/60">
+                  <span className="font-medium text-[var(--color-primary)]">Checkpoints 01 - 04</span>
+                  <span>Swipe horizontally →</span>
+                </div>
               </div>
 
-              {/* Companion Governance Pillars: 02 & 03 */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm sm:text-base text-[var(--color-primary-dark)]/80 leading-relaxed">
-                <div className="border border-black/10 p-6 sm:p-8 bg-white">
-                  <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
-                    02 · Human-Verified Religious &amp; Civic Data
-                  </h3>
-                  <p className="mb-3">
-                    AI is never allowed to guess religious scholars, mosque schedules, or emergency bereavement contacts. In Saalihat, extracted mosque event posters are cross-checked against Singapore&apos;s Asatizah Recognition Scheme (ARS) directory before going live.
-                  </p>
-                  <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/70">
-                    Uncertain speaker matches are held in an admin review queue with full audit snapshots, and missing contact details are stored as blank rather than filled with placeholder text.
+              {/* Subsection B: The 3 Core Governance Pillars */}
+              <div>
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] block">
+                      Governance Pillars
+                    </span>
+                    <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mt-1">
+                      Three Immutable Standards
+                    </h3>
+                  </div>
+                  <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/70 max-w-md">
+                    How we safeguard community trust, religious data sanctity, and legal compliance across all properties.
                   </p>
                 </div>
 
-                <div className="border border-black/10 p-6 sm:p-8 bg-white">
-                  <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
-                    03 · PDPA Stewardship &amp; Cost Discipline
-                  </h3>
-                  <p className="mb-3">
-                    We adhere strictly to the Singapore Personal Data Protection Act (PDPA) with zero third-party advertising SDKs, row-level database security on every multi-tenant table, and local-first device storage wherever possible.
-                  </p>
-                  <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/70">
-                    Before invoking any AI vision or language model, our pipelines run deterministic lookups and SHA-256 optical hash caches so we never repeat paid API calls or waste compute.
-                  </p>
+                {/* 3 Homogeneous Pillar Cards: Swipeable Track on Mobile (< md:), 3-Col Grid on Desktop (md:+) */}
+                <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 touch-pan-x items-stretch">
+                  {/* Pillar 01 */}
+                  <div className="bg-[var(--brand-bg)]/40 border border-black/10 p-5 sm:p-6 flex flex-col justify-between w-[78vw] max-w-[300px] md:w-auto md:max-w-none shrink-0 snap-start md:shrink">
+                    <div>
+                      <div className="pb-3 mb-3 border-b border-black/10 flex items-center justify-between">
+                        <span className="font-brand text-lg font-bold text-[var(--color-primary)]">
+                          01
+                        </span>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
+                          Solo Founder OS
+                        </span>
+                      </div>
+                      <h4 className="font-brand text-lg sm:text-xl font-bold text-[var(--color-primary-dark)] mb-2.5">
+                        Coordinated AI Fleet
+                      </h4>
+                      <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed mb-3">
+                        MusTech Group operates <strong>Saalihat</strong>, <strong>jenazah.sg</strong>, <strong>TaraBase</strong>, and <strong>MusTech Jumpstart</strong> with one founder directing specialised AI agents inside <strong>Google Antigravity</strong> and <strong>Claude</strong>.
+                      </p>
+                      <p className="text-xs text-[var(--color-primary-dark)]/70 leading-relaxed">
+                        Rather than treating AI as a conversational toy, our workspace operates as an autonomous engineering collective under strict architectural laws where every release decision routes back to the founder.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Pillar 02 */}
+                  <div className="bg-[var(--brand-bg)]/40 border border-black/10 p-5 sm:p-6 flex flex-col justify-between w-[78vw] max-w-[300px] md:w-auto md:max-w-none shrink-0 snap-start md:shrink">
+                    <div>
+                      <div className="pb-3 mb-3 border-b border-black/10 flex items-center justify-between">
+                        <span className="font-brand text-lg font-bold text-[var(--color-primary)]">
+                          02
+                        </span>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
+                          Data Sanctity
+                        </span>
+                      </div>
+                      <h4 className="font-brand text-lg sm:text-xl font-bold text-[var(--color-primary-dark)] mb-2.5">
+                        Human-Verified Civic Data
+                      </h4>
+                      <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed mb-3">
+                        AI is never allowed to guess religious scholars, mosque schedules, or emergency bereavement contacts. Extracted mosque event posters are cross-checked against Singapore&apos;s Asatizah Recognition Scheme (ARS) directory before going live.
+                      </p>
+                      <p className="text-xs text-[var(--color-primary-dark)]/70 leading-relaxed">
+                        Uncertain speaker matches are held in an admin review queue with full audit snapshots, and missing contact details are stored as blank rather than filled with synthetic placeholder text.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Pillar 03 */}
+                  <div className="bg-[var(--brand-bg)]/40 border border-black/10 p-5 sm:p-6 flex flex-col justify-between w-[78vw] max-w-[300px] md:w-auto md:max-w-none shrink-0 snap-start md:shrink">
+                    <div>
+                      <div className="pb-3 mb-3 border-b border-black/10 flex items-center justify-between">
+                        <span className="font-brand text-lg font-bold text-[var(--color-primary)]">
+                          03
+                        </span>
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
+                          Legal &amp; Cost
+                        </span>
+                      </div>
+                      <h4 className="font-brand text-lg sm:text-xl font-bold text-[var(--color-primary-dark)] mb-2.5">
+                        PDPA &amp; Cost Discipline
+                      </h4>
+                      <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed mb-3">
+                        We adhere strictly to the Singapore Personal Data Protection Act (PDPA) with zero third-party advertising SDKs, row-level database security on every multi-tenant table, and local-first device storage wherever possible.
+                      </p>
+                      <p className="text-xs text-[var(--color-primary-dark)]/70 leading-relaxed">
+                        Before invoking any AI vision or language model, our pipelines run deterministic lookups and SHA-256 optical hash caches so we never repeat paid API calls or waste compute.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile swipe helper */}
+                <div className="flex md:hidden items-center justify-between mt-2 pt-2 border-t border-black/10 text-xs text-[var(--color-primary-dark)]/60">
+                  <span className="font-medium text-[var(--color-primary)]">Governance Pillars 01 - 03</span>
+                  <span>Swipe horizontally →</span>
                 </div>
               </div>
             </div>
@@ -223,7 +340,7 @@ export default function AboutPage() {
           <Reveal delayMs={140} className="mb-20">
             <div
               id="credentials"
-              className="editorial-panel bg-white border border-black/10 p-8 sm:p-10 lg:p-12 scroll-mt-28"
+              className="editorial-panel bg-white border border-black/10 p-5 sm:p-10 lg:p-12 scroll-mt-28"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
                 {/* Large Dignified Portrait */}

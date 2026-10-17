@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/seo/JsonLd";
@@ -120,14 +120,167 @@ export default function PortfolioPage() {
         </section>
 
         {/* Deep-Dive Product Directory */}
-        <section className="pb-24 space-y-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+        <section className="pb-20 sm:pb-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Quick-Jump Platform Navigation */}
+            <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-4 mb-6 sm:mb-12 border-b border-black/10">
+              <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary-dark)]/50 shrink-0 mr-1">
+                Platforms:
+              </span>
+              <a
+                href="#saalihat"
+                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0e1117] text-[#d5ad5b] shrink-0 hover:opacity-90 transition-opacity"
+              >
+                Saalihat
+              </a>
+              <a
+                href="#jenazah-deep-dive"
+                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#4A5D3F] text-white shrink-0 hover:opacity-90 transition-opacity"
+              >
+                jenazah.sg
+              </a>
+              <a
+                href="#tarabase-deep-dive"
+                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#814038] text-white shrink-0 hover:opacity-90 transition-opacity"
+              >
+                TaraBase
+              </a>
+              <Link
+                href="/jumpstart"
+                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-black/5 text-[var(--color-primary-dark)] shrink-0 hover:bg-black/10 transition-colors"
+              >
+                MusTech Jumpstart
+              </Link>
+            </div>
+
+            {/* Mobile Platform Overview Swipe Deck (Swipe Boxes across all 4 platforms) */}
+            <div className="block lg:hidden mb-10">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                  Ecosystem Overview
+                </span>
+                <span className="text-xs text-[var(--color-primary-dark)]/60">
+                  Swipe platforms →
+                </span>
+              </div>
+              <div className="flex gap-3.5 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-2 -mx-4 px-4 touch-pan-x">
+                {/* Saalihat Card */}
+                <a
+                  href="#saalihat"
+                  className="bg-[#0e1117] text-white p-5 rounded-xl border border-white/10 w-[78vw] max-w-[280px] shrink-0 snap-start flex flex-col justify-between shadow-md"
+                >
+                  <div>
+                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#d5ad5b] bg-[#d5ad5b]/15 px-2 py-0.5 rounded">
+                        Mobile Platform
+                      </span>
+                      <span className="text-[11px] font-semibold text-white/60">01 / 04</span>
+                    </div>
+                    <div className="flex items-center gap-3 mb-2.5">
+                      <Image
+                        src="/saalihat/logo.jpg"
+                        alt="Saalihat"
+                        width={36}
+                        height={36}
+                        className="rounded-lg ring-1 ring-white/20"
+                      />
+                      <span className="font-brand text-xl font-bold text-white">Saalihat</span>
+                    </div>
+                    <p className="text-xs text-[#fdfaf0]/75 leading-relaxed">
+                      Verified mosque lecture schedules and Kuliah directory. Fast, local-first, ARS-checked.
+                    </p>
+                  </div>
+                  <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-[#d5ad5b]">
+                    <span>Inspect Walkthrough</span>
+                    <ArrowDown className="w-3.5 h-3.5" />
+                  </div>
+                </a>
+
+                {/* jenazah.sg Card */}
+                <a
+                  href="#jenazah-deep-dive"
+                  className="bg-white text-[var(--color-primary-dark)] p-5 rounded-xl border border-black/10 w-[78vw] max-w-[280px] shrink-0 snap-start flex flex-col justify-between shadow-md"
+                >
+                  <div>
+                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-black/10">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#4A5D3F] bg-[#4A5D3F]/10 px-2 py-0.5 rounded">
+                        Civic Utility
+                      </span>
+                      <span className="text-[11px] font-semibold text-[var(--color-primary-dark)]/60">02 / 04</span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-2.5">
+                      <span className="font-brand text-xl font-bold text-[#4A5D3F]">jenazah.sg</span>
+                    </div>
+                    <p className="text-xs text-[var(--color-primary-dark)]/75 leading-relaxed">
+                      Stateless grief navigation and live funeral coordination link with WhatsApp notices.
+                    </p>
+                  </div>
+                  <div className="pt-3 mt-3 border-t border-black/10 flex items-center justify-between text-xs font-semibold text-[#4A5D3F]">
+                    <span>Inspect Walkthrough</span>
+                    <ArrowDown className="w-3.5 h-3.5" />
+                  </div>
+                </a>
+
+                {/* TaraBase Card */}
+                <a
+                  href="#tarabase-deep-dive"
+                  className="bg-white text-[var(--color-primary-dark)] p-5 rounded-xl border border-black/10 w-[78vw] max-w-[280px] shrink-0 snap-start flex flex-col justify-between shadow-md"
+                >
+                  <div>
+                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-black/10">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#814038] bg-[#814038]/10 px-2 py-0.5 rounded">
+                        Commerce OS
+                      </span>
+                      <span className="text-[11px] font-semibold text-[var(--color-primary-dark)]/60">03 / 04</span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-2.5">
+                      <span className="font-brand text-xl font-bold text-[#814038]">TaraBase</span>
+                    </div>
+                    <p className="text-xs text-[var(--color-primary-dark)]/75 leading-relaxed">
+                      Zero-commission pre-orders and offline PayNow QR counter for small-batch kitchens.
+                    </p>
+                  </div>
+                  <div className="pt-3 mt-3 border-t border-black/10 flex items-center justify-between text-xs font-semibold text-[#814038]">
+                    <span>Inspect Walkthrough</span>
+                    <ArrowDown className="w-3.5 h-3.5" />
+                  </div>
+                </a>
+
+                {/* MusTech Jumpstart Card */}
+                <Link
+                  href="/jumpstart"
+                  className="bg-[var(--brand-bg)] text-[var(--color-primary-dark)] p-5 rounded-xl border border-black/10 w-[78vw] max-w-[280px] shrink-0 snap-start flex flex-col justify-between shadow-md"
+                >
+                  <div>
+                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-black/10">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-primary)] bg-[var(--color-primary)]/10 px-2 py-0.5 rounded">
+                        Masterclass
+                      </span>
+                      <span className="text-[11px] font-semibold text-[var(--color-primary-dark)]/60">04 / 04</span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-2.5">
+                      <span className="font-brand text-xl font-bold text-[var(--color-primary-dark)]">Jumpstart</span>
+                    </div>
+                    <p className="text-xs text-[var(--color-primary-dark)]/75 leading-relaxed">
+                      Executive masterclass teaching founders how to run multi-agent software operations.
+                    </p>
+                  </div>
+                  <div className="pt-3 mt-3 border-t border-black/10 flex items-center justify-between text-xs font-semibold text-[var(--color-primary)]">
+                    <span>Explore Masterclass</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-24">
 
             {/* 01. Saalihat Interactive Walkthrough (Solid Dark #0e1117 Stage + Animated GIF/Video + Both Store Links) */}
             <Reveal>
               <div
                 id="saalihat"
-                className="bg-[#0e1117] text-white border border-black/15 p-8 sm:p-10 lg:p-12 scroll-mt-28 relative overflow-hidden"
+                className="bg-[#0e1117] text-white border border-black/15 p-5 sm:p-10 lg:p-12 scroll-mt-28 relative overflow-hidden"
               >
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
                   <div className="lg:col-span-4 flex flex-col justify-between space-y-8">
@@ -224,97 +377,105 @@ export default function PortfolioPage() {
                     </div>
                   </div>
 
-                  {/* Right 8 Columns: Aligned 3-Step Cards with Large Top Step Headers + Crisp Native Retina Screens */}
-                  <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-6 items-stretch">
-                    {/* 01. Live Animated Boomerang GIF/Video */}
-                    <div className="group bg-[#151922] border border-white/15 hover:border-[#d5ad5b]/50 p-5 flex flex-col justify-between transition-colors duration-300">
-                      <div className="pb-4 mb-4 border-b border-white/10 min-h-[7.5rem]">
-                        <div className="flex items-baseline gap-2.5 mb-1.5">
-                          <span className="font-brand text-2xl font-bold text-[#d5ad5b] leading-none">
-                            01
-                          </span>
-                          <h3 className="font-brand text-lg font-bold text-white leading-snug">
-                            Live Feed
-                          </h3>
+                  {/* Right 8 Columns: Aligned 3-Step Cards (Swipeable on Mobile, 3-Col Grid on Desktop) */}
+                  <div className="lg:col-span-8">
+                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-6 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 touch-pan-x">
+                      {/* 01. Live Animated Boomerang GIF/Video */}
+                      <div className="group bg-[#151922] border border-white/15 hover:border-[#d5ad5b]/50 p-5 flex flex-col justify-between transition-colors duration-300 w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                        <div className="pb-4 mb-4 border-b border-white/10 min-h-0 sm:min-h-[7.5rem]">
+                          <div className="flex items-baseline gap-2.5 mb-1.5">
+                            <span className="font-brand text-2xl font-bold text-[#d5ad5b] leading-none">
+                              01
+                            </span>
+                            <h3 className="font-brand text-lg font-bold text-white leading-snug">
+                              Live Feed
+                            </h3>
+                          </div>
+                          <p className="text-sm text-[#fdfaf0]/75 leading-relaxed">
+                            Browse verified mosque events, lecture times, and prayer halls in real time.
+                          </p>
                         </div>
-                        <p className="text-sm text-[#fdfaf0]/75 leading-relaxed">
-                          Browse verified mosque events, lecture times, and prayer halls in real time.
-                        </p>
+                        <div className="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10">
+                          <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="metadata"
+                            poster="/saalihat/clean-screen-1.png"
+                            className="w-full h-full object-contain block"
+                          >
+                            <source src="/saalihat/saalihat_boomerang.webm" type="video/webm" />
+                            <source src="/saalihat/saalihat_boomerang.mp4" type="video/mp4" />
+                            <Image
+                              src="/saalihat/saalihat_boomerang.gif"
+                              alt="Saalihat App Live Animated Walkthrough"
+                              fill
+                              sizes="(max-width: 640px) 90vw, 260px"
+                              className="object-contain"
+                              unoptimized
+                            />
+                          </video>
+                        </div>
                       </div>
-                      <div className="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10">
-                        <video
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          preload="metadata"
-                          poster="/saalihat/clean-screen-1.png"
-                          className="w-full h-full object-contain block"
-                        >
-                          <source src="/saalihat/saalihat_boomerang.webm" type="video/webm" />
-                          <source src="/saalihat/saalihat_boomerang.mp4" type="video/mp4" />
+
+                      {/* 02. Mosque & Event Directory (Clean Retina Crop - Masjid Sultan) */}
+                      <div className="group bg-[#151922] border border-white/15 hover:border-[#d5ad5b]/50 p-5 flex flex-col justify-between transition-colors duration-300 w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                        <div className="pb-4 mb-4 border-b border-white/10 min-h-0 sm:min-h-[7.5rem]">
+                          <div className="flex items-baseline gap-2.5 mb-1.5">
+                            <span className="font-brand text-2xl font-bold text-[#d5ad5b] leading-none">
+                              02
+                            </span>
+                            <h3 className="font-brand text-lg font-bold text-white leading-snug">
+                              Mosque Directory
+                            </h3>
+                          </div>
+                          <p className="text-sm text-[#fdfaf0]/75 leading-relaxed">
+                            Inspect mosque schedules, verified locations, and upcoming lectures by venue.
+                          </p>
+                        </div>
+                        <div className="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10">
                           <Image
-                            src="/saalihat/saalihat_boomerang.gif"
-                            alt="Saalihat App Live Animated Walkthrough"
+                            src="/saalihat/clean-screen-2.png"
+                            alt="Saalihat Mosque Details View"
                             fill
                             sizes="(max-width: 640px) 90vw, 260px"
-                            className="object-contain"
-                            unoptimized
+                            className="object-contain object-top"
                           />
-                        </video>
+                        </div>
+                      </div>
+
+                      {/* 03. Structured Topic & Category Filter (Clean Retina Crop) */}
+                      <div className="group bg-[#151922] border border-white/15 hover:border-[#d5ad5b]/50 p-5 flex flex-col justify-between transition-colors duration-300 w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                        <div className="pb-4 mb-4 border-b border-white/10 min-h-0 sm:min-h-[7.5rem]">
+                          <div className="flex items-baseline gap-2.5 mb-1.5">
+                            <span className="font-brand text-2xl font-bold text-[#d5ad5b] leading-none">
+                              03
+                            </span>
+                            <h3 className="font-brand text-lg font-bold text-white leading-snug">
+                              Topic Taxonomy
+                            </h3>
+                          </div>
+                          <p className="text-sm text-[#fdfaf0]/75 leading-relaxed">
+                            Filter by Fiqh &amp; Aqidah, Seerah, Tasawwuf, or weekly Kuliah classes.
+                          </p>
+                        </div>
+                        <div className="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10">
+                          <Image
+                            src="/saalihat/clean-screen-3.png"
+                            alt="Saalihat Topic and Category Taxonomy Filter"
+                            fill
+                            sizes="(max-width: 640px) 90vw, 260px"
+                            className="object-contain object-top"
+                          />
+                        </div>
                       </div>
                     </div>
 
-                    {/* 02. Mosque & Event Directory (Clean Retina Crop — Masjid Sultan) */}
-                    <div className="group bg-[#151922] border border-white/15 hover:border-[#d5ad5b]/50 p-5 flex flex-col justify-between transition-colors duration-300">
-                      <div className="pb-4 mb-4 border-b border-white/10 min-h-[7.5rem]">
-                        <div className="flex items-baseline gap-2.5 mb-1.5">
-                          <span className="font-brand text-2xl font-bold text-[#d5ad5b] leading-none">
-                            02
-                          </span>
-                          <h3 className="font-brand text-lg font-bold text-white leading-snug">
-                            Mosque Directory
-                          </h3>
-                        </div>
-                        <p className="text-sm text-[#fdfaf0]/75 leading-relaxed">
-                          Inspect mosque schedules, verified locations, and upcoming lectures by venue.
-                        </p>
-                      </div>
-                      <div className="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10">
-                        <Image
-                          src="/saalihat/clean-screen-2.png"
-                          alt="Saalihat Mosque Details View"
-                          fill
-                          sizes="(max-width: 640px) 90vw, 260px"
-                          className="object-contain object-top"
-                        />
-                      </div>
-                    </div>
-
-                    {/* 03. Structured Topic & Category Filter (Clean Retina Crop) */}
-                    <div className="group bg-[#151922] border border-white/15 hover:border-[#d5ad5b]/50 p-5 flex flex-col justify-between transition-colors duration-300">
-                      <div className="pb-4 mb-4 border-b border-white/10 min-h-[7.5rem]">
-                        <div className="flex items-baseline gap-2.5 mb-1.5">
-                          <span className="font-brand text-2xl font-bold text-[#d5ad5b] leading-none">
-                            03
-                          </span>
-                          <h3 className="font-brand text-lg font-bold text-white leading-snug">
-                            Topic Taxonomy
-                          </h3>
-                        </div>
-                        <p className="text-sm text-[#fdfaf0]/75 leading-relaxed">
-                          Filter by Fiqh &amp; Aqidah, Seerah, Tasawwuf, or weekly Kuliah classes.
-                        </p>
-                      </div>
-                      <div className="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10">
-                        <Image
-                          src="/saalihat/clean-screen-3.png"
-                          alt="Saalihat Topic and Category Taxonomy Filter"
-                          fill
-                          sizes="(max-width: 640px) 90vw, 260px"
-                          className="object-contain object-top"
-                        />
-                      </div>
+                    {/* Mobile swipe helper */}
+                    <div className="flex sm:hidden items-center justify-between mt-2 pt-2 border-t border-white/10 text-xs text-[#fdfaf0]/60">
+                      <span className="font-medium text-[#d5ad5b]">Walkthrough Screens 01 - 03</span>
+                      <span>Swipe horizontally →</span>
                     </div>
                   </div>
                 </div>
@@ -325,7 +486,7 @@ export default function PortfolioPage() {
             <Reveal>
               <div
                 id="jenazah-deep-dive"
-                className="editorial-panel bg-white border border-black/10 p-8 sm:p-10 lg:p-12 scroll-mt-28"
+                className="editorial-panel bg-white border border-black/10 p-5 sm:p-10 lg:p-12 scroll-mt-28"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
                   <div className="lg:col-span-4 flex flex-col justify-between space-y-8">
@@ -393,9 +554,10 @@ export default function PortfolioPage() {
                       </video>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 items-stretch">
-                      <div className="border border-black/10 bg-[#FDFCF8] p-5 flex flex-col justify-between">
-                        <div className="pb-4 mb-4 border-b border-black/10 min-h-[7.5rem]">
+                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-5 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 touch-pan-x">
+                      {/* Step 1 */}
+                      <div className="border border-black/10 bg-[#FDFCF8] p-5 flex flex-col justify-between w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                        <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[7.5rem]">
                           <div className="flex items-baseline gap-2.5 mb-1.5">
                             <span className="font-brand text-2xl font-bold text-[#4A5D3F] leading-none">
                               01
@@ -419,8 +581,9 @@ export default function PortfolioPage() {
                         </div>
                       </div>
 
-                      <div className="border border-black/10 bg-[#FDFCF8] p-5 flex flex-col justify-between">
-                        <div className="pb-4 mb-4 border-b border-black/10 min-h-[7.5rem]">
+                      {/* Step 2 */}
+                      <div className="border border-black/10 bg-[#FDFCF8] p-5 flex flex-col justify-between w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                        <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[7.5rem]">
                           <div className="flex items-baseline gap-2.5 mb-1.5">
                             <span className="font-brand text-2xl font-bold text-[#4A5D3F] leading-none">
                               02
@@ -444,8 +607,9 @@ export default function PortfolioPage() {
                         </div>
                       </div>
 
-                      <div className="border border-black/10 bg-[#FDFCF8] p-5 flex flex-col justify-between">
-                        <div className="pb-4 mb-4 border-b border-black/10 min-h-[7.5rem]">
+                      {/* Step 3 */}
+                      <div className="border border-black/10 bg-[#FDFCF8] p-5 flex flex-col justify-between w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                        <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[7.5rem]">
                           <div className="flex items-baseline gap-2.5 mb-1.5">
                             <span className="font-brand text-2xl font-bold text-[#4A5D3F] leading-none">
                               03
@@ -469,6 +633,12 @@ export default function PortfolioPage() {
                         </div>
                       </div>
                     </div>
+
+                    {/* Mobile swipe helper */}
+                    <div className="flex sm:hidden items-center justify-between mt-2 pt-2 border-t border-black/10 text-xs text-[var(--color-primary-dark)]/60">
+                      <span className="font-medium text-[#4A5D3F]">Rites Flow Steps 01 - 03</span>
+                      <span>Swipe horizontally →</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -478,7 +648,7 @@ export default function PortfolioPage() {
             <Reveal>
               <div
                 id="tarabase-deep-dive"
-                className="editorial-panel bg-white border border-black/10 p-8 sm:p-10 lg:p-12 scroll-mt-28"
+                className="editorial-panel bg-white border border-black/10 p-5 sm:p-10 lg:p-12 scroll-mt-28"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
                   <div className="lg:col-span-4 flex flex-col justify-between space-y-8">
@@ -547,9 +717,10 @@ export default function PortfolioPage() {
                       </video>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-stretch">
-                      <div className="border border-black/10 bg-[#FAF8F5] p-5 flex flex-col justify-between">
-                        <div className="pb-4 mb-4 border-b border-black/10 min-h-[6.5rem]">
+                    <div className="flex sm:grid sm:grid-cols-2 gap-4 sm:gap-5 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 touch-pan-x">
+                      {/* Module 1 */}
+                      <div className="border border-black/10 bg-[#FAF8F5] p-5 flex flex-col justify-between w-[78vw] max-w-[300px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                        <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[6.5rem]">
                           <div className="flex items-baseline gap-2.5 mb-1.5">
                             <span className="font-brand text-2xl font-bold text-[#814038] leading-none">
                               01
@@ -573,8 +744,9 @@ export default function PortfolioPage() {
                         </div>
                       </div>
 
-                      <div className="border border-black/10 bg-[#FAF8F5] p-5 flex flex-col justify-between">
-                        <div className="pb-4 mb-4 border-b border-black/10 min-h-[6.5rem]">
+                      {/* Module 2 */}
+                      <div className="border border-black/10 bg-[#FAF8F5] p-5 flex flex-col justify-between w-[78vw] max-w-[300px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                        <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[6.5rem]">
                           <div className="flex items-baseline gap-2.5 mb-1.5">
                             <span className="font-brand text-2xl font-bold text-[#814038] leading-none">
                               02
@@ -597,6 +769,12 @@ export default function PortfolioPage() {
                           />
                         </div>
                       </div>
+                    </div>
+
+                    {/* Mobile swipe helper */}
+                    <div className="flex sm:hidden items-center justify-between mt-2 pt-2 border-t border-black/10 text-xs text-[var(--color-primary-dark)]/60">
+                      <span className="font-medium text-[#814038]">Kitchen Modules 01 - 02</span>
+                      <span>Swipe horizontally →</span>
                     </div>
                   </div>
                 </div>

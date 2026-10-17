@@ -6,32 +6,6 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
-const CORE_CARDS = [
-  {
-    number: "01",
-    title: "Amanah",
-    subtitle: "Data Sovereignty",
-    invariant: "Zero Ad-SDKs · Local Storage First",
-    summary:
-      "User data stays on your device whenever possible and is never tracked, profiled, or sold.",
-  },
-  {
-    number: "02",
-    title: "Tijarah",
-    subtitle: "Honest Commerce",
-    invariant: "0% Platform Cut · Direct PayNow",
-    summary:
-      "Sustainable software built on fair value exchange, with zero marketplace commissions or dark patterns.",
-  },
-  {
-    number: "03",
-    title: "Mizan",
-    subtitle: "Human Equilibrium",
-    invariant: "Fast Utility · Zero Infinite Feeds",
-    summary:
-      "Quiet tools that deliver the schedule, funeral notice, or order sheet you need and get out of your way.",
-  },
-];
 
 const PRINCIPLES = [
   {
@@ -81,8 +55,8 @@ export default function PhilosophyInteractive() {
 
   return (
     <main id="main-content" className="flex-grow">
-      {/* 1. Top Section: Tayyib Architecture — Standardised on Warm Cream Background */}
-      <section className="pt-28 sm:pt-36 pb-16 sm:pb-20 bg-[var(--brand-bg)] text-[var(--color-primary-dark)] border-b border-black/10">
+      {/* 1. Top Section: Tayyib Architecture Manifesto Header */}
+      <section className="pt-28 sm:pt-36 pb-12 sm:pb-16 bg-[var(--brand-bg)] text-[var(--color-primary-dark)] border-b border-black/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Link */}
           <div className="mb-8">
@@ -96,7 +70,7 @@ export default function PhilosophyInteractive() {
           </div>
 
           {/* Section Header */}
-          <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-6 pb-8 mb-10 border-t border-b border-black/10">
+          <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-6 pb-2 border-t border-black/10">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] mb-2">
                 Tayyib Architecture
@@ -106,56 +80,16 @@ export default function PhilosophyInteractive() {
               </h1>
             </div>
             <p className="text-sm sm:text-base text-[var(--color-primary-dark)]/75 leading-relaxed max-w-xl">
-              Every product we build is governed by foundational commitments around data privacy, commercial honesty, and respect for human attention.
+              Every product we build is governed by foundational commitments around data privacy, commercial honesty, and respect for human attention. Software engineered for utility, dignity, and sacred trust.
             </p>
           </Reveal>
-
-          {/* 3 Core Commitment Cards (Cream Context) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {CORE_CARDS.map((pillar, idx) => (
-              <Reveal
-                key={pillar.title}
-                delayMs={idx * 80}
-                direction="scale"
-                className="h-full"
-              >
-                <div
-                  onMouseEnter={() => setActiveIndex(idx)}
-                  onClick={() => setActiveIndex(idx)}
-                  className="group h-full border border-black/10 bg-white p-7 sm:p-8 flex flex-col justify-between cursor-pointer shadow-sm transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-1.5 hover:border-[var(--color-primary)] hover:shadow-md"
-                >
-                  <div>
-                    <div className="flex items-baseline justify-between pb-4 mb-5 border-b border-black/10">
-                      <span className="font-brand text-2xl font-bold text-[var(--color-primary)]">
-                        {pillar.number}
-                      </span>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60">
-                        {pillar.subtitle}
-                      </span>
-                    </div>
-
-                    <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-2 group-hover:text-[var(--color-primary)] transition-colors">
-                      {pillar.title}
-                    </h2>
-                    <p className="text-sm sm:text-base text-[var(--color-primary-dark)]/80 leading-relaxed mb-6">
-                      {pillar.summary}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-black/10 text-xs font-semibold text-[var(--color-primary)]">
-                    {pillar.invariant}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* 2. Middle Section: Architectural Invariants — Immersive Deep Olive Jewel Section */}
+      {/* 2. Middle Section: Architectural Invariants - Immersive Deep Olive Jewel Section */}
       <section
         id="philosophy"
-        className="py-20 sm:py-28 bg-[#233219] text-[#fdfaf0] border-b border-white/10 shadow-inner scroll-mt-24"
+        className="py-16 sm:py-24 bg-[#233219] text-[#fdfaf0] border-b border-white/10 shadow-inner scroll-mt-24"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -245,7 +179,7 @@ export default function PhilosophyInteractive() {
               </div>
             </Reveal>
 
-            {/* Right List — Interactive Hover Choreography & Pop-Up Reveal */}
+            {/* Right List - Interactive Hover Choreography & Pop-Up Reveal */}
             <div className="lg:col-span-7 divide-y divide-white/15 border-t border-white/15 lg:border-t-0">
               {PRINCIPLES.map((item, idx) => {
                 const isActive = idx === activeIndex;
@@ -307,7 +241,7 @@ export default function PhilosophyInteractive() {
         </div>
       </section>
 
-      {/* 3. Bottom Section: Explore Ecosystem — Standardised on Warm Cream Background */}
+      {/* 3. Bottom Section: Explore Ecosystem - Standardised on Warm Cream Background */}
       <section className="py-16 sm:py-24 bg-[var(--brand-bg)] text-[var(--color-primary-dark)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-10">

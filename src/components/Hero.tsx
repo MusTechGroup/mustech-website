@@ -38,6 +38,7 @@ const HERO_PANELS = [
   {
     key: "saalihat" as BrandKey,
     name: "Saalihat",
+    category: "Mobile Platform",
     subtitle: "Mosque & Lecture Directory",
     href: "#saalihat",
     image: "/editorial/turquoise-dome.jpg",
@@ -52,6 +53,7 @@ const HERO_PANELS = [
   {
     key: "jenazah" as BrandKey,
     name: "jenazah.sg",
+    category: "Civic Utility",
     subtitle: "Bereavement & Funeral Rites",
     href: "#jenazah",
     image: "/editorial/juniper-sage.jpg",
@@ -66,6 +68,7 @@ const HERO_PANELS = [
   {
     key: "tarabase" as BrandKey,
     name: "TaraBase",
+    category: "Commerce OS",
     subtitle: "Small-Batch Kitchen OS",
     href: "#tarabase",
     image: "/editorial/artisanal-batch-counter.jpg",
@@ -80,6 +83,7 @@ const HERO_PANELS = [
   {
     key: "tayyib" as BrandKey,
     name: "Tayyib Architecture",
+    category: "Core Philosophy",
     subtitle: "Amanah · Tijarah · Mizan",
     href: "/philosophy",
     image: "/editorial/cobalt-tile-arch.jpg",
@@ -94,35 +98,15 @@ export default function Hero() {
   const [activeMobileIndex, setActiveMobileIndex] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const mobileContainerRef = useRef<HTMLDivElement>(null);
   const mobileTrackRef = useRef<HTMLDivElement>(null);
-  const isUserTouchingRef = useRef(false);
 
   const currentBrand = BRAND_LOGO_STATES[activeBrand];
 
   useEffect(() => {
     const handleScroll = () => {
-      // 1. Logo docking progress
+      // Logo docking progress into top Navbar on scroll
       const logoProg = Math.min(1, Math.max(0, window.scrollY / 200));
       setScrollProgress(logoProg);
-
-      // 2. Mobile sticky scroll: scrolling down drives horizontal track left-to-right
-      const container = mobileContainerRef.current;
-      const track = mobileTrackRef.current;
-      if (!container || !track) return;
-
-      const rect = container.getBoundingClientRect();
-      const viewportH = window.innerHeight;
-      const totalDist = container.offsetHeight - viewportH;
-      const scrolled = -rect.top + 80;
-
-      if (scrolled >= 0 && scrolled <= totalDist) {
-        const progress = Math.min(1, Math.max(0, scrolled / totalDist));
-        const maxScroll = track.scrollWidth - track.clientWidth;
-        if (!isUserTouchingRef.current && maxScroll > 0) {
-          track.scrollLeft = progress * maxScroll;
-        }
-      }
     };
 
     handleScroll();
@@ -133,21 +117,60 @@ export default function Hero() {
   const handleMobileTrackScroll = () => {
     const track = mobileTrackRef.current;
     if (!track) return;
+    const cards = Array.from(track.children) as HTMLElement[];
+    if (cards.length === 0) return;
+
     const maxScroll = track.scrollWidth - track.clientWidth;
     if (maxScroll <= 0) return;
-    const itemWidth = track.scrollWidth / 4;
-    const idx = Math.min(3, Math.max(0, Math.round(track.scrollLeft / itemWidth)));
-    if (idx !== activeMobileIndex) {
-      setActiveMobileIndex(idx);
-      setActiveBrand(HERO_PANELS[idx].key);
+
+    // Right-edge boundary check
+    if (track.scrollLeft >= maxScroll - 16) {
+      const lastIdx = cards.length - 1;
+      if (lastIdx !== activeMobileIndex) {
+        setActiveMobileIndex(lastIdx);
+        setActiveBrand(HERO_PANELS[lastIdx].key);
+      }
+      return;
+    }
+
+    // Left-edge boundary check
+    if (track.scrollLeft <= 16) {
+      if (activeMobileIndex !== 0) {
+        setActiveMobileIndex(0);
+        setActiveBrand(HERO_PANELS[0].key);
+      }
+      return;
+    }
+
+    const trackCenter = track.scrollLeft + track.clientWidth / 2;
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    cards.forEach((card, idx) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const distance = Math.abs(cardCenter - trackCenter);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = idx;
+      }
+    });
+
+    if (closestIndex !== activeMobileIndex) {
+      setActiveMobileIndex(closestIndex);
+      setActiveBrand(HERO_PANELS[closestIndex].key);
     }
   };
 
   const scrollToMobileCard = (index: number) => {
     const track = mobileTrackRef.current;
     if (!track) return;
-    const itemWidth = track.scrollWidth / 4;
-    track.scrollTo({ left: index * itemWidth, behavior: "smooth" });
+    const cards = Array.from(track.children) as HTMLElement[];
+    const target = cards[index];
+    if (target) {
+      const cardCenter = target.offsetLeft + target.offsetWidth / 2;
+      const targetScrollLeft = cardCenter - track.clientWidth / 2;
+      track.scrollTo({ left: targetScrollLeft, behavior: "smooth" });
+    }
   };
 
   return (
@@ -288,98 +311,97 @@ export default function Hero() {
         </Reveal>
       </div>
 
-      {/* 2. Mobile Experience: Landscape Boxes with Dual Control
-          - Swiping down vertically drives horizontal translation through cards 1 -> 4 before advancing to the next section.
-          - Swiping sideways directly also snaps between cards. */}
-      <div
-        ref={mobileContainerRef}
-        className="block lg:hidden relative h-[250vh] -mt-2 -mb-8"
-      >
-        <div className="sticky top-20 z-10 pt-2 pb-6 overflow-hidden">
-          {/* Header Row with Step Indicator */}
-          <div className="max-w-7xl mx-auto px-4 flex items-center justify-between mb-3">
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+      {/* 2. Mobile Experience: Substantial, Impactful Swipeable Cards with Zero Negative Space */}
+      <div className="block lg:hidden relative mt-8 pt-6 border-t border-black/10">
+        {/* Header Row with Step Indicator */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between mb-3.5">
+          <div>
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] block">
               Ecosystem Showcase
             </span>
-            <span className="text-xs font-semibold text-[var(--color-primary-dark)]/75">
-              0{activeMobileIndex + 1} / 04
-            </span>
+            <p className="text-xs text-[var(--color-primary-dark)]/70 mt-0.5">
+              Swipe across our active platforms
+            </p>
           </div>
+          <span className="text-xs font-semibold px-2.5 py-1 rounded bg-black/5 text-[var(--color-primary-dark)]">
+            0{activeMobileIndex + 1} / 04
+          </span>
+        </div>
 
-          {/* Horizontal Snap Track with Landscape Boxes */}
-          <div
-            ref={mobileTrackRef}
-            onScroll={handleMobileTrackScroll}
-            onTouchStart={() => {
-              isUserTouchingRef.current = true;
-            }}
-            onTouchEnd={() => {
-              setTimeout(() => {
-                isUserTouchingRef.current = false;
-              }, 300);
-            }}
-            className="flex flex-row gap-3.5 overflow-x-auto snap-x snap-mandatory scrollbar-none touch-pan-x px-4 py-2"
-          >
-            {HERO_PANELS.map((panel, idx) => {
-              const isActive = idx === activeMobileIndex;
-              const isTayyib = panel.key === "tayyib";
-              return (
-                <Link
-                  key={panel.key}
-                  href={panel.href}
-                  onClick={() => {
-                    setActiveMobileIndex(idx);
-                    setActiveBrand(panel.key);
-                  }}
-                  className={`group relative w-[85vw] max-w-[340px] h-52 shrink-0 snap-center rounded-2xl overflow-hidden border shadow-lg transition-all duration-300 active:scale-[0.98] ${
-                    isActive
-                      ? "border-black/30 ring-2 ring-[var(--color-primary)]/40"
-                      : "border-black/15 opacity-90"
-                  } ${
+        {/* Horizontal Snap Track with Substantial Cards */}
+        <div
+          ref={mobileTrackRef}
+          onScroll={handleMobileTrackScroll}
+          className="flex flex-row gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none touch-pan-x px-4 sm:px-6 py-2"
+        >
+          {HERO_PANELS.map((panel, idx) => {
+            const isActive = idx === activeMobileIndex;
+            const isTayyib = panel.key === "tayyib";
+            return (
+              <Link
+                key={panel.key}
+                href={panel.href}
+                onClick={() => {
+                  setActiveMobileIndex(idx);
+                  setActiveBrand(panel.key);
+                }}
+                className={`group relative w-[84vw] sm:w-[380px] max-w-[360px] sm:max-w-none h-[370px] sm:h-[400px] shrink-0 snap-center rounded-2xl overflow-hidden border shadow-xl transition-all duration-300 active:scale-[0.99] flex flex-col justify-between p-6 ${
+                  isActive
+                    ? "border-black/30 ring-2 ring-[var(--color-primary)]/50"
+                    : "border-black/15 opacity-95"
+                } ${
+                  panel.key === "saalihat"
+                    ? "bg-[#0e1117] text-white"
+                    : panel.key === "jenazah"
+                      ? "bg-[#233219] text-white"
+                      : panel.key === "tarabase"
+                        ? "bg-[#814038] text-white"
+                        : "bg-[#077d95] text-white"
+                }`}
+              >
+                {/* Background Image */}
+                <Image
+                  src={panel.image}
+                  alt={panel.alt}
+                  fill
+                  sizes="340px"
+                  className="object-cover"
+                />
+
+                {/* Dark Gradient Overlay for high text contrast */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t ${
                     panel.key === "saalihat"
-                      ? "bg-[#0e1117] text-white"
+                      ? "from-[#0e1117] via-[#0e1117]/65 to-black/25"
                       : panel.key === "jenazah"
-                        ? "bg-[#233219] text-white"
+                        ? "from-[#192412] via-[#192412]/65 to-black/25"
                         : panel.key === "tarabase"
-                          ? "bg-[#814038] text-white"
-                          : "bg-[#077d95] text-white"
+                          ? "from-[#2a120f] via-[#2a120f]/65 to-black/25"
+                          : "from-[#053b47] via-[#053b47]/65 to-transparent"
                   }`}
-                >
-                  <Image
-                    src={panel.image}
-                    alt={panel.alt}
-                    fill
-                    sizes="340px"
-                    className="object-cover"
-                  />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t ${
-                      panel.key === "saalihat"
-                        ? "from-[#0e1117]/95 via-[#0e1117]/45 to-black/20"
-                        : panel.key === "jenazah"
-                          ? "from-[#192412]/95 via-[#192412]/45 to-black/20"
-                          : panel.key === "tarabase"
-                            ? "from-[#2a120f]/95 via-[#2a120f]/45 to-black/20"
-                            : "from-[#053b47]/95 via-[#053b47]/45 to-transparent"
-                    }`}
-                  />
+                />
 
-                  {/* Compact Floating App Preview on Top-Right */}
+                {/* Card Top: Category Badge & Floating Retina App Preview */}
+                <div className="relative z-10 flex items-start justify-between gap-3">
+                  <span className="inline-block px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider backdrop-blur-md bg-black/40 border border-white/20 text-[#fdfaf0]">
+                    {panel.category}
+                  </span>
+
                   {panel.previewImage && (
                     <div
-                      className={`absolute right-3.5 top-3.5 ${panel.previewAspect} rounded-lg overflow-hidden border border-white/25 shadow-xl ${
+                      className={`relative ${panel.previewAspect} rounded-lg overflow-hidden border border-white/30 shadow-2xl ${
                         panel.key === "tarabase"
-                          ? "w-24 bg-white"
+                          ? "w-28 bg-white"
                           : panel.key === "saalihat"
-                            ? "w-16 bg-black"
-                            : "w-14 bg-white"
+                            ? "w-20 bg-black"
+                            : "w-18 bg-white"
                       }`}
                     >
                       <Image
                         src={panel.previewImage}
                         alt={panel.previewAlt || panel.name}
                         fill
-                        sizes="100px"
+                        sizes="120px"
                         className={
                           panel.key === "tarabase"
                             ? "object-cover"
@@ -388,61 +410,61 @@ export default function Hero() {
                       />
                     </div>
                   )}
+                </div>
 
-                  {/* Bottom Landscape Card Details */}
-                  <div className="absolute inset-x-0 bottom-0 p-5 flex items-end justify-between gap-3">
-                    <div className="min-w-0">
-                      <p
-                        className={`font-brand text-2xl font-bold leading-tight ${
-                          isTayyib ? "text-[#f8df98]" : "text-white"
-                        }`}
-                      >
-                        {panel.name}
-                      </p>
-                      <p className="text-xs text-[#fdfaf0]/85 mt-1 truncate">
-                        {panel.subtitle}
-                      </p>
-                    </div>
-
-                    <div
-                      className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 border border-white/25 bg-white/10 backdrop-blur-md"
-                      style={{ color: panel.badgeHex }}
+                {/* Card Bottom: Identity & Arrow Action */}
+                <div className="relative z-10 pt-4 flex items-end justify-between gap-3">
+                  <div className="min-w-0">
+                    <p
+                      className={`font-brand text-2xl sm:text-3xl font-bold leading-tight ${
+                        isTayyib ? "text-[#f8df98]" : "text-white"
+                      }`}
                     >
-                      <ArrowRight className="w-4 h-4" />
-                    </div>
+                      {panel.name}
+                    </p>
+                    <p className="text-xs sm:text-sm text-[#fdfaf0]/90 mt-1 line-clamp-2">
+                      {panel.subtitle}
+                    </p>
                   </div>
 
-                  {/* Brand Color Line Accent */}
-                  <span
-                    className="absolute inset-x-0 bottom-0 h-1"
-                    style={{ backgroundColor: panel.accent }}
-                  />
-                </Link>
-              );
-            })}
-          </div>
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 border border-white/30 bg-white/15 backdrop-blur-md transition-transform duration-300 group-hover:scale-110"
+                    style={{ color: panel.badgeHex }}
+                  >
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
+                </div>
 
-          {/* Pagination Pills & Gesture Prompt */}
-          <div className="max-w-7xl mx-auto px-4 mt-3 flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              {HERO_PANELS.map((p, i) => (
-                <button
-                  key={p.key}
-                  type="button"
-                  onClick={() => scrollToMobileCard(i)}
-                  className={`h-1.5 transition-all duration-300 rounded-full ${
-                    activeMobileIndex === i
-                      ? "w-7 bg-[var(--color-primary-dark)]"
-                      : "w-2 bg-black/20 hover:bg-black/40"
-                  }`}
-                  aria-label={`Jump to ${p.name}`}
+                {/* Brand Colour Line Accent */}
+                <span
+                  className="absolute inset-x-0 bottom-0 h-1.5"
+                  style={{ backgroundColor: panel.accent }}
                 />
-              ))}
-            </div>
-            <span className="text-[10px] font-medium uppercase tracking-wider text-[var(--color-primary-dark)]/50">
-              Swipe or scroll down
-            </span>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Pagination Pills & Gesture Indicator */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-3.5 flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            {HERO_PANELS.map((p, i) => (
+              <button
+                key={p.key}
+                type="button"
+                onClick={() => scrollToMobileCard(i)}
+                className={`h-2 transition-all duration-300 rounded-full ${
+                  activeMobileIndex === i
+                    ? "w-8 bg-[var(--color-primary-dark)]"
+                    : "w-2.5 bg-black/20 hover:bg-black/40"
+                }`}
+                aria-label={`Jump to ${p.name}`}
+              />
+            ))}
           </div>
+          <span className="text-[11px] font-medium text-[var(--color-primary-dark)]/60">
+            Swipe left or right
+          </span>
         </div>
       </div>
     </section>
