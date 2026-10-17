@@ -178,7 +178,7 @@ export default function Portfolio() {
           </Reveal>
 
           {/* Concise 3-Column Executive Summary Grid — Solid Brand Identity Stages, Zero Pills & Aligned Headers */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
             
             {/* 1. jenazah.sg Concise Card */}
             <Reveal className="h-full">
@@ -191,14 +191,14 @@ export default function Portfolio() {
                     href="https://jenazah.sg"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative h-52 w-full bg-[#FDFCF8] border-b border-black/10 flex items-center justify-center p-8 transition-colors duration-300 group-hover:bg-[#92ae94]/10"
+                    className="relative h-44 sm:h-52 w-full bg-[#FDFCF8] border-b border-black/10 flex items-center justify-center p-6 sm:p-8 transition-colors duration-300 group-hover:bg-[#92ae94]/10"
                   >
                     <AnimatedJenazahLogo />
                   </a>
 
                   {/* Centered Executive Summary Body with Aligned Header Height */}
-                  <div className="p-8 text-center">
-                    <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug lg:min-h-[4rem] flex items-center justify-center">
+                  <div className="p-6 sm:p-8 text-center">
+                    <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug lg:min-h-[4rem] flex items-center justify-center">
                       Compassionate Bereavement Guidance
                     </h3>
                     <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-sm sm:text-base">
@@ -211,7 +211,7 @@ export default function Portfolio() {
                   href="https://jenazah.sg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 border-t border-black/10 flex items-center justify-center gap-2 text-sm font-semibold text-[#4A5D3F] bg-[#FDFCF8]/60 hover:bg-[#92ae94]/15 transition-colors"
+                  className="px-6 sm:px-8 py-3.5 sm:py-4 border-t border-black/10 flex items-center justify-center gap-2 text-sm font-semibold text-[#4A5D3F] bg-[#FDFCF8]/60 hover:bg-[#92ae94]/15 transition-colors min-h-[44px]"
                 >
                   <span>Launch jenazah.sg</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -230,14 +230,14 @@ export default function Portfolio() {
                     href="https://tarabase.co"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative h-52 w-full bg-[#FAF8F5] border-b border-black/10 flex items-center justify-center p-8 transition-colors duration-300 group-hover:bg-[#814038]/[0.06]"
+                    className="relative h-44 sm:h-52 w-full bg-[#FAF8F5] border-b border-black/10 flex items-center justify-center p-6 sm:p-8 transition-colors duration-300 group-hover:bg-[#814038]/[0.06]"
                   >
                     <AnimatedTarabaseLogo />
                   </a>
 
                   {/* Centered Executive Summary Body with Aligned Header Height */}
-                  <div className="p-8 text-center">
-                    <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug lg:min-h-[4rem] flex items-center justify-center">
+                  <div className="p-6 sm:p-8 text-center">
+                    <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug lg:min-h-[4rem] flex items-center justify-center">
                       Zero-Commission Kitchen Operating System
                     </h3>
                     <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-sm sm:text-base">
@@ -250,7 +250,7 @@ export default function Portfolio() {
                   href="https://tarabase.co"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 border-t border-black/10 flex items-center justify-center gap-2 text-sm font-semibold text-[#814038] bg-[#FAF8F5]/60 hover:bg-[#814038]/10 transition-colors"
+                  className="px-6 sm:px-8 py-3.5 sm:py-4 border-t border-black/10 flex items-center justify-center gap-2 text-sm font-semibold text-[#814038] bg-[#FAF8F5]/60 hover:bg-[#814038]/10 transition-colors min-h-[44px]"
                 >
                   <span>Explore TaraBase</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -267,14 +267,14 @@ export default function Portfolio() {
                   {/* Solid Brand Stage with Centered Logo (No Pill) */}
                   <Link
                     href="/jumpstart"
-                    className="relative h-52 w-full bg-[#fdfaf0] border-b border-black/10 flex items-center justify-center p-8 transition-colors duration-300 group-hover:bg-[#077d95]/[0.06]"
+                    className="relative h-44 sm:h-52 w-full bg-[#fdfaf0] border-b border-black/10 flex items-center justify-center p-6 sm:p-8 transition-colors duration-300 group-hover:bg-[#077d95]/[0.06]"
                   >
                     <AnimatedJumpstartLogo compact />
                   </Link>
 
                   {/* Centered Executive Summary Body with Aligned Header Height */}
-                  <div className="p-8 text-center">
-                    <h3 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug lg:min-h-[4rem] flex items-center justify-center">
+                  <div className="p-6 sm:p-8 text-center">
+                    <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug lg:min-h-[4rem] flex items-center justify-center">
                       Autonomous AI Masterclass for Founders
                     </h3>
                     <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-sm sm:text-base">
@@ -285,7 +285,7 @@ export default function Portfolio() {
 
                 <Link
                   href="/jumpstart"
-                  className="px-8 py-4 border-t border-black/10 flex items-center justify-center gap-2 text-sm font-semibold text-[#077d95] bg-[#fdfaf0]/60 hover:bg-[#077d95]/10 transition-colors"
+                  className="px-6 sm:px-8 py-3.5 sm:py-4 border-t border-black/10 flex items-center justify-center gap-2 text-sm font-semibold text-[#077d95] bg-[#fdfaf0]/60 hover:bg-[#077d95]/10 transition-colors min-h-[44px]"
                 >
                   <span>Explore Jumpstart</span>
                   <ArrowUpRight className="w-4 h-4" />
