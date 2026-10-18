@@ -10,7 +10,7 @@ import Reveal from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Governance & Leadership",
   description:
-    "How MusTech Group operates four platforms with one founder and specialised AI agents built on Google Antigravity and Claude, governed by strict human verification and Singapore PDPA compliance.",
+    "How MusTech Group runs Saalihat, jenazah.sg, and TaraBase with one founder, AI tools, and a person signing off every release.",
   alternates: {
     canonical: "/about",
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "MusTech Group",
     title: "Governance & Leadership | MusTech Group",
     description:
-      "MusTech Group operates as a registered Singapore technology holding entity, building privacy-first mobile applications and civic digital infrastructure with Google Antigravity and Claude.",
+      "A registered Singapore technology holding company building privacy-first mobile applications and civic digital services.",
     images: [
       {
         url: "/brand/Logo_Large_ClearBg.png",
@@ -100,7 +100,7 @@ export default function AboutPage() {
               </h1>
             </div>
             <p className="text-base text-[var(--color-primary-dark)]/75 leading-relaxed max-w-xl">
-              How a solo founder runs four live platforms simultaneously using enterprise data governance, Google Antigravity, and Claude.
+              How one founder runs three live products, with a person responsible for every release.
             </p>
           </Reveal>
 
@@ -114,17 +114,17 @@ export default function AboutPage() {
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 mb-10 border-b border-black/10">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] mb-1.5">
-                    Autonomous Engineering &amp; Operating Model
+                    How We Work
                   </p>
                   <h2 className="font-brand text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-primary-dark)]">
-                    Built with Antigravity &amp; Claude
+                    One Founder, AI Tools, Human Sign-Off
                   </h2>
                 </div>
                 <Link
                   href="/jumpstart"
                   className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)] hover:opacity-75 transition-opacity shrink-0"
                 >
-                  <span>Taught live in MusTech Jumpstart</span>
+                  <span>Taught in MusTech Jumpstart</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -134,14 +134,14 @@ export default function AboutPage() {
                 <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
                   <div>
                     <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] block">
-                      Operating Checkpoints
+                      In Practice
                     </span>
                     <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mt-1">
-                      Multi-Agent Fleet Guardrails
+                      How We Build and Check Our Work
                     </h3>
                   </div>
                   <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/70 max-w-md">
-                    Specialised AI agents execute parallel tasks under four non-negotiable architectural gates.
+                    AI tools draft and test. A person decides what ships.
                   </p>
                 </div>
 
@@ -155,15 +155,15 @@ export default function AboutPage() {
                           01
                         </span>
                         <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
-                          Fleet
+                          Roles
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] mb-2">
                         <CheckCircle2 className="w-4 h-4 shrink-0" />
-                        <span>Role Separation</span>
+                        <span>Clear Jobs</span>
                       </div>
                       <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
-                        Dedicated agents handle full-stack TypeScript and SQL development, mosque poster OCR pipelines, UI performance audits, and adversarial security testing in parallel.
+                        Each AI tool gets one clear job, such as writing code, reading mosque posters, or testing for weak spots, so its work is easy to check.
                       </p>
                     </div>
                   </div>
@@ -176,15 +176,15 @@ export default function AboutPage() {
                           02
                         </span>
                         <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
-                          Gates
+                          Checks
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] mb-2">
                         <CheckCircle2 className="w-4 h-4 shrink-0" />
-                        <span>4-Stage Gates</span>
+                        <span>Checked Before Release</span>
                       </div>
                       <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
-                        Every feature passes four mandatory checkpoints: Schema Contract, Database-Enforced Rules, Defensive Implementation, and Adversarial Audit before shipping.
+                        Every change is checked before it goes live: what it should do, what could go wrong, and whether it works.
                       </p>
                     </div>
                   </div>
@@ -197,15 +197,15 @@ export default function AboutPage() {
                           03
                         </span>
                         <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
-                          Isolation
+                          Safety
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] mb-2">
                         <CheckCircle2 className="w-4 h-4 shrink-0" />
-                        <span>Workspace Isolation</span>
+                        <span>Kept Apart</span>
                       </div>
                       <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
-                        Hard routing laws separate internal operations consoles from public websites, ensuring an agent working on internal tooling can never deploy to a public domain.
+                        Internal tools and public websites are kept apart, so work on one cannot change the other by accident.
                       </p>
                     </div>
                   </div>
@@ -226,7 +226,7 @@ export default function AboutPage() {
                         <span>Founder Sign-Off</span>
                       </div>
                       <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed">
-                        Agents prepare database migrations, code diffs, and verified event queues, while final production deployments, schema changes, and speaker merges require explicit founder approval.
+                        AI tools prepare changes. The founder approves every release, every database change, and every merge of speaker records.
                       </p>
                     </div>
                   </div>
@@ -247,11 +247,11 @@ export default function AboutPage() {
                       Governance Pillars
                     </span>
                     <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mt-1">
-                      Three Immutable Standards
+                      Three Commitments
                     </h3>
                   </div>
                   <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/70 max-w-md">
-                    How we safeguard community trust, religious data sanctity, and legal compliance across all properties.
+                    How we protect community trust, religious information, and personal data across our products.
                   </p>
                 </div>
 
@@ -265,17 +265,17 @@ export default function AboutPage() {
                           01
                         </span>
                         <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
-                          Solo Founder OS
+                          Operating Model
                         </span>
                       </div>
                       <h4 className="font-brand text-lg sm:text-xl font-bold text-[var(--color-primary-dark)] mb-2.5">
-                        Coordinated AI Fleet
+                        One Founder, Human Sign-Off
                       </h4>
                       <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed mb-3">
-                        MusTech Group operates <strong>Saalihat</strong>, <strong>jenazah.sg</strong>, <strong>TaraBase</strong>, and <strong>MusTech Jumpstart</strong> with one founder directing specialised AI agents inside <strong>Google Antigravity</strong> and <strong>Claude</strong>.
+                        MusTech Group runs <strong>Saalihat</strong>, <strong>jenazah.sg</strong>, and <strong>TaraBase</strong>, and teaches <strong>MusTech Jumpstart</strong>. One founder directs the work, uses AI tools for drafting and testing, and approves every release personally.
                       </p>
                       <p className="text-xs text-[var(--color-primary-dark)]/70 leading-relaxed">
-                        Rather than treating AI as a conversational toy, our workspace operates as an autonomous engineering collective under strict architectural laws where every release decision routes back to the founder.
+                        AI tools save time on routine work. They never decide what goes live.
                       </p>
                     </div>
                   </div>
@@ -288,17 +288,17 @@ export default function AboutPage() {
                           02
                         </span>
                         <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
-                          Data Sanctity
+                          Accuracy
                         </span>
                       </div>
                       <h4 className="font-brand text-lg sm:text-xl font-bold text-[var(--color-primary-dark)] mb-2.5">
-                        Human-Verified Civic Data
+                        Checked by a Person
                       </h4>
                       <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed mb-3">
-                        AI is never allowed to guess religious scholars, mosque schedules, or emergency bereavement contacts. Extracted mosque event posters are cross-checked against Singapore&apos;s Asatizah Recognition Scheme (ARS) directory before going live.
+                        We do not let AI guess names, schedules, or contact details. Mosque event information is checked against Singapore&apos;s Asatizah Recognition Scheme (ARS) before it goes live.
                       </p>
                       <p className="text-xs text-[var(--color-primary-dark)]/70 leading-relaxed">
-                        Uncertain speaker matches are held in an admin review queue with full audit snapshots, and missing contact details are stored as blank rather than filled with synthetic placeholder text.
+                        Uncertain matches wait for a person to review them, and missing details are left blank rather than invented.
                       </p>
                     </div>
                   </div>
@@ -311,17 +311,17 @@ export default function AboutPage() {
                           03
                         </span>
                         <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary-dark)]/60 bg-black/5 px-2 py-0.5 rounded">
-                          Legal &amp; Cost
+                          Privacy
                         </span>
                       </div>
                       <h4 className="font-brand text-lg sm:text-xl font-bold text-[var(--color-primary-dark)] mb-2.5">
-                        PDPA &amp; Cost Discipline
+                        Only What Each Product Needs
                       </h4>
                       <p className="text-xs sm:text-sm text-[var(--color-primary-dark)]/80 leading-relaxed mb-3">
-                        We adhere strictly to the Singapore Personal Data Protection Act (PDPA) with zero third-party advertising SDKs, row-level database security on every multi-tenant table, and local-first device storage wherever possible.
+                        We use no third-party advertising and never sell personal data. Saalihat keeps bookmarks and preferences on your phone.
                       </p>
                       <p className="text-xs text-[var(--color-primary-dark)]/70 leading-relaxed">
-                        Before invoking any AI vision or language model, our pipelines run deterministic lookups and SHA-256 optical hash caches so we never repeat paid API calls or waste compute.
+                        Saalihat and TaraBase each publish a privacy policy that states what they store.
                       </p>
                     </div>
                   </div>
@@ -377,7 +377,7 @@ export default function AboutPage() {
                         Combining deep experience in large-scale analytics with commercial business strategy, he founded MusTech Group to build mission-driven software that solves civic and community challenges across Singapore.
                       </p>
                       <p>
-                        He teaches the autonomous multi-agent operating systems used to build and run MusTech Group in <strong>MusTech Jumpstart</strong>, translating complex production AI workflows into pragmatic outcomes for founders.
+                        In <strong>MusTech Jumpstart</strong>, he teaches how MusTech Group is run, in plain language and with real examples.
                       </p>
                     </div>
                   </div>
@@ -416,7 +416,7 @@ export default function AboutPage() {
                   MusTech Jumpstart Masterclass
                 </h3>
                 <p className="text-sm text-[var(--color-primary-dark)]/75 leading-relaxed font-sans mb-4">
-                  Learn how we set up Antigravity and Claude to run a full software company and deploy the same operating system for your venture.
+                  Learn the working methods behind our products and apply them to your own venture.
                 </p>
               </div>
               <div className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-primary-dark)] group-hover:opacity-70 transition-opacity">

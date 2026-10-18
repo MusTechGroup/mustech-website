@@ -31,7 +31,11 @@ export default function PrivacyPolicyContent() {
             </h1>
           </div>
           <p className="lg:col-span-5 text-base sm:text-lg text-[var(--color-primary-dark)]/75 font-sans leading-relaxed">
-            Data stewardship standard for MusTech Group, Saalihat (iOS &amp; Android), jenazah.sg, TaraBase, and MusTech Jumpstart under the Singapore Personal Data Protection Act (PDPA).
+            How we handle personal data in the Saalihat app (iOS &amp; Android), on this website, and for MusTech Jumpstart sign-ups, under Singapore&apos;s Personal Data Protection Act (PDPA). TaraBase has{" "}
+            <a href="https://tarabase.co/privacy" className="underline hover:text-[var(--color-primary)]">
+              its own privacy policy
+            </a>
+            .
           </p>
         </div>
 
@@ -181,16 +185,36 @@ export default function PrivacyPolicyContent() {
               </div>
               <div className="lg:col-span-8">
                 <p>
-                  This policy complies with the statutory mandates of the <strong>Singapore Personal Data Protection Act 2012 (PDPA)</strong>, the <strong>Apple App Store Review Guidelines (Section 5.1 - Privacy)</strong>, and the <strong>Google Play Developer Distribution Agreement</strong>.
+                  This policy is written to meet the requirements of the <strong>Singapore Personal Data Protection Act 2012 (PDPA)</strong>, the <strong>Apple App Store Review Guidelines (Section 5.1 - Privacy)</strong>, and the <strong>Google Play Developer Distribution Agreement</strong>.
                 </p>
               </div>
             </section>
 
             {/* Clause 07 */}
-            <section id="jumpstart" className="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 scroll-mt-32">
+            <section id="website" className="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 scroll-mt-32">
               <div className="lg:col-span-4">
                 <span className="font-brand text-xl font-bold text-[var(--color-primary)] block">
                   Clause 07
+                </span>
+                <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mt-1">
+                  This Website
+                </h2>
+              </div>
+              <div className="lg:col-span-8 space-y-3">
+                <p>
+                  This website uses <strong>Cloudflare Web Analytics</strong> to count visits. It sets no cookies and does not identify you.
+                </p>
+                <p>
+                  We see only totals, such as how many people visited a page, which site sent them, and their country. We use this to see whether people find MusTech Jumpstart and sign up.
+                </p>
+              </div>
+            </section>
+
+            {/* Clause 08 */}
+            <section id="jumpstart" className="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 scroll-mt-32">
+              <div className="lg:col-span-4">
+                <span className="font-brand text-xl font-bold text-[var(--color-primary)] block">
+                  Clause 08
                 </span>
                 <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mt-1">
                   MusTech Jumpstart Sign-ups
@@ -226,11 +250,11 @@ export default function PrivacyPolicyContent() {
               </div>
             </section>
 
-            {/* Clause 08 */}
+            {/* Clause 09 */}
             <section className="pt-8 grid grid-cols-1 lg:grid-cols-12 gap-6">
               <div className="lg:col-span-4">
                 <span className="font-brand text-xl font-bold text-[var(--color-primary)] block">
-                  Clause 08
+                  Clause 09
                 </span>
                 <h2 className="font-brand text-2xl font-bold text-[var(--color-primary-dark)] mt-1">
                   Data Protection Officer &amp; Official Enquiries
@@ -238,7 +262,7 @@ export default function PrivacyPolicyContent() {
               </div>
               <div className="lg:col-span-8 space-y-4">
                 <p>
-                  For formal data enquiries, regulatory notices, or privacy policy questions, please contact our designated compliance team:
+                  For formal data enquiries, regulatory notices, or privacy policy questions, please contact our data protection officer:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2 text-sm">
                   <div className="p-5 bg-[var(--brand-bg)] border border-black/10">

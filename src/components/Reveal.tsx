@@ -16,19 +16,19 @@ export default function Reveal({
   direction = "up",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
+  const [isVisible, setIsVisible] = useState(() => {
     if (
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
-      setIsVisible(true);
-      return;
+      return true;
     }
+    return false;
+  });
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || isVisible) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -44,7 +44,7 @@ export default function Reveal({
 
     observer.observe(node);
     return () => observer.disconnect();
-  }, []);
+  }, [isVisible]);
 
   const hiddenTransform =
     direction === "up"

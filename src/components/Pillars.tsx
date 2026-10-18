@@ -7,9 +7,9 @@ const CORE_PILLARS = [
     number: "01",
     title: "Amanah",
     subtitle: "Data Sovereignty",
-    invariant: "Zero Ad-SDKs · Local Storage First",
+    invariant: "No Ads · Only What Is Needed",
     summary:
-      "User data stays on your device whenever possible and is never tracked, profiled, or sold.",
+      "We collect only what each product needs, and we never sell it, profile you, or advertise with it. Saalihat keeps your bookmarks on your phone.",
   },
   {
     number: "02",

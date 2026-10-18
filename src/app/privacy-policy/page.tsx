@@ -6,14 +6,14 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Official Privacy Policy for MUSTECH GROUP PTE. LTD. web properties, Saalihat (iOS & Android), and civic platforms. Built on Amanah (sacred trust) with strict Singapore PDPA data minimisation.",
+    "Privacy policy for the Saalihat app, the MusTech Group website, and MusTech Jumpstart sign-ups.",
   alternates: {
     canonical: "/privacy-policy",
   },
   openGraph: {
     title: "Privacy Policy | MusTech Group",
     description:
-      "Official Privacy Policy for MusTech Group web properties, Saalihat (iOS & Android), and civic platforms under Singapore PDPA standards.",
+      "Privacy policy for the Saalihat app, the MusTech Group website, and MusTech Jumpstart sign-ups.",
     url: "https://www.mustechgroup.com/privacy-policy",
     siteName: "MusTech Group",
     locale: "en_SG",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Privacy Policy | MusTech Group",
     description:
-      "Official Privacy Policy for MusTech Group web properties, Saalihat (iOS & Android), and civic platforms under Singapore PDPA standards.",
+      "Privacy policy for the Saalihat app, the MusTech Group website, and MusTech Jumpstart sign-ups.",
     images: ["/brand/Logo_Large_ClearBg.png"],
   },
 };

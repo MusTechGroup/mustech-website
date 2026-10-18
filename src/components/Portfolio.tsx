@@ -33,7 +33,7 @@ export default function Portfolio() {
                 Connecting Muslims in Singapore to verified mosque events and sacred knowledge.
               </p>
               <p className="text-[#fdfaf0]/80 text-base sm:text-lg leading-relaxed mb-8">
-                Saalihat (صالحات) aggregates mosque lectures, charitable programmes, and community circles across Singapore into a single, verified schedule without advertising or behavioural tracking.
+                Saalihat (صالحات) aggregates mosque lectures, charitable programmes, and community circles across Singapore into a single, verified schedule without advertising or ad tracking.
               </p>
               
               <div className="flex flex-col gap-6">
@@ -145,9 +145,9 @@ export default function Portfolio() {
               <div className="flex items-center gap-4 mt-8 text-[#fdfaf0]/60 text-xs">
                 <span>Zero Ads</span>
                 <span>·</span>
-                <span>No Tracking</span>
+                <span>No Ad Tracking</span>
                 <span>·</span>
-                <span>PDPA Compliant</span>
+                <span>Bookmarks Stay on Your Phone</span>
               </div>
             </Reveal>
             
@@ -165,7 +165,7 @@ export default function Portfolio() {
                 Civic &amp; Commercial Platforms
               </h2>
               <p className="text-base text-[var(--color-primary-dark)]/75 mt-1">
-                Web infrastructure for bereavement navigation, micro-merchant commerce, and AI operations.
+                Web services for families in bereavement, home-based businesses, and founders learning to work with AI.
               </p>
             </div>
             <Link
@@ -238,10 +238,10 @@ export default function Portfolio() {
                   {/* Centered Executive Summary Body with Aligned Header Height */}
                   <div className="p-6 sm:p-8 text-center">
                     <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug lg:min-h-[4rem] flex items-center justify-center">
-                      Zero-Commission Kitchen Operating System
+                      Zero-Commission Pre-Orders for Home Businesses
                     </h3>
                     <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-sm sm:text-base">
-                      Gives home bakers, cooks, and small-batch makers their own Telegram shop with daily batch limits and direct PayNow settlement with automated receipt checks.
+                      Gives home-based businesses their own Telegram shop, with daily order limits, PayNow straight to the seller&apos;s bank, and automatic receipt checks.
                     </p>
                   </div>
                 </div>
@@ -275,10 +275,10 @@ export default function Portfolio() {
                   {/* Centered Executive Summary Body with Aligned Header Height */}
                   <div className="p-6 sm:p-8 text-center">
                     <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3 leading-snug lg:min-h-[4rem] flex items-center justify-center">
-                      Autonomous AI Masterclass for Founders
+                      AI Course for Founders
                     </h3>
                     <p className="text-[var(--color-primary-dark)]/80 leading-relaxed text-sm sm:text-base">
-                      An executive programme where we pre-build a tailored AI organisation aligned to your venture and teach you how to run autonomous agentic workflows.
+                      Learn the working methods behind our products and apply them to your own venture.
                     </p>
                   </div>
                 </div>

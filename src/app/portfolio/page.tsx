@@ -66,21 +66,21 @@ const portfolioSchema = {
         position: 2,
         name: "jenazah.sg",
         url: "https://jenazah.sg",
-        description: "Stateless grief navigation and live funeral coordination platform for Singapore.",
+        description: "Free funeral notices, a private family link, and step-by-step bereavement guides for Muslim families in Singapore.",
       },
       {
         "@type": "WebSite",
         position: 3,
         name: "TaraBase",
         url: "https://tarabase.co",
-        description: "Digital front-of-house, pre-orders, and PayNow verification for home-based food businesses.",
+        description: "Telegram pre-orders and PayNow payments for home-based businesses in Singapore.",
       },
       {
         "@type": "Course",
         position: 4,
         name: "MusTech Jumpstart",
         url: "https://www.mustechgroup.com/jumpstart",
-        description: "Hands-on executive masterclass teaching founders how to architect and run bespoke agentic organisations.",
+        description: "A hands-on course that teaches founders to run their business with AI tools, with a person checking every result.",
       },
     ],
   },
@@ -187,7 +187,7 @@ export default function PortfolioPage() {
                       <span className="font-brand text-xl font-bold text-white">Saalihat</span>
                     </div>
                     <p className="text-xs text-[#fdfaf0]/75 leading-relaxed">
-                      Verified mosque lecture schedules and Kuliah directory. Fast, local-first, ARS-checked.
+                      Verified mosque lecture schedules and Kuliah directory. Fast, ARS-checked, bookmarks on your phone.
                     </p>
                   </div>
                   <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between text-xs font-semibold text-[#d5ad5b]">
@@ -212,7 +212,7 @@ export default function PortfolioPage() {
                       <span className="font-brand text-xl font-bold text-[#4A5D3F]">jenazah.sg</span>
                     </div>
                     <p className="text-xs text-[var(--color-primary-dark)]/75 leading-relaxed">
-                      Stateless grief navigation and live funeral coordination link with WhatsApp notices.
+                      Free funeral notices and a private family link, with WhatsApp updates.
                     </p>
                   </div>
                   <div className="pt-3 mt-3 border-t border-black/10 flex items-center justify-between text-xs font-semibold text-[#4A5D3F]">
@@ -237,7 +237,7 @@ export default function PortfolioPage() {
                       <span className="font-brand text-xl font-bold text-[#814038]">TaraBase</span>
                     </div>
                     <p className="text-xs text-[var(--color-primary-dark)]/75 leading-relaxed">
-                      Zero-commission pre-orders and offline PayNow QR counter for small-batch kitchens.
+                      Zero-commission pre-orders and a PayNow counter for home-based businesses.
                     </p>
                   </div>
                   <div className="pt-3 mt-3 border-t border-black/10 flex items-center justify-between text-xs font-semibold text-[#814038]">
@@ -314,7 +314,7 @@ export default function PortfolioPage() {
                         </div>
                         <div>
                           <dt className="text-[#fdfaf0]/60">Telemetry</dt>
-                          <dd className="font-semibold text-white mt-0.5">Zero Ad-SDKs · Local Bookmarks</dd>
+                          <dd className="font-semibold text-white mt-0.5">No Ads · Bookmarks on Device</dd>
                         </div>
                         <div>
                           <dt className="text-[#fdfaf0]/60">Coverage</dt>
@@ -482,7 +482,7 @@ export default function PortfolioPage() {
               </div>
             </Reveal>
 
-            {/* 02. jenazah.sg Full-Width Video Walkthrough + 3-Step Rites Flow */}
+            {/* 02. jenazah.sg Civic Utility: 3-Step Rites Flow */}
             <Reveal>
               <div
                 id="jenazah-deep-dive"
@@ -501,7 +501,7 @@ export default function PortfolioPage() {
                       </a>
 
                       <h2 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] mb-4 leading-tight">
-                        Stateless Grief Navigation &amp; Live Funeral Coordination
+                        Funeral Coordination Without an Account
                       </h2>
                       <p className="text-sm sm:text-base text-[var(--color-primary-dark)]/80 leading-relaxed mb-6">
                         Requires zero account creation during a bereavement emergency. The Next-of-Kin receives a private coordination link to update rites stages (Pending, Ghusl, Janazah, Burial) while generating a clean, bilingual community notice for WhatsApp.
@@ -514,7 +514,7 @@ export default function PortfolioPage() {
                         </div>
                         <div>
                           <dt className="text-[var(--color-primary-dark)]/55">Privacy</dt>
-                          <dd className="font-semibold text-[var(--color-primary-dark)] mt-0.5">No Sign-Up · Stateless Token</dd>
+                          <dd className="font-semibold text-[var(--color-primary-dark)] mt-0.5">No Account · Private Family Link</dd>
                         </div>
                         <div>
                           <dt className="text-[var(--color-primary-dark)]/55">Languages</dt>
@@ -538,25 +538,11 @@ export default function PortfolioPage() {
                     </a>
                   </div>
 
-                  {/* Right 8 Columns: Full-Scale Video Walkthrough + 3-Step Mobile Cards with Aligned Top Step Headers */}
-                  <div className="lg:col-span-8 space-y-6">
-                    <div className="aspect-video rounded-xl overflow-hidden border border-black/15 bg-[#FDFCF8] shadow-lg">
-                      <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        controls
-                        preload="metadata"
-                        className="w-full h-full object-cover block"
-                      >
-                        <source src="/jenazah/mustech_jenazah_preview.webm" type="video/webm" />
-                      </video>
-                    </div>
-
-                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-5 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 touch-pan-x">
+                  {/* Right 8 Columns: Aligned 3-Step Rites Flow Cards */}
+                  <div className="lg:col-span-8">
+                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-6 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 touch-pan-x">
                       {/* Step 1 */}
-                      <div className="border border-black/10 bg-[#FDFCF8] p-5 flex flex-col justify-between w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                      <div className="group bg-[#FDFCF8] border border-black/10 hover:border-[#4A5D3F]/50 p-5 flex flex-col justify-between transition-colors duration-300 w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
                         <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[7.5rem]">
                           <div className="flex items-baseline gap-2.5 mb-1.5">
                             <span className="font-brand text-2xl font-bold text-[#4A5D3F] leading-none">
@@ -570,19 +556,19 @@ export default function PortfolioPage() {
                             Start with just the name; add burial plot and mosque details later.
                           </p>
                         </div>
-                        <div className="relative aspect-[780/1100] w-full overflow-hidden rounded border border-black/10 bg-white">
+                        <div className="relative aspect-[780/1688] w-full overflow-hidden rounded-lg bg-white border border-black/10 shadow-sm">
                           <Image
                             src="/ecosystem/jenazah/step-1-create.webp"
                             alt="Step 1 Create Funeral Notice"
                             fill
-                            sizes="(max-width: 640px) 90vw, 240px"
+                            sizes="(max-width: 640px) 90vw, 260px"
                             className="object-contain object-top"
                           />
                         </div>
                       </div>
 
                       {/* Step 2 */}
-                      <div className="border border-black/10 bg-[#FDFCF8] p-5 flex flex-col justify-between w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                      <div className="group bg-[#FDFCF8] border border-black/10 hover:border-[#4A5D3F]/50 p-5 flex flex-col justify-between transition-colors duration-300 w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
                         <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[7.5rem]">
                           <div className="flex items-baseline gap-2.5 mb-1.5">
                             <span className="font-brand text-2xl font-bold text-[#4A5D3F] leading-none">
@@ -596,19 +582,19 @@ export default function PortfolioPage() {
                             Private link for Waris Terdekat to update rites stages in real time.
                           </p>
                         </div>
-                        <div className="relative aspect-[780/1100] w-full overflow-hidden rounded border border-black/10 bg-white">
+                        <div className="relative aspect-[780/1688] w-full overflow-hidden rounded-lg bg-white border border-black/10 shadow-sm">
                           <Image
                             src="/ecosystem/jenazah/step-2-family.webp"
                             alt="Step 2 Family Coordination View"
                             fill
-                            sizes="(max-width: 640px) 90vw, 240px"
+                            sizes="(max-width: 640px) 90vw, 260px"
                             className="object-contain object-top"
                           />
                         </div>
                       </div>
 
                       {/* Step 3 */}
-                      <div className="border border-black/10 bg-[#FDFCF8] p-5 flex flex-col justify-between w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                      <div className="group bg-[#FDFCF8] border border-black/10 hover:border-[#4A5D3F]/50 p-5 flex flex-col justify-between transition-colors duration-300 w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
                         <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[7.5rem]">
                           <div className="flex items-baseline gap-2.5 mb-1.5">
                             <span className="font-brand text-2xl font-bold text-[#4A5D3F] leading-none">
@@ -622,12 +608,12 @@ export default function PortfolioPage() {
                             Shareable link on WhatsApp with live Solat Jenazah &amp; burial status.
                           </p>
                         </div>
-                        <div className="relative aspect-[780/1100] w-full overflow-hidden rounded border border-black/10 bg-white">
+                        <div className="relative aspect-[780/1688] w-full overflow-hidden rounded-lg bg-white border border-black/10 shadow-sm">
                           <Image
                             src="/ecosystem/jenazah/step-3-public-after.webp"
                             alt="Step 3 Public Community Notice"
                             fill
-                            sizes="(max-width: 640px) 90vw, 240px"
+                            sizes="(max-width: 640px) 90vw, 260px"
                             className="object-contain object-top"
                           />
                         </div>
@@ -663,10 +649,10 @@ export default function PortfolioPage() {
                       </a>
 
                       <h2 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] mb-4 leading-tight">
-                        Zero-Commission Operating System for Small-Batch Kitchens
+                        Zero-Commission Pre-Orders for Home-Based Businesses
                       </h2>
                       <p className="text-sm sm:text-base text-[var(--color-primary-dark)]/80 leading-relaxed mb-6">
-                        Replaces chaotic DM threads and manual spreadsheet tallies. Home bakers and small-batch makers configure their service days and batch caps once; buyers order via Telegram and pay directly via PayNow QR.
+                        Replaces chaotic DM threads and manual spreadsheet tallies. Home-based businesses configure their service days and batch caps once; buyers order via Telegram and pay directly via PayNow QR.
                       </p>
 
                       <dl className="grid grid-cols-2 gap-4 py-5 border-y border-black/10 text-xs">
@@ -679,8 +665,8 @@ export default function PortfolioPage() {
                           <dd className="font-semibold text-[var(--color-primary-dark)] mt-0.5">Direct PayNow (0% Cut)</dd>
                         </div>
                         <div>
-                          <dt className="text-[var(--color-primary-dark)]/55">Concurrency</dt>
-                          <dd className="font-semibold text-[var(--color-primary-dark)] mt-0.5">Atomic Slot Locks</dd>
+                          <dt className="text-[var(--color-primary-dark)]/55">Order Limits</dt>
+                          <dd className="font-semibold text-[var(--color-primary-dark)] mt-0.5">Never Oversold</dd>
                         </div>
                         <div>
                           <dt className="text-[var(--color-primary-dark)]/55">Pop-Up Mode</dt>
@@ -689,20 +675,31 @@ export default function PortfolioPage() {
                       </dl>
                     </div>
 
-                    <a
-                      href="https://tarabase.co"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-[#814038] hover:bg-[#5e2d27] text-white text-sm font-semibold transition-colors"
-                    >
-                      <span>Launch TaraBase</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
+                    <div className="flex flex-col gap-3">
+                      <a
+                        href="https://tarabase.co"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-[#814038] hover:bg-[#5e2d27] text-white text-sm font-semibold transition-colors"
+                      >
+                        <span>Launch TaraBase</span>
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                      <a
+                        href="https://tarabase.co/demo"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#FAF8F5] hover:bg-[#814038]/10 text-[#814038] border border-[#814038]/25 text-sm font-semibold transition-colors"
+                      >
+                        <span>Explore Demo Kitchen Live</span>
+                        <ExternalLink className="w-3.5 h-3.5 text-[#814038]/70" />
+                      </a>
+                    </div>
                   </div>
 
                   {/* Right 8 Columns: Full-Scale Video Walkthrough + 4K Modules with Aligned Top Step Headers */}
                   <div className="lg:col-span-8 space-y-6">
-                    <div className="aspect-video rounded-xl overflow-hidden border border-black/15 bg-white shadow-lg">
+                    <div className="aspect-video rounded-xl overflow-hidden border border-black/15 bg-white shadow-lg relative">
                       <video
                         autoPlay
                         loop
@@ -710,23 +707,58 @@ export default function PortfolioPage() {
                         playsInline
                         controls
                         preload="metadata"
+                        poster="/ecosystem/tarabase/dashboard_orders.png"
                         className="w-full h-full object-cover block"
                       >
                         <source src="/tarabase/mustech_tarabase_preview.webm" type="video/webm" />
                         <source src="/tarabase/mustech_tarabase_preview.mp4" type="video/mp4" />
+                        <Image
+                          src="/tarabase/mustech_tarabase_preview.gif"
+                          alt="TaraBase Demo Kitchen and Pre-Orders Walkthrough"
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 800px"
+                          className="object-cover"
+                          unoptimized
+                        />
                       </video>
                     </div>
 
-                    <div className="flex sm:grid sm:grid-cols-2 gap-4 sm:gap-5 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 touch-pan-x">
-                      {/* Module 1 */}
-                      <div className="border border-black/10 bg-[#FAF8F5] p-5 flex flex-col justify-between w-[78vw] max-w-[300px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-5 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 touch-pan-x">
+                      {/* Module 1: Live Demo Kitchen */}
+                      <div className="border border-black/10 bg-[#FAF8F5] p-5 flex flex-col justify-between w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
                         <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[6.5rem]">
                           <div className="flex items-baseline gap-2.5 mb-1.5">
                             <span className="font-brand text-2xl font-bold text-[#814038] leading-none">
                               01
                             </span>
                             <h3 className="font-brand text-lg font-bold text-[var(--color-primary-dark)] leading-snug">
-                              Buyer Telegram Storefront
+                              Demo Kitchen
+                            </h3>
+                          </div>
+                          <p className="text-sm text-[var(--color-primary-dark)]/75 leading-relaxed">
+                            Bake days cap orders automatically. Production schedule shows live PayNow-verified settlement badges.
+                          </p>
+                        </div>
+                        <div className="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white">
+                          <Image
+                            src="/ecosystem/tarabase/ui-production-schedule.png"
+                            alt="TaraBase Demo Kitchen Production Schedule"
+                            fill
+                            sizes="(max-width: 640px) 90vw, 260px"
+                            className="object-cover object-top"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Module 2: Buyer Telegram Storefront */}
+                      <div className="border border-black/10 bg-[#FAF8F5] p-5 flex flex-col justify-between w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                        <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[6.5rem]">
+                          <div className="flex items-baseline gap-2.5 mb-1.5">
+                            <span className="font-brand text-2xl font-bold text-[#814038] leading-none">
+                              02
+                            </span>
+                            <h3 className="font-brand text-lg font-bold text-[var(--color-primary-dark)] leading-snug">
+                              Telegram Storefront
                             </h3>
                           </div>
                           <p className="text-sm text-[var(--color-primary-dark)]/75 leading-relaxed">
@@ -738,18 +770,18 @@ export default function PortfolioPage() {
                             src="/ecosystem/tarabase/ui-telegram-storefront.png"
                             alt="TaraBase Buyer Telegram Storefront Preview"
                             fill
-                            sizes="(max-width: 640px) 90vw, 380px"
+                            sizes="(max-width: 640px) 90vw, 260px"
                             className="object-contain object-top"
                           />
                         </div>
                       </div>
 
-                      {/* Module 2 */}
-                      <div className="border border-black/10 bg-[#FAF8F5] p-5 flex flex-col justify-between w-[78vw] max-w-[300px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
+                      {/* Module 3: Live Stall Counter */}
+                      <div className="border border-black/10 bg-[#FAF8F5] p-5 flex flex-col justify-between w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
                         <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[6.5rem]">
                           <div className="flex items-baseline gap-2.5 mb-1.5">
                             <span className="font-brand text-2xl font-bold text-[#814038] leading-none">
-                              02
+                              03
                             </span>
                             <h3 className="font-brand text-lg font-bold text-[var(--color-primary-dark)] leading-snug">
                               Live Stall Counter
@@ -759,12 +791,12 @@ export default function PortfolioPage() {
                             For bazaars and pop-ups: tap items, turn the tablet around, and generate a fixed-amount PayNow QR offline.
                           </p>
                         </div>
-                        <div className="relative aspect-[920/690] w-full overflow-hidden rounded border border-black/10 bg-white">
+                        <div className="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white">
                           <Image
                             src="/ecosystem/tarabase/ui-paynow-counter.png"
                             alt="TaraBase Live PayNow Stall Counter"
                             fill
-                            sizes="(max-width: 640px) 90vw, 380px"
+                            sizes="(max-width: 640px) 90vw, 260px"
                             className="object-contain"
                           />
                         </div>
@@ -773,7 +805,7 @@ export default function PortfolioPage() {
 
                     {/* Mobile swipe helper */}
                     <div className="flex sm:hidden items-center justify-between mt-2 pt-2 border-t border-black/10 text-xs text-[var(--color-primary-dark)]/60">
-                      <span className="font-medium text-[#814038]">Kitchen Modules 01 - 02</span>
+                      <span className="font-medium text-[#814038]">TaraBase Modules 01 - 03</span>
                       <span>Swipe horizontally →</span>
                     </div>
                   </div>
@@ -793,7 +825,7 @@ export default function PortfolioPage() {
                   MusTech Jumpstart Masterclass
                 </h3>
                 <p className="text-sm sm:text-base text-[var(--color-primary-dark)]/75 leading-relaxed font-sans mb-4">
-                  Learn how our engineering team builds and operates these platforms using our Solo Founder OS and defensive AI architecture.
+                  Learn the working methods behind our products and apply them to your own venture.
                 </p>
                 <Link
                   href="/jumpstart"

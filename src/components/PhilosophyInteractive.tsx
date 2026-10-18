@@ -12,9 +12,9 @@ const PRINCIPLES = [
     number: "01",
     title: "Amanah",
     subtitle: "Data Sovereignty & Privacy",
-    invariant: "Zero 3rd-Party SDKs · Local Storage First",
+    invariant: "No Ads · Only What Is Needed",
     description:
-      "Bookmarks and preferences stay on your device by default, protected under strict Singapore PDPA standards with zero advertising SDKs and zero behavioural tracking.",
+      "We collect only what each product needs. Saalihat keeps bookmarks and preferences on your phone, and none of our products carry advertising.",
   },
   {
     number: "02",
@@ -28,15 +28,15 @@ const PRINCIPLES = [
     number: "03",
     title: "Mizan",
     subtitle: "Human Equilibrium",
-    invariant: "Sub-2s Task Completion · Zero Infinite Feeds",
+    invariant: "Quick Tasks · No Endless Feeds",
     description:
-      "Quiet, finite interfaces built to respect human time. Our tools deliver the verified mosque schedule, funeral notice, or kitchen order sheet you need and return you to real life.",
+      "Quiet, finite interfaces built to respect human time. Our tools deliver the verified mosque schedule, funeral notice, or order sheet you need and return you to real life.",
   },
   {
     number: "04",
     title: "Resilient Engineering",
     subtitle: "Verified Civic Directories",
-    invariant: "ARS Cross-Checked · Atomic SQL Ledgers",
+    invariant: "ARS Cross-Checked · Checked by a Person",
     description:
       "Mosque lecture schedules and community announcements often live inside scattered posters and chat groups. We build reliable extraction pipelines and human-verified directories that make community knowledge accessible.",
   },
@@ -44,9 +44,9 @@ const PRINCIPLES = [
     number: "05",
     title: "Civic Purpose",
     subtitle: "Everyday Service",
-    invariant: "Funeral Rites · Home Kitchens · Mosque Kuliah",
+    invariant: "Funeral Rites · Home Businesses · Mosque Kuliah",
     description:
-      "Success is measured in moments that matter: helping a family coordinate final rites with dignity, giving a home baker a zero-commission storefront, or connecting congregants to a verified mosque Kuliah.",
+      "Success is measured in moments that matter: helping a family coordinate final rites with dignity, giving a home-based business a zero-commission shop, or connecting congregants to a verified mosque Kuliah.",
   },
 ];
 
@@ -96,13 +96,13 @@ export default function PhilosophyInteractive() {
             {/* Left Sticky Rail with Unique Architectural & Botanical Photography */}
             <Reveal className="lg:col-span-5 lg:sticky lg:top-28" direction="left">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#f8df98] mb-2">
-                Architectural Invariants
+                Tayyib Architecture
               </p>
               <h2 className="font-brand text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight mb-4">
-                Five Principles in Practice
+                Our Values in Practice
               </h2>
               <p className="text-sm sm:text-base text-[#fdfaf0]/80 leading-relaxed mb-6">
-                Select or hover over each principle to inspect the engineering guardrail that enforces it across our platforms.
+                Select a value to see how it shows up in our products.
               </p>
 
               {/* Layered High-Resolution Photographic Composition */}
@@ -159,7 +159,7 @@ export default function PhilosophyInteractive() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#192412]/70 via-transparent to-transparent" />
                     <span className="absolute bottom-2.5 left-3 text-[11px] font-medium text-[#fdfaf0]/90">
-                      Mizan · Geometric Order
+                      Mizan · Human Equilibrium
                     </span>
                   </div>
                   <div className="col-span-4 relative overflow-hidden border border-white/15 bg-black/30 group">
@@ -172,7 +172,7 @@ export default function PhilosophyInteractive() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#192412]/75 via-transparent to-transparent" />
                     <span className="absolute bottom-2.5 left-2.5 right-2.5 text-[11px] font-medium text-[#fdfaf0]/90 leading-tight">
-                      Tijarah · Craft
+                      Tijarah · Ethical Enterprise
                     </span>
                   </div>
                 </div>
@@ -284,7 +284,7 @@ export default function PhilosophyInteractive() {
                     Governance &amp; How We Work
                   </h3>
                   <p className="text-sm text-[var(--color-primary-dark)]/75 leading-relaxed font-sans mb-6">
-                    Learn how a solo founder and specialised AI agents built on Google Antigravity and Claude enforce these principles in production.
+                    See how one founder, AI tools, and human sign-off keep these values in practice.
                   </p>
                 </div>
                 <div className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)]">

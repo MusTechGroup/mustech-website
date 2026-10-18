@@ -69,7 +69,7 @@ const HERO_PANELS = [
     key: "tarabase" as BrandKey,
     name: "TaraBase",
     category: "Commerce OS",
-    subtitle: "Small-Batch Kitchen OS",
+    subtitle: "Pre-Orders for Home Businesses",
     href: "#tarabase",
     image: "/editorial/artisanal-batch-counter.jpg",
     alt: "Artisanal small-batch dessert counter with handwritten slate batch tags",
@@ -203,7 +203,7 @@ export default function Hero() {
           <div className="lg:col-span-7 text-center lg:text-left">
             <Reveal delayMs={70}>
               <h1 className="font-brand text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--color-primary-dark)] leading-[1.08] mb-4 sm:mb-5">
-                A Global Ethical<br />Tech Collective.
+                Ethical technology,<br />built in Singapore.
               </h1>
             </Reveal>
 
@@ -320,7 +320,7 @@ export default function Hero() {
               Ecosystem Showcase
             </span>
             <p className="text-xs text-[var(--color-primary-dark)]/70 mt-0.5">
-              Swipe across our active platforms
+              Swipe through our products and principles
             </p>
           </div>
           <span className="text-xs font-semibold px-2.5 py-1 rounded bg-black/5 text-[var(--color-primary-dark)]">

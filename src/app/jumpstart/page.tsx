@@ -17,9 +17,9 @@ import JumpstartRegisterForm from "@/components/JumpstartRegisterForm";
 import AnimatedJumpstartLogo from "@/components/AnimatedJumpstartLogo";
 
 export const metadata: Metadata = {
-  title: "MusTech Jumpstart | Agentic AI & Autonomous Organisation Masterclass",
+  title: "MusTech Jumpstart | Run Your Business with AI, Checked by You",
   description:
-    "Move beyond toy prompts and basic automations. MusTech Jumpstart is a hands-on masterclass teaching founders how to design, orchestrate, and operate bespoke, agentic organisations from scratch. Taught by Taufiq Rashid.",
+    "A hands-on course for founders, taught by Taufiq Rashid: give AI tools clear jobs and check their work before it reaches your customers. Works with Antigravity, Claude Code, and Codex.",
   alternates: {
     canonical: "/jumpstart",
   },
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     locale: "en_SG",
     url: "https://www.mustechgroup.com/jumpstart",
     siteName: "MusTech Group",
-    title: "MusTech Jumpstart | Agentic AI & Autonomous Organisation Masterclass",
+    title: "MusTech Jumpstart | Run Your Business with AI, Checked by You",
     description:
-      "Move beyond toy prompts and basic automations. Learn how to architect, orchestrate, and operate bespoke, agentic software organisations.",
+      "A hands-on course for founders: give AI tools clear jobs and check their work before it reaches your customers. Works with Antigravity, Claude Code, and Codex.",
     images: [
       {
         url: "/jumpstart/logo-trim.png",
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
 const courseSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
-  name: "MusTech Jumpstart: Agentic AI & Autonomous Organisation Masterclass",
+  name: "MusTech Jumpstart: Run Your Business with AI, Checked by You",
   description:
-    "A hands-on masterclass deconstructing agentic AI architecture, multi-agent orchestration, LLM token efficiency, and bespoke autonomous organisations under the Tayyib Architecture framework.",
+    "A hands-on course for founders: give AI tools clear jobs and check their work before it reaches your customers. Works with Antigravity, Claude Code, and Codex.",
   provider: {
     "@type": "Organization",
     name: "MusTech Group",
@@ -84,11 +84,11 @@ export default function JumpstartPage() {
               </div>
 
               <h1 className="font-brand text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-primary-dark)] leading-[1.1] mb-6">
-                Architecting the Autonomous Organisation.
+                Run your business with AI. Stay in charge.
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl text-[var(--color-primary-dark)]/85 font-sans leading-relaxed max-w-2xl mb-8 sm:mb-10">
-                Move beyond toy prompts and fragile automations. MusTech Jumpstart is an executive masterclass teaching founders how to design, orchestrate, and operate bespoke, agentic software organisations from the ground up.
+                MusTech Jumpstart is a hands-on course for founders. You learn to give AI tools clear jobs, check their work, and keep every important decision with you. It works with Antigravity, Claude Code, and Codex.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -111,15 +111,15 @@ export default function JumpstartPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black/10 border-t border-b border-black/10 py-4 sm:py-6 max-w-5xl mx-auto text-xs text-[var(--color-primary-dark)]/85">
               <div className="flex items-center justify-center gap-3 py-3 md:py-0 px-4">
                 <Award className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                <span>Enterprise Data Lead (ex-Google, WPP, LVMH)</span>
+                <span>Data Lead at WPP Media (ex-Google, LVMH)</span>
               </div>
               <div className="flex items-center justify-center gap-3 py-3 md:py-0 px-4">
                 <Layers className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                <span>Multi-Agent Orchestration &amp; Guardrails</span>
+                <span>Clear Jobs and Checks for AI</span>
               </div>
               <div className="flex items-center justify-center gap-3 py-3 md:py-0 px-4">
                 <Scale className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                <span>Anti-Israf Token Economics &amp; Sovereignty</span>
+                <span>Predictable AI Costs</span>
               </div>
             </div>
 
@@ -137,7 +137,7 @@ export default function JumpstartPage() {
                 What Jumpstart Delivers for Your Venture
               </h2>
               <p className="text-[var(--color-primary-dark)]/85 font-sans text-sm sm:text-base leading-relaxed">
-                Not another prompt guide or toy demonstration. We equip you with a functioning, autonomous AI organisation designed to scale.
+                Not a prompt guide. You leave with AI tools set up in your business and the habits to run them well.
               </p>
             </div>
 
@@ -149,15 +149,15 @@ export default function JumpstartPage() {
                     <Building2 className="w-6 h-6" />
                   </div>
                   <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
-                    Autonomous Operations Engine
+                    Set Up in Your Business
                   </h3>
                   <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
-                    We pre-build a functioning multi-agent system configured for your company. Instead of getting bogged down in manual tasks, your venture operates with coordinated AI agents managing research, operations, and communications.
+                    During the course you receive ready-made skills, workspace folders, and templates, and you set them up in your own business step by step. By the end, AI tools are helping with your real research, operations, and communications.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-black/5 text-xs text-[var(--color-primary)] font-semibold flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span>Pre-built AI systems tailored to your business</span>
+                  <span>Ready-made skills you set up in your business</span>
                 </div>
               </div>
 
@@ -168,15 +168,15 @@ export default function JumpstartPage() {
                     <Cpu className="w-6 h-6" />
                   </div>
                   <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
-                    Agentic AI &amp; Custom Workflows
+                    Workflows You Can Trust
                   </h3>
                   <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
-                    Deploy autonomous AI agents that complete multi-step tasks without getting stuck or hallucinating. Connect intelligent models directly into your database, communication channels, and production tools.
+                    Learn to break real tasks into steps an AI tool can follow, connect it to the tools you already use, and check each result before it counts.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-black/5 text-xs text-[var(--color-primary)] font-semibold flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span>Autonomous workflows that execute real business tasks</span>
+                  <span>Real tasks, with a person checking the result</span>
                 </div>
               </div>
 
@@ -187,15 +187,15 @@ export default function JumpstartPage() {
                     <Coins className="w-6 h-6" />
                   </div>
                   <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
-                    Cost-Controlled &amp; Production Ready
+                    Predictable Costs
                   </h3>
                   <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
-                    Master practical AI economics so your business scales profitably without runaway token bills. Build with sovereign data privacy, predictable operating costs, and verified digital trust.
+                    Learn where AI spending goes and how to keep it predictable, while keeping your customers&apos; data private.
                   </p>
                 </div>
                 <div className="pt-4 border-t border-black/5 text-xs text-[var(--color-primary)] font-semibold flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span>Predictable operating costs &amp; sovereign privacy</span>
+                  <span>Predictable costs and private data</span>
                 </div>
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function JumpstartPage() {
                   Jumpstart teaches the system Taufiq uses to run MusTech Group.
                 </p>
                 <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-4">
-                  MusTech Group runs Saalihat, Jenazah.sg, and TaraBase with one founder and a team of AI agents. Every workflow in this course comes from that operation: how the agents are organised, how their work is checked, and how decisions still reach the founder.
+                  MusTech Group runs Saalihat, jenazah.sg, and TaraBase with one founder and AI tools. Every workflow in this course comes from that operation: how the agents are organised, how their work is checked, and how decisions still reach the founder.
                 </p>
                 <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-4">
                   Throughout his career, Taufiq has taught technical work to people who are not technical:

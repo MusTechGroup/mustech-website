@@ -147,7 +147,11 @@ export default function TermsPage() {
               </div>
               <div className="lg:col-span-8">
                 <p>
-                  Specific services within the MusTech Group ecosystem, including <strong>jenazah.sg</strong> (bereavement navigation), <strong>TaraBase</strong> (micro-merchant order and PayNow verification), and <strong>MusTech Jumpstart</strong> (executive cohort registration), operate under the Tayyib Architecture standard and may include platform-specific operational guidelines presented at the point of use.
+                  <strong>TaraBase</strong> has its own{" "}
+                  <a href="https://tarabase.co/terms" className="font-semibold underline hover:text-[var(--color-primary)]">
+                    terms of service
+                  </a>
+                  , which apply when you use TaraBase.
                 </p>
               </div>
             </section>
