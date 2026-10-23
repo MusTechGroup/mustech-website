@@ -132,7 +132,142 @@ button:focus-visible {
   animation: floatReverse 8s ease-in-out infinite;
 }
 
+/* Jumpstart: scenes rise as a framed window, recede into the dark, and swap examples with depth. */
+.js-scene {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  clip-path: inset(
+    calc((1 - var(--in, 1)) * 9vh) calc((1 - var(--in, 1)) * 9vw) 0 calc((1 - var(--in, 1)) * 9vw)
+    round calc((1 - var(--in, 1)) * 48px)
+  );
+}
+
+.js-scene-inner {
+  width: 100%;
+  transform-origin: 50% 100%;
+  transform: perspective(1400px) translate3d(0, 0, calc(var(--out, 0) * -160px));
+  opacity: calc(1 - var(--out, 0) * 0.6);
+}
+
+.js-stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 120px 80px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 200px 150px, rgba(245, 203, 29, 0.6), transparent),
+    radial-gradient(1px 1px at 70px 190px, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 260px 40px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 330px 220px, rgba(255, 255, 255, 0.35), transparent);
+  background-size: 280px 260px, 340px 300px, 420px 380px, 300px 340px, 380px 320px, 520px 460px;
+  background-position:
+    0 calc(var(--sy, 0) * -0.08px),
+    0 calc(var(--sy, 0) * -0.14px),
+    0 calc(var(--sy, 0) * -0.22px),
+    0 calc(var(--sy, 0) * -0.3px),
+    0 calc(var(--sy, 0) * -0.4px),
+    0 calc(var(--sy, 0) * -0.55px);
+}
+
+/* Sections snap into place one at a time on large screens, and loosely elsewhere. */
+html:has(.js-scene) {
+  scroll-snap-type: y proximity;
+}
+
+@media (min-width: 1024px) and (min-height: 800px) {
+  html:has(.js-scene) {
+    scroll-snap-type: y mandatory;
+  }
+
+  html:has(.js-scene) .js-scene {
+    scroll-snap-stop: always;
+  }
+}
+
+html:has(.js-scene) .js-scene {
+  scroll-snap-align: start;
+}
+
+html:has(.js-scene) .js-snap-end {
+  scroll-snap-align: end;
+}
+
+/* Page changes to and from Jumpstart. The animation itself is driven from PageTransition. */
+html[data-vt]::view-transition-old(root),
+html[data-vt]::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html[data-vt]::view-transition-old(root) {
+  z-index: 2;
+}
+
+html[data-vt="in"]::view-transition-old(root) {
+  filter: url(#js-px-old);
+}
+
+html[data-vt="in"]::view-transition-new(root) {
+  filter: url(#js-px-new);
+}
+
+html[data-vt="out"]::view-transition-old(root) {
+  filter: url(#js-fisheye);
+}
+
+@keyframes jsSwapIn {
+  from {
+    opacity: 0;
+    transform: perspective(900px) translate3d(0, 14px, -90px) rotateX(5deg);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.js-swap {
+  animation: jsSwapIn 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes jsNodeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.js-node {
+  animation: jsNodeIn 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .js-swap,
+  .js-node {
+    animation: none !important;
+  }
+  .js-scene {
+    clip-path: none !important;
+    min-height: 0;
+  }
+  .js-scene-inner {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .flow-dot {
+    display: none;
+  }
   html {
     scroll-behavior: auto;
   }

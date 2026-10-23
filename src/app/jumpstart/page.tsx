@@ -1,20 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  Award,
-  Layers,
-  Scale,
-  CheckCircle2,
-  Cpu,
-  Coins,
-  Building2
-} from "lucide-react";
-import Navbar from "@/components/Navbar";
+import JumpstartNav from "@/components/JumpstartNav";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/seo/JsonLd";
 import JumpstartRegisterForm from "@/components/JumpstartRegisterForm";
 import AnimatedJumpstartLogo from "@/components/AnimatedJumpstartLogo";
+import JumpstartDemo from "@/components/JumpstartDemo";
+import JumpstartFlow from "@/components/JumpstartFlow";
+import JumpstartStandup from "@/components/JumpstartStandup";
+import BrandLogo from "@/components/BrandLogo";
+import Scene from "@/components/Scene";
+import DeckRail from "@/components/DeckRail";
+import { ExampleProvider, ExampleToggle, ExampleText, ExampleDepartments } from "@/components/JumpstartExamples";
 
 export const metadata: Metadata = {
   title: "MusTech Jumpstart | Run Your Business with AI, Checked by You",
@@ -64,147 +62,131 @@ const courseSchema = {
 
 export default function JumpstartPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[var(--brand-bg)]">
+    <div className="relative isolate flex flex-col min-h-screen bg-[#050504]">
       <JsonLd schema={courseSchema} />
-      <Navbar />
+      <JumpstartNav />
+      <DeckRail />
 
-      <main id="main-content" className="flex-grow pt-28 sm:pt-36">
-        {/* Slide 1: The Core Hero */}
-        <section className="relative pb-16 sm:pb-20 border-b border-black/5 overflow-hidden">
+      <main id="main-content" className="relative z-10 flex-grow">
+        {/* Hero */}
+        <Scene deck="Launch" className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 overflow-hidden bg-[var(--brand-bg)]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-12 sm:mb-14">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#814038] mb-6 block">
-                Executive Masterclass
-              </span>
+            <div className="flex flex-col items-center text-center">
 
-              {/* Animated Lightning Logo */}
-              <div className="w-64 sm:w-80 md:w-96 mb-6 sm:mb-8">
+              <div className="w-[min(70vw,36rem)] mb-8 sm:mb-10">
                 <AnimatedJumpstartLogo priority />
               </div>
 
-              <h1 className="font-brand text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-primary-dark)] leading-[1.1] mb-6">
-                Run your business with AI. Stay in charge.
+              <h1 className="font-brand font-bold tracking-[-0.03em] leading-[1.02] text-[var(--color-primary-dark)] text-[clamp(2.25rem,6.5vw,5.5rem)] max-w-5xl text-balance">
+                AI does the work.{" "}
+                <span className="bg-[linear-gradient(transparent_58%,#f5cb1d_58%,#f5cb1d_88%,transparent_88%)] px-[0.04em]">
+                  You make the calls.
+                </span>
               </h1>
 
-              <p className="text-base sm:text-lg md:text-xl text-[var(--color-primary-dark)]/85 font-sans leading-relaxed max-w-2xl mb-8 sm:mb-10">
-                MusTech Jumpstart is a hands-on course for founders. You learn to give AI tools clear jobs, check their work, and keep every important decision with you. It works with Antigravity, Claude Code, and Codex.
+              <p className="mt-8 text-base sm:text-lg md:text-xl text-[var(--color-primary-dark)]/85 font-sans leading-relaxed max-w-2xl">
+                Jumpstart sets up AI departments inside your business, built from a short questionnaire about how you work. Each morning you get one list: what got done, what it needs from you, and what only you can decide.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[var(--color-primary-dark)]">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)]/60">Works with</span>
+                <BrandLogo name="Antigravity" src="/jumpstart/logos/antigravity.png" className="text-lg" />
+                <BrandLogo name="Claude Code" src="/jumpstart/logos/claude-code.webp" className="text-lg" />
+                <BrandLogo name="Codex" src="/jumpstart/logos/codex.png" className="text-lg" />
+              </div>
+
+              <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                 <a
                   href="#register"
-                  className="w-full sm:w-auto px-8 py-3.5 min-h-[44px] flex items-center justify-center bg-[var(--color-primary-dark)] text-white hover:bg-[var(--color-primary)] text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+                  className="w-full sm:w-auto px-8 py-4 min-h-[48px] flex items-center justify-center bg-[var(--color-primary-dark)] text-white hover:bg-black text-xs font-bold uppercase tracking-wider transition-colors"
                 >
                   Register Early Interest
                 </a>
                 <a
-                  href="#overview"
-                  className="w-full sm:w-auto px-8 py-3.5 min-h-[44px] flex items-center justify-center bg-white border border-black/10 text-[var(--color-primary-dark)] hover:bg-black/5 text-xs font-bold uppercase tracking-wider transition-colors"
+                  href="#demo"
+                  className="w-full sm:w-auto px-8 py-4 min-h-[48px] flex items-center justify-center bg-white border border-black/15 text-[var(--color-primary-dark)] hover:bg-black/5 text-xs font-bold uppercase tracking-wider transition-colors"
                 >
-                  Curriculum Overview
+                  See it work
                 </a>
               </div>
             </div>
-
-            {/* Micro Credential Bar */}
-            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black/10 border-t border-b border-black/10 py-4 sm:py-6 max-w-5xl mx-auto text-xs text-[var(--color-primary-dark)]/85">
-              <div className="flex items-center justify-center gap-3 py-3 md:py-0 px-4">
-                <Award className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                <span>Data Lead at WPP Media (ex-Google, LVMH)</span>
-              </div>
-              <div className="flex items-center justify-center gap-3 py-3 md:py-0 px-4">
-                <Layers className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                <span>Clear Jobs and Checks for AI</span>
-              </div>
-              <div className="flex items-center justify-center gap-3 py-3 md:py-0 px-4">
-                <Scale className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                <span>Predictable AI Costs</span>
-              </div>
-            </div>
-
           </div>
-        </section>
+        </Scene>
 
-        {/* Slide 2: The Core Pillars */}
-        <section id="overview" className="py-16 sm:py-20 border-b border-black/5 bg-white scroll-mt-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
-              <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-accent)] mb-2 block">
-                Curriculum Focus
-              </span>
-              <h2 className="font-brand text-2xl sm:text-4xl font-bold text-[var(--color-primary-dark)] tracking-tight mb-4">
-                What Jumpstart Delivers for Your Venture
-              </h2>
-              <p className="text-[var(--color-primary-dark)]/85 font-sans text-sm sm:text-base leading-relaxed">
-                Not a prompt guide. You leave with AI tools set up in your business and the habits to run them well.
-              </p>
+        <ExampleProvider>
+          {/* A real capture, worked through */}
+          <Scene id="demo" deck="Demo" className="bg-[#0b0b0a] text-[#efe9d8] py-20 sm:py-28">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-3xl mb-8 sm:mb-10">
+                <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
+                  <ExampleText field="role" />
+                </span>
+                <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(2rem,5vw,4rem)] text-balance">
+                  A messy note goes in. Here is what happens.
+                </h2>
+                <p className="mt-5 text-base sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
+                  <ExampleText field="blurb" /> This is the Jumpstart exercise, run on an example business. Pick one, answer the questions, and press the buttons.
+                </p>
+              </div>
+              <div className="mb-6">
+                <ExampleToggle />
+              </div>
+              <JumpstartDemo />
             </div>
+          </Scene>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-              {/* Pillar 1: Autonomous Operations Engine */}
-              <div className="p-6 sm:p-8 border border-black/10 bg-[var(--brand-bg)]/40 flex flex-col justify-between">
-                <div>
-                  <div className="w-12 h-12 bg-white border border-black/10 flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-sm">
-                    <Building2 className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
-                    Set Up in Your Business
-                  </h3>
-                  <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
-                    During the course you receive ready-made skills, workspace folders, and templates, and you set them up in your own business step by step. By the end, AI tools are helping with your real research, operations, and communications.
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-black/5 text-xs text-[var(--color-primary)] font-semibold flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span>Ready-made skills you set up in your business</span>
+          {/* What you leave with */}
+          <Scene id="overview" deck="Stack" className="bg-[#0b0b0a] text-[#efe9d8] py-20 sm:py-28">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+              <div className="lg:col-span-5">
+                <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
+                  What you leave with
+                </span>
+                <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(2rem,5vw,3.75rem)] text-balance">
+                  Your business, set up as departments.
+                </h2>
+                <p className="mt-5 text-base sm:text-lg text-[#efe9d8]/80 leading-relaxed">
+                  You answer a short questionnaire. Jumpstart installs only the departments your business needs and sets how deep each one goes. <ExampleDepartments />
+                </p>
+                <ul className="mt-6 space-y-3 text-sm sm:text-base text-[#efe9d8]/80 leading-relaxed">
+                  <li className="border-l-2 border-[#f5cb1d] pl-4">Each department has its own rules and skills, so the AI knows how you work.</li>
+                  <li className="border-l-2 border-[#f5cb1d] pl-4">Nothing goes out until you have checked it.</li>
+                  <li className="border-l-2 border-[#f5cb1d] pl-4">The files stay on your computer. Costs stay predictable, and customer data stays with you.</li>
+                </ul>
+                <div className="mt-8">
+                  <ExampleToggle label="Pick an example business for the diagram" />
                 </div>
               </div>
-
-              {/* Pillar 2: Agentic Workflows */}
-              <div className="p-6 sm:p-8 border border-black/10 bg-[var(--brand-bg)]/40 flex flex-col justify-between">
-                <div>
-                  <div className="w-12 h-12 bg-white border border-black/10 flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-sm">
-                    <Cpu className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
-                    Workflows You Can Trust
-                  </h3>
-                  <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
-                    Learn to break real tasks into steps an AI tool can follow, connect it to the tools you already use, and check each result before it counts.
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-black/5 text-xs text-[var(--color-primary)] font-semibold flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span>Real tasks, with a person checking the result</span>
-                </div>
-              </div>
-
-              {/* Pillar 3: Practical AI Economics */}
-              <div className="p-6 sm:p-8 border border-black/10 bg-[var(--brand-bg)]/40 flex flex-col justify-between">
-                <div>
-                  <div className="w-12 h-12 bg-white border border-black/10 flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-sm">
-                    <Coins className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-brand text-xl sm:text-2xl font-bold text-[var(--color-primary-dark)] mb-3">
-                    Predictable Costs
-                  </h3>
-                  <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
-                    Learn where AI spending goes and how to keep it predictable, while keeping your customers&apos; data private.
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-black/5 text-xs text-[var(--color-primary)] font-semibold flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span>Predictable costs and private data</span>
-                </div>
+              <div className="lg:col-span-7 min-w-0">
+                <JumpstartFlow />
               </div>
             </div>
+          </Scene>
 
-          </div>
-        </section>
+          {/* The daily standup, as it looks on a working day */}
+          <Scene id="standup" deck="Standup" className="bg-[#0b0b0a] text-[#efe9d8] py-20 sm:py-28">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-3xl mb-8 sm:mb-10">
+                <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
+                  The next morning
+                </span>
+                <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(2rem,5vw,3.75rem)] text-balance">
+                  One list. Only what needs you.
+                </h2>
+                <p className="mt-5 text-base sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
+                  This is the standup for the same business. Answer a question or make a call, and it is logged.
+                </p>
+              </div>
+              <div className="mb-6">
+                <ExampleToggle label="Pick an example business for the standup" />
+              </div>
+              <JumpstartStandup />
+            </div>
+          </Scene>
+        </ExampleProvider>
 
         {/* Slide 3: Instructor Profile (Factual, Dignified, No Fabricated Quotes) */}
-        <section className="py-16 border-b border-black/5 bg-[var(--brand-bg)]">
+        <Scene deck="Crew" className="py-20 sm:py-28 bg-[var(--brand-bg)]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="editorial-panel border border-black/10 bg-white grid grid-cols-1 md:grid-cols-5 shadow-sm overflow-hidden">
               <div className="relative md:col-span-2 aspect-[2/3] md:aspect-auto md:min-h-[480px] bg-zinc-100">
@@ -220,9 +202,9 @@ export default function JumpstartPage() {
                 <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-2 block">
                   Your Instructor
                 </span>
-                <h3 className="font-brand text-2xl sm:text-4xl font-bold text-[var(--color-primary-dark)] mb-6">
+                <h2 className="font-brand text-2xl sm:text-4xl font-bold text-[var(--color-primary-dark)] mb-6">
                   Taufiq Rashid
-                </h3>
+                </h2>
                 <p className="text-base sm:text-lg text-[var(--color-primary-dark)] leading-relaxed font-sans mb-4">
                   Jumpstart teaches the system Taufiq uses to run MusTech Group.
                 </p>
@@ -255,27 +237,29 @@ export default function JumpstartPage() {
               </div>
             </div>
           </div>
-        </section>
+        </Scene>
 
-        {/* Slide 4: Early Interest Waitlist */}
-        <section id="register" className="py-16 sm:py-20 bg-[var(--brand-bg)] scroll-mt-24">
+        {/* Early interest */}
+        <Scene id="register" deck="Dock" className="py-20 sm:py-28 bg-[#0b0b0a]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-xl mx-auto mb-8 sm:mb-10">
-              <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-2 block">
+            <div className="text-center max-w-xl mx-auto mb-10">
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-3 block">
                 Inaugural Cohort
               </span>
-              <h2 className="font-brand text-2xl sm:text-4xl font-bold text-[var(--color-primary-dark)] tracking-tight">
+              <h2 className="font-brand font-bold tracking-[-0.02em] text-[#efe9d8] text-[clamp(2rem,5vw,3.5rem)] leading-[1.05]">
                 Register Your Interest
               </h2>
             </div>
 
             <JumpstartRegisterForm />
           </div>
-        </section>
+        </Scene>
 
       </main>
 
-      <Footer />
+      <div className="js-snap-end relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 }

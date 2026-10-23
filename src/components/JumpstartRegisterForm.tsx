@@ -69,7 +69,7 @@ export default function JumpstartRegisterForm() {
     fieldError === field ? "border-[var(--color-accent)]" : "border-black/15";
 
   return (
-    <div id="register" className="scroll-mt-28 w-full max-w-xl mx-auto">
+    <div className="w-full max-w-xl mx-auto">
       <div className="editorial-panel p-6 sm:p-8 md:p-12 border border-black/10 bg-white shadow-sm">
         {submitted ? (
           <div className="flex flex-col items-center text-center py-8" role="status">
