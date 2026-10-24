@@ -8,7 +8,7 @@ import JumpstartRegisterForm from "@/components/JumpstartRegisterForm";
 import AnimatedJumpstartLogo from "@/components/AnimatedJumpstartLogo";
 import JumpstartDemo from "@/components/JumpstartDemo";
 import JumpstartFlow from "@/components/JumpstartFlow";
-import JumpstartStandup from "@/components/JumpstartStandup";
+import JumpstartDevices from "@/components/JumpstartDevices";
 import BrandLogo from "@/components/BrandLogo";
 import Scene from "@/components/Scene";
 import DeckRail from "@/components/DeckRail";
@@ -69,11 +69,11 @@ export default function JumpstartPage() {
 
       <main id="main-content" className="relative z-10 flex-grow">
         {/* Hero */}
-        <Scene deck="Launch" className="relative pt-28 sm:pt-36 pb-20 sm:pb-28 overflow-hidden bg-[var(--brand-bg)]">
+        <Scene deck="Launch" className="relative pt-24 sm:pt-36 pb-10 sm:pb-24 overflow-hidden bg-[var(--brand-bg)]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center text-center">
 
-              <div className="w-[min(70vw,36rem)] mb-8 sm:mb-10">
+              <div className="w-[min(70vw,36rem)] mb-5 sm:mb-10">
                 <AnimatedJumpstartLogo priority />
               </div>
 
@@ -84,7 +84,7 @@ export default function JumpstartPage() {
                 </span>
               </h1>
 
-              <p className="mt-8 text-base sm:text-lg md:text-xl text-[var(--color-primary-dark)]/85 font-sans leading-relaxed max-w-2xl">
+              <p className="mt-5 sm:mt-8 text-base sm:text-lg md:text-xl text-[var(--color-primary-dark)]/85 font-sans leading-relaxed max-w-2xl">
                 Jumpstart sets up AI departments inside your business, built from a short questionnaire about how you work. Each morning you get one list: what got done, what it needs from you, and what only you can decide.
               </p>
 
@@ -115,20 +115,20 @@ export default function JumpstartPage() {
 
         <ExampleProvider>
           {/* A real capture, worked through */}
-          <Scene id="demo" deck="Demo" className="bg-[#0b0b0a] text-[#efe9d8] py-20 sm:py-28">
+          <Scene id="demo" deck="Demo" className="bg-[#0b0b0a] text-[#efe9d8] py-10 sm:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-3xl mb-8 sm:mb-10">
+              <div className="max-w-3xl mb-4 sm:mb-8">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
                   <ExampleText field="role" />
                 </span>
-                <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(2rem,5vw,4rem)] text-balance">
+                <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.25rem)] text-balance">
                   A messy note goes in. Here is what happens.
                 </h2>
-                <p className="mt-5 text-base sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
-                  <ExampleText field="blurb" /> This is the Jumpstart exercise, run on an example business. Pick one, answer the questions, and press the buttons.
+                <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
+                  <ExampleText field="blurb" /> Pick one and press the buttons.
                 </p>
               </div>
-              <div className="mb-6">
+              <div className="mb-4">
                 <ExampleToggle />
               </div>
               <JumpstartDemo />
@@ -136,8 +136,8 @@ export default function JumpstartPage() {
           </Scene>
 
           {/* What you leave with */}
-          <Scene id="overview" deck="Stack" className="bg-[#0b0b0a] text-[#efe9d8] py-20 sm:py-28">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <Scene id="overview" deck="Stack" className="bg-[#0b0b0a] text-[#efe9d8] py-10 sm:py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start">
               <div className="lg:col-span-5">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
                   What you leave with
@@ -148,12 +148,12 @@ export default function JumpstartPage() {
                 <p className="mt-5 text-base sm:text-lg text-[#efe9d8]/80 leading-relaxed">
                   You answer a short questionnaire. Jumpstart installs only the departments your business needs and sets how deep each one goes. <ExampleDepartments />
                 </p>
-                <ul className="mt-6 space-y-3 text-sm sm:text-base text-[#efe9d8]/80 leading-relaxed">
+                <ul className="mt-4 space-y-2 text-sm sm:text-base text-[#efe9d8]/80 leading-relaxed">
                   <li className="border-l-2 border-[#f5cb1d] pl-4">Each department has its own rules and skills, so the AI knows how you work.</li>
                   <li className="border-l-2 border-[#f5cb1d] pl-4">Nothing goes out until you have checked it.</li>
                   <li className="border-l-2 border-[#f5cb1d] pl-4">The files stay on your computer. Costs stay predictable, and customer data stays with you.</li>
                 </ul>
-                <div className="mt-8">
+                <div className="mt-5">
                   <ExampleToggle label="Pick an example business for the diagram" />
                 </div>
               </div>
@@ -164,29 +164,29 @@ export default function JumpstartPage() {
           </Scene>
 
           {/* The daily standup, as it looks on a working day */}
-          <Scene id="standup" deck="Standup" className="bg-[#0b0b0a] text-[#efe9d8] py-20 sm:py-28">
+          <Scene id="standup" deck="Standup" className="bg-[#0b0b0a] text-[#efe9d8] py-10 sm:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-3xl mb-8 sm:mb-10">
+              <div className="max-w-3xl mb-4 sm:mb-8">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
                   The next morning
                 </span>
                 <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(2rem,5vw,3.75rem)] text-balance">
-                  One list. Only what needs you.
+                  One list. Answered from your phone.
                 </h2>
-                <p className="mt-5 text-base sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
-                  This is the standup for the same business. Answer a question or make a call, and it is logged.
+                <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
+                  The same business, the next morning. The dashboard on a tablet, the email on a phone. Answer by replying, and the dashboard updates.
                 </p>
               </div>
-              <div className="mb-6">
+              <div className="mb-4">
                 <ExampleToggle label="Pick an example business for the standup" />
               </div>
-              <JumpstartStandup />
+              <JumpstartDevices />
             </div>
           </Scene>
         </ExampleProvider>
 
         {/* Slide 3: Instructor Profile (Factual, Dignified, No Fabricated Quotes) */}
-        <Scene deck="Crew" className="py-20 sm:py-28 bg-[var(--brand-bg)]">
+        <Scene deck="Crew" className="py-10 sm:py-20 bg-[var(--brand-bg)]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="editorial-panel border border-black/10 bg-white grid grid-cols-1 md:grid-cols-5 shadow-sm overflow-hidden">
               <div className="relative md:col-span-2 aspect-[2/3] md:aspect-auto md:min-h-[480px] bg-zinc-100">
@@ -240,7 +240,7 @@ export default function JumpstartPage() {
         </Scene>
 
         {/* Early interest */}
-        <Scene id="register" deck="Dock" className="py-20 sm:py-28 bg-[#0b0b0a]">
+        <Scene id="register" deck="Dock" className="py-10 sm:py-20 bg-[#0b0b0a]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-xl mx-auto mb-10">
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-3 block">

@@ -135,21 +135,23 @@ button:focus-visible {
 /* Jumpstart: scenes rise as a framed window, recede into the dark, and swap examples with depth. */
 .js-scene {
   position: relative;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  clip-path: inset(
-    calc((1 - var(--in, 1)) * 9vh) calc((1 - var(--in, 1)) * 9vw) 0 calc((1 - var(--in, 1)) * 9vw)
-    round calc((1 - var(--in, 1)) * 48px)
-  );
 }
 
+@media (min-width: 1024px) {
+  .js-scene {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* Scenes dissolve through the dark instead of sliding over each other, so you never watch them travel. */
 .js-scene-inner {
   width: 100%;
-  transform-origin: 50% 100%;
-  transform: perspective(1400px) translate3d(0, 0, calc(var(--out, 0) * -160px));
-  opacity: calc(1 - var(--out, 0) * 0.6);
+  opacity: calc(var(--in, 1) * (1 - var(--out, 0)));
+  transform: scale(calc(0.97 + var(--in, 1) * 0.03));
+  transform-origin: 50% 40%;
 }
 
 .js-stars {
@@ -204,19 +206,39 @@ html[data-vt]::view-transition-new(root) {
   mix-blend-mode: normal;
 }
 
-html[data-vt]::view-transition-old(root) {
-  z-index: 2;
-}
-
-html[data-vt="in"]::view-transition-old(root) {
-  filter: url(#js-px-old);
-}
-
 html[data-vt="in"]::view-transition-new(root) {
-  filter: url(#js-px-new);
+  mask-image: var(--vt-mask);
+  -webkit-mask-image: var(--vt-mask);
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+}
+
+#js-tiles {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+html[data-vt="in"] #js-tiles {
+  display: block;
+  view-transition-name: js-tiles;
+}
+
+html[data-vt="in"]::view-transition-group(js-tiles),
+html[data-vt="in"]::view-transition-image-pair(js-tiles),
+html[data-vt="in"]::view-transition-new(js-tiles) {
+  animation: none;
+}
+
+html[data-vt="in"]::view-transition-old(js-tiles) {
+  display: none;
 }
 
 html[data-vt="out"]::view-transition-old(root) {
+  z-index: 2;
   filter: url(#js-fisheye);
 }
 
@@ -258,7 +280,6 @@ html[data-vt="out"]::view-transition-old(root) {
     animation: none !important;
   }
   .js-scene {
-    clip-path: none !important;
     min-height: 0;
   }
   .js-scene-inner {

@@ -78,20 +78,22 @@ function DemoRun({ example }: { example: Example }) {
 
   const typing = started && chars < example.note.length;
   const btn = (on: boolean, alt = false) =>
-    `px-4 min-h-[44px] text-xs font-bold uppercase tracking-wider border transition-colors ${
+    `px-3 min-h-[44px] text-xs font-bold uppercase tracking-wider border transition-colors ${
       on
         ? alt
           ? "bg-[#efe9d8] text-[#111] border-[#efe9d8]"
           : "bg-[#f5cb1d] text-[#111] border-[#f5cb1d]"
         : "border-white/30 text-[#efe9d8] hover:border-white/70"
     }`;
+  const label = "text-[11px] uppercase tracking-[0.2em] text-[#efe9d8]/55";
+  const fade = (on: boolean) => `transition-all duration-500 ${on ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`;
 
   return (
-    <div ref={rootRef} className="grid grid-cols-1 lg:grid-cols-12 gap-px bg-white/15 border border-white/15">
+    <div ref={rootRef} className="grid grid-cols-1 lg:grid-cols-12 gap-px bg-white/15 border border-white/15 text-sm leading-relaxed text-[#efe9d8]">
       {/* What the founder types */}
-      <div className="js-swap lg:col-span-5 bg-[#0b0b0a] p-5 sm:p-8 flex flex-col">
-        <p className="text-[11px] uppercase tracking-[0.2em] text-[#efe9d8]/55 mb-4">You type, the way you talk</p>
-        <p className="text-base sm:text-lg leading-relaxed text-[#efe9d8] min-h-[11rem]">
+      <div className="js-swap lg:col-span-5 bg-[#0b0b0a] p-4 sm:p-6 flex flex-col">
+        <p className={`${label} mb-2`}>You type, the way you talk</p>
+        <p className="min-h-[7.5rem] lg:min-h-[10rem]">
           <span className="sr-only">{example.note}</span>
           <span aria-hidden="true">
             {example.note.slice(0, chars)}
@@ -105,41 +107,32 @@ function DemoRun({ example }: { example: Example }) {
         <button
           type="button"
           onClick={() => setRun((r) => r + 1)}
-          className="mt-auto self-start pt-6 text-[11px] uppercase tracking-[0.2em] text-[#efe9d8]/60 hover:text-[#f5cb1d] transition-colors min-h-[44px]"
+          className={`mt-auto self-start ${label} hover:text-[#f5cb1d] transition-colors min-h-[44px]`}
         >
           Run it again
         </button>
       </div>
 
       {/* What comes back */}
-      <div className="js-swap lg:col-span-7 bg-[#0b0b0a] p-5 sm:p-8 min-h-[26rem]">
-        <p className="text-[11px] uppercase tracking-[0.2em] text-[#efe9d8]/55 mb-4">What it heard, in your own words</p>
+      <div className="js-swap lg:col-span-7 bg-[#0b0b0a] p-4 sm:p-6">
+        <p className={`${label} mb-2`}>What it heard, in your own words</p>
 
         <ul className="divide-y divide-white/10 border-y border-white/10">
           {example.readback.map((r, i) => (
-            <li
-              key={r.who}
-              className={`py-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 transition-all duration-500 ${
-                stage >= 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-              }`}
-              style={{ transitionDelay: `${i * 220}ms` }}
-            >
-              <span className="font-brand font-bold text-[#efe9d8] text-base sm:text-lg">{r.who}</span>
-              <span className="text-sm text-[#efe9d8]/65">{r.what}</span>
-              <mark className="bg-[#f5cb1d] text-[#111] px-1.5 text-xs sm:text-sm font-semibold">&ldquo;{r.quote}&rdquo;</mark>
-              <span className="text-xs text-[#efe9d8]/55">{r.rest}</span>
+            <li key={r.who} className={`py-2 ${fade(stage >= 1)}`} style={{ transitionDelay: `${i * 160}ms` }}>
+              <span className="font-semibold">{r.who}</span>
+              <span className="text-[#efe9d8]/65"> · {r.what} </span>
+              <mark className="bg-[#f5cb1d] text-[#111] px-1 font-semibold">&ldquo;{r.quote}&rdquo;</mark>
+              <span className="hidden sm:inline text-[#efe9d8]/55"> · {r.rest}</span>
             </li>
           ))}
         </ul>
-        <p className={`mt-2 text-xs text-[#efe9d8]/55 transition-opacity duration-500 ${stage >= 1 ? "opacity-100" : "opacity-0"}`}>
-          Your words are quoted, not tidied up. Read it, then confirm.
-        </p>
 
-        <div className={`mt-6 space-y-3 transition-all duration-500 ${stage >= 2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}>
-          <div className="border border-white/20 p-4">
-            <p className="text-[11px] uppercase tracking-[0.2em] text-[#f5cb1d] mb-2">Needs you</p>
-            <p className="text-sm sm:text-base text-[#efe9d8]">{example.input.ask}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
+        <div className={`mt-4 space-y-3 ${fade(stage >= 2)}`}>
+          <div className="border border-white/20 p-3 sm:p-4">
+            <p className={`${label} !text-[#f5cb1d] mb-1`}>Needs you</p>
+            <p>{example.input.ask}</p>
+            <div className="mt-2 flex flex-wrap gap-2">
               {example.input.options.map((o) => (
                 <button key={o} type="button" onClick={() => setPicked(o)} aria-pressed={picked === o} className={btn(picked === o)}>
                   {o}
@@ -147,16 +140,16 @@ function DemoRun({ example }: { example: Example }) {
               ))}
             </div>
             {picked && (
-              <p role="status" className="mt-3 text-xs text-[#efe9d8]/65">
+              <p role="status" className="mt-2 text-xs text-[#efe9d8]/65">
                 Filed: {picked}. {example.input.filed}
               </p>
             )}
           </div>
 
-          <div className={`border border-[#f5cb1d] p-4 transition-all duration-500 ${stage >= 3 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}`}>
-            <p className="text-[11px] uppercase tracking-[0.2em] text-[#f5cb1d] mb-2">Your call</p>
-            <p className="text-sm sm:text-base text-[#efe9d8]">{example.decide.ask}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
+          <div className={`border border-[#f5cb1d] p-3 sm:p-4 ${fade(stage >= 3)}`}>
+            <p className={`${label} !text-[#f5cb1d] mb-1`}>Your call</p>
+            <p>{example.decide.ask}</p>
+            <div className="mt-2 flex flex-wrap gap-2">
               <button type="button" onClick={() => setDecision("yes")} aria-pressed={decision === "yes"} className={btn(decision === "yes")}>
                 Yes, draft it
               </button>
@@ -164,10 +157,8 @@ function DemoRun({ example }: { example: Example }) {
                 Hold
               </button>
             </div>
-            {decision && <p role="status" className="mt-3 text-xs text-[#efe9d8]/65">{decision === "yes" ? example.decide.yes : example.decide.hold}</p>}
+            {decision && <p role="status" className="mt-2 text-xs text-[#efe9d8]/65">{decision === "yes" ? example.decide.yes : example.decide.hold}</p>}
           </div>
-
-          <p className="text-xs text-[#efe9d8]/55 pt-1">{example.notify}</p>
         </div>
       </div>
     </div>

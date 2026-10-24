@@ -12,8 +12,8 @@ interface SceneProps {
 }
 
 /**
- * One scene of the page. It rises into view as a framed window that opens to full width,
- * and recedes into the dark as the next scene arrives. Progress is written to CSS variables.
+ * One scene of the page. It fades up out of the dark as it arrives and fades away as the next scene comes,
+ * so scrolling reads as a cut, not a slide. Progress is written to CSS variables.
  */
 export default function Scene({ children, className = "", id, deck }: SceneProps) {
   const ref = useRef<HTMLElement | null>(null);
@@ -27,8 +27,8 @@ export default function Scene({ children, className = "", id, deck }: SceneProps
       const vh = window.innerHeight;
       if (r.bottom < -vh || r.top > vh * 2) return;
       const hasNext = el.nextElementSibling?.classList.contains("js-scene") ?? false;
-      const enter = easeOut(clamp01((vh - r.top) / (vh * 0.8)));
-      const leave = hasNext ? clamp01((vh * 0.7 - r.bottom) / (vh * 0.6)) : 0;
+      const enter = easeOut(clamp01((vh * 0.72 - r.top) / (vh * 0.4)));
+      const leave = hasNext ? clamp01((vh * 0.55 - r.bottom) / (vh * 0.35)) : 0;
       return () => {
         el.style.setProperty("--in", enter.toFixed(3));
         el.style.setProperty("--out", leave.toFixed(3));

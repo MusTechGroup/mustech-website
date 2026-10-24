@@ -16,11 +16,23 @@ export default function JumpstartFlow() {
   const top = (i: number) => 20 + i * (NODE_H + GAP);
   return (
     <figure className="m-0" key={example.id}>
+      <ul className="sm:hidden border border-white/15 divide-y divide-white/10 text-sm text-[#efe9d8]">
+        {DEPTS.map((d) => (
+          <li key={d.name} className="js-node flex items-baseline justify-between gap-3 px-3 py-2">
+            <span className="font-semibold">{d.name}</span>
+            <span className="text-xs text-[#efe9d8]/55">{d.level}</span>
+          </li>
+        ))}
+        <li className="flex items-center justify-between px-3 py-2 bg-[#f5cb1d] text-[#111] font-bold">
+          <span>You check it</span>
+          <span>Out</span>
+        </li>
+      </ul>
       <svg
         viewBox="0 0 880 560"
         role="img"
         aria-label={`Six of ${example.person}'s ${example.installed} departments do the work. Every piece of work passes through you before it goes out.`}
-        className="w-full h-auto"
+        className="hidden sm:block w-full h-auto"
       >
         {DEPTS.map((d, i) => {
           const y = top(i) + NODE_H / 2;
@@ -79,7 +91,7 @@ export default function JumpstartFlow() {
           Out
         </text>
       </svg>
-      <figcaption className="mt-3 text-sm text-[#efe9d8]/60 leading-relaxed max-w-xl">
+      <figcaption className="mt-2 text-xs sm:text-sm text-[#efe9d8]/60 leading-relaxed max-w-xl">
         Example: six of the {example.installed} departments installed for {example.person}. Work flows left to right. Nothing goes out until you have checked it.
       </figcaption>
     </figure>
