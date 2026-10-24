@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import JumpstartNav from "@/components/JumpstartNav";
 import Footer from "@/components/Footer";
+import Image from "next/image";
+import Link from "next/link";
 import JsonLd from "@/components/seo/JsonLd";
 import JumpstartRegisterForm from "@/components/JumpstartRegisterForm";
 import AnimatedJumpstartLogo from "@/components/AnimatedJumpstartLogo";
@@ -95,7 +95,7 @@ export default function JumpstartPage() {
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#efe9d8]/60">Works with</span>
                 <BrandLogo name="Antigravity" src="/jumpstart/logos/antigravity.png" className="text-lg" />
                 <BrandLogo name="Claude Code" src="/jumpstart/logos/claude-code.webp" className="text-lg" />
-                <BrandLogo name="Codex" src="/jumpstart/logos/codex.png" className="text-lg" />
+                <BrandLogo name="Codex" src="/jumpstart/logos/codex.svg" className="text-lg" />
               </div>
 
               <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -201,52 +201,42 @@ export default function JumpstartPage() {
           </Scene>
         </ExampleProvider>
 
-        {/* Slide 3: Instructor Profile (Factual, Dignified, No Fabricated Quotes) */}
-        <Scene deck="Crew" className="py-10 sm:py-20">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="editorial-panel border border-black/10 bg-white grid grid-cols-1 md:grid-cols-5 shadow-sm overflow-hidden">
-              <div className="relative md:col-span-2 aspect-[2/3] md:aspect-auto md:min-h-[480px] bg-zinc-100">
-                <Image
-                  src="/jumpstart/founder.jpg"
-                  alt="Taufiq Rashid"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover object-top"
-                />
+        {/* Instructor: why this course is credible */}
+        <Scene deck="Crew" className="text-[#efe9d8] py-10 sm:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+              <div className="lg:col-span-4">
+                <div className="relative aspect-[4/5] max-w-sm mx-auto lg:mx-0 overflow-hidden">
+                  <Image
+                    src="/jumpstart/founder.jpg"
+                    alt="Taufiq Rashid"
+                    fill
+                    sizes="(max-width: 1024px) 80vw, 400px"
+                    className="object-cover object-top"
+                  />
+                </div>
               </div>
-              <div className="md:col-span-3 p-6 sm:p-8 md:p-12 flex flex-col justify-center">
-                <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-2 block">
+              <div className="lg:col-span-8 max-w-2xl">
+                <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
                   Your Instructor
                 </span>
-                <h2 className="font-brand text-2xl sm:text-4xl font-bold text-[var(--color-primary-dark)] mb-6">
+                <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.25rem)] text-balance">
                   Taufiq Rashid
                 </h2>
-                <p className="text-base sm:text-lg text-[var(--color-primary-dark)] leading-relaxed font-sans mb-4">
-                  Jumpstart teaches the system Taufiq uses to run MusTech Group.
+                <p className="mt-4 text-base sm:text-lg text-[#efe9d8]/85 leading-relaxed">
+                  Jumpstart teaches the system Taufiq uses to run MusTech Group. One founder and AI tools run Saalihat, jenazah.sg, and TaraBase. Every workflow in this course comes from that operation: how the agents are organised, how their work is checked, and how decisions still reach the founder.
                 </p>
-                <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-4">
-                  MusTech Group runs Saalihat, jenazah.sg, and TaraBase with one founder and AI tools. Every workflow in this course comes from that operation: how the agents are organised, how their work is checked, and how decisions still reach the founder.
+                <p className="mt-4 text-sm sm:text-base text-[#efe9d8]/80 leading-relaxed">
+                  He has taught technical work to people who are not technical:
                 </p>
-                <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-4">
-                  Throughout his career, Taufiq has taught technical work to people who are not technical:
-                </p>
-                <ul className="mb-4 space-y-2 border-l-2 border-[var(--color-accent)]/40 pl-4 text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans">
-                  <li>
-                    <strong className="text-[var(--color-primary-dark)]">WPP Media:</strong> trained analysts in Singapore, Australia, India, Japan, and Korea to use AI and build their own agents.
-                  </li>
-                  <li>
-                    <strong className="text-[var(--color-primary-dark)]">Sephora:</strong> led Sephora SAID, a community for technical sharing.
-                  </li>
-                  <li>
-                    <strong className="text-[var(--color-primary-dark)]">Google:</strong> ran SQL training for marketers.
-                  </li>
+                <ul className="mt-3 space-y-2 text-sm sm:text-base text-[#efe9d8]/80 leading-relaxed">
+                  <li className="border-l-2 border-[#f5cb1d] pl-4"><strong className="text-[#efe9d8]">WPP Media:</strong> trained analysts in Singapore, Australia, India, Japan, and Korea to use AI and build their own agents.</li>
+                  <li className="border-l-2 border-[#f5cb1d] pl-4"><strong className="text-[#efe9d8]">Sephora:</strong> led Sephora SAID, a community for technical sharing.</li>
+                  <li className="border-l-2 border-[#f5cb1d] pl-4"><strong className="text-[#efe9d8]">Google:</strong> ran SQL training for marketers.</li>
                 </ul>
-                <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-4">
-                  He speaks business, outcomes, and plain language, never technical for the sake of technical. That is how Jumpstart is taught.
-                </p>
-                <p className="text-sm text-[var(--color-primary-dark)]/85 leading-relaxed font-sans mb-6">
-                  He has led enterprise data analytics across APAC for over a decade, and is an academic consultant at SMU, ESSEC, HKU, and City University of Hong Kong.{" "}
-                  <Link href="/about" className="font-semibold underline hover:text-[var(--color-primary)]">
+                <p className="mt-4 text-sm sm:text-base text-[#efe9d8]/80 leading-relaxed">
+                  He speaks business, outcomes, and plain language, never technical for the sake of technical. That is how Jumpstart is taught. He has led enterprise data analytics across APAC for over a decade, and is an academic consultant at SMU, ESSEC, HKU, and City University of Hong Kong.{" "}
+                  <Link href="/about" className="font-semibold underline hover:text-[#f5cb1d]">
                     Full profile
                   </Link>
                 </p>

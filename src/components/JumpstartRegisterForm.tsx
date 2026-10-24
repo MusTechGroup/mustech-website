@@ -19,7 +19,7 @@ const FORM_ERRORS = {
 };
 
 const inputClass =
-  "w-full px-4 py-3 border bg-[var(--brand-bg)]/40 text-sm font-sans text-[var(--color-primary-dark)] focus:border-[var(--color-primary)] focus:outline-none transition-colors";
+  "w-full px-4 py-3 border bg-white/5 text-sm font-sans text-[#efe9d8] placeholder:text-[#efe9d8]/40 focus:border-[#f5cb1d] focus:outline-none transition-colors";
 
 export default function JumpstartRegisterForm() {
   const [name, setName] = useState("");
@@ -66,37 +66,37 @@ export default function JumpstartRegisterForm() {
   };
 
   const borderFor = (field: Field) =>
-    fieldError === field ? "border-[var(--color-accent)]" : "border-black/15";
+    fieldError === field ? "border-[var(--color-accent)]" : "border-white/20";
 
   return (
     <div className="w-full max-w-xl mx-auto">
-      <div className="editorial-panel p-6 sm:p-8 md:p-12 border border-black/10 bg-white shadow-sm">
+      <div className="p-6 sm:p-8 md:p-12 border border-white/15 bg-white/[0.03]">
         {submitted ? (
           <div className="flex flex-col items-center text-center py-8" role="status">
-            <div className="w-14 h-14 rounded-full bg-[#92ae94]/20 text-[#233219] flex items-center justify-center mb-6">
-              <CheckCircle2 className="w-8 h-8 text-[var(--color-primary)]" />
+            <div className="w-14 h-14 rounded-full bg-[#f5cb1d]/15 text-[#f5cb1d] flex items-center justify-center mb-6">
+              <CheckCircle2 className="w-8 h-8 text-[#f5cb1d]" />
             </div>
-            <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] mb-3">
+            <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[#efe9d8] mb-3">
               Interest Received
             </h3>
-            <p className="text-[var(--color-primary-dark)]/85 leading-relaxed font-sans max-w-md mb-6">
+            <p className="text-[#efe9d8]/85 leading-relaxed font-sans max-w-md mb-6">
               Thank you for registering your interest in <strong>MusTech Jumpstart</strong>. We will email you at <strong>{email}</strong> once the inaugural cohort schedule is finalised.
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="flex flex-col items-start mb-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-accent)] mb-1 block">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#f5cb1d] mb-1 block">
                 Early Expression of Interest
               </span>
-              <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)] tracking-tight">
-                Secure Priority Access
+              <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[#efe9d8] tracking-tight">
+                Your details
               </h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="founder-name" className="block text-xs font-bold uppercase tracking-wider text-[var(--color-primary-dark)]/80 mb-2">
+                <label htmlFor="founder-name" className="block text-xs font-bold uppercase tracking-wider text-[#efe9d8]/80 mb-2">
                   Your Full Name
                 </label>
                 <input
@@ -120,7 +120,7 @@ export default function JumpstartRegisterForm() {
               </div>
 
               <div>
-                <label htmlFor="founder-email" className="block text-xs font-bold uppercase tracking-wider text-[var(--color-primary-dark)]/80 mb-2">
+                <label htmlFor="founder-email" className="block text-xs font-bold uppercase tracking-wider text-[#efe9d8]/80 mb-2">
                   Email Address
                 </label>
                 <input
@@ -145,7 +145,7 @@ export default function JumpstartRegisterForm() {
             </div>
 
             <div>
-              <label htmlFor="founder-stage" className="block text-xs font-bold uppercase tracking-wider text-[var(--color-primary-dark)]/80 mb-2">
+              <label htmlFor="founder-stage" className="block text-xs font-bold uppercase tracking-wider text-[#efe9d8]/80 mb-2">
                 Current Venture Stage
               </label>
               <select
@@ -182,7 +182,7 @@ export default function JumpstartRegisterForm() {
             </div>
 
             {formError && (
-              <div role="alert" className="flex items-start gap-2 p-4 border border-[var(--color-accent)]/40 bg-[var(--color-accent)]/5 text-sm text-[var(--color-primary-dark)]">
+              <div role="alert" className="flex items-start gap-2 p-4 border border-[var(--color-accent)]/40 bg-[var(--color-accent)]/5 text-sm text-[#efe9d8]">
                 <AlertCircle className="w-4 h-4 mt-0.5 shrink-0 text-[var(--color-accent)]" />
                 <span>{formError}</span>
               </div>
@@ -193,22 +193,22 @@ export default function JumpstartRegisterForm() {
                 type="submit"
                 disabled={sending}
                 aria-busy={sending}
-                className="w-full flex items-center justify-center gap-2 px-8 py-3.5 min-h-[44px] bg-[var(--color-primary-dark)] hover:bg-[var(--color-primary)] disabled:opacity-60 disabled:cursor-wait text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+                className="w-full flex items-center justify-center gap-2 px-8 py-3.5 min-h-[44px] bg-[#f5cb1d] hover:bg-[#ffd93b] disabled:opacity-60 disabled:cursor-wait text-[#111] text-xs font-bold uppercase tracking-wider transition-colors "
               >
                 {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 <span>{sending ? "Registering…" : "Register Interest for Inaugural Cohort"}</span>
               </button>
-              <p className="mt-3 text-center text-xs text-[var(--color-primary-dark)]/70">
+              <p className="mt-3 text-center text-xs text-[#efe9d8]/70">
                 We use these details only to contact you about Jumpstart.{" "}
-                <Link href="/privacy-policy#jumpstart" className="font-semibold underline hover:text-[var(--color-primary)]">
+                <Link href="/privacy-policy#jumpstart" className="font-semibold underline hover:text-[#f5cb1d]">
                   Privacy Policy
                 </Link>
               </p>
             </div>
 
-            <div className="flex items-center justify-center gap-2 pt-2 text-xs text-[var(--color-primary-dark)]/70">
+            <div className="flex items-center justify-center gap-2 pt-2 text-xs text-[#efe9d8]/70">
               <Mail className="w-3.5 h-3.5" />
-              <span>Direct correspondence: <a href="mailto:jumpstart@mustechgroup.com?subject=MusTech%20Jumpstart%20Enquiry" className="font-semibold underline hover:text-[var(--color-primary)]">jumpstart@mustechgroup.com</a></span>
+              <span>Direct correspondence: <a href="mailto:jumpstart@mustechgroup.com?subject=MusTech%20Jumpstart%20Enquiry" className="font-semibold underline hover:text-[#f5cb1d]">jumpstart@mustechgroup.com</a></span>
             </div>
           </form>
         )}
