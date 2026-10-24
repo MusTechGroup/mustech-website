@@ -30,7 +30,7 @@ export default function Starfield() {
     let cx = 0;
     let cy = 0;
     let raf = 0;
-    const cam = { x: 0, y: 0, tx: 0, ty: 0, yaw: 0, pitch: 0, tyaw: 0, tpitch: 0, cyaw: 0.35, cpitch: 0.18, croll: -0.22, t: 0 };
+    const cam = { sc: 0, tsc: 0, x: 0, y: 0, tx: 0, ty: 0, yaw: 0, pitch: 0, tyaw: 0, tpitch: 0, cyaw: 0.35, cpitch: 0.18, croll: -0.22, t: 0 };
 
     const stars = Array.from({ length: window.innerWidth < 700 ? 650 : 1200 }, () => {
       const rad = 420 + Math.random() * 1450;
@@ -58,7 +58,8 @@ export default function Starfield() {
       if (still) draw();
     };
 
-    const project = (wx: number, wy: number, wz: number, pw: number) => {
+    // Scrolling down carries the sky up with the page. Nearer stars travel further than far ones, and each wraps around the screen.
+    const project = (wx: number, wy: number, wz: number, pw: number, wrap = false) => {
       const yw = cam.cyaw + cam.yaw;
       const pt = cam.cpitch + cam.pitch;
       const rl = cam.croll;
@@ -77,7 +78,10 @@ export default function Starfield() {
       const vz = z2 + CFG.zOffset;
       if (vz <= 90) return null;
       const s = CFG.fov / vz;
-      return { sx: cx + (x3 - cam.x * pw) * s, sy: cy + (y3 - cam.y * pw) * s, s, vz };
+      let sy = cy + (y3 - cam.y * pw) * s;
+      if (wrap) sy = (((sy - cam.sc * pw * s) % h) + h) % h;
+      else sy -= cam.sc * pw * s * 0.12;
+      return { sx: cx + (x3 - cam.x * pw) * s, sy, s, vz };
     };
 
     function draw() {
@@ -95,7 +99,7 @@ export default function Starfield() {
       }
       for (const st of stars) {
         const pw = 0.65 + (1 - Math.min(1, st.rad / 1800)) * 0.75;
-        const p = project(st.x, st.y, st.z, pw);
+        const p = project(st.x, st.y, st.z, pw, true);
         if (!p || p.sx < 0 || p.sx > w || p.sy < 0 || p.sy > h) continue;
         const a = Math.min(0.75, Math.max(0.04, (1 - (p.vz - 180) / 2600) * (0.8 + 0.2 * Math.sin(st.p))));
         ctx!.fillStyle = `rgba(220,232,255,${a})`;
@@ -113,6 +117,7 @@ export default function Starfield() {
       const ay = Math.cos(cam.t * 0.8) * 50;
       cam.x += (cam.tx + ax - cam.x) * 0.042;
       cam.y += (cam.ty + ay - cam.y) * 0.042;
+      cam.sc += (cam.tsc - cam.sc) * 0.1;
       cam.yaw += (cam.tyaw - cam.yaw) * 0.042;
       cam.pitch += (cam.tpitch - cam.pitch) * 0.042;
       for (const st of stars) st.p += 0.012;
@@ -128,6 +133,9 @@ export default function Starfield() {
       cam.tyaw = nx * 0.24 * CFG.parallax;
       cam.tpitch = -ny * 0.16 * CFG.parallax;
     };
+    const onScroll = () => {
+      cam.tsc = window.scrollY * 0.9;
+    };
     const onVisible = () => {
       cancelAnimationFrame(raf);
       if (!document.hidden && !still) raf = requestAnimationFrame(step);
@@ -140,12 +148,16 @@ export default function Starfield() {
     } else {
       raf = requestAnimationFrame(step);
       window.addEventListener("mousemove", onMove, { passive: true });
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+      cam.sc = cam.tsc;
       document.addEventListener("visibilitychange", onVisible);
     }
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("scroll", onScroll);
       document.removeEventListener("visibilitychange", onVisible);
     };
   }, []);
