@@ -10,9 +10,9 @@ const NODE_H = 58;
 const GAP = 28;
 // Ball colours: yellow is routine, blue is an update, red is urgent. Green is what leaves once you have checked it.
 const Y = "#f5cb1d";
-const B = "#5B9BFF";
-const R = "#F2506A";
-const OUT = "#34D399";
+const B = "#2F6FE0";
+const R = "#D93A52";
+const OUT = "#2E9E3E";
 const MIX = [Y, Y, B, Y, Y, Y, B, Y, R, Y, B, Y, Y, Y, Y, B, Y, Y, Y, B];
 const mixFrom = (n: number) => [...MIX.slice(n), ...MIX.slice(0, n)];
 const GATE = { x: 610, y: 20 + (6 * NODE_H + 5 * GAP) / 2, r: 64 };
@@ -61,12 +61,18 @@ export default function JumpstartFlow() {
             <text x="18" y={top(i) + 36} fill="#efe9d8" fontSize="20" fontWeight="700" className="font-brand">
               {d.name}
             </text>
-            {[0, 1].map((k) => {
-              const begin = `${i * 0.8 + k * 2.4}s`;
+            {/* Two regular balls per line, plus a rare third one that only shows for a third of its cycle. */}
+            {[0, 1, 2].map((k) => {
+              const rare = k === 2;
+              const begin = `${rare ? 1.6 + i * 2.1 : i * 0.8 + k * 2.4}s`;
               const colors = mixFrom((i * 3 + k * 7) % MIX.length);
               return (
                 <circle key={k} className="flow-dot" r="7" fill={colors[0]} opacity="0">
-                  <set attributeName="opacity" to="1" begin={begin} />
+                  {rare ? (
+                    <animate attributeName="opacity" values="1;0;0" keyTimes="0;0.3333;1" calcMode="discrete" dur="14.4s" begin={begin} repeatCount="indefinite" />
+                  ) : (
+                    <set attributeName="opacity" to="1" begin={begin} />
+                  )}
                   <animate attributeName="fill" values={colors.join(";")} calcMode="discrete" dur={`${4.8 * colors.length}s`} begin={begin} repeatCount="indefinite" />
                   <animateMotion dur="4.8s" begin={begin} repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
                     <mpath href={`#flow-p${i}`} />
@@ -90,12 +96,15 @@ export default function JumpstartFlow() {
           check it
         </text>
 
-        <circle className="flow-dot" r="8" fill={OUT} opacity="0">
-          <set attributeName="opacity" to="1" begin="1.2s" />
-          <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
-            <mpath href="#flow-out" />
-          </animateMotion>
-        </circle>
+        {/* Green leaves only after the first balls have reached you (4.8s), and several can be out at once. */}
+        {[0.4, 1.7, 2.6, 3.9].map((d) => (
+          <circle key={d} className="flow-dot" r="8" fill={OUT} opacity="0">
+            <animate attributeName="opacity" values="1;0;0" keyTimes="0;0.5;1" calcMode="discrete" dur="4.8s" begin={`${4.8 + d}s`} repeatCount="indefinite" />
+            <animateMotion dur="4.8s" begin={`${4.8 + d}s`} repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.5;1" calcMode="linear">
+              <mpath href="#flow-out" />
+            </animateMotion>
+          </circle>
+        ))}
         <text x="788" y={GATE.y + 6} fill="#efe9d8" fontSize="20" fontWeight="700" className="font-brand">
           Out
         </text>
