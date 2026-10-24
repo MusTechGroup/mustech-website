@@ -19,7 +19,7 @@ const FORM_ERRORS = {
 };
 
 const inputClass =
-  "w-full px-4 py-3 border bg-white/5 text-sm font-sans text-[#efe9d8] placeholder:text-[#efe9d8]/40 focus:border-[#f5cb1d] focus:outline-none transition-colors";
+  "w-full px-4 py-3 border bg-white/5 min-h-[48px] text-base sm:text-sm font-sans text-[#efe9d8] placeholder:text-[#efe9d8]/40 focus:border-[#f5cb1d] focus:outline-none transition-colors";
 
 export default function JumpstartRegisterForm() {
   const [name, setName] = useState("");
@@ -200,7 +200,7 @@ export default function JumpstartRegisterForm() {
               </button>
               <p className="mt-3 text-center text-xs text-[#efe9d8]/70">
                 We use these details only to contact you about Jumpstart.{" "}
-                <Link href="/privacy-policy#jumpstart" className="font-semibold underline hover:text-[#f5cb1d]">
+                <Link href="/privacy-policy#jumpstart" className="inline-block py-2 -my-2 font-semibold underline hover:text-[#f5cb1d]">
                   Privacy Policy
                 </Link>
               </p>
@@ -208,7 +208,7 @@ export default function JumpstartRegisterForm() {
 
             <div className="flex items-center justify-center gap-2 pt-2 text-xs text-[#efe9d8]/70">
               <Mail className="w-3.5 h-3.5" />
-              <span>Direct correspondence: <a href="mailto:jumpstart@mustechgroup.com?subject=MusTech%20Jumpstart%20Enquiry" className="font-semibold underline hover:text-[#f5cb1d]">jumpstart@mustechgroup.com</a></span>
+              <span>Direct correspondence: <a href="mailto:jumpstart@mustechgroup.com?subject=MusTech%20Jumpstart%20Enquiry" className="inline-block py-2 -my-2 font-semibold underline hover:text-[#f5cb1d]">jumpstart@mustechgroup.com</a></span>
             </div>
           </form>
         )}

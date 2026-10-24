@@ -110,7 +110,7 @@ export function ExampleToggle({ label = "Pick an example business" }: { label?: 
           type="button"
           aria-pressed={active === e.id}
           onClick={() => set(e.id)}
-          className={`relative z-10 px-5 min-h-[44px] text-xs font-bold uppercase tracking-wider transition-colors duration-300 ${
+          className={`relative z-10 px-3 min-[360px]:px-5 min-h-[44px] text-xs font-bold uppercase tracking-wider transition-colors duration-300 ${
             active === e.id ? "text-[#111]" : "text-[#efe9d8] hover:text-[#f5cb1d]"
           }`}
         >

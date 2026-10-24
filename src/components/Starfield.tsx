@@ -51,7 +51,7 @@ export default function Starfield() {
       h = window.innerHeight;
       cx = w / 2;
       cy = h / 2;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, w < 700 ? 1.5 : 2);
       canvas.width = w * dpr;
       canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -106,7 +106,14 @@ export default function Starfield() {
       }
     }
 
+    // On phones draw every other frame: the sky moves slowly, and it saves battery.
+    let skip = false;
     const step = () => {
+      raf = requestAnimationFrame(step);
+      if (w < 700) {
+        skip = !skip;
+        if (skip) return;
+      }
       cam.t += 0.0014 * CFG.speed;
       cam.cyaw += 0.00022 * CFG.speed;
       cam.cpitch = 0.16 + Math.sin(cam.t * 0.7) * 0.08;
@@ -119,7 +126,6 @@ export default function Starfield() {
       cam.pitch += (cam.tpitch - cam.pitch) * 0.042;
       for (const st of stars) st.p += 0.012;
       draw();
-      raf = requestAnimationFrame(step);
     };
 
     const onMove = (e: MouseEvent) => {

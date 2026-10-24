@@ -77,7 +77,7 @@ export default function JumpstartNav() {
             onClick={() => setOpen((o) => !o)}
             aria-expanded={open}
             aria-controls="js-mobile-nav"
-            className="md:hidden col-start-3 justify-self-end min-h-[44px] px-1 text-[11px] font-bold uppercase tracking-[0.25em]"
+            className="md:hidden col-start-3 justify-self-end min-h-[44px] px-1 text-xs font-bold uppercase tracking-[0.25em]"
           >
             {open ? "Close" : "Menu"}
           </button>

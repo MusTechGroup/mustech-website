@@ -55,22 +55,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="/portfolio" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
+                <Link href="/portfolio" className="inline-block py-2 -my-2 text-[#fdfaf0]/65 hover:text-white transition-colors">
                   Portfolio
                 </Link>
               </li>
               <li>
-                <Link href="/jumpstart" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
+                <Link href="/jumpstart" className="inline-block py-2 -my-2 text-[#fdfaf0]/65 hover:text-white transition-colors">
                   MusTech Jumpstart
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
+                <Link href="/about" className="inline-block py-2 -my-2 text-[#fdfaf0]/65 hover:text-white transition-colors">
                   Governance &amp; Leadership
                 </Link>
               </li>
               <li>
-                <Link href="/philosophy" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
+                <Link href="/philosophy" className="inline-block py-2 -my-2 text-[#fdfaf0]/65 hover:text-white transition-colors">
                   Philosophy
                 </Link>
               </li>
@@ -84,12 +84,12 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <Link href="/portfolio" className="text-[var(--color-custard)] hover:text-white transition-colors font-medium">
+                <Link href="/portfolio" className="inline-block py-2 -my-2 text-[var(--color-custard)] hover:text-white transition-colors font-medium">
                   All Platforms
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio#saalihat" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
+                <Link href="/portfolio#saalihat" className="inline-block py-2 -my-2 text-[#fdfaf0]/65 hover:text-white transition-colors">
                   Saalihat
                 </Link>
               </li>
@@ -125,21 +125,21 @@ export default function Footer() {
               <li>
                 <Link
                   href="/privacy-policy"
-                  className="text-[var(--color-custard)] hover:text-white transition-colors font-medium flex items-center gap-1.5"
+                  className="py-2 -my-2 text-[var(--color-custard)] hover:text-white transition-colors font-medium flex items-center gap-1.5"
                 >
                   <ShieldCheck className="w-3.5 h-3.5 text-[var(--color-primary-light)]" />
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-[#fdfaf0]/65 hover:text-white transition-colors">
+                <Link href="/terms" className="inline-block py-2 -my-2 text-[#fdfaf0]/65 hover:text-white transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
                 <a
                   href="mailto:saalihat_support@mustechgroup.com?subject=Data%20Deletion%20Request"
-                  className="text-[#fdfaf0]/65 hover:text-white transition-colors"
+                  className="inline-block py-2 -my-2 text-[#fdfaf0]/65 hover:text-white transition-colors"
                 >
                   Data Deletion Request
                 </a>
@@ -159,11 +159,11 @@ export default function Footer() {
             <span className="text-[#fdfaf0]/65">A MusTech Group Initiative · Built on Amanah Digital Standards</span>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/privacy-policy" className="hover:text-[#fdfaf0]/90 transition-colors">
+            <Link href="/privacy-policy" className="inline-block py-2 -my-2 hover:text-[#fdfaf0]/90 transition-colors">
               Privacy Policy
             </Link>
             <span>·</span>
-            <Link href="/terms" className="hover:text-[#fdfaf0]/90 transition-colors">
+            <Link href="/terms" className="inline-block py-2 -my-2 hover:text-[#fdfaf0]/90 transition-colors">
               Terms
             </Link>
           </div>

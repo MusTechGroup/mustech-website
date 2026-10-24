@@ -76,7 +76,7 @@ export default function JumpstartPage() {
             <div className="flex flex-col items-center text-center">
 
               {/* The logo has a black box, so a hairline light edge keeps it readable on the dark page. */}
-              <div className="w-[min(66vw,30rem)] mb-8 sm:mb-12 [filter:drop-shadow(0_0_1.5px_rgba(239,233,216,0.75))]">
+              <div className="w-[min(66vw,30rem,62vh)] mb-8 sm:mb-12 [filter:drop-shadow(0_0_1.5px_rgba(239,233,216,0.75))]">
                 <AnimatedJumpstartLogo priority />
               </div>
 
@@ -236,7 +236,7 @@ export default function JumpstartPage() {
                 </ul>
                 <p className="mt-4 text-sm sm:text-base text-[#efe9d8]/80 leading-relaxed">
                   He speaks business, outcomes, and plain language, never technical for the sake of technical. That is how Jumpstart is taught. He has led enterprise data analytics across APAC for over a decade, and is an academic consultant at SMU, ESSEC, HKU, and City University of Hong Kong.{" "}
-                  <Link href="/about" className="font-semibold underline hover:text-[#f5cb1d]">
+                  <Link href="/about" className="inline-block py-2 -my-2 font-semibold underline hover:text-[#f5cb1d]">
                     Full profile
                   </Link>
                 </p>

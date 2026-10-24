@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useExample } from "@/components/JumpstartExamples";
 
 // How work moves through a Jumpstart workspace: departments do the work, the founder checks it, then it goes out.
@@ -21,9 +22,27 @@ const GATE = { x: 610, y: 20 + (6 * NODE_H + 5 * GAP) / 2, r: 64 };
 export default function JumpstartFlow() {
   const { example } = useExample();
   const DEPTS = example.departments;
+  const figRef = useRef<HTMLElement | null>(null);
+
+  // Pause the ball animations while the diagram is off screen, so they cost nothing on a phone.
+  useEffect(() => {
+    const fig = figRef.current;
+    if (!fig || typeof IntersectionObserver === "undefined") return;
+    const svgs = Array.from(fig.querySelectorAll("svg"));
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        const svg = e.target as SVGSVGElement;
+        if (e.isIntersecting) svg.unpauseAnimations?.();
+        else svg.pauseAnimations?.();
+      }
+    });
+    svgs.forEach((svg) => io.observe(svg));
+    return () => io.disconnect();
+  }, [example.id]);
+
   const top = (i: number) => 20 + i * (NODE_H + GAP);
   return (
-    <figure className="m-0" key={example.id}>
+    <figure ref={figRef} className="m-0" key={example.id}>
       <svg
         viewBox="0 0 360 330"
         role="img"
@@ -36,7 +55,7 @@ export default function JumpstartFlow() {
             <g key={d.name} className="js-node" style={{ animationDelay: `${i * 70}ms` }}>
               <path id={`mflow-p${i}`} d={`M196,${y} C 226,${y} 214,${MG.y} ${MG.x - MG.r},${MG.y}`} fill="none" stroke="#4a473f" strokeWidth="1.5" />
               <rect x="1" y={20 + i * 48} width="195" height="36" fill="#0b0b0a" stroke="#efe9d8" strokeOpacity="0.45" strokeWidth="1.5" />
-              <text x="12" y={y + 5} fill="#efe9d8" fontSize="14" fontWeight="700" className="font-brand">
+              <text x="12" y={y + 5} fill="#efe9d8" fontSize={d.name.length > 22 ? 11.5 : 14} fontWeight="700" className="font-brand">
                 {d.name}
               </text>
               {[0, 1].map((k) => {
