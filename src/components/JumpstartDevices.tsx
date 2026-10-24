@@ -56,6 +56,7 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
     const el = rootRef.current;
     if (!el) return;
     still.current = reducedMotion();
+    if (window.innerWidth < 640) setScreen("Email");
     if (still.current) setT(11500);
     const ro = new ResizeObserver(([e]) => setAvail(e.contentRect.width));
     ro.observe(el);

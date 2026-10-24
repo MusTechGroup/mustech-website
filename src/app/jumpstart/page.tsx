@@ -206,7 +206,7 @@ export default function JumpstartPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
               <div className="lg:col-span-4">
-                <div className="relative aspect-[4/5] max-w-sm mx-auto lg:mx-0 overflow-hidden">
+                <div className="relative aspect-[4/5] w-48 sm:w-64 lg:w-full max-w-sm mx-auto lg:mx-0 overflow-hidden">
                   <Image
                     src="/jumpstart/founder.jpg"
                     alt="Taufiq Rashid"

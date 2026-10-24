@@ -37,7 +37,7 @@ export default function JumpstartNav() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 mix-blend-difference text-white pointer-events-none transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 text-white pointer-events-none transition-all duration-300 max-md:bg-[#050504]/90 max-md:backdrop-blur max-md:border-b max-md:border-white/10 md:mix-blend-difference ${
         scrolled ? "py-2" : "py-4"
       }`}
     >
@@ -85,7 +85,7 @@ export default function JumpstartNav() {
       </div>
 
       {open && (
-        <nav id="js-mobile-nav" aria-label="Main" className="md:hidden pointer-events-auto px-4 sm:px-6 pb-8 pt-2 flex flex-col">
+        <nav id="js-mobile-nav" aria-label="Main" className="md:hidden pointer-events-auto max-h-[calc(100vh-4.5rem)] overflow-y-auto px-4 sm:px-6 pb-8 pt-2 flex flex-col">
           {LINKS.map((l) => (
             <Link
               key={l.href}

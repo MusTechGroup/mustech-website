@@ -15,6 +15,7 @@ const R = "#D93A52";
 const OUT = "#2E9E3E";
 const MIX = [Y, Y, B, Y, Y, Y, B, Y, R, Y, B, Y, Y, Y, Y, B, Y, Y, Y, B];
 const mixFrom = (n: number) => [...MIX.slice(n), ...MIX.slice(0, n)];
+const MG = { x: 290, y: 150, r: 42 };
 const GATE = { x: 610, y: 20 + (6 * NODE_H + 5 * GAP) / 2, r: 64 };
 
 export default function JumpstartFlow() {
@@ -23,17 +24,57 @@ export default function JumpstartFlow() {
   const top = (i: number) => 20 + i * (NODE_H + GAP);
   return (
     <figure className="m-0" key={example.id}>
-      <ul className="sm:hidden border border-white/15 divide-y divide-white/10 text-sm text-[#efe9d8]">
-        {DEPTS.map((d) => (
-          <li key={d.name} className="js-node flex items-baseline justify-between gap-3 px-3 py-2">
-            <span className="font-semibold">{d.name}</span>
-          </li>
+      <svg
+        viewBox="0 0 360 330"
+        role="img"
+        aria-label={`Six of ${example.person}'s ${example.installed} departments do the work. Every piece of work passes through you before it goes out.`}
+        className="sm:hidden block w-full h-auto"
+      >
+        {DEPTS.map((d, i) => {
+          const y = 20 + i * 48 + 18;
+          return (
+            <g key={d.name} className="js-node" style={{ animationDelay: `${i * 70}ms` }}>
+              <path id={`mflow-p${i}`} d={`M196,${y} C 226,${y} 214,${MG.y} ${MG.x - MG.r},${MG.y}`} fill="none" stroke="#4a473f" strokeWidth="1.5" />
+              <rect x="1" y={20 + i * 48} width="195" height="36" fill="#0b0b0a" stroke="#efe9d8" strokeOpacity="0.45" strokeWidth="1.5" />
+              <text x="12" y={y + 5} fill="#efe9d8" fontSize="14" fontWeight="700" className="font-brand">
+                {d.name}
+              </text>
+              {[0, 1].map((k) => {
+                const begin = `${i * 0.8 + k * 2.4}s`;
+                const colors = mixFrom((i * 3 + k * 7) % MIX.length);
+                return (
+                  <circle key={k} className="flow-dot" r="5" fill={colors[0]} opacity="0">
+                    <set attributeName="opacity" to="1" begin={begin} />
+                    <animate attributeName="fill" values={colors.join(";")} calcMode="discrete" dur={`${4.8 * colors.length}s`} begin={begin} repeatCount="indefinite" />
+                    <animateMotion dur="4.8s" begin={begin} repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
+                      <mpath href={`#mflow-p${i}`} />
+                    </animateMotion>
+                  </circle>
+                );
+              })}
+            </g>
+          );
+        })}
+        <path id="mflow-out" d={`M${MG.x},${MG.y + MG.r} L ${MG.x},${MG.y + MG.r + 70}`} fill="none" stroke={OUT} strokeWidth="1.5" />
+        <circle cx={MG.x} cy={MG.y} r={MG.r} fill="#f5cb1d" />
+        <text x={MG.x} y={MG.y - 1} textAnchor="middle" fill="#111" fontSize="20" fontWeight="700" className="font-brand">
+          You
+        </text>
+        <text x={MG.x} y={MG.y + 16} textAnchor="middle" fill="#111" fontSize="11" fontWeight="700">
+          check it
+        </text>
+        {[0.4, 1.7, 2.6, 3.9].map((d) => (
+          <circle key={d} className="flow-dot" r="6" fill={OUT} opacity="0">
+            <animate attributeName="opacity" values="1;0;0" keyTimes="0;0.5;1" calcMode="discrete" dur="4.8s" begin={`${4.8 + d}s`} repeatCount="indefinite" />
+            <animateMotion dur="4.8s" begin={`${4.8 + d}s`} repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.5;1" calcMode="linear">
+              <mpath href="#mflow-out" />
+            </animateMotion>
+          </circle>
         ))}
-        <li className="flex items-center justify-between px-3 py-2 bg-[#f5cb1d] text-[#111] font-bold">
-          <span>You check it</span>
-          <span>Out</span>
-        </li>
-      </ul>
+        <text x={MG.x} y={MG.y + MG.r + 92} textAnchor="middle" fill="#efe9d8" fontSize="16" fontWeight="700" className="font-brand">
+          Out
+        </text>
+      </svg>
       <svg
         viewBox="0 0 880 560"
         role="img"
