@@ -76,7 +76,7 @@ const HERO_PANELS = [
     accent: "#814038",
     badgeHex: "#f8df98",
     previewImage: "/ecosystem/tarabase/ui-paynow-counter.png",
-    previewAlt: "TaraBase Live PayNow Counter UI",
+    previewAlt: "TaraBase Live stall counter showing tapped items, a SGD 17.00 total, and PayNow QR and Cash payment buttons",
     previewAspect: "aspect-[920/690]",
     previewWidth: "w-24 sm:w-32",
   },

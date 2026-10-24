@@ -714,7 +714,7 @@ export default function PortfolioPage() {
                         <source src="/tarabase/mustech_tarabase_preview.mp4" type="video/mp4" />
                         <Image
                           src="/tarabase/mustech_tarabase_preview.gif"
-                          alt="TaraBase Demo Kitchen and Pre-Orders Walkthrough"
+                          alt="Animated walkthrough of the TaraBase demo kitchen showing Kitchen Overview, Service Days, the buyer Telegram storefront, and the Production Schedule"
                           fill
                           sizes="(max-width: 1024px) 100vw, 800px"
                           className="object-cover"
@@ -736,13 +736,13 @@ export default function PortfolioPage() {
                             </h3>
                           </div>
                           <p className="text-sm text-[var(--color-primary-dark)]/75 leading-relaxed">
-                            Bake days cap orders automatically. Production schedule shows live PayNow-verified settlement badges.
+                            Service days cap orders automatically. Production schedule shows live PayNow-verified settlement badges.
                           </p>
                         </div>
                         <div className="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white">
                           <Image
                             src="/ecosystem/tarabase/ui-production-schedule.png"
-                            alt="TaraBase Demo Kitchen Production Schedule"
+                            alt="TaraBase Production Schedule table showing service day orders, buyer names, items, totals, Paid status badges, and handover actions"
                             fill
                             sizes="(max-width: 640px) 90vw, 260px"
                             className="object-cover object-top"
@@ -768,7 +768,7 @@ export default function PortfolioPage() {
                         <div className="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white">
                           <Image
                             src="/ecosystem/tarabase/ui-telegram-storefront.png"
-                            alt="TaraBase Buyer Telegram Storefront Preview"
+                            alt="TaraBase buyer storefront preview showing a welcome message and upcoming service day pickup buttons"
                             fill
                             sizes="(max-width: 640px) 90vw, 260px"
                             className="object-contain object-top"
@@ -794,7 +794,7 @@ export default function PortfolioPage() {
                         <div className="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white">
                           <Image
                             src="/ecosystem/tarabase/ui-paynow-counter.png"
-                            alt="TaraBase Live PayNow Stall Counter"
+                            alt="TaraBase Live stall counter showing tapped items, a SGD 17.00 total, and PayNow QR and Cash payment buttons"
                             fill
                             sizes="(max-width: 640px) 90vw, 260px"
                             className="object-contain"
