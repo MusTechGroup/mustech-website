@@ -5,12 +5,12 @@ import { useExample } from "@/components/JumpstartExamples";
 import { STANDUPS, type Example, type StandupItem } from "@/lib/jumpstartExamples";
 import { clamp01, reducedMotion } from "@/lib/motion";
 
-// A scripted mock of the two surfaces a founder uses each morning: the dashboard on a tablet and the email on a phone.
+// A scripted mock of the two surfaces a founder uses each morning: the dashboard on a laptop and the email on a phone.
 // The layouts follow the real Jumpstart workspace (the dashboard cards and the morning email), filled with the invented business.
 // One clock drives both devices, so the answer sent from the phone lands on the dashboard too.
 
 const LOOP = 14500;
-const TABLET = { w: 520, h: 370 };
+const LAPTOP = { w: 580, h: 380 };
 const PHONE = { w: 214, h: 440 };
 const GAP = 48;
 
@@ -44,7 +44,6 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
   const [avail, setAvail] = useState(0);
   const [screen, setScreen] = useState<"Dashboard" | "Email">("Dashboard");
   const [live, setLive] = useState(false);
-  const [run, setRun] = useState(0);
   const still = useRef(false);
 
   const asks: Ask[] = items
@@ -73,10 +72,10 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
     const t0 = performance.now();
     const id = window.setInterval(() => setT((performance.now() - t0) % LOOP), 50);
     return () => window.clearInterval(id);
-  }, [live, run]);
+  }, [live]);
 
-  const both = avail >= TABLET.w + GAP + PHONE.w - 40;
-  const fullW = TABLET.w + GAP + PHONE.w;
+  const both = avail >= LAPTOP.w + GAP + PHONE.w - 40;
+  const fullW = LAPTOP.w + GAP + PHONE.w;
 
   // The script.
   const reply = `${first.id} yes`;
@@ -90,21 +89,21 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
   const open = asks.length - (answered ? 1 : 0);
   const redOpen = asks.some((a) => a.item.red) && !(answered && first.item.red);
   const phoneScroll = t < 1200 ? 0 : t < 7000 ? 0.62 : 0;
-  const tabletScroll = t < 1200 ? 0 : t < 7200 ? 0.3 : 1;
+  const laptopScroll = t < 1200 ? 0 : t < 7200 ? 0.3 : 1;
   const tapPhone = t > sentAt - 350 && t < sentAt + 250;
-  const tapTablet = t > capturedAt - 450 && t < capturedAt + 150;
+  const tapLaptop = t > capturedAt - 450 && t < capturedAt + 150;
 
-  const tablet = (
-    <Tablet
+  const laptop = (
+    <Laptop
       example={example}
       asks={asks}
       open={open}
       redOpen={redOpen}
       answeredId={answered ? first.id : null}
-      scroll={tabletScroll}
+      scroll={laptopScroll}
       noteText={noteText}
       captured={captured}
-      tap={tapTablet}
+      tap={tapLaptop}
     />
   );
   const phone = (
@@ -145,27 +144,17 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
                 screen === s ? "bg-[#f5cb1d] text-[#111]" : "text-[#efe9d8] hover:text-[#f5cb1d]"
               }`}
             >
-              {s === "Dashboard" ? "Tablet" : "Phone"}
+              {s === "Dashboard" ? "Laptop" : "Phone"}
             </button>
           ))}
         </div>
       )}
       <div className="js-swap flex items-end justify-center gap-12" aria-hidden="true">
-        {(both || screen === "Dashboard") && scaled(TABLET.w, TABLET.h, tablet)}
+        {(both || screen === "Dashboard") && scaled(LAPTOP.w, LAPTOP.h, laptop)}
         {(both || screen === "Email") && scaled(PHONE.w, PHONE.h, phone)}
       </div>
-      <button
-        type="button"
-        onClick={() => {
-          setT(0);
-          setRun((r) => r + 1);
-        }}
-        className="mt-4 text-[11px] uppercase tracking-[0.2em] text-[#efe9d8]/60 hover:text-[#f5cb1d] transition-colors min-h-[44px]"
-      >
-        Run it again
-      </button>
       <p className="sr-only">
-        A mock of the dashboard on a tablet and the morning email on a phone. {asks.length} items need the founder. Replying to the email with the item number and
+        A mock of the dashboard on a laptop and the morning email on a phone. {asks.length} items need the founder. Replying to the email with the item number and
         the word yes answers it, and the dashboard updates.
       </p>
     </div>
@@ -216,93 +205,149 @@ interface DeviceProps {
   tap: boolean;
 }
 
-function Tablet({ example, asks, open, redOpen, answeredId, scroll, noteText, captured, tap }: DeviceProps & { noteText: string; captured: boolean }) {
+// The laptop follows the HQ dashboard: a moss sidebar, a cream page, and one card per Decide or Input with its own answer box.
+const MOSS = "#2A3328";
+const SAGE = "#4A5D3F";
+const PAPER = "#FDFCF8";
+const CARD = "#F7F6F2";
+const EDGE = "#E0DDD2";
+const DANGER = "#8B3A2F";
+
+function Laptop({ example, asks, open, redOpen, answeredId, scroll, noteText, captured, tap }: DeviceProps & { noteText: string; captured: boolean }) {
+  const initial = example.person.charAt(0);
+  const label = "text-[8px] font-bold uppercase tracking-widest";
   return (
-    <div className="h-full rounded-[26px] bg-[#16150f] p-[10px] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] ring-1 ring-white/15">
-      <div className="relative h-full overflow-hidden rounded-[18px] flex flex-col" style={{ background: GROUND, color: INK }}>
-        <div className="px-5 pt-4 pb-3 border-b" style={{ borderColor: LINE }}>
+    <div className="h-full flex flex-col">
+      <div className="flex-1 min-h-0 rounded-t-[16px] bg-[#16150f] p-[8px] ring-1 ring-white/15">
+        <div className="relative h-full overflow-hidden rounded-[8px] flex" style={{ background: PAPER, color: MOSS }}>
+        {/* Sidebar */}
+        <aside className="w-[112px] shrink-0 p-3 text-[9px] flex flex-col gap-3" style={{ background: MOSS, color: "#e8eadf" }}>
           <div className="flex items-center gap-2">
-            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded text-white tracking-widest uppercase" style={{ background: TEAL }}>
-              AI office
+            <span className="h-6 w-6 rounded grid place-items-center text-[11px] font-bold" style={{ background: SAGE }}>
+              {initial}
             </span>
-            <span className="font-mono text-[9px]" style={{ color: FAINT }}>
-              {example.person.toLowerCase()} · Tue 8:00
+            <span className="leading-tight">
+              <span className="block font-bold tracking-wide uppercase">{example.person}</span>
+              <span className="block text-[7px] opacity-70">Command Centre</span>
             </span>
           </div>
-          <p className="mt-1 text-[17px] font-bold tracking-tight">Dashboard</p>
-        </div>
-        <div className="flex-1 min-h-0">
-        <Scroller scroll={scroll}>
-          <div className="px-5 py-3 space-y-3 text-[11px]">
-            <div
-              className="rounded-md border-l-4 bg-white p-2.5 transition-colors"
-              style={{ borderLeftColor: redOpen ? "#991b1b" : "#4a7a4a", borderTop: `1px solid ${LINE}`, borderRight: `1px solid ${LINE}`, borderBottom: `1px solid ${LINE}` }}
-            >
-              <p className="font-semibold" style={{ color: redOpen ? "#991b1b" : INK }}>
-                {redOpen ? "1 Red item needs you first." : `${open} ${open === 1 ? "thing needs" : "things need"} you. Nothing red.`}
-              </p>
-              <p style={{ color: MUTED }}>Red is shown, never blocking.</p>
-            </div>
+          <ul className="space-y-1.5">
+            <li className="rounded px-1.5 py-1 font-semibold" style={{ background: "rgba(255,255,255,0.12)" }}>
+              Dashboard
+            </li>
+            <li className="px-1.5 py-1 opacity-80">Today</li>
+          </ul>
+          <div>
+            <p className="text-[7px] font-bold uppercase tracking-widest opacity-50 mb-1">Departments</p>
+            <ul className="space-y-1.5 opacity-80">
+              {example.departments.slice(0, 4).map((d) => (
+                <li key={d.name} className="px-1.5 truncate">
+                  {d.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-[7px] font-bold uppercase tracking-widest opacity-50 mb-1">Documentation</p>
+            <p className="px-1.5 opacity-80">Playbook</p>
+          </div>
+        </aside>
 
-            <p className="text-[9px] font-bold uppercase tracking-widest" style={{ color: FAINT }}>
-              Decide and Input · {open} open
-            </p>
-            <div className="grid grid-cols-2 gap-2">
+        {/* Page */}
+        <div className="flex-1 min-w-0">
+          <Scroller scroll={scroll}>
+            <div className="px-4 py-3 space-y-3 text-[10px]">
+              <header className="border-b pb-2.5" style={{ borderColor: EDGE }}>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[7px] font-bold px-1.5 py-0.5 rounded text-white tracking-widest uppercase" style={{ background: SAGE }}>
+                    AI office
+                  </span>
+                  <span className="font-mono text-[8px] opacity-60">{example.person.toLowerCase()}-hq · Tue 8:00</span>
+                </div>
+                <p className="mt-1 text-[16px] font-bold tracking-tight">{example.person}&rsquo;s HQ</p>
+                <p className="mt-0.5 opacity-70">
+                  <b>North star:</b> {example.blurb.replace(/\.$/, "")}
+                </p>
+              </header>
+
+              {redOpen && (
+                <div className="rounded-md p-2.5 border-l-4" style={{ background: CARD, borderColor: EDGE, borderLeftColor: DANGER, borderWidth: "0.5px 0.5px 0.5px 4px" }}>
+                  <p className="font-semibold" style={{ color: DANGER }}>
+                    1 Red item needs you first.
+                  </p>
+                </div>
+              )}
+
+              <p className={`${label} opacity-60`}>Waiting on you · {open}</p>
               {asks.map((a) => {
                 const ok = answeredId === a.id;
                 return (
-                  <div
-                    key={a.id}
-                    className="rounded-md bg-white p-2.5 border-l-4 transition-colors duration-500"
-                    style={{
-                      borderLeftColor: ok ? "#4a7a4a" : a.item.red ? "#991b1b" : a.item.kind === "decide" ? TEAL : "#233219",
-                      borderTop: `1px solid ${LINE}`,
-                      borderRight: `1px solid ${LINE}`,
-                      borderBottom: `1px solid ${LINE}`,
-                      background: ok ? "#f2f8f2" : "#fff",
-                    }}
-                  >
-                    <div className="flex justify-between font-mono text-[9px]" style={{ color: FAINT }}>
+                  <div key={a.id} className="rounded-md p-2.5 transition-colors duration-500" style={{ background: ok ? "#eef2e6" : CARD, border: `0.5px solid ${EDGE}` }}>
+                    <div className="flex justify-between font-mono text-[8px] opacity-60">
                       <span>
-                        {a.id} · {a.item.dept}
+                        {a.id} · {a.item.kind === "decide" ? "Decide" : "Input"} · {a.item.dept.toLowerCase()}
                       </span>
-                      {a.item.red && !ok && <span style={{ color: "#991b1b" }}>{a.item.red}</span>}
+                      <span style={a.item.red && !ok ? { color: DANGER, opacity: 1, fontWeight: 700 } : undefined}>
+                        {a.item.red && !ok ? a.item.red : "by Wed 09:00"}
+                      </span>
                     </div>
-                    <p className="mt-1 font-semibold leading-snug" style={{ color: BODY }}>
-                      {a.item.text}
-                    </p>
-                    <p className="mt-1" style={{ color: ok ? "#2f6b2f" : MUTED }}>
-                      {ok ? "Answered: yes. Logged." : "If you do not answer, it holds."}
-                    </p>
+                    <p className="mt-1 text-[10.5px] font-semibold leading-snug">{a.item.text}</p>
+                    {!ok && <p className="mt-0.5 text-[8.5px] opacity-70">If you don&rsquo;t answer: hold and re-raise Wed 09:00</p>}
+                    <div className="mt-1.5 flex gap-1.5">
+                      {a.item.actions?.map((o, n) => (
+                        <span
+                          key={o}
+                          className="rounded border px-1.5 py-0.5 text-[8.5px] font-semibold transition-colors duration-500"
+                          style={ok && n === 0 ? { background: SAGE, color: "#fff", borderColor: SAGE } : { borderColor: SAGE, color: SAGE }}
+                        >
+                          {o}
+                        </span>
+                      ))}
+                    </div>
+                    {ok ? (
+                      <p className="mt-1.5 text-[8.5px] font-semibold" style={{ color: SAGE }}>
+                        Answered by email: yes. Logged.
+                      </p>
+                    ) : (
+                      <div className="mt-1.5 flex gap-1.5">
+                        <span className="flex-1 rounded border px-1.5 py-1 text-[8.5px] opacity-50 bg-white" style={{ borderColor: EDGE }}>
+                          Or answer in your own words
+                        </span>
+                        <span className="rounded px-2 py-1 text-[8.5px] font-bold text-white" style={{ background: "#9aa68f" }}>
+                          Send
+                        </span>
+                      </div>
+                    )}
                   </div>
                 );
               })}
-            </div>
 
-            <div className="relative rounded-md bg-white p-2.5" style={{ border: `1px solid ${LINE}` }}>
-              <p className="text-[9px] font-bold uppercase tracking-widest" style={{ color: FAINT }}>
-                Capture
-              </p>
-              <div className="mt-1 min-h-[34px] rounded border px-2 py-1.5" style={{ borderColor: LINE, color: noteText ? INK : FAINT }}>
-                {captured ? "" : noteText || "Type it the way you talk"}
-                {!captured && noteText && <span className="inline-block w-[1px] h-3 align-middle bg-black animate-pulse" />}
-              </div>
-              <div className="mt-2 flex items-center gap-2">
-                <span className="rounded px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-white" style={{ background: INK }}>
-                  Capture
-                </span>
-                {captured && (
-                  <span className="text-[10px]" style={{ color: "#2f6b2f" }}>
-                    Captured. A read-back is on its way for you to confirm.
+              <div className="relative rounded-md bg-white p-2.5" style={{ border: `0.5px solid ${EDGE}` }}>
+                <p className={`${label} opacity-60`}>Capture</p>
+                <div className="mt-1 min-h-[30px] rounded border px-2 py-1.5" style={{ borderColor: EDGE, opacity: noteText ? 1 : 0.5 }}>
+                  {captured ? "" : noteText || "Type it the way you talk"}
+                  {!captured && noteText && <span className="inline-block w-[1px] h-3 align-middle bg-black animate-pulse" />}
+                </div>
+                <div className="mt-2 flex items-center gap-2">
+                  <span className="rounded px-2 py-1 text-[8.5px] font-bold uppercase tracking-wider text-white" style={{ background: MOSS }}>
+                    Capture
                   </span>
-                )}
+                  {captured && (
+                    <span className="text-[9px]" style={{ color: SAGE }}>
+                      Captured. A read-back is on its way for you to confirm.
+                    </span>
+                  )}
+                </div>
+                <Tap on={tap} className="left-6 bottom-1" />
               </div>
-              <Tap on={tap} className="left-6 bottom-1" />
+              <div className="h-6" />
             </div>
-            <div className="h-6" />
-          </div>
-        </Scroller>
+          </Scroller>
         </div>
+        </div>
+      </div>
+      <div className="h-[14px] -mx-3 rounded-b-[14px] bg-gradient-to-b from-[#3d3c34] to-[#1c1b16] shadow-[0_24px_40px_-12px_rgba(0,0,0,0.8)] flex justify-center">
+        <span className="h-[4px] w-[70px] rounded-b-md bg-[#0e0e0a]" />
       </div>
     </div>
   );

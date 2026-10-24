@@ -16,7 +16,6 @@ export default function JumpstartDemo() {
 function DemoRun({ example }: { example: Example }) {
   const rootRef = useRef<HTMLDivElement | null>(null);
   const [started, setStarted] = useState(false);
-  const [run, setRun] = useState(0);
   const [chars, setChars] = useState(0);
   const [stage, setStage] = useState<Stage>(0);
   const [picked, setPicked] = useState<string | null>(null);
@@ -39,7 +38,7 @@ function DemoRun({ example }: { example: Example }) {
     return () => io.disconnect();
   }, []);
 
-  // Type the note, then bring in the read-back, the questions, and the decision. Restarts when the example or run changes.
+  // Type the note, then bring in the read-back, the questions, and the decision. Restarts when the example changes.
   useEffect(() => {
     if (!started) return;
     const reduce = reducedMotion();
@@ -74,7 +73,7 @@ function DemoRun({ example }: { example: Example }) {
       window.clearInterval(type);
       timers.forEach(clearTimeout);
     };
-  }, [started, run, example.note]);
+  }, [started, example.note]);
 
   const typing = started && chars < example.note.length;
   const btn = (on: boolean, alt = false) =>
@@ -91,7 +90,7 @@ function DemoRun({ example }: { example: Example }) {
   return (
     <div ref={rootRef} className="grid grid-cols-1 lg:grid-cols-12 gap-px bg-white/15 border border-white/15 text-sm leading-relaxed text-[#efe9d8]">
       {/* What the founder types */}
-      <div className="js-swap lg:col-span-5 bg-[#0b0b0a] p-4 sm:p-6 flex flex-col">
+      <div className="js-swap lg:col-span-5 bg-[#0b0b0a] p-4 sm:p-6">
         <p className={`${label} mb-2`}>You type, the way you talk</p>
         <p className="min-h-[7.5rem] lg:min-h-[10rem]">
           <span className="sr-only">{example.note}</span>
@@ -104,13 +103,6 @@ function DemoRun({ example }: { example: Example }) {
             />
           </span>
         </p>
-        <button
-          type="button"
-          onClick={() => setRun((r) => r + 1)}
-          className={`mt-auto self-start ${label} hover:text-[#f5cb1d] transition-colors min-h-[44px]`}
-        >
-          Run it again
-        </button>
       </div>
 
       {/* What comes back */}

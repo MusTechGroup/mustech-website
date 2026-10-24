@@ -12,7 +12,8 @@ import JumpstartDevices from "@/components/JumpstartDevices";
 import BrandLogo from "@/components/BrandLogo";
 import Scene from "@/components/Scene";
 import DeckRail from "@/components/DeckRail";
-import { ExampleProvider, ExampleToggle, ExampleText, ExampleDepartments } from "@/components/JumpstartExamples";
+import Starfield from "@/components/Starfield";
+import { ExampleProvider, ExampleToggle, ExampleText, ExampleDepartments, Rebuild } from "@/components/JumpstartExamples";
 
 export const metadata: Metadata = {
   title: "MusTech Jumpstart | Run Your Business with AI, Checked by You",
@@ -65,31 +66,33 @@ export default function JumpstartPage() {
     <div className="relative isolate flex flex-col min-h-screen bg-[#050504]">
       <JsonLd schema={courseSchema} />
       <JumpstartNav />
+      <Starfield />
       <DeckRail />
 
       <main id="main-content" className="relative z-10 flex-grow">
         {/* Hero */}
-        <Scene deck="Launch" className="relative pt-24 sm:pt-36 pb-10 sm:pb-24 overflow-hidden bg-[var(--brand-bg)]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Scene deck="Launch" className="relative pt-24 sm:pt-36 pb-10 sm:pb-24 text-[#efe9d8]">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center text-center">
 
-              <div className="w-[min(70vw,36rem)] mb-5 sm:mb-10">
+              {/* The logo has a black box, so a hairline light edge keeps it readable on the dark page. */}
+              <div className="w-[min(66vw,30rem)] mb-8 sm:mb-12 [filter:drop-shadow(0_0_1.5px_rgba(239,233,216,0.75))]">
                 <AnimatedJumpstartLogo priority />
               </div>
 
-              <h1 className="font-brand font-bold tracking-[-0.03em] leading-[1.02] text-[var(--color-primary-dark)] text-[clamp(2.25rem,6.5vw,5.5rem)] max-w-5xl text-balance">
+              <h1 className="font-brand font-bold tracking-[-0.03em] leading-[1.02] text-[#efe9d8] text-[clamp(2.25rem,6.5vw,5.5rem)] max-w-5xl text-balance">
                 AI does the work.{" "}
-                <span className="bg-[linear-gradient(transparent_58%,#f5cb1d_58%,#f5cb1d_88%,transparent_88%)] px-[0.04em]">
+                <span className="bg-[#f5cb1d] px-[0.14em] text-[#111] [-webkit-box-decoration-break:clone] [box-decoration-break:clone]">
                   You make the calls.
                 </span>
               </h1>
 
-              <p className="mt-5 sm:mt-8 text-base sm:text-lg md:text-xl text-[var(--color-primary-dark)]/85 font-sans leading-relaxed max-w-2xl">
-                Jumpstart sets up AI departments inside your business, built from a short questionnaire about how you work. Each morning you get one list: what got done, what it needs from you, and what only you can decide.
+              <p className="mt-5 sm:mt-8 text-base sm:text-lg md:text-xl text-[#efe9d8]/80 font-sans leading-relaxed max-w-2xl">
+                Jumpstart builds AI departments inside your business, made to fit how you work. Run it like a large organisation: a morning stand-up shows what matters, and you sign off the key decisions as your own CEO.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[var(--color-primary-dark)]">
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-primary-dark)]/60">Works with</span>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[#efe9d8]">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#efe9d8]/60">Works with</span>
                 <BrandLogo name="Antigravity" src="/jumpstart/logos/antigravity.png" className="text-lg" />
                 <BrandLogo name="Claude Code" src="/jumpstart/logos/claude-code.webp" className="text-lg" />
                 <BrandLogo name="Codex" src="/jumpstart/logos/codex.png" className="text-lg" />
@@ -98,13 +101,13 @@ export default function JumpstartPage() {
               <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
                 <a
                   href="#register"
-                  className="w-full sm:w-auto px-8 py-4 min-h-[48px] flex items-center justify-center bg-[var(--color-primary-dark)] text-white hover:bg-black text-xs font-bold uppercase tracking-wider transition-colors"
+                  className="w-full sm:w-auto px-8 py-4 min-h-[48px] flex items-center justify-center bg-[#f5cb1d] text-[#111] hover:bg-[#ffd93b] text-xs font-bold uppercase tracking-wider transition-colors"
                 >
                   Register Early Interest
                 </a>
                 <a
                   href="#demo"
-                  className="w-full sm:w-auto px-8 py-4 min-h-[48px] flex items-center justify-center bg-white border border-black/15 text-[var(--color-primary-dark)] hover:bg-black/5 text-xs font-bold uppercase tracking-wider transition-colors"
+                  className="w-full sm:w-auto px-8 py-4 min-h-[48px] flex items-center justify-center border border-white/30 text-[#efe9d8] hover:border-white/70 text-xs font-bold uppercase tracking-wider transition-colors"
                 >
                   See it work
                 </a>
@@ -115,7 +118,7 @@ export default function JumpstartPage() {
 
         <ExampleProvider>
           {/* A real capture, worked through */}
-          <Scene id="demo" deck="Demo" className="bg-[#0b0b0a] text-[#efe9d8] py-10 sm:py-20">
+          <Scene id="demo" deck="Demo" className="text-[#efe9d8] py-10 sm:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl mb-4 sm:mb-8">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
@@ -131,62 +134,75 @@ export default function JumpstartPage() {
               <div className="mb-4">
                 <ExampleToggle />
               </div>
-              <JumpstartDemo />
+              <Rebuild>
+                <JumpstartDemo />
+              </Rebuild>
             </div>
           </Scene>
 
           {/* What you leave with */}
-          <Scene id="overview" deck="Stack" className="bg-[#0b0b0a] text-[#efe9d8] py-10 sm:py-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-start">
-              <div className="lg:col-span-5">
+          <Scene id="overview" deck="Stack" className="text-[#efe9d8] py-10 sm:py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-3xl mb-4 sm:mb-8">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
                   What you leave with
                 </span>
-                <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(2rem,5vw,3.75rem)] text-balance">
-                  Your business, set up as departments.
+                <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.5rem)] text-balance">
+                  Your business, with independent teams reporting to you.
                 </h2>
-                <p className="mt-5 text-base sm:text-lg text-[#efe9d8]/80 leading-relaxed">
-                  You answer a short questionnaire. Jumpstart installs only the departments your business needs and sets how deep each one goes. <ExampleDepartments />
+                <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/80 leading-relaxed max-w-2xl">
+                  Answer a series of questions and Jumpstart builds an organisation just for you. It comes pre-loaded with relevant ways of working, roles and responsibilities, curated skills, and set rules. Steer it as you see fit.
                 </p>
-                <ul className="mt-4 space-y-2 text-sm sm:text-base text-[#efe9d8]/80 leading-relaxed">
-                  <li className="border-l-2 border-[#f5cb1d] pl-4">Each department has its own rules and skills, so the AI knows how you work.</li>
-                  <li className="border-l-2 border-[#f5cb1d] pl-4">Nothing goes out until you have checked it.</li>
-                  <li className="border-l-2 border-[#f5cb1d] pl-4">The files stay on your computer. Costs stay predictable, and customer data stays with you.</li>
-                </ul>
-                <div className="mt-5">
-                  <ExampleToggle label="Pick an example business for the diagram" />
+              </div>
+              <div className="mb-4">
+                <ExampleToggle label="Pick an example business for the diagram" />
+              </div>
+              <Rebuild>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
+                  <div className="lg:col-span-5">
+                    <p className="text-base sm:text-lg text-[#efe9d8]/85 leading-relaxed">
+                      <ExampleDepartments />
+                    </p>
+                    <ul className="mt-4 space-y-2 text-sm sm:text-base text-[#efe9d8]/80 leading-relaxed">
+                      <li className="border-l-2 border-[#f5cb1d] pl-4">Each department has its own rules and skills, so the AI knows how you work.</li>
+                      <li className="border-l-2 border-[#f5cb1d] pl-4">Nothing goes out until you have checked it.</li>
+                      <li className="border-l-2 border-[#f5cb1d] pl-4">The files stay on your computer. Costs stay predictable, and customer data stays with you.</li>
+                    </ul>
+                  </div>
+                  <div className="lg:col-span-7 min-w-0">
+                    <JumpstartFlow />
+                  </div>
                 </div>
-              </div>
-              <div className="lg:col-span-7 min-w-0">
-                <JumpstartFlow />
-              </div>
+              </Rebuild>
             </div>
           </Scene>
 
           {/* The daily standup, as it looks on a working day */}
-          <Scene id="standup" deck="Standup" className="bg-[#0b0b0a] text-[#efe9d8] py-10 sm:py-20">
+          <Scene id="standup" deck="Standup" className="text-[#efe9d8] py-10 sm:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl mb-4 sm:mb-8">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
                   The next morning
                 </span>
                 <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(2rem,5vw,3.75rem)] text-balance">
-                  One list. Answered from your phone.
+                  Your business pulse, at your fingertips.
                 </h2>
                 <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
-                  The same business, the next morning. The dashboard on a tablet, the email on a phone. Answer by replying, and the dashboard updates.
+                  The next morning, same business. A stand-up email on your phone shows what matters. A robust dashboard on your laptop holds the rest. Reply to one and the other updates.
                 </p>
               </div>
               <div className="mb-4">
                 <ExampleToggle label="Pick an example business for the standup" />
               </div>
-              <JumpstartDevices />
+              <Rebuild>
+                <JumpstartDevices />
+              </Rebuild>
             </div>
           </Scene>
         </ExampleProvider>
 
         {/* Slide 3: Instructor Profile (Factual, Dignified, No Fabricated Quotes) */}
-        <Scene deck="Crew" className="py-10 sm:py-20 bg-[var(--brand-bg)]">
+        <Scene deck="Crew" className="py-10 sm:py-20">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="editorial-panel border border-black/10 bg-white grid grid-cols-1 md:grid-cols-5 shadow-sm overflow-hidden">
               <div className="relative md:col-span-2 aspect-[2/3] md:aspect-auto md:min-h-[480px] bg-zinc-100">
@@ -240,7 +256,7 @@ export default function JumpstartPage() {
         </Scene>
 
         {/* Early interest */}
-        <Scene id="register" deck="Dock" className="py-10 sm:py-20 bg-[#0b0b0a]">
+        <Scene id="register" deck="Dock" className="py-10 sm:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-xl mx-auto mb-10">
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-3 block">

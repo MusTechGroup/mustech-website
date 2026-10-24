@@ -2,44 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { easeOut, reducedMotion } from "@/lib/motion";
+import { reducedMotion } from "@/lib/motion";
 
 const JUMPSTART = "/jumpstart";
 const norm = (p: string) => p.replace(/\/$/, "") || "/";
 
-// Both layers stay visible while the page changes, thanks to the View Transitions API:
-// going in, Jumpstart is revealed through a grid of squares laid over the page you leave, so both stay visible;
-// going out, Jumpstart swoops away through a convex lens while the next page zooms out into place.
+// Both pages stay visible while the page changes, thanks to the View Transitions API.
+// The page you arrive on is revealed through a grid of squares laid over the page you leave, in both directions.
 // Browsers without the API, and people who ask for reduced motion, get a normal navigation.
-
-const FILTERS = `<filter id="js-fisheye" filterUnits="userSpaceOnUse" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB">
-    <feImage x="0" y="0" width="1" height="1" preserveAspectRatio="none" result="map" data-r="map"/>
-    <feDisplacementMap in="SourceGraphic" in2="map" scale="0" xChannelSelector="R" yChannelSelector="G" data-r="disp"/>
-  </filter>`;
-
-function bulgeMap(): string {
-  const n = 128;
-  const c = document.createElement("canvas");
-  c.width = c.height = n;
-  const ctx = c.getContext("2d");
-  if (!ctx) return "";
-  const img = ctx.createImageData(n, n);
-  for (let y = 0; y < n; y++) {
-    for (let x = 0; x < n; x++) {
-      const nx = (x / (n - 1)) * 2 - 1;
-      const ny = (y / (n - 1)) * 2 - 1;
-      const f = 1 - Math.min(1, nx * nx + ny * ny);
-      const i = (y * n + x) * 4;
-      img.data[i] = 128 + 127 * -nx * f;
-      img.data[i + 1] = 128 + 127 * -ny * f;
-      img.data[i + 2] = 128;
-      img.data[i + 3] = 255;
-    }
-  }
-  ctx.putImageData(img, 0, 0);
-  return c.toDataURL();
-}
-
 
 const COLS = 16;
 
@@ -103,30 +73,14 @@ function paintTiles(g: Grid, t: number, canvas: HTMLCanvasElement | null, root: 
 export default function PageTransition() {
   const router = useRouter();
   const pathname = usePathname();
-  const svgRef = useRef<SVGSVGElement | null>(null);
   const tilesRef = useRef<HTMLCanvasElement | null>(null);
   const pending = useRef<{ path: string; resolve: () => void } | null>(null);
   const busy = useRef(false);
 
   useEffect(() => {
-    const svg = svgRef.current;
     const root = document.documentElement;
-    if (!svg || typeof document.startViewTransition !== "function") return;
+    if (typeof document.startViewTransition !== "function") return;
     if (reducedMotion()) return;
-
-    const q = (id: string, r: string) => svg.querySelector<SVGElement>(`#${id} [data-r="${r}"]`);
-    const setRegion = () => {
-      const w = String(window.innerWidth);
-      const h = String(window.innerHeight);
-      svg.querySelectorAll("filter").forEach((f) => {
-        f.setAttribute("width", w);
-        f.setAttribute("height", h);
-      });
-      const map = q("js-fisheye", "map");
-      map?.setAttribute("width", w);
-      map?.setAttribute("height", h);
-      if (map && !map.getAttribute("href")) map.setAttribute("href", bulgeMap());
-    };
 
     const frames = (ms: number, fn: (t: number) => void) =>
       new Promise<void>((done) => {
@@ -140,37 +94,16 @@ export default function PageTransition() {
         requestAnimationFrame(tick);
       });
 
-    const play = (kind: "in" | "out") => {
-      const old = "::view-transition-old(root)";
-      const next = "::view-transition-new(root)";
-      if (kind === "in") {
-        const ms = 900;
-        const grid = tileGrid();
-        root.animate(
-          [{ transform: "scale(1)" }, { transform: "scale(1.06)" }],
-          { duration: ms, easing: "linear", fill: "both", pseudoElement: old }
-        );
-        return frames(ms, (t) => paintTiles(grid, t, tilesRef.current, root));
-      }
-      const ms = 620;
-      root.animate(
-        [
-          { transform: "scale(1)", opacity: 1 },
-          { transform: "scale(0.7)", opacity: 1, offset: 0.55 },
-          { transform: "scale(0.3)", opacity: 0 },
-        ],
-        { duration: ms, easing: "cubic-bezier(0.55, 0, 0.9, 0.45)", fill: "both", pseudoElement: old }
-      );
-      root.animate(
-        [
-          { transform: "scale(1.5)", opacity: 0 },
-          { transform: "scale(1.2)", opacity: 1, offset: 0.4 },
-          { transform: "scale(1)", opacity: 1 },
-        ],
-        { duration: ms, easing: "cubic-bezier(0.2, 0.7, 0.2, 1)", fill: "both", pseudoElement: next }
-      );
-      const disp = q("js-fisheye", "disp");
-      return frames(ms, (t) => disp?.setAttribute("scale", String(window.innerWidth * 0.7 * easeOut(t))));
+    const play = () => {
+      const ms = 900;
+      const grid = tileGrid();
+      root.animate([{ transform: "scale(1)" }, { transform: "scale(1.06)" }], {
+        duration: ms,
+        easing: "linear",
+        fill: "both",
+        pseudoElement: "::view-transition-old(root)",
+      });
+      return frames(ms, (t) => paintTiles(grid, t, tilesRef.current, root));
     };
 
     const navigate = (href: string) =>
@@ -189,18 +122,15 @@ export default function PageTransition() {
       const here = norm(window.location.pathname);
       const there = norm(url.pathname);
       if (there === here) return;
-      const kind = there === JUMPSTART ? "in" : here === JUMPSTART ? "out" : null;
-      if (!kind) return;
+      if (there !== JUMPSTART && here !== JUMPSTART) return;
 
       e.preventDefault();
       if (busy.current) return;
       busy.current = true;
-      setRegion();
-      q("js-fisheye", "disp")?.setAttribute("scale", "0");
-      if (kind === "in") paintTiles(tileGrid(), 0, tilesRef.current, root);
-      root.dataset.vt = kind;
+      paintTiles(tileGrid(), 0, tilesRef.current, root);
+      root.dataset.vt = "tiles";
       const vt = document.startViewTransition(() => navigate(url.pathname + url.search + url.hash));
-      vt.ready.then(() => play(kind)).catch(() => {});
+      vt.ready.then(play).catch(() => {});
       vt.finished
         .catch(() => {})
         .finally(() => {
@@ -225,7 +155,6 @@ export default function PageTransition() {
 
   return (
     <>
-      <svg ref={svgRef} aria-hidden="true" width="0" height="0" style={{ position: "absolute" }} dangerouslySetInnerHTML={{ __html: `<defs>${FILTERS}</defs>` }} />
       <canvas ref={tilesRef} id="js-tiles" aria-hidden="true" />
     </>
   );
