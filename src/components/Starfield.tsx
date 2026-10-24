@@ -35,7 +35,7 @@ export default function Starfield() {
     const stars = Array.from({ length: window.innerWidth < 700 ? 650 : 1200 }, () => {
       const rad = 420 + Math.random() * 1450;
       const th = Math.random() * 6.283;
-      const ph = Math.acos((Math.random() - 0.5) * 1.84);
+      const ph = Math.acos((Math.random() - 0.5) * 2);
       return {
         x: rad * Math.sin(ph) * Math.cos(th),
         y: rad * Math.cos(ph) * 0.82,
@@ -58,10 +58,10 @@ export default function Starfield() {
       if (still) draw();
     };
 
-    // Scrolling down carries the sky up with the page. Nearer stars travel further than far ones, and each wraps around the screen.
-    const project = (wx: number, wy: number, wz: number, pw: number, wrap = false) => {
+    const project = (wx: number, wy: number, wz: number, pw: number) => {
       const yw = cam.cyaw + cam.yaw;
-      const pt = cam.cpitch + cam.pitch;
+      // Scrolling down tilts the camera down the sky, so the stars rise with the page and the sphere never runs out.
+      const pt = cam.cpitch + cam.pitch + cam.sc;
       const rl = cam.croll;
       const cyw = Math.cos(yw);
       const syw = Math.sin(yw);
@@ -78,10 +78,7 @@ export default function Starfield() {
       const vz = z2 + CFG.zOffset;
       if (vz <= 90) return null;
       const s = CFG.fov / vz;
-      let sy = cy + (y3 - cam.y * pw) * s;
-      if (wrap) sy = (((sy - cam.sc * pw * s) % h) + h) % h;
-      else sy -= cam.sc * pw * s * 0.12;
-      return { sx: cx + (x3 - cam.x * pw) * s, sy, s, vz };
+      return { sx: cx + (x3 - cam.x * pw) * s, sy: cy + (y3 - cam.y * pw) * s, s, vz };
     };
 
     function draw() {
@@ -99,7 +96,7 @@ export default function Starfield() {
       }
       for (const st of stars) {
         const pw = 0.65 + (1 - Math.min(1, st.rad / 1800)) * 0.75;
-        const p = project(st.x, st.y, st.z, pw, true);
+        const p = project(st.x, st.y, st.z, pw);
         if (!p || p.sx < 0 || p.sx > w || p.sy < 0 || p.sy > h) continue;
         const a = Math.min(0.75, Math.max(0.04, (1 - (p.vz - 180) / 2600) * (0.8 + 0.2 * Math.sin(st.p))));
         ctx!.fillStyle = `rgba(220,232,255,${a})`;
@@ -134,7 +131,7 @@ export default function Starfield() {
       cam.tpitch = -ny * 0.16 * CFG.parallax;
     };
     const onScroll = () => {
-      cam.tsc = window.scrollY * 0.9;
+      cam.tsc = window.scrollY * 0.0011;
     };
     const onVisible = () => {
       cancelAnimationFrame(raf);
