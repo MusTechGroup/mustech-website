@@ -129,6 +129,8 @@ export default function PageTransition() {
       busy.current = true;
       paintTiles(tileGrid(), 0, tilesRef.current, root);
       root.dataset.vt = "tiles";
+      // The new page must appear already in place, never scroll into place under the squares.
+      root.style.scrollBehavior = "auto";
       const vt = document.startViewTransition(() => navigate(url.pathname + url.search + url.hash));
       vt.ready.then(play).catch(() => {});
       vt.finished
@@ -136,6 +138,7 @@ export default function PageTransition() {
         .finally(() => {
           delete root.dataset.vt;
           root.style.removeProperty("--vt-mask");
+          root.style.removeProperty("scroll-behavior");
           busy.current = false;
         });
     };

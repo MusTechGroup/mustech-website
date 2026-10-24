@@ -98,7 +98,7 @@ export function ExampleToggle({ label = "Pick an example business" }: { label?: 
   }, [active]);
 
   return (
-    <div ref={wrapRef} role="group" aria-label={label} className="relative inline-flex border border-white/25 p-1 gap-1 max-w-full">
+    <div ref={wrapRef} role="group" aria-label={label} className="relative inline-flex border border-white/25 bg-[#0b0b0a] p-1 gap-1 max-w-full">
       <span
         aria-hidden="true"
         className="absolute top-1 bottom-1 bg-[#f5cb1d] transition-[left,width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"

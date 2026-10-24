@@ -133,7 +133,7 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
   return (
     <div ref={rootRef}>
       {!both && (
-        <div role="group" aria-label="Pick a device" className="mb-4 inline-flex border border-white/25 p-1 gap-1">
+        <div role="group" aria-label="Pick a device" className="mb-4 inline-flex border border-white/25 bg-[#0b0b0a] p-1 gap-1">
           {(["Dashboard", "Email"] as const).map((s) => (
             <button
               key={s}
