@@ -8,6 +8,13 @@ import { useExample } from "@/components/JumpstartExamples";
 const NODE_W = 340;
 const NODE_H = 58;
 const GAP = 28;
+// Ball colours: yellow is routine, blue is an update, red is urgent. Green is what leaves once you have checked it.
+const Y = "#f5cb1d";
+const B = "#5B9BFF";
+const R = "#F2506A";
+const OUT = "#34D399";
+const MIX = [Y, Y, B, Y, Y, Y, B, Y, R, Y, B, Y, Y, Y, Y, B, Y, Y, Y, B];
+const mixFrom = (n: number) => [...MIX.slice(n), ...MIX.slice(0, n)];
 const GATE = { x: 610, y: 20 + (6 * NODE_H + 5 * GAP) / 2, r: 64 };
 
 export default function JumpstartFlow() {
@@ -20,7 +27,6 @@ export default function JumpstartFlow() {
         {DEPTS.map((d) => (
           <li key={d.name} className="js-node flex items-baseline justify-between gap-3 px-3 py-2">
             <span className="font-semibold">{d.name}</span>
-            <span className="text-xs text-[#efe9d8]/55">{d.level}</span>
           </li>
         ))}
         <li className="flex items-center justify-between px-3 py-2 bg-[#f5cb1d] text-[#111] font-bold">
@@ -42,29 +48,32 @@ export default function JumpstartFlow() {
               id={`flow-p${i}`}
               d={`M${NODE_W},${y} C ${NODE_W + 130},${y} ${GATE.x - GATE.r - 130},${GATE.y} ${GATE.x - GATE.r},${GATE.y}`}
               fill="none"
-              stroke="#efe9d8"
-              strokeOpacity="0.22"
+              stroke="#4a473f"
               strokeWidth="2"
             />
           );
         })}
-        <path id="flow-out" d={`M${GATE.x + GATE.r},${GATE.y} L 780,${GATE.y}`} fill="none" stroke="#f5cb1d" strokeOpacity="0.5" strokeWidth="2" />
+        <path id="flow-out" d={`M${GATE.x + GATE.r},${GATE.y} L 780,${GATE.y}`} fill="none" stroke={OUT} strokeWidth="2" />
 
         {DEPTS.map((d, i) => (
           <g key={d.name} className="js-node" style={{ animationDelay: `${i * 70}ms` }}>
             <rect x="1" y={top(i)} width={NODE_W} height={NODE_H} fill="#0b0b0a" stroke="#efe9d8" strokeOpacity="0.45" strokeWidth="2" />
-            <text x="18" y={top(i) + 27} fill="#efe9d8" fontSize="20" fontWeight="700" className="font-brand">
+            <text x="18" y={top(i) + 36} fill="#efe9d8" fontSize="20" fontWeight="700" className="font-brand">
               {d.name}
             </text>
-            <text x="18" y={top(i) + 47} fill="#efe9d8" fillOpacity="0.55" fontSize="14">
-              {d.level}
-            </text>
-            <circle className="flow-dot" r="7" fill="#efe9d8" opacity="0">
-              <set attributeName="opacity" to="1" begin={`${i * 0.8}s`} />
-              <animateMotion dur="4.8s" begin={`${i * 0.8}s`} repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
-                <mpath href={`#flow-p${i}`} />
-              </animateMotion>
-            </circle>
+            {[0, 1].map((k) => {
+              const begin = `${i * 0.8 + k * 2.4}s`;
+              const colors = mixFrom((i * 3 + k * 7) % MIX.length);
+              return (
+                <circle key={k} className="flow-dot" r="7" fill={colors[0]} opacity="0">
+                  <set attributeName="opacity" to="1" begin={begin} />
+                  <animate attributeName="fill" values={colors.join(";")} calcMode="discrete" dur={`${4.8 * colors.length}s`} begin={begin} repeatCount="indefinite" />
+                  <animateMotion dur="4.8s" begin={begin} repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
+                    <mpath href={`#flow-p${i}`} />
+                  </animateMotion>
+                </circle>
+              );
+            })}
           </g>
         ))}
 
@@ -81,7 +90,7 @@ export default function JumpstartFlow() {
           check it
         </text>
 
-        <circle className="flow-dot" r="8" fill="#f5cb1d" opacity="0">
+        <circle className="flow-dot" r="8" fill={OUT} opacity="0">
           <set attributeName="opacity" to="1" begin="1.2s" />
           <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
             <mpath href="#flow-out" />
@@ -91,9 +100,6 @@ export default function JumpstartFlow() {
           Out
         </text>
       </svg>
-      <figcaption className="mt-2 text-xs sm:text-sm text-[#efe9d8]/60 leading-relaxed max-w-xl">
-        Example: six of the {example.installed} departments installed for {example.person}. Work flows left to right. Nothing goes out until you have checked it.
-      </figcaption>
     </figure>
   );
 }
