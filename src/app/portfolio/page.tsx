@@ -794,10 +794,10 @@ export default function PortfolioPage() {
                         <div className="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white">
                           <Image
                             src="/ecosystem/tarabase/ui-paynow-counter.png"
-                            alt="TaraBase Live stall counter showing tapped items, a SGD 17.00 total, and PayNow QR and Cash payment buttons"
+                            alt="TaraBase Live stall counter with the belah ketupat motif band, booth break-even bar, tapped items, and Charge SGD 68.00 and Cash buttons"
                             fill
                             sizes="(max-width: 640px) 90vw, 260px"
-                            className="object-contain"
+                            className="object-cover object-top"
                           />
                         </div>
                       </div>

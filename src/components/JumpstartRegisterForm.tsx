@@ -156,10 +156,10 @@ export default function JumpstartRegisterForm() {
                 aria-describedby={fieldError === "stage" ? "founder-stage-error" : undefined}
                 className={`${inputClass} ${borderFor("stage")}`}
               >
-                <option value="idea">Concept / Pre-build (validating the core problem)</option>
-                <option value="mvp">Early MVP / Prototype built (refining architecture)</option>
-                <option value="growth">In-market / Seeking data traction &amp; scalability</option>
-                <option value="operator">Non-technical operator seeking engineering literacy</option>
+                <option value="idea">Still an idea</option>
+                <option value="mvp">Just started, first customers</option>
+                <option value="growth">Up and running, steady customers</option>
+                <option value="operator">Not technical, and new to AI tools</option>
               </select>
               {fieldError === "stage" && (
                 <p id="founder-stage-error" className="mt-2 text-xs text-[var(--color-accent)]">

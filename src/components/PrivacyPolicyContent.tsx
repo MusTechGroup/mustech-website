@@ -232,6 +232,9 @@ export default function PrivacyPolicyContent() {
                   <strong className="text-[var(--color-primary-dark)]">Purpose:</strong> We use these details only to contact you about Jumpstart, such as the cohort schedule and how to register. We do not add you to any other mailing list, and Clause 03 applies in full.
                 </p>
                 <p>
+                  <strong className="text-[var(--color-primary-dark)]">Confirmation emails:</strong> After you sign up we send you one confirmation email, and we send our administrators a notice of the sign-up that holds no personal details. Both are sent through our secure email infrastructure (Cloudflare and Google Workspace), which processes your email address strictly to deliver the confirmation.
+                </p>
+                <p>
                   <strong className="text-[var(--color-primary-dark)]">Storage and access:</strong> Your details are stored in a database hosted in Singapore. The public website can add a sign-up but cannot read, change, or list them. Only MusTech Group&apos;s administrators can view them.
                 </p>
                 <p>
@@ -282,12 +285,12 @@ export default function PrivacyPolicyContent() {
                     </span>
                     <div className="flex items-center justify-between gap-2">
                       <a
-                        href="mailto:saalihat_support@mustechgroup.com"
+                        href="mailto:admin@mustechgroup.com"
                         className="font-bold text-[var(--color-primary-dark)] hover:text-[var(--color-primary)] transition-colors break-all"
                       >
-                        saalihat_support@mustechgroup.com
+                        admin@mustechgroup.com
                       </a>
-                      <CopyButton textToCopy="saalihat_support@mustechgroup.com" ariaLabel="Copy support email" />
+                      <CopyButton textToCopy="admin@mustechgroup.com" ariaLabel="Copy data protection email" />
                     </div>
                     <p className="text-xs text-[var(--color-primary-dark)]/60 mt-1">
                       Response SLA: 1 - 2 business days (SGT)

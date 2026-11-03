@@ -88,7 +88,7 @@ export default function JumpstartPage() {
               </h1>
 
               <p className="mt-5 sm:mt-8 text-base sm:text-lg md:text-xl text-[#efe9d8]/80 font-sans leading-relaxed max-w-2xl">
-                Jumpstart builds AI departments inside your business, made to fit how you work. Run it like a large organisation: a morning stand-up shows what matters, and you sign off the key decisions as your own CEO.
+                Jumpstart is a hands-on course for solo founders. You leave with AI departments built inside your business, made to fit how you work. A morning stand-up shows what matters, and you sign off the key decisions as your own CEO.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[#efe9d8]">
@@ -122,7 +122,7 @@ export default function JumpstartPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl mb-4 sm:mb-8">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
-                  <ExampleText field="role" />
+                  Made-up example: <ExampleText field="role" />
                 </span>
                 <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.25rem)] text-balance">
                   A messy note goes in. Here is what happens.
@@ -256,6 +256,27 @@ export default function JumpstartPage() {
                 Register Your Interest
               </h2>
             </div>
+
+            <dl className="max-w-3xl mx-auto mb-10 grid gap-6 sm:grid-cols-3 text-[#efe9d8]">
+              <div>
+                <dt className="text-xs font-bold uppercase tracking-[0.2em] text-[#f5cb1d] mb-2">Your time</dt>
+                <dd className="text-sm leading-relaxed text-[#efe9d8]/80">
+                  Two days, three hours a day. You build your own organisation as you go.
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs font-bold uppercase tracking-[0.2em] text-[#f5cb1d] mb-2">What you need</dt>
+                <dd className="text-sm leading-relaxed text-[#efe9d8]/80">
+                  A Mac (macOS 13 or later), and a paid Claude, ChatGPT, or Google AI plan. Windows and Linux are not supported yet.
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs font-bold uppercase tracking-[0.2em] text-[#f5cb1d] mb-2">After you register</dt>
+                <dd className="text-sm leading-relaxed text-[#efe9d8]/80">
+                  We email you once the cohort schedule is set. Registering costs nothing and commits you to nothing.
+                </dd>
+              </div>
+            </dl>
 
             <JumpstartRegisterForm />
           </div>

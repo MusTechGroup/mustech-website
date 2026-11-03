@@ -220,10 +220,10 @@ export default function AnimatedTarabaseLogo({
            ------------------------------------------------------------------- */}
         <div className="relative z-10 mt-2.5 h-5 w-auto flex items-center justify-center">
           <Image
-            src="/brand/tarabase-wordmark-bricolage.png"
+            src="/brand/tarabase-wordmark.png"
             alt="TaraBase Wordmark"
-            width={519}
-            height={85}
+            width={951}
+            height={152}
             priority={priority}
             className="h-4 w-auto object-contain"
           />
