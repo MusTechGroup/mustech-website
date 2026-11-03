@@ -188,7 +188,7 @@ export default function JumpstartPage() {
                   Your business pulse, at your fingertips.
                 </h2>
                 <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
-                  The next morning, same business. A stand-up email on your phone shows what matters. A robust dashboard on your laptop holds the rest. Reply to one and the other updates.
+                  The next morning, same business. A stand-up email on your phone shows what matters. A dashboard on your laptop holds the rest, and that is where you answer.
                 </p>
               </div>
               <div className="mb-4">

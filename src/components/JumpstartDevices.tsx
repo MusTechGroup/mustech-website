@@ -79,8 +79,7 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
   const fullW = LAPTOP.w + GAP + PHONE.w;
 
   // The script.
-  const reply = `${first.id} yes`;
-  const replyText = typed(t, 4200, 220, reply);
+  // MR-01: nothing reads the founder's mailbox, so the answer is given on the dashboard, never by email reply.
   const sentAt = 6900;
   const answered = t >= sentAt;
   const note = `${example.readback[0].who} ${example.readback[0].what}: ${example.readback[0].quote}`;
@@ -91,7 +90,7 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
   const redOpen = asks.some((a) => a.item.red) && !(answered && first.item.red);
   const phoneScroll = t < 1200 ? 0 : t < 7000 ? 0.62 : 0;
   const laptopScroll = t < 1200 ? 0 : t < 7200 ? 0.3 : 1;
-  const tapPhone = t > sentAt - 350 && t < sentAt + 250;
+  const tapAnswer = t > sentAt - 350 && t < sentAt + 250;
   const tapLaptop = t > capturedAt - 450 && t < capturedAt + 150;
 
   const laptop = (
@@ -105,6 +104,7 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
       noteText={noteText}
       captured={captured}
       tap={tapLaptop}
+      tapAnswer={tapAnswer}
     />
   );
   const phone = (
@@ -114,11 +114,8 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
       done={done}
       open={open}
       redOpen={redOpen}
-      answeredId={answered ? first.id : null}
+      answeredId={null}
       scroll={phoneScroll}
-      replyText={replyText}
-      sent={answered}
-      tap={tapPhone}
     />
   );
 
@@ -155,8 +152,7 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
         {(both || screen === "Email") && scaled(PHONE.w, PHONE.h, phone)}
       </div>
       <p className="sr-only">
-        A mock of the dashboard on a laptop and the morning email on a phone. {asks.length} items need the founder. Replying to the email with the item number and
-        the word yes answers it, and the dashboard updates.
+        A mock of the dashboard on a laptop and the morning email on a phone. {asks.length} items need the founder. The founder answers on the dashboard, and replies to the email are not read.
       </p>
     </div>
   );
@@ -203,7 +199,6 @@ interface DeviceProps {
   redOpen: boolean;
   answeredId: string | null;
   scroll: number;
-  tap: boolean;
 }
 
 // The laptop follows the HQ dashboard: a moss sidebar, a cream page, and one card per Decide or Input with its own answer box.
@@ -214,7 +209,18 @@ const CARD = "#F7F6F2";
 const EDGE = "#E0DDD2";
 const DANGER = "#8B3A2F";
 
-function Laptop({ example, asks, open, redOpen, answeredId, scroll, noteText, captured, tap }: DeviceProps & { noteText: string; captured: boolean }) {
+function Laptop({
+  example,
+  asks,
+  open,
+  redOpen,
+  answeredId,
+  scroll,
+  noteText,
+  captured,
+  tap,
+  tapAnswer,
+}: DeviceProps & { noteText: string; captured: boolean; tap: boolean; tapAnswer: boolean }) {
   const initial = example.person.charAt(0);
   const label = "text-[8px] font-bold uppercase tracking-widest";
   return (
@@ -283,7 +289,7 @@ function Laptop({ example, asks, open, redOpen, answeredId, scroll, noteText, ca
               {asks.map((a) => {
                 const ok = answeredId === a.id;
                 return (
-                  <div key={a.id} className="rounded-md p-2.5 transition-colors duration-500" style={{ background: ok ? "#eef2e6" : CARD, border: `0.5px solid ${EDGE}` }}>
+                  <div key={a.id} className="relative rounded-md p-2.5 transition-colors duration-500" style={{ background: ok ? "#eef2e6" : CARD, border: `0.5px solid ${EDGE}` }}>
                     <div className="flex justify-between font-mono text-[8px] opacity-60">
                       <span>
                         {a.id} · {a.item.kind === "decide" ? "Decide" : "Input"} · {a.item.dept.toLowerCase()}
@@ -307,7 +313,7 @@ function Laptop({ example, asks, open, redOpen, answeredId, scroll, noteText, ca
                     </div>
                     {ok ? (
                       <p className="mt-1.5 text-[8.5px] font-semibold" style={{ color: SAGE }}>
-                        Answered by email: yes. Logged.
+                        Answered: yes. Logged.
                       </p>
                     ) : (
                       <div className="mt-1.5 flex gap-1.5">
@@ -319,6 +325,7 @@ function Laptop({ example, asks, open, redOpen, answeredId, scroll, noteText, ca
                         </span>
                       </div>
                     )}
+                    {a.id === asks[0]?.id && <Tap on={tapAnswer} className="left-3 bottom-7" />}
                   </div>
                 );
               })}
@@ -361,10 +368,7 @@ function Phone({
   redOpen,
   answeredId,
   scroll,
-  replyText,
-  sent,
-  tap,
-}: DeviceProps & { done: StandupItem[]; replyText: string; sent: boolean }) {
+}: DeviceProps & { done: StandupItem[] }) {
   const decides = asks.filter((a) => a.item.kind === "decide").length - (answeredId ? 1 : 0);
   const inputs = asks.filter((a) => a.item.kind === "input").length;
   const cell = (n: number | string, label: string, hot = false) => (
@@ -420,7 +424,7 @@ function Phone({
                     <p className="px-2.5 py-1 border-t text-[8px]" style={{ borderColor: "#f0ebe1", color: ok ? "#2f6b2f" : MUTED, background: ok ? "#f2f8f2" : "#fdfcf9" }}>
                       {ok ? "Answered: yes. Logged." : (
                         <>
-                          Reply <b className="font-mono" style={{ color: INK }}>{a.id} yes</b> or <b className="font-mono" style={{ color: INK }}>{a.id} &lt;instruction&gt;</b>
+                          Answer <b className="font-mono" style={{ color: INK }}>{a.id}</b> on your dashboard
                         </>
                       )}
                     </p>
@@ -439,16 +443,9 @@ function Phone({
             </div>
           </Scroller>
         </div>
-        {/* Reply bar */}
-        <div className="relative px-3 py-2 border-t bg-white flex items-center gap-2" style={{ borderColor: LINE }}>
-          <div className="flex-1 rounded-full border px-3 py-1.5 text-[9.5px] min-h-[26px]" style={{ borderColor: LINE, color: replyText || sent ? INK : FAINT }}>
-            {sent ? <span style={{ color: "#2f6b2f" }}>Sent ✓</span> : replyText || "Reply"}
-            {!sent && replyText && <span className="inline-block w-[1px] h-2.5 align-middle bg-black animate-pulse" />}
-          </div>
-          <span className="h-6 w-6 rounded-full grid place-items-center text-white text-[11px]" style={{ background: TEAL }}>
-            ↑
-          </span>
-          <Tap on={tap} className="right-1 top-1" />
+        {/* Footer, as in the real standup email (MR-01) */}
+        <div className="px-3 py-2 border-t bg-white text-[8.5px] leading-snug" style={{ borderColor: LINE, color: MUTED }}>
+          Answer on your dashboard. Replies to this email are not read.
         </div>
         <div className="mx-auto mb-1.5 mt-1 h-[3px] w-[70px] rounded-full bg-black/30" />
       </div>
