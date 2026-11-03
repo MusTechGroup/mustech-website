@@ -92,11 +92,8 @@ export default function AboutPage() {
 
           <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pt-8 border-t border-black/10">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] mb-2">
-                Operating Model &amp; Leadership
-              </p>
               <h1 className="font-brand text-4xl sm:text-5xl font-bold text-[var(--color-primary-dark)] tracking-tight leading-tight">
-                Governance &amp; How We Work
+                Governance &amp; Leadership
               </h1>
             </div>
             <p className="text-base text-[var(--color-primary-dark)]/75 leading-relaxed max-w-xl">

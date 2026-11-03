@@ -6,24 +6,24 @@ const CORE_PILLARS = [
   {
     number: "01",
     title: "Amanah",
-    subtitle: "Data Sovereignty",
-    invariant: "No Ads · Only What Is Needed",
+    subtitle: "Privacy First",
+    promise: "No Ads · Only What Is Needed",
     summary:
       "We collect only what each product needs, and we never sell it, profile you, or advertise with it. Saalihat keeps your bookmarks on your phone.",
   },
   {
     number: "02",
     title: "Tijarah",
-    subtitle: "Honest Commerce",
-    invariant: "0% Platform Cut · Direct PayNow",
+    subtitle: "Zero Commission",
+    promise: "0% Platform Fee · Direct PayNow",
     summary:
       "Sustainable software built on fair value exchange, with zero marketplace commissions or dark patterns.",
   },
   {
     number: "03",
     title: "Mizan",
-    subtitle: "Human Equilibrium",
-    invariant: "Fast Utility · Zero Infinite Feeds",
+    subtitle: "Finite & Quiet",
+    promise: "Fast Utility · No Infinite Feeds",
     summary:
       "Quiet tools that deliver the schedule, funeral notice, or order sheet you need and get out of your way.",
   },
@@ -38,11 +38,8 @@ export default function Pillars() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 mb-10 border-b border-white/15">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#f8df98] mb-2">
-              Tayyib Architecture
-            </p>
             <h2 className="font-brand text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight">
-              Three Foundational Commitments
+              Tayyib Architecture &amp; Values
             </h2>
           </div>
 
@@ -78,7 +75,7 @@ export default function Pillars() {
                 </div>
 
                 <div className="pt-4 border-t border-white/10 text-xs font-medium text-[#f8df98]">
-                  {pillar.invariant}
+                  {pillar.promise}
                 </div>
               </div>
             </Reveal>

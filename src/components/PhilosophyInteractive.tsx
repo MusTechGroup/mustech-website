@@ -11,24 +11,24 @@ const PRINCIPLES = [
   {
     number: "01",
     title: "Amanah",
-    subtitle: "Data Sovereignty & Privacy",
-    invariant: "No Ads · Only What Is Needed",
+    subtitle: "Data Privacy & Stewardship",
+    promise: "No Ads · Only What Is Needed",
     description:
       "We collect only what each product needs. Saalihat keeps bookmarks and preferences on your phone, and none of our products carry advertising.",
   },
   {
     number: "02",
     title: "Tijarah",
-    subtitle: "Ethical Enterprise",
-    invariant: "0% Platform Cut · Direct PayNow Settlement",
+    subtitle: "Fair Enterprise",
+    promise: "0% Platform Cut · Direct PayNow Settlement",
     description:
       "Platforms earn their keep by solving real operational bottlenecks for merchants and families - never through predatory marketplace cuts or dark patterns.",
   },
   {
     number: "03",
     title: "Mizan",
-    subtitle: "Human Equilibrium",
-    invariant: "Quick Tasks · No Endless Feeds",
+    subtitle: "Finite & Calm Tools",
+    promise: "Quick Tasks · No Endless Feeds",
     description:
       "Quiet, finite interfaces built to respect human time. Our tools deliver the verified mosque schedule, funeral notice, or order sheet you need and return you to real life.",
   },
@@ -36,7 +36,7 @@ const PRINCIPLES = [
     number: "04",
     title: "Resilient Engineering",
     subtitle: "Verified Civic Directories",
-    invariant: "ARS Cross-Checked · Checked by a Person",
+    promise: "ARS Cross-Checked · Checked by a Person",
     description:
       "Mosque lecture schedules and community announcements often live inside scattered posters and chat groups. We build reliable extraction pipelines and human-verified directories that make community knowledge accessible.",
   },
@@ -44,7 +44,7 @@ const PRINCIPLES = [
     number: "05",
     title: "Civic Purpose",
     subtitle: "Everyday Service",
-    invariant: "Funeral Rites · Home Businesses · Mosque Kuliah",
+    promise: "Funeral Rites · Home Businesses · Mosque Kuliah",
     description:
       "Success is measured in moments that matter: helping a family coordinate final rites with dignity, giving a home-based business a zero-commission shop, or connecting congregants to a verified mosque Kuliah.",
   },
@@ -72,9 +72,6 @@ export default function PhilosophyInteractive() {
           {/* Section Header */}
           <Reveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-6 pb-2 border-t border-black/10">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] mb-2">
-                Tayyib Architecture
-              </p>
               <h1 className="font-brand text-4xl sm:text-5xl font-bold text-[var(--color-primary-dark)] tracking-tight leading-tight">
                 The MusTech Philosophy
               </h1>
@@ -95,9 +92,6 @@ export default function PhilosophyInteractive() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Sticky Rail with Unique Architectural & Botanical Photography */}
             <Reveal className="lg:col-span-5 lg:sticky lg:top-28" direction="left">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#f8df98] mb-2">
-                Tayyib Architecture
-              </p>
               <h2 className="font-brand text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight mb-4">
                 Our Values in Practice
               </h2>
@@ -127,7 +121,7 @@ export default function PhilosophyInteractive() {
                       </span>
                     </div>
                     <p className="text-xs text-[#fdfaf0]/85 font-medium">
-                      {PRINCIPLES[activeIndex].invariant}
+                      {PRINCIPLES[activeIndex].promise}
                     </p>
                     {/* Animated Progress Indicator Across the 5 Principles */}
                     <div className="grid grid-cols-5 gap-1.5 pt-1">
@@ -229,7 +223,7 @@ export default function PhilosophyInteractive() {
                           {item.description}
                         </p>
                         <p className="text-xs font-medium text-[#f8df98]/90">
-                          {item.invariant}
+                          {item.promise}
                         </p>
                       </div>
                     </div>
@@ -245,9 +239,6 @@ export default function PhilosophyInteractive() {
       <section className="py-16 sm:py-24 bg-[var(--brand-bg)] text-[var(--color-primary-dark)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] mb-1">
-              Ecosystem Navigation
-            </p>
             <h2 className="font-brand text-2xl sm:text-3xl font-bold text-[var(--color-primary-dark)]">
               Explore the MusTech Ecosystem
             </h2>

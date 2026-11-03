@@ -156,7 +156,7 @@ export default function PortfolioPage() {
             {/* Mobile Platform Overview Swipe Deck (Swipe Boxes across all 4 platforms) */}
             <div className="block lg:hidden mb-10">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                <span className="font-brand text-sm font-bold text-[var(--color-primary-dark)]">
                   Ecosystem Overview
                 </span>
                 <span className="text-xs text-[var(--color-primary-dark)]/60">

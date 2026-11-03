@@ -299,11 +299,6 @@ export default function Hero() {
                       }`}
                     />
                   </div>
-
-                  <span
-                    className="absolute inset-x-0 bottom-0 h-1.5 origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-x-100"
-                    style={{ backgroundColor: panel.accent }}
-                  />
                 </Link>
               );
             })}
@@ -316,9 +311,9 @@ export default function Hero() {
         {/* Header Row with Step Indicator */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between mb-3.5">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] block">
+            <p className="font-brand text-base font-bold text-[var(--color-primary-dark)]">
               Ecosystem Showcase
-            </span>
+            </p>
             <p className="text-xs text-[var(--color-primary-dark)]/70 mt-0.5">
               Swipe through our products and principles
             </p>
@@ -434,12 +429,6 @@ export default function Hero() {
                     <ArrowRight className="w-5 h-5" />
                   </div>
                 </div>
-
-                {/* Brand Colour Line Accent */}
-                <span
-                  className="absolute inset-x-0 bottom-0 h-1.5"
-                  style={{ backgroundColor: panel.accent }}
-                />
               </Link>
             );
           })}

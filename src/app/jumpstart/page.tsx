@@ -121,9 +121,9 @@ export default function JumpstartPage() {
           <Scene id="demo" deck="Demo" className="text-[#efe9d8] py-10 sm:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl mb-4 sm:mb-8">
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
-                  Made-up example: <ExampleText field="role" />
-                </span>
+                <p className="text-xs font-semibold text-[#f5cb1d] mb-2">
+                  Example: <ExampleText field="role" />
+                </p>
                 <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.25rem)] text-balance">
                   A messy note goes in. Here is what happens.
                 </h2>
