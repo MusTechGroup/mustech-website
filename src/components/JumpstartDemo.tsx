@@ -129,6 +129,10 @@ function DeskRun({ example }: { example: Example }) {
             ))}
           </ul>
         </div>
+        {/* Fills the tall left column on desktop with the rule this panel runs under. */}
+        <p className={`border-t border-white/10 px-4 sm:px-6 py-3 text-xs text-[#efe9d8]/60 ${fade(stage >= 2)}`}>
+          <span className="font-semibold text-[#efe9d8]/85">Reads, then asks.</span> It changes nothing until you answer, and it never sends, pays, or publishes on its own.
+        </p>
       </div>
 
       {/* What comes back */}

@@ -56,13 +56,17 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
     const el = rootRef.current;
     if (!el) return;
     still.current = reducedMotion();
-    if (window.innerWidth < 640) setScreen("Email");
-    if (still.current) setT(11500);
+    // Deferred, as in JumpstartDemo, so the first paint matches the static HTML before the phone layout is picked.
+    const init = window.setTimeout(() => {
+      if (window.innerWidth < 640) setScreen("Email");
+      if (still.current) setT(11500);
+    }, 0);
     const ro = new ResizeObserver(([e]) => setAvail(e.contentRect.width));
     ro.observe(el);
     const io = new IntersectionObserver(([e]) => setLive(e.isIntersecting && !still.current), { threshold: 0.25 });
     io.observe(el);
     return () => {
+      window.clearTimeout(init);
       ro.disconnect();
       io.disconnect();
     };
@@ -152,7 +156,7 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
         {(both || screen === "Email") && scaled(PHONE.w, PHONE.h, phone)}
       </div>
       <p className="sr-only">
-        A mock of the dashboard on a laptop and the morning email on a phone. {asks.length} items need the founder. The founder answers on the dashboard, and replies to the email are not read.
+        A mock of the HQ dashboard on a laptop and the morning stand-up email on a phone. {asks.length} items need the founder. The founder answers on the dashboard, and replies to the email are not read.
       </p>
     </div>
   );
@@ -235,7 +239,7 @@ function Laptop({
             </span>
             <span className="leading-tight">
               <span className="block font-bold tracking-wide uppercase">{example.person}</span>
-              <span className="block text-[7px] opacity-70">Command Centre</span>
+              <span className="block text-[7px] opacity-70">HQ</span>
             </span>
           </div>
           <ul className="space-y-1.5">
@@ -258,7 +262,7 @@ function Laptop({
               <header className="border-b pb-2.5" style={{ borderColor: EDGE }}>
                 <div className="flex items-center gap-1.5">
                   <span className="text-[7px] font-bold px-1.5 py-0.5 rounded text-white tracking-widest uppercase" style={{ background: SAGE }}>
-                    AI office
+                    Dashboard
                   </span>
                   <span className="font-mono text-[8px] opacity-60">{example.person.toLowerCase()}-hq · Tue 8:00</span>
                 </div>
@@ -353,6 +357,7 @@ function Laptop({
 }
 
 function Phone({
+  example,
   asks,
   done,
   open,
@@ -379,10 +384,10 @@ function Phone({
         <div className="mx-auto mt-2 mb-1 h-[14px] w-[64px] rounded-full bg-[#16150f]" />
         <div className="px-3 pb-2 border-b" style={{ borderColor: LINE, background: "#fff" }}>
           <p className="text-[8px]" style={{ color: FAINT }}>
-            AI office · 8:00
+            {example.person}&rsquo;s HQ · 8:00
           </p>
           <p className="text-[11px] font-bold leading-tight">
-            Morning brief · {open} {open === 1 ? "needs" : "need"} you
+            Morning stand-up · {open} {open === 1 ? "needs" : "need"} you
           </p>
         </div>
         <div className="flex-1 min-h-0">

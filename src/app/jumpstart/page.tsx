@@ -104,7 +104,7 @@ export default function JumpstartPage() {
                   href="#register"
                   className="w-full sm:w-auto px-8 py-4 min-h-[48px] flex items-center justify-center bg-[#f5cb1d] text-[#111] hover:bg-[#ffd93b] text-xs font-bold uppercase tracking-wider transition-colors"
                 >
-                  Register Early Interest
+                  Register early interest
                 </a>
                 <a
                   href="#demo"
@@ -179,8 +179,8 @@ export default function JumpstartPage() {
             </div>
           </Scene>
 
-          {/* The daily standup, as it looks on a working day */}
-          <Scene id="standup" deck="Standup" className="text-[#efe9d8] py-10 sm:py-20">
+          {/* The daily stand-up, as it looks on a working day. The id stays "standup" so existing links keep working. */}
+          <Scene id="standup" deck="Stand-up" className="text-[#efe9d8] py-10 sm:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl mb-4 sm:mb-8">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
@@ -190,11 +190,11 @@ export default function JumpstartPage() {
                   Every morning, the business reports in.
                 </h2>
                 <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
-                  The next morning, same business. Your dashboard opens on what needs you, Red first, and that is where you answer. The same stand-up arrives by email, for when you are away from your desk.
+                  Same business, a day later. Your dashboard opens on what needs you, Red first, and that is where you answer. The same stand-up arrives by email, for when you are away from your desk.
                 </p>
               </div>
               <div className="mb-4">
-                <ExampleToggle label="Pick an example business for the standup" />
+                <ExampleToggle label="Pick an example business for the stand-up" />
               </div>
               <Rebuild>
                 <JumpstartDevices />
@@ -235,7 +235,7 @@ export default function JumpstartPage() {
               </div>
               <div className="lg:col-span-8 max-w-2xl">
                 <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
-                  Your Instructor
+                  Your instructor
                 </span>
                 <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.25rem)] text-balance">
                   Taufiq Rashid
@@ -267,10 +267,10 @@ export default function JumpstartPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-xl mx-auto mb-10">
               <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-3 block">
-                Inaugural Cohort
+                Inaugural cohort
               </span>
               <h2 className="font-brand font-bold tracking-[-0.02em] text-[#efe9d8] text-[clamp(2rem,5vw,3.5rem)] leading-[1.05]">
-                Register Your Interest
+                Register your interest
               </h2>
             </div>
 

@@ -125,7 +125,8 @@ export function ExampleToggle({ label = "Pick an example business" }: { label?: 
 export function ExampleText({ field }: { field: "role" | "blurb" }) {
   const { example } = useExample();
   return (
-    <span key={example.id} className="js-swap inline-block">
+    // The blurb runs into the sentence after it, so it stays inline (fade only) rather than breaking onto its own line.
+    <span key={example.id} className={`js-swap ${field === "blurb" ? "inline" : "inline-block"}`}>
       {example[field]}
     </span>
   );

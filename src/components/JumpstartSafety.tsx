@@ -22,14 +22,23 @@ const RULES: { tried: string; refused: string; instead: string }[] = [
     refused: "An unanswered decision never acts.",
     instead: "It holds and asks again. It never sends, pays, or publishes on its own.",
   },
+  {
+    tried: "Send a customer’s details off your computer",
+    refused: "Customer data stays with you.",
+    instead: "It names what would leave and where it would go, and you decide.",
+  },
 ];
 
 export default function JumpstartSafety() {
   return (
     <div>
       <ul className="grid gap-px bg-white/15 border border-white/15 sm:grid-cols-2">
-        {RULES.map((r) => (
-          <li key={r.tried} className="bg-[#0b0b0a] p-4 sm:p-6 text-sm leading-relaxed">
+        {RULES.map((r, i) => (
+          // An odd last card spans both columns, so the grid has no empty cell.
+          <li
+            key={r.tried}
+            className={`bg-[#0b0b0a] p-4 sm:p-6 text-sm leading-relaxed ${i === RULES.length - 1 && RULES.length % 2 ? "sm:col-span-2" : ""}`}
+          >
             <p className="text-[11px] uppercase tracking-[0.2em] text-[#efe9d8]/55">If the AI tries to</p>
             <p className="mt-1 text-base sm:text-lg font-semibold text-[#efe9d8]">{r.tried}</p>
             <p className="mt-3 flex gap-2 text-[#efe9d8]">
@@ -50,7 +59,7 @@ export default function JumpstartSafety() {
         ))}
       </ul>
       <p className="mt-4 text-sm sm:text-base text-[#efe9d8]/70 leading-relaxed max-w-3xl">
-        These are checks in code that run before the AI acts, not requests written into a prompt. They are tested the way MusTech tests its own work: real sessions in Antigravity and Claude Code, with mistakes planted for the AI to catch. Every skill is read line by line before it ships, and every rule is written down with the reason it exists.
+        These are checks in code that run before the AI acts, not requests written into a prompt. They are tested the way MusTech tests its own work: real sessions in Antigravity, Claude Code, and Codex, with mistakes planted for the AI to catch. Every skill is read line by line by a person before it ships, and every rule is written down with the reason it exists.
       </p>
     </div>
   );

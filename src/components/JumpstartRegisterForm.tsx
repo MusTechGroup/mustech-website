@@ -77,7 +77,7 @@ export default function JumpstartRegisterForm() {
               <CheckCircle2 className="w-8 h-8 text-[#f5cb1d]" />
             </div>
             <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[#efe9d8] mb-3">
-              Interest Received
+              Interest received
             </h3>
             <p className="text-[#efe9d8]/85 leading-relaxed font-sans max-w-md mb-6">
               Thank you for registering your interest in <strong>MusTech Jumpstart</strong>. We will email you at <strong>{email}</strong> once the inaugural cohort schedule is finalised.
@@ -87,7 +87,7 @@ export default function JumpstartRegisterForm() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="flex flex-col items-start mb-6">
               <span className="text-xs font-bold uppercase tracking-wider text-[#f5cb1d] mb-1 block">
-                Early Expression of Interest
+                Early expression of interest
               </span>
               <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[#efe9d8] tracking-tight">
                 Your details
@@ -97,7 +97,7 @@ export default function JumpstartRegisterForm() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="founder-name" className="block text-xs font-bold uppercase tracking-wider text-[#efe9d8]/80 mb-2">
-                  Your Full Name
+                  Your full name
                 </label>
                 <input
                   id="founder-name"
@@ -121,7 +121,7 @@ export default function JumpstartRegisterForm() {
 
               <div>
                 <label htmlFor="founder-email" className="block text-xs font-bold uppercase tracking-wider text-[#efe9d8]/80 mb-2">
-                  Email Address
+                  Email address
                 </label>
                 <input
                   id="founder-email"
@@ -146,7 +146,7 @@ export default function JumpstartRegisterForm() {
 
             <div>
               <label htmlFor="founder-stage" className="block text-xs font-bold uppercase tracking-wider text-[#efe9d8]/80 mb-2">
-                Current Venture Stage
+                Current venture stage
               </label>
               <select
                 id="founder-stage"
@@ -196,7 +196,7 @@ export default function JumpstartRegisterForm() {
                 className="w-full flex items-center justify-center gap-2 px-8 py-3.5 min-h-[44px] bg-[#f5cb1d] hover:bg-[#ffd93b] disabled:opacity-60 disabled:cursor-wait text-[#111] text-xs font-bold uppercase tracking-wider transition-colors "
               >
                 {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
-                <span>{sending ? "Registering…" : "Register Interest for Inaugural Cohort"}</span>
+                <span>{sending ? "Registering…" : "Register interest for the inaugural cohort"}</span>
               </button>
               <p className="mt-3 text-center text-xs text-[#efe9d8]/70">
                 We use these details only to contact you about Jumpstart.{" "}

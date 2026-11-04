@@ -259,7 +259,7 @@ export const STANDUPS: Record<ExampleId, StandupItem[]> = {
     },
     {
       kind: "input",
-      dept: "Analytics and health",
+      dept: "Go-to-market",
       text: "Last month’s sign-up export ends on the 24th. Add the rest when you have it.",
       actions: ["I will add it", "Not today"],
       logged: "Noted. The count says what it could not include.",
