@@ -9,6 +9,7 @@ import AnimatedJumpstartLogo from "@/components/AnimatedJumpstartLogo";
 import JumpstartDemo from "@/components/JumpstartDemo";
 import JumpstartFlow from "@/components/JumpstartFlow";
 import JumpstartDevices from "@/components/JumpstartDevices";
+import JumpstartSafety from "@/components/JumpstartSafety";
 import BrandLogo from "@/components/BrandLogo";
 import Scene from "@/components/Scene";
 import DeckRail from "@/components/DeckRail";
@@ -18,7 +19,7 @@ import { ExampleProvider, ExampleToggle, ExampleText, ExampleDepartments, Rebuil
 export const metadata: Metadata = {
   title: "MusTech Jumpstart | Run Your Business with AI, Checked by You",
   description:
-    "A hands-on course for founders, taught by Taufiq Rashid: give AI tools clear jobs and check their work before it reaches your customers. Works with Antigravity, Claude Code, and Codex.",
+    "A hands-on course for solo founders, taught by Taufiq Rashid. AI departments set up on your own computer, a dashboard and AI co-pilot at your desk, and safety rules the AI cannot get round. Works with Antigravity, Claude Code, and Codex.",
   alternates: {
     canonical: "/jumpstart",
   },
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "MusTech Group",
     title: "MusTech Jumpstart | Run Your Business with AI, Checked by You",
     description:
-      "A hands-on course for founders: give AI tools clear jobs and check their work before it reaches your customers. Works with Antigravity, Claude Code, and Codex.",
+      "A hands-on course for solo founders: AI departments on your own computer, a dashboard and AI co-pilot at your desk, and safety rules the AI cannot get round. Works with Antigravity, Claude Code, and Codex.",
     images: [
       {
         url: "/jumpstart/logo-trim.png",
@@ -46,7 +47,7 @@ const courseSchema = {
   "@type": "Course",
   name: "MusTech Jumpstart: Run Your Business with AI, Checked by You",
   description:
-    "A hands-on course for founders: give AI tools clear jobs and check their work before it reaches your customers. Works with Antigravity, Claude Code, and Codex.",
+    "A hands-on course for solo founders: AI departments on your own computer, a dashboard and AI co-pilot at your desk, and safety rules the AI cannot get round. Works with Antigravity, Claude Code, and Codex.",
   provider: {
     "@type": "Organization",
     name: "MusTech Group",
@@ -88,7 +89,7 @@ export default function JumpstartPage() {
               </h1>
 
               <p className="mt-5 sm:mt-8 text-base sm:text-lg md:text-xl text-[#efe9d8]/80 font-sans leading-relaxed max-w-2xl">
-                Jumpstart is a hands-on course for solo founders. You leave with AI departments built inside your business, made to fit how you work. A morning stand-up shows what matters, and you sign off the key decisions as your own CEO.
+                Jumpstart is a hands-on course for solo founders. You leave with AI departments set up on your own computer, made to fit how you work. At your desk, a dashboard shows what needs you and an AI co-pilot does the work. Nothing reaches a customer until you sign it off.
               </p>
 
               <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[#efe9d8]">
@@ -125,10 +126,10 @@ export default function JumpstartPage() {
                   Example: <ExampleText field="role" />
                 </p>
                 <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.25rem)] text-balance">
-                  A messy note goes in. Here is what happens.
+                  Ask at your desk. It works from your own records.
                 </h2>
                 <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
-                  <ExampleText field="blurb" /> Pick one and press the buttons.
+                  <ExampleText field="blurb" /> Each department brings its own skills, such as reading contracts, chasing payments, and handling scope changes. Pick a business and press the buttons.
                 </p>
               </div>
               <div className="mb-4">
@@ -165,6 +166,7 @@ export default function JumpstartPage() {
                     </p>
                     <ul className="mt-4 space-y-2 text-sm sm:text-base text-[#efe9d8]/80 leading-relaxed">
                       <li className="border-l-2 border-[#f5cb1d] pl-4">Each department has its own rules and skills, so the AI knows how you work.</li>
+                      <li className="border-l-2 border-[#f5cb1d] pl-4">On day one, a guided intake puts every open job, unpaid invoice, quote, and deadline into one ledger.</li>
                       <li className="border-l-2 border-[#f5cb1d] pl-4">Nothing goes out until you have checked it.</li>
                       <li className="border-l-2 border-[#f5cb1d] pl-4">The files stay on your computer. Costs stay predictable, and customer data stays with you.</li>
                     </ul>
@@ -185,10 +187,10 @@ export default function JumpstartPage() {
                   The next morning
                 </span>
                 <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(2rem,5vw,3.75rem)] text-balance">
-                  Your business pulse, at your fingertips.
+                  Every morning, the business reports in.
                 </h2>
                 <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
-                  The next morning, same business. A stand-up email on your phone shows what matters. A dashboard on your laptop holds the rest, and that is where you answer.
+                  The next morning, same business. Your dashboard opens on what needs you, Red first, and that is where you answer. The same stand-up arrives by email, for when you are away from your desk.
                 </p>
               </div>
               <div className="mb-4">
@@ -200,6 +202,21 @@ export default function JumpstartPage() {
             </div>
           </Scene>
         </ExampleProvider>
+
+        {/* The harness: what the AI cannot do, and what it does instead */}
+        <Scene id="safety" deck="Safety" className="text-[#efe9d8] py-10 sm:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mb-4 sm:mb-8">
+              <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.5rem)] text-balance">
+                Rules the AI cannot get round.
+              </h2>
+              <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/80 leading-relaxed max-w-2xl">
+                Some calls are yours alone. A guard checks each action before it happens and refuses the ones that belong to you. It never just says no: every refusal says what to do instead.
+              </p>
+            </div>
+            <JumpstartSafety />
+          </div>
+        </Scene>
 
         {/* Instructor: why this course is credible */}
         <Scene deck="Crew" className="text-[#efe9d8] py-10 sm:py-20">
@@ -267,7 +284,7 @@ export default function JumpstartPage() {
               <div>
                 <dt className="text-xs font-bold uppercase tracking-[0.2em] text-[#f5cb1d] mb-2">What you need</dt>
                 <dd className="text-sm leading-relaxed text-[#efe9d8]/80">
-                  A Mac (macOS 13 or later), and a paid Claude, ChatGPT, or Google AI plan. Windows and Linux are not supported yet.
+                  A Mac (macOS 13 or later) or a Windows 11 PC, and a paid Claude, ChatGPT, or Google AI plan. Linux is not supported yet.
                 </dd>
               </div>
               <div>

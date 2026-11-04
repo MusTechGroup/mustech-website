@@ -1,8 +1,26 @@
 // Three invented founders from the Jumpstart test audience (founder-course/jumpstart/uat/profiles.json).
 // Departments, levels, and installed counts come from the calibration run on each profile.
-// The notes, jobs, and customers are made up.
+// The requests, jobs, contracts, and customers are made up. The skills named are the ones each workspace installs.
 
 export type ExampleId = "contractor" | "agency" | "coach";
+
+export interface Finding {
+  label: string;
+  quote: string;
+  note: string;
+}
+
+/** One request made at the desk, in the founder's AI tool, and what the department's skill brings back. */
+export interface DeskScene {
+  ask: string;
+  skill: string;
+  reads: string[];
+  findings: Finding[];
+  /** A closing line the skill always adds, when it has one. */
+  footer?: string;
+  input: { ask: string; options: [string, string]; filed: string };
+  decide: { ask: string; yesLabel: string; yes: string; hold: string };
+}
 
 export interface Example {
   id: ExampleId;
@@ -12,11 +30,11 @@ export interface Example {
   blurb: string;
   installed: number;
   departments: { name: string; level: string }[];
-  note: string;
-  readback: { who: string; what: string; quote: string; rest: string }[];
-  input: { ask: string; options: [string, string]; filed: string };
-  decide: { ask: string; yes: string; hold: string };
-  notify: string;
+  /** Dashboard pages this workspace shows, in the dashboard's own order. */
+  pages: string[];
+  desk: DeskScene;
+  /** A short note typed into the dashboard's capture box. */
+  capture: string;
 }
 
 export const EXAMPLES: Example[] = [
@@ -35,25 +53,30 @@ export const EXAMPLES: Example[] = [
       { name: "Sales pipeline", level: "On" },
       { name: "Compliance", level: "On" },
     ],
-    note:
-      "ok. tampines kitchen, tiler says thursday not wednesday. mrs tan wants a second sink, maybe eight hundred. bishan leak under the basin still not fixed, plumber says friday. bishan owner owes the progress payment, twelve thousand.",
-    readback: [
-      { who: "Tampines kitchen", what: "tiler", quote: "thursday, not wednesday", rest: "schedule moved" },
-      { who: "Mrs Tan", what: "second sink", quote: "maybe eight hundred", rest: "price unconfirmed" },
-      { who: "Bishan", what: "basin leak", quote: "friday", rest: "plumber's date, defect logged today" },
-      { who: "Bishan owner", what: "progress payment", quote: "twelve thousand", rest: "not yet received" },
-    ],
-    input: {
-      ask: "Mrs Tan’s sink is “maybe eight hundred”. It will not quote a guess. What now?",
-      options: ["Price it first", "Quote $800"],
-      filed: "Nothing is sent to Mrs Tan.",
+    pages: ["Today", "Ledger", "Organisation", "Activity", "Pipeline", "Projects", "Guide"],
+    desk: {
+      ask: "Mrs Tan wants a second sink in the Tampines kitchen. Is that in her scope?",
+      skill: "scope-change",
+      reads: ["Tampines kitchen scope", "Commitments ledger", "Price list"],
+      findings: [
+        { label: "Her request", quote: "can add one more sink near the window?", note: "quoted from her message" },
+        { label: "Scope", quote: "one undermount sink, cabinets, wall tiling", note: "a second sink is a change" },
+        { label: "Handover", quote: "Friday", note: "moves only if you say so" },
+        { label: "Price", quote: "unset", note: "you said maybe eight hundred, so it will not quote a guess" },
+      ],
+      input: {
+        ask: "The price for the second sink is unset. What now?",
+        options: ["Price it first", "Quote $800"],
+        filed: "Nothing is sent to Mrs Tan.",
+      },
+      decide: {
+        ask: "Two replies are drafted: accept the change on your terms, or keep the original scope. Mark one ready for you to send? If you do nothing, it holds.",
+        yesLabel: "Accept on my terms",
+        yes: "Logged. The reply waits in your drafts, with the price left for you. You send it. It never does.",
+        hold: "Logged. The scope, the dates, and the ledger stay as they are.",
+      },
     },
-    decide: {
-      ask: "Draft a payment reminder to the Bishan owner for the twelve thousand? If you do nothing, it holds.",
-      yes: "Logged, with where it came from. The draft is ready. You send it. It never does.",
-      hold: "Logged. Nothing drafted. It will ask again next week.",
-    },
-    notify: "The Tampines schedule is updated. The basin leak is logged with today’s date. Nothing for you to do.",
+    capture: "Bishan basin leak: plumber says friday",
   },
   {
     id: "agency",
@@ -70,25 +93,30 @@ export const EXAMPLES: Example[] = [
       { name: "Data and privacy", level: "Level 1" },
       { name: "Sales pipeline", level: "On" },
     ],
-    note:
-      "ok. bakery brand video, editor says friday not thursday. new retainer lead from the fitness studio, maybe four k a month. jia hui sent the shoot invoice, eleven hundred, not paid yet. bakery asked for the raw footage, not sure if the contract covers it.",
-    readback: [
-      { who: "Bakery video", what: "editor", quote: "friday, not thursday", rest: "delivery moved" },
-      { who: "Fitness studio", what: "retainer lead", quote: "maybe four k a month", rest: "not a proposal yet" },
-      { who: "Jia Hui", what: "shoot invoice", quote: "eleven hundred", rest: "unpaid" },
-      { who: "Raw footage", what: "bakery request", quote: "not sure if the contract covers it", rest: "contract unchecked" },
-    ],
-    input: {
-      ask: "The studio lead is “maybe four k a month”. It will not put a guess in a proposal. What now?",
-      options: ["Scope it first", "Draft at four k"],
-      filed: "No proposal leaves without you.",
+    pages: ["Today", "Ledger", "Organisation", "Activity", "Pipeline", "Projects", "Guide"],
+    desk: {
+      ask: "The bakery wants the raw footage from the shoot. Does our contract cover it?",
+      skill: "read-contract",
+      reads: ["Bakery agreement (the PDF you added)", "Project scope", "Commitments ledger"],
+      findings: [
+        { label: "Clause 3, Deliverables", quote: "one 60-second brand film and three 15-second cutdowns", note: "raw footage is not listed" },
+        { label: "Clause 7, Ownership", quote: "final deliverables belong to the Client on full payment", note: "silent on unused footage" },
+        { label: "Missing", quote: "no clause on raw files", note: "worth settling before you reply" },
+      ],
+      footer: "This is a reading of the document, not legal advice.",
+      input: {
+        ask: "Clause 7 turns on full payment, and the ledger shows the final invoice still open. Is that right?",
+        options: ["Still open", "Paid, I will update it"],
+        filed: "The ledger changes only on your word.",
+      },
+      decide: {
+        ask: "Draft a reply offering the raw footage as a paid extra, with both clauses quoted? If you do nothing, it holds.",
+        yesLabel: "Yes, draft it",
+        yes: "Logged. The draft is ready. You send it. It never does.",
+        hold: "Logged. Nothing drafted. The question stays flagged.",
+      },
     },
-    decide: {
-      ask: "Draft a reply to the bakery about the raw footage, after the contract clause is pulled up? If you do nothing, it holds.",
-      yes: "Logged. The clause is pulled up for you and the draft is ready. You send it. It never does.",
-      hold: "Logged. Nothing drafted. The clause stays flagged as unchecked.",
-    },
-    notify: "Friday delivery is in the schedule. Jia Hui’s invoice is in the ledger as unpaid. Nothing for you to do.",
+    capture: "Bakery video: editor says friday, not thursday",
   },
   {
     id: "coach",
@@ -105,25 +133,29 @@ export const EXAMPLES: Example[] = [
       { name: "Finance", level: "Level 1" },
       { name: "Content and social", level: "Level 1" },
     ],
-    note:
-      "ok. priya's 8 week programme starts monday, she paid half. rina wants to pause coaching for two weeks, travelling. sign up form still broken on android, sam says he can fix thursday. three people asked about a group class, thinking saturday mornings.",
-    readback: [
-      { who: "Priya", what: "8-week programme", quote: "starts monday, paid half", rest: "balance open" },
-      { who: "Rina", what: "pause coaching", quote: "two weeks", rest: "dates unset" },
-      { who: "Sign-up form", what: "android bug", quote: "thursday", rest: "Sam's date, logged today" },
-      { who: "Group class", what: "three enquiries", quote: "saturday mornings", rest: "not confirmed" },
-    ],
-    input: {
-      ask: "Rina said “two weeks”. Which two? It will not guess.",
-      options: ["From Monday", "From next Monday"],
-      filed: "Her sessions are marked paused, nothing else.",
+    pages: ["Today", "Ledger", "Organisation", "Activity", "Projects", "Numbers", "Guide"],
+    desk: {
+      ask: "Who owes me money?",
+      skill: "chase-payments",
+      reads: ["Commitments ledger, owed to me", "Payment history", "Voice guide"],
+      findings: [
+        { label: "Priya, 8-week programme", quote: "paid half", note: "the balance is 5 days late" },
+        { label: "Priya's record", quote: "on time, 3 of 3", note: "so a light nudge, not a firm one" },
+        { label: "Monthly coaching", quote: "all received", note: "nobody else to chase" },
+      ],
+      input: {
+        ask: "Rina asked to pause coaching for “two weeks”. Which two? It will not guess.",
+        options: ["From Monday", "From next Monday"],
+        filed: "Her sessions are marked paused, nothing else.",
+      },
+      decide: {
+        ask: "One reminder to Priya is drafted in your voice. Mark it ready for you to send? If you do nothing, it holds.",
+        yesLabel: "Ready, I will send",
+        yes: "Logged, with where it came from. You send it. It never does.",
+        hold: "Logged. It will ask again before the programme ends.",
+      },
     },
-    decide: {
-      ask: "Draft a reminder to Priya for the other half of the programme? If you do nothing, it holds.",
-      yes: "Logged, with where it came from. The draft is ready. You send it. It never does.",
-      hold: "Logged. Nothing drafted. It will ask again before the programme ends.",
-    },
-    notify: "The Android bug is logged with Thursday as Sam’s date. The group class stays an idea until you decide. Nothing for you to do.",
+    capture: "Android sign-up bug: sam says he can fix thursday",
   },
 ];
 
@@ -146,8 +178,8 @@ export const STANDUPS: Record<ExampleId, StandupItem[]> = {
       kind: "decide",
       dept: "Finance",
       red: "14 days late",
-      text: "The Bishan owner’s progress payment of twelve thousand is 14 days late. Send the reminder drafted yesterday?",
-      actions: ["Draft is ready, I will send", "Hold"],
+      text: "The Bishan owner’s progress payment of twelve thousand is 14 days late. Draft a reminder?",
+      actions: ["Draft the reminder", "Hold"],
       logged: "Logged. The draft waits for you to send it.",
     },
     {
@@ -187,8 +219,8 @@ export const STANDUPS: Record<ExampleId, StandupItem[]> = {
     {
       kind: "decide",
       dept: "Contracts and legal",
-      text: "The bakery wants the raw footage and the contract is silent. Draft a reply offering it as a paid extra?",
-      actions: ["Draft the reply", "Hold"],
+      text: "Yesterday’s reply to the bakery about the raw footage is ready, with clauses 3 and 7 quoted. Send it?",
+      actions: ["I will send it", "Hold"],
       logged: "Logged. The draft waits for you to send it.",
     },
     {
@@ -214,9 +246,9 @@ export const STANDUPS: Record<ExampleId, StandupItem[]> = {
       kind: "decide",
       dept: "Finance",
       red: "6 days late",
-      text: "Priya’s balance for the 8-week programme is 6 days late. Draft a reminder?",
-      actions: ["Draft the reminder", "Hold"],
-      logged: "Logged. The draft waits for you to send it.",
+      text: "Priya’s balance for the 8-week programme is 6 days late. The reminder from yesterday is ready. Send it now?",
+      actions: ["I will send it", "Hold"],
+      logged: "Logged. You send it. It never does.",
     },
     {
       kind: "decide",
@@ -227,10 +259,10 @@ export const STANDUPS: Record<ExampleId, StandupItem[]> = {
     },
     {
       kind: "input",
-      dept: "Project management",
-      text: "Which two weeks is Rina pausing coaching?",
-      actions: ["Pick the dates", "Not today"],
-      logged: "Noted. Her sessions stay as they are until you pick.",
+      dept: "Analytics and health",
+      text: "Last month’s sign-up export ends on the 24th. Add the rest when you have it.",
+      actions: ["I will add it", "Not today"],
+      logged: "Noted. The count says what it could not include.",
     },
     {
       kind: "input",

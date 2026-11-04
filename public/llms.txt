@@ -31,7 +31,7 @@
 - **Walkthrough:** https://www.mustechgroup.com/portfolio#tarabase-deep-dive
 
 ### 4. MusTech Jumpstart (Course for Founders)
-- **Summary:** A hands-on course for founders. Participants receive ready-made skills, workspace folders, and templates, set them up in their own business, and learn to give AI tools clear jobs and check their work. Works with Antigravity, Claude Code, and Codex.
+- **Summary:** A hands-on course for solo founders. Participants leave with AI departments set up on their own computer and calibrated to their business, a dashboard and AI co-pilot at their desk, and safety rules the AI cannot get round. Nothing reaches a customer until the founder signs it off. Runs on a Mac or a Windows 11 PC. Works with Antigravity, Claude Code, and Codex.
 - **Programme Page:** https://www.mustechgroup.com/jumpstart
 
 ## Tayyib Architecture (Our Values)

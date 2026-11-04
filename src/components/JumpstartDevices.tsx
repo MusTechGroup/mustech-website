@@ -82,7 +82,7 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
   // MR-01: nothing reads the founder's mailbox, so the answer is given on the dashboard, never by email reply.
   const sentAt = 6900;
   const answered = t >= sentAt;
-  const note = `${example.readback[0].who} ${example.readback[0].what}: ${example.readback[0].quote}`;
+  const note = example.capture;
   const noteText = typed(t, 8000, 50, note);
   const capturedAt = 8000 + note.length * 50 + 500;
   const captured = t >= capturedAt;
@@ -239,25 +239,16 @@ function Laptop({
             </span>
           </div>
           <ul className="space-y-1.5">
-            <li className="rounded px-1.5 py-1 font-semibold" style={{ background: "rgba(255,255,255,0.12)" }}>
-              Dashboard
-            </li>
-            <li className="px-1.5 py-1 opacity-80">Today</li>
+            {example.pages.map((page, i) => (
+              <li
+                key={page}
+                className={`rounded px-1.5 py-1 ${i === 0 ? "font-semibold" : "opacity-80"}`}
+                style={i === 0 ? { background: "rgba(255,255,255,0.12)" } : undefined}
+              >
+                {page}
+              </li>
+            ))}
           </ul>
-          <div>
-            <p className="text-[7px] font-bold uppercase tracking-widest opacity-50 mb-1">Departments</p>
-            <ul className="space-y-1.5 opacity-80">
-              {example.departments.slice(0, 4).map((d) => (
-                <li key={d.name} className="px-1.5 truncate">
-                  {d.name}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="text-[7px] font-bold uppercase tracking-widest opacity-50 mb-1">Documentation</p>
-            <p className="px-1.5 opacity-80">Playbook</p>
-          </div>
         </aside>
 
         {/* Page */}
