@@ -153,8 +153,10 @@ const HELP = [
   { k: "Want to remove it", v: "Open MusTech OS from Applications. Your records stay." },
 ];
 
+// Each stage's first step number, so steps count on across stages.
+const FIRST = STAGES.map((_, i) => STAGES.slice(0, i).reduce((sum, s) => sum + s.steps.length, 1));
+
 export default function QuickStartPage() {
-  let n = 0;
   return (
     <GuideDoc
       eyebrow="MusTech OS · Quick start"
@@ -177,8 +179,8 @@ export default function QuickStartPage() {
       {STAGES.map((s, i) => (
         <Part key={s.name} n={`0${i + 1}`} title={s.name} lead={s.time}>
           <ol className="divide-y divide-[#233219]/12 border-y border-[#233219]/12">
-            {s.steps.map((st) => {
-              n += 1;
+            {s.steps.map((st, j) => {
+              const n = FIRST[i] + j;
               return (
                 <li key={st.title} className="py-5 grid gap-4 grid-cols-[2.25rem_1fr] lg:grid-cols-[2.25rem_1fr_auto] items-start break-inside-avoid">
                   <span className="w-9 h-9 grid place-items-center bg-[#233219] text-[#fdfaf0] font-brand font-bold">{n}</span>
