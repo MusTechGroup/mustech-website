@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { OnePager, Block, Sheet, SheetPart } from "@/components/OnePager";
-import Cycler from "@/components/Cycler";
 
 export const metadata: Metadata = {
   title: "MusTech OS Quick Start | From Payment to Your First Morning Report",
@@ -31,8 +30,7 @@ const Btn = ({ children, ghost = false }: { children: ReactNode; ghost?: boolean
 );
 
 const Mail = ({ subject, button }: { subject: string; button: string }) => (
-  <span className="inline-flex flex-col gap-1.5 bg-[#fdfaf0] border border-[#233219]/15 border-t-[3px] border-t-[#077d95] p-2.5 w-56">
-    <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#233219]/60">MusTech OS</span>
+  <span className="inline-flex flex-col gap-1.5 bg-[#fdfaf0] border border-[#233219]/15 border-t-[3px] border-t-[#077d95] p-2.5 w-full max-w-56">
     <span className="text-xs font-semibold leading-snug">{subject}</span>
     <span className="self-start bg-[#077d95] text-white text-[9px] font-bold uppercase tracking-[0.08em] px-2 py-1">{button}</span>
   </span>
@@ -120,7 +118,7 @@ const STAGES: Stage[] = [
       {
         title: "Add your phone",
         body: "Scan the code with your phone's camera, choose Add to Home Screen, and send a test note.",
-        pic: <Btn ghost>Show the code for my phone</Btn>,
+        pic: <Btn ghost>Show phone code</Btn>,
       },
     ],
   },
@@ -170,78 +168,60 @@ const FIRST = STAGES.map((_, i) => STAGES.slice(0, i).reduce((sum, s) => sum + s
 function Screen() {
   return (
     <div className="grid grid-cols-1 gap-3 lg:grid-cols-12">
-      <Block dark className="lg:col-span-4 justify-between gap-8">
-        <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#f8df98]">MusTech OS · Quick start</p>
-          <h1 className="mt-3 font-brand font-bold tracking-[-0.03em] leading-[1.04] text-[clamp(2.1rem,4vw,3rem)]">
-            From payment to your first morning report.
-          </h1>
-        </div>
-        <dl className="grid grid-cols-2 gap-4 text-sm border-t border-[#fdfaf0]/15 pt-4">
+      <Block dark className="lg:col-span-12 lg:flex-row lg:items-end lg:justify-between gap-6">
+        <h1 className="font-brand font-bold tracking-[-0.03em] leading-[1.04] text-[clamp(2rem,4vw,3rem)] max-w-2xl">
+          From payment to your first morning report.
+        </h1>
+        <dl className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3 text-sm lg:max-w-2xl">
           {NEEDS.map((m) => (
             <div key={m.k}>
-              <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#fdfaf0]/60">{m.k}</dt>
-              <dd className="mt-1">{m.v}</dd>
+              <dt className="text-[#fdfaf0]/65">{m.k}</dt>
+              <dd className="mt-0.5 font-semibold">{m.v}</dd>
             </div>
           ))}
         </dl>
       </Block>
 
-      <Block label="Five stages, nine steps" className="lg:col-span-8">
-        <Cycler
-          label="Setup stages"
-          rail
-          tabs={STAGES.map((s, n) => (
-            <span key={s.tab} className="flex items-baseline justify-between gap-2">
-              <span>
-                <span className="font-brand font-bold mr-2">{n + 1}</span>
-                {s.tab}
-              </span>
-              <span className="text-[11px] opacity-70">{s.time.split(",")[0]}</span>
-            </span>
-          ))}
-          every={8000}
-          items={STAGES.map((s, n) => (
-            <div key={s.tab} className="flex flex-col gap-3 h-full">
-              <p className="flex items-baseline justify-between gap-3">
-                <span className="font-brand font-bold text-2xl tracking-[-0.01em]">{s.name}</span>
-                <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#233219]/55">{s.time}</span>
-              </p>
-              <ol className="divide-y divide-[#233219]/10 border-t border-[#233219]/10">
-                {s.steps.map((st) => (
-                  <li key={st.title} className="grid gap-3 sm:grid-cols-[1fr_auto] items-center py-3">
-                    <div>
-                      <p className="font-semibold">{st.title}</p>
-                      <p className="mt-0.5 text-sm text-[#233219]/75">{st.body}</p>
+      {/* All five stages at once, left to right, so nothing waits behind a tab and no stage leaves a gap. */}
+      <Block className="lg:col-span-12">
+        <ol className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0">
+          {STAGES.map((s, n) => (
+            <li key={s.tab} className={`flex flex-col gap-3 min-w-0 ${n ? "lg:border-l lg:border-[#233219]/12 lg:pl-5" : ""} lg:pr-5`}>
+              <div>
+                <p className="font-brand font-bold text-xl leading-tight">{s.name}</p>
+                <p className="text-sm text-[#077d95] font-semibold">{s.time}</p>
+              </div>
+              <ol className="flex flex-col gap-4">
+                {s.steps.map((st, j) => (
+                  <li key={st.title} className="flex flex-col gap-1.5">
+                    <p className="font-semibold leading-snug">
+                      <span className="inline-grid place-items-center w-6 h-6 mr-2 bg-[#233219] text-[#fdfaf0] font-brand text-sm align-[1px]">
+                        {FIRST[n] + j}
+                      </span>
+                      {st.title}
+                    </p>
+                    <p className="text-sm text-[#233219]/75 leading-relaxed">{st.body}</p>
+                    <div aria-hidden="true" className="mt-0.5">
+                      {st.pic}
                     </div>
-                    <div aria-hidden="true">{st.pic}</div>
                   </li>
                 ))}
               </ol>
-              <p className="mt-1 bg-[#f8df98]/40 px-3 py-2 text-sm">
+              <p className="mt-auto bg-[#f8df98]/40 px-3 py-2 text-sm">
                 <b>Have ready: </b>
                 {s.ready}
               </p>
-              <p className="text-sm text-[#233219]/65">
-                {n < STAGES.length - 1 ? (
-                  <>
-                    Then: <b className="text-[#233219]">{STAGES[n + 1].name}</b>
-                  </>
-                ) : (
-                  "Then: your Command Centre, every morning."
-                )}
-              </p>
-            </div>
+            </li>
           ))}
-        />
+        </ol>
       </Block>
 
       <Block label="Every day after" className="lg:col-span-7">
         <dl className="grid gap-4 sm:grid-cols-3">
           {DAILY.map((d) => (
             <div key={d.k}>
-              <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#077d95]">{d.k}</dt>
-              <dd className="mt-1">
+              <dt className="font-brand font-bold text-[#077d95]">{d.k}</dt>
+              <dd className="mt-0.5">
                 <span className="block font-semibold">{d.t}</span>
                 <span className="block mt-0.5 text-sm text-[#233219]/75">{d.v}</span>
               </dd>
@@ -266,11 +246,11 @@ function Screen() {
 
 function Paper() {
   return (
-    <Sheet kicker="MusTech OS · Quick start" title="From payment to your first morning report.">
+    <Sheet title="From payment to your first morning report.">
       <dl className="mt-[5mm] grid grid-cols-4 gap-[4mm]">
         {NEEDS.map((m) => (
           <div key={m.k}>
-            <dt className="text-[6.5pt] font-bold uppercase tracking-[0.2em] text-[#233219]/60">{m.k}</dt>
+            <dt className="text-[#233219]/65">{m.k}</dt>
             <dd className="font-bold">{m.v}</dd>
           </div>
         ))}
@@ -282,7 +262,7 @@ function Paper() {
           {STAGES.map((s, n) => (
             <li key={s.tab} className={`pt-[3mm] pr-[3mm] ${n ? "pl-[3mm] border-l border-[#233219]/15" : ""}`}>
               <p className="font-brand font-bold text-[12pt] leading-tight">{s.name}</p>
-              <p className="mt-[0.5mm] text-[7pt] font-bold uppercase tracking-[0.12em] text-[#077d95]">{s.time}</p>
+              <p className="mt-[0.5mm] text-[#077d95] font-semibold">{s.time}</p>
               <ol className="mt-[2mm] flex flex-col gap-[2.2mm]">
                 {s.steps.map((st) => (
                   <li key={st.title}>

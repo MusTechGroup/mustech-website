@@ -29,7 +29,7 @@ export function OnePager({
           <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-[#233219]/15 pt-4">
             <Link
               href={other.href}
-              className="text-xs font-bold uppercase tracking-[0.14em] text-[#077d95] underline underline-offset-4 decoration-[#077d95]/40 hover:decoration-[#077d95]"
+              className="text-sm font-semibold text-[#077d95] underline underline-offset-4 decoration-[#077d95]/40 hover:decoration-[#077d95]"
             >
               {other.label}
             </Link>
@@ -82,13 +82,12 @@ export function Block({
 }
 
 // The printed sheet's frame: a moss masthead, the content, and a foot line. Sizes are in points and millimetres.
-export function Sheet({ kicker, title, children }: { kicker: string; title: ReactNode; children: ReactNode }) {
+export function Sheet({ title, children }: { title: ReactNode; children: ReactNode }) {
   return (
     <div className="text-[#233219] text-[9.5pt] leading-[1.42] h-[276mm] flex flex-col">
       <div className="bg-[#233219] text-[#fdfaf0] px-[7mm] py-[5mm] flex items-end justify-between gap-[6mm]">
         <div>
-          <p className="text-[7pt] font-bold uppercase tracking-[0.22em] text-[#f8df98]">{kicker}</p>
-          <p className="mt-[1.5mm] font-brand font-bold text-[28pt] leading-[1.02] tracking-[-0.02em]">{title}</p>
+          <p className="font-brand font-bold text-[28pt] leading-[1.02] tracking-[-0.02em]">{title}</p>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/brand/mustech-emblem-trim.png" alt="" className="h-[11mm] w-auto bg-[#fdfaf0] p-[1.5mm]" />
@@ -106,7 +105,7 @@ export function Sheet({ kicker, title, children }: { kicker: string; title: Reac
 export function SheetPart({ label, className = "", children }: { label: string; className?: string; children: ReactNode }) {
   return (
     <div className={className}>
-      <p className="text-[7pt] font-bold uppercase tracking-[0.22em] text-[#077d95] mb-[2mm]">{label}</p>
+      <p className="font-brand font-bold text-[11pt] text-[#233219] mb-[1.5mm]">{label}</p>
       {children}
     </div>
   );

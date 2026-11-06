@@ -62,19 +62,18 @@ function Screen() {
       {/* Who it is for, in one breath */}
       <Block dark className="lg:col-span-5 justify-between gap-8">
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#f8df98]">MusTech OS</p>
-          <h1 className="mt-3 font-brand font-bold tracking-[-0.03em] leading-[1.02] text-[clamp(2.4rem,5vw,3.6rem)]">
+          <h1 className="font-brand font-bold tracking-[-0.03em] leading-[1.02] text-[clamp(2.4rem,5vw,3.6rem)]">
             Your company, staffed.
           </h1>
           <p className="mt-4 text-base leading-relaxed text-[#fdfaf0]/85 max-w-md">{STANDFIRST}</p>
         </div>
         <dl className="grid grid-cols-2 gap-4 text-sm border-t border-[#fdfaf0]/15 pt-4">
           <div>
-            <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#fdfaf0]/60">Runs on</dt>
+            <dt className="text-[#fdfaf0]/65">Runs on</dt>
             <dd className="mt-1">Claude Code, Codex, or Antigravity</dd>
           </div>
           <div>
-            <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#fdfaf0]/60">Installed at</dt>
+            <dt className="text-[#fdfaf0]/65">Installed at</dt>
             <dd className="mt-1">
               <Link href="/jumpstart" className="underline underline-offset-4 decoration-[#f8df98]/60 hover:decoration-[#f8df98]">
                 Jumpstart
@@ -97,7 +96,7 @@ function Screen() {
                 <dl className="mt-2 flex flex-col gap-1.5 text-sm">
                   {j.lines.slice(0, 3).map((l) => (
                     <div key={l.k} className="grid grid-cols-[7rem_1fr] gap-3">
-                      <dt className={`text-[10px] font-bold uppercase tracking-[0.12em] pt-[0.25em] ${flag(l.tone)}`}>{l.k}</dt>
+                      <dt className={`font-semibold ${flag(l.tone)}`}>{l.k}</dt>
                       <dd className="text-[#233219]/85">{l.v}</dd>
                     </div>
                   ))}
@@ -138,7 +137,7 @@ function Screen() {
                   {l.name}
                 </p>
                 <p className="text-sm leading-relaxed text-[#233219]/80">{l.line}</p>
-                <span className="self-start border border-[#077d95]/35 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#065f72]">
+                <span className="self-start border border-[#077d95]/35 px-2 py-0.5 text-xs font-semibold text-[#065f72]">
                   {l.proof}
                 </span>
               </div>
@@ -149,7 +148,7 @@ function Screen() {
                 {ATTACKS.map((a) => (
                   <li key={a.t} className="flex justify-between gap-3 py-1.5">
                     <span>{a.t}</span>
-                    <span className="shrink-0 text-[10px] font-bold uppercase tracking-[0.12em] text-[#2f6b3a] pt-[0.3em]">Closed {a.d}</span>
+                    <span className="shrink-0 text-sm font-semibold text-[#2f6b3a]">Closed {a.d}</span>
                   </li>
                 ))}
               </ul>
@@ -175,7 +174,7 @@ function Screen() {
 
 function Paper() {
   return (
-    <Sheet kicker="MusTech OS · One-pager" title="Your company, staffed.">
+    <Sheet title="Your company, staffed.">
       <p className="mt-[5mm] text-[11.5pt] leading-[1.45] max-w-[165mm]">{STANDFIRST}</p>
 
       <div className="mt-[7mm] grid grid-cols-[1.15fr_1fr] gap-[7mm]">
@@ -183,7 +182,7 @@ function Paper() {
           <ol className="border-t border-[#233219]/20">
             {JOBS.map((j) => (
               <li key={j.id} className="py-[2.3mm] border-b border-[#233219]/12">
-                <p className="text-[6.5pt] font-bold uppercase tracking-[0.16em] text-[#233219]/60">{j.label}</p>
+                <p className="font-bold text-[#077d95]">{j.label}</p>
                 <p className="italic">&ldquo;{j.ask}&rdquo;</p>
                 <p className="font-bold">
                   <span className="text-[#077d95]">&rarr; </span>

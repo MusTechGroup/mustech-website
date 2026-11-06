@@ -5,19 +5,17 @@ import { useEffect, useState, type ReactNode } from "react";
 // One block of a one-pager that shows its items one at a time, in a fixed space.
 // It moves on by itself (a thin line under the tabs fills to show when), stops while the reader points at it or
 // tabs into it, and never moves for someone who asked their computer for less motion. Every item stays one press
-// away on the tabs. "rail" puts the tabs in a column on the left, for a sequence such as setup stages.
+// away on the tabs.
 export default function Cycler({
   label,
   tabs,
   items,
   every = 6000,
-  rail = false,
 }: {
   label: string;
   tabs: ReactNode[];
   items: ReactNode[];
   every?: number;
-  rail?: boolean;
 }) {
   const [i, setI] = useState(0);
   const [held, setHeld] = useState(false);
@@ -44,14 +42,14 @@ export default function Cycler({
 
   return (
     <div
-      className={`h-full min-w-0 ${rail ? "grid grid-cols-1 gap-5 sm:grid-cols-[11rem_minmax(0,1fr)]" : "flex flex-col"}`}
+      className="h-full min-w-0 flex flex-col"
       onMouseEnter={() => setHeld(true)}
       onMouseLeave={() => setHeld(false)}
       onFocus={() => setHeld(true)}
       onBlur={() => setHeld(false)}
     >
       <div>
-        <div role="tablist" aria-label={label} aria-orientation={rail ? "vertical" : "horizontal"} className={rail ? "flex flex-col gap-1.5" : "flex flex-wrap gap-1.5"}>
+        <div role="tablist" aria-label={label} className="flex flex-wrap gap-1.5">
           {tabs.map((t, n) => (
             <button
               key={n}
@@ -59,9 +57,7 @@ export default function Cycler({
               role="tab"
               aria-selected={n === i}
               onClick={() => setI(n)}
-              className={`${tabClass(n === i)} ${
-                rail ? "min-h-[44px] px-3 py-2 text-sm" : "min-h-[32px] px-2 text-[10.5px] font-bold uppercase tracking-[0.08em]"
-              }`}
+              className={`${tabClass(n === i)} min-h-[34px] px-2.5 text-sm`}
             >
               {t}
             </button>
@@ -79,7 +75,7 @@ export default function Cycler({
         )}
       </div>
       {/* Every item sits in the same grid cell, so the block keeps the height of its tallest item and never jumps. */}
-      <div className={`grid grid-cols-1 min-w-0 ${rail ? "" : "flex-1 mt-4"}`}>
+      <div className="grid grid-cols-1 min-w-0 flex-1 mt-4">
         {items.map((it, n) => (
           <div
             key={n}
