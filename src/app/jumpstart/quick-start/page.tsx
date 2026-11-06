@@ -39,11 +39,12 @@ const Mail = ({ subject, button }: { subject: string; button: string }) => (
 );
 
 type Step = { title: string; body: string; pic: ReactNode };
-type Stage = { tab: string; name: string; time: string; steps: Step[] };
+type Stage = { tab: string; name: string; time: string; ready: string; steps: Step[] };
 
 const STAGES: Stage[] = [
   {
     tab: "Reserve",
+    ready: "Your email address, and PayNow or a card.",
     name: "Reserve your seat",
     time: "2 min",
     steps: [
@@ -61,6 +62,7 @@ const STAGES: Stage[] = [
   },
   {
     tab: "Answer",
+    ready: "Ten quiet minutes, and the last 3 months of your business in mind.",
     name: "Answer the questions",
     time: "10 min, any device",
     steps: [
@@ -73,6 +75,7 @@ const STAGES: Stage[] = [
   },
   {
     tab: "Install",
+    ready: "Your Mac, its password, and the “ready” email open on it.",
     name: "Install MusTech OS",
     time: "10 min, your Mac",
     steps: [
@@ -99,6 +102,7 @@ const STAGES: Stage[] = [
   },
   {
     tab: "Connect",
+    ready: "Your AI tool signed in on your Mac, and your phone.",
     name: "Connect",
     time: "10 min, Get started card",
     steps: [
@@ -122,6 +126,7 @@ const STAGES: Stage[] = [
   },
   {
     tab: "Jumpstart",
+    ready: "Your Mac and charger, and your open jobs, unpaid invoices, quotes, and deadlines.",
     name: "At Jumpstart",
     time: "2 half-days",
     steps: [
@@ -164,7 +169,7 @@ const FIRST = STAGES.map((_, i) => STAGES.slice(0, i).reduce((sum, s) => sum + s
 
 function Screen() {
   return (
-    <div className="grid gap-3 lg:grid-cols-12">
+    <div className="grid grid-cols-1 gap-3 lg:grid-cols-12">
       <Block dark className="lg:col-span-4 justify-between gap-8">
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#f8df98]">MusTech OS · Quick start</p>
@@ -182,13 +187,22 @@ function Screen() {
         </dl>
       </Block>
 
-      <Block label="Five stages" className="lg:col-span-8">
+      <Block label="Five stages, nine steps" className="lg:col-span-8">
         <Cycler
           label="Setup stages"
-          tabs={STAGES.map((s, n) => `${n + 1} ${s.tab}`)}
+          rail
+          tabs={STAGES.map((s, n) => (
+            <span key={s.tab} className="flex items-baseline justify-between gap-2">
+              <span>
+                <span className="font-brand font-bold mr-2">{n + 1}</span>
+                {s.tab}
+              </span>
+              <span className="text-[11px] opacity-70">{s.time.split(",")[0]}</span>
+            </span>
+          ))}
           every={8000}
-          items={STAGES.map((s) => (
-            <div key={s.tab} className="flex flex-col gap-3">
+          items={STAGES.map((s, n) => (
+            <div key={s.tab} className="flex flex-col gap-3 h-full">
               <p className="flex items-baseline justify-between gap-3">
                 <span className="font-brand font-bold text-2xl tracking-[-0.01em]">{s.name}</span>
                 <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#233219]/55">{s.time}</span>
@@ -204,6 +218,19 @@ function Screen() {
                   </li>
                 ))}
               </ol>
+              <p className="mt-1 bg-[#f8df98]/40 px-3 py-2 text-sm">
+                <b>Have ready: </b>
+                {s.ready}
+              </p>
+              <p className="text-sm text-[#233219]/65">
+                {n < STAGES.length - 1 ? (
+                  <>
+                    Then: <b className="text-[#233219]">{STAGES[n + 1].name}</b>
+                  </>
+                ) : (
+                  "Then: your Command Centre, every morning."
+                )}
+              </p>
             </div>
           ))}
         />

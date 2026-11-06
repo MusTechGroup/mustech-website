@@ -25,6 +25,7 @@ const STANDFIRST =
   "AI departments on your own computer that do real company work: your website, your launch, your invoices, and your contracts. Anything that matters waits for your yes.";
 
 const REPORT = [
+  { tag: "Decide", c: "bg-[#f8df98] text-[#5c3d00]", t: "Send the variation notice to Halcyon: S$4,800, +6 days?" },
   { tag: "Decide", c: "bg-[#f8df98] text-[#5c3d00]", t: "Second reminder to Kopi Lab: S$12,400, 21 days late?" },
   { tag: "Input", c: "bg-[#077d95]/12 text-[#065f72]", t: "Was the Arden retainer renewed for Q1?" },
   { tag: "Notify", c: "bg-[#233219]/8 text-[#233219]/75", t: "Website sprint 2 done. Preview ready." },
@@ -49,7 +50,7 @@ const ATTACKS = [
 const FACTS = [
   { v: "82", k: "skills, each with its own rules" },
   { v: "1 year", k: "of updates, signed by MusTech" },
-  { v: "0", k: "business records held by MusTech" },
+  { v: "None", k: "of your business records held by MusTech" },
   { v: "2", k: "half-days to install it with you" },
 ];
 
@@ -57,7 +58,7 @@ const flag = (tone?: "flag" | "ok") => (tone === "flag" ? "text-[#a8432f]" : ton
 
 function Screen() {
   return (
-    <div className="grid gap-3 lg:grid-cols-12 lg:auto-rows-[minmax(0,auto)]">
+    <div className="grid grid-cols-1 gap-3 lg:grid-cols-12 lg:auto-rows-[minmax(0,auto)]">
       {/* Who it is for, in one breath */}
       <Block dark className="lg:col-span-5 justify-between gap-8">
         <div>
@@ -110,7 +111,7 @@ function Screen() {
 
       {/* The morning */}
       <Block label="8 am, your Command Centre" className="lg:col-span-4">
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-2.5 pb-4">
           {REPORT.map((r) => (
             <li key={r.t} className="grid grid-cols-[4.25rem_1fr] gap-3 items-baseline text-sm">
               <span className={`justify-self-start px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em] ${r.c}`}>{r.tag}</span>
@@ -118,7 +119,9 @@ function Screen() {
             </li>
           ))}
         </ul>
-        <p className="mt-auto pt-4 text-sm text-[#233219]/70">The departments worked overnight. Only what needs you shows.</p>
+        <p className="mt-auto pt-4 border-t border-[#233219]/10 text-sm text-[#233219]/70">
+          The departments worked overnight. Only what needs you shows.
+        </p>
       </Block>
 
       {/* The harness, one lock at a time */}
@@ -156,7 +159,7 @@ function Screen() {
       </Block>
 
       {/* What is yours */}
-      <Block label="Yours" className="lg:col-span-3">
+      <Block label="Yours to keep" className="lg:col-span-3">
         <dl className="flex flex-col gap-3">
           {FACTS.map((f) => (
             <div key={f.k} className="grid grid-cols-[4.5rem_1fr] gap-3 items-baseline">

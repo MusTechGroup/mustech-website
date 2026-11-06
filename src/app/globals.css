@@ -342,3 +342,6 @@ html[data-vt]::view-transition-old(js-tiles) {
   html, body { background: #ffffff !important; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* The one-pager blocks' timer line (Cycler). */
+@keyframes cycler-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }

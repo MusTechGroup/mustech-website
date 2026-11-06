@@ -72,7 +72,7 @@ export function Block({
       } ${className}`}
     >
       {label && (
-        <h2 className={`text-[11px] font-bold uppercase tracking-[0.22em] mb-4 ${dark ? "text-[#f8df98]" : "text-[#077d95]"}`}>
+        <h2 className={`font-brand font-bold text-lg tracking-[-0.01em] mb-4 ${dark ? "text-[#f8df98]" : "text-[#233219]"}`}>
           {label}
         </h2>
       )}
