@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";
-
 // What a founder can ask MusTech OS for at their desk, and the finished work that comes back.
 // Every job names a real skill in the MusTech OS template (founder-course/os-template/.agents/skills/).
 // Names, amounts, and dates are illustrative.
@@ -16,7 +12,7 @@ type Job = {
   footer: string;
 };
 
-const JOBS: Job[] = [
+export const JOBS: Job[] = [
   {
     id: "website",
     label: "Build your website",
@@ -130,74 +126,37 @@ const JOBS: Job[] = [
   },
 ];
 
+// The jobs as a static list, so the guide reads the same on screen and in its PDF.
 export default function MustechOsJobs() {
-  const [active, setActive] = useState(JOBS[0].id);
-  const job = JOBS.find((j) => j.id === active) ?? JOBS[0];
-
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
-      <div className="lg:col-span-4" role="tablist" aria-label="Pick a job">
-        <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0">
-          {JOBS.map((j) => {
-            const on = j.id === active;
-            return (
-              <button
-                key={j.id}
-                type="button"
-                role="tab"
-                id={`job-tab-${j.id}`}
-                aria-selected={on}
-                aria-controls="job-panel"
-                onClick={() => setActive(j.id)}
-                className={`shrink-0 text-left px-4 py-3 min-h-[48px] border text-sm sm:text-base font-semibold transition-colors ${
-                  on
-                    ? "bg-[#f5cb1d] border-[#f5cb1d] text-[#111]"
-                    : "border-white/15 text-[#efe9d8]/80 hover:border-white/50 hover:text-[#efe9d8]"
-                }`}
-              >
-                {j.label}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      <div
-        id="job-panel"
-        role="tabpanel"
-        aria-labelledby={`job-tab-${job.id}`}
-        className="lg:col-span-8 min-w-0 flex flex-col gap-4"
-      >
-        <div className="self-start max-w-full border border-white/15 bg-white/[0.04] px-4 py-3">
-          <span className="block text-[11px] font-bold uppercase tracking-[0.2em] text-[#efe9d8]/50 mb-1">You ask, at your desk</span>
-          <span className="text-base sm:text-lg text-[#efe9d8]">&ldquo;{job.ask}&rdquo;</span>
-        </div>
-
-        <div className="bg-[#0e1117] border border-white/10 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)]">
-          <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-white/10">
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#f5cb1d]">What comes back</span>
-            <code className="text-xs text-[#5cbccf]">{job.skill}</code>
-          </div>
-          <div className="p-4 sm:p-5">
-            <h3 className="font-brand font-bold text-xl sm:text-2xl tracking-[-0.01em] text-[#efe9d8]">{job.title}</h3>
-            <dl className="mt-4 divide-y divide-white/10">
-              {job.lines.map((l) => (
-                <div key={l.k} className="grid grid-cols-1 sm:grid-cols-[9rem_1fr] gap-1 sm:gap-4 py-3">
+    <ol className="grid gap-px bg-[#233219]/12 border border-[#233219]/12 sm:grid-cols-2 print:gap-0 print:bg-transparent print:border-0 [&>*]:print:border [&>*]:print:border-[#233219]/15">
+      {JOBS.map((j) => (
+        <li key={j.id} className="bg-[#fffdf6] p-5 sm:p-6 flex flex-col gap-3 break-inside-avoid">
+          <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#077d95]">{j.label}</span>
+          <span className="text-base sm:text-lg leading-snug">
+            <span className="sr-only">You ask: </span>&ldquo;{j.ask}&rdquo;
+          </span>
+          <div className="border-t border-[#233219]/12 pt-3">
+            <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#233219]/55">What comes back</span>
+            <span className="mt-1 block font-brand font-bold text-lg tracking-[-0.01em]">{j.title}</span>
+            <dl className="mt-2 flex flex-col gap-1.5 text-sm leading-relaxed">
+              {j.lines.slice(0, 3).map((l) => (
+                <div key={l.k} className="grid grid-cols-[6.5rem_1fr] gap-3">
                   <dt
-                    className={`text-xs font-bold uppercase tracking-[0.12em] ${
-                      l.tone === "flag" ? "text-[#e0735f]" : l.tone === "ok" ? "text-[#58b97a]" : "text-[#efe9d8]/55"
+                    className={`text-[11px] font-bold uppercase tracking-[0.1em] pt-[0.2em] ${
+                      l.tone === "flag" ? "text-[#a8432f]" : l.tone === "ok" ? "text-[#2f6b3a]" : "text-[#233219]/55"
                     }`}
                   >
                     {l.k}
                   </dt>
-                  <dd className="text-sm sm:text-base text-[#efe9d8]/85 leading-relaxed">{l.v}</dd>
+                  <dd className="text-[#233219]/85">{l.v}</dd>
                 </div>
               ))}
             </dl>
           </div>
-          <div className="px-4 py-3 border-t border-white/10 text-xs sm:text-sm text-[#efe9d8]/60">{job.footer}</div>
-        </div>
-      </div>
-    </div>
+          <span className="mt-auto text-xs text-[#233219]/60">{j.footer}</span>
+        </li>
+      ))}
+    </ol>
   );
 }

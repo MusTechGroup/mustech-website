@@ -335,3 +335,11 @@ html[data-vt]::view-transition-old(js-tiles) {
   }
 }
 
+
+/* The MusTech OS guides print to the PDFs founders download (scripts/guides-pdf.sh). */
+@media print {
+  @page { size: A4; margin: 16mm 15mm; }
+  html, body { background: #ffffff !important; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .break-inside-avoid { break-inside: avoid; }
+}

@@ -9,7 +9,8 @@
     "lint": "eslint",
     "pages:build": "next build --webpack",
     "pages:dev": "wrangler pages dev out",
-    "pages:deploy": "wrangler pages deploy out --project-name=mustech-website"
+    "pages:deploy": "wrangler pages deploy out --project-name=mustech-website",
+    "guides:pdf": "bash scripts/guides-pdf.sh"
   },
   "dependencies": {
     "lucide-react": "^1.28.0",
