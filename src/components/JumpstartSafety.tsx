@@ -4,7 +4,7 @@
 // the seal is the pin (S-02) shown first in the standup (S-03), the record is the decision log (G-18) and the
 // usage log of refusals (S-04). The three attacks are G-08, G-09, and G-17, each found in a Gemini audit.
 
-type Tone = "dark" | "light";
+type Tone = "dark";
 
 const LOCKS: { name: string; line: string; proof: string }[] = [
   {
@@ -57,19 +57,6 @@ const THEMES: Record<Tone, Record<string, string>> = {
     yes: "text-[#58b97a]",
     rule: "divide-white/10",
   },
-  light: {
-    grid: "bg-[#e6e0cf] border-[#e6e0cf]",
-    cell: "bg-[#fffdf6]",
-    num: "text-[#077d95]",
-    head: "text-[#233219]",
-    body: "text-[#233219]/75",
-    chip: "border-[#077d95]/35 text-[#065f72]",
-    panel: "bg-[#fffdf6] border-[#e6e0cf]",
-    label: "text-[#233219]/55",
-    no: "text-[#a8432f]",
-    yes: "text-[#2f6b3a]",
-    rule: "divide-[#e6e0cf]",
-  },
 };
 
 export default function JumpstartSafety({ tone = "dark" }: { tone?: Tone }) {
@@ -77,7 +64,7 @@ export default function JumpstartSafety({ tone = "dark" }: { tone?: Tone }) {
   return (
     <div className="flex flex-col gap-8 sm:gap-10">
       {/* Four locks */}
-      <ol className={`grid gap-px border sm:grid-cols-2 lg:grid-cols-4 ${t.grid} print:gap-0 print:bg-transparent print:border-0 [&>*]:print:border [&>*]:print:border-[#233219]/15`}>
+      <ol className={`grid gap-px border sm:grid-cols-2 lg:grid-cols-4 ${t.grid}`}>
         {LOCKS.map((l, i) => (
           <li key={l.name} className={`${t.cell} p-5 sm:p-6 flex flex-col gap-3 break-inside-avoid`}>
             <span className={`font-brand font-bold text-sm tracking-[0.2em] ${t.num}`}>0{i + 1}</span>
@@ -123,7 +110,7 @@ export default function JumpstartSafety({ tone = "dark" }: { tone?: Tone }) {
             Before a lock ships, a second AI model is set on the harness to get past it. Every way through it found is now a
             refusal with its own test:
           </p>
-          <ul className={`divide-y border-y ${t.rule} ${tone === "dark" ? "border-white/10" : "border-[#e6e0cf]"}`}>
+          <ul className={`divide-y border-y ${t.rule} border-white/10`}>
             {ATTACKS.map((a) => (
               <li key={a.tried} className="flex items-baseline justify-between gap-4 py-2.5 text-sm">
                 <span className={t.head}>{a.tried}</span>

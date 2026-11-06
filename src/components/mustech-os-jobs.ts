@@ -5,6 +5,7 @@
 type Job = {
   id: string;
   label: string;
+  tab: string;
   ask: string;
   skill: string;
   title: string;
@@ -15,6 +16,7 @@ type Job = {
 export const JOBS: Job[] = [
   {
     id: "website",
+    tab: "Website",
     label: "Build your website",
     ask: "I need a proper website for the studio.",
     skill: "site-and-domain",
@@ -30,6 +32,7 @@ export const JOBS: Job[] = [
   },
   {
     id: "launch",
+    tab: "Launch",
     label: "Run a launch",
     ask: "We launch the new retainer package on 1 December.",
     skill: "launch-plan",
@@ -45,6 +48,7 @@ export const JOBS: Job[] = [
   },
   {
     id: "cash",
+    tab: "Get paid",
     label: "Get paid",
     ask: "Who still owes me money?",
     skill: "chase-payments",
@@ -58,6 +62,7 @@ export const JOBS: Job[] = [
   },
   {
     id: "scope",
+    tab: "Pricing",
     label: "Price extra work",
     ask: "They now want a second landing page too.",
     skill: "scope-change",
@@ -72,6 +77,7 @@ export const JOBS: Job[] = [
   },
   {
     id: "contract",
+    tab: "Contract",
     label: "Check a contract",
     ask: "Read this agreement before I sign.",
     skill: "read-contract",
@@ -86,6 +92,7 @@ export const JOBS: Job[] = [
   },
   {
     id: "call",
+    tab: "Meeting",
     label: "Prepare a meeting",
     ask: "I meet Apex Holdings at 2 pm.",
     skill: "call-prep",
@@ -100,6 +107,7 @@ export const JOBS: Job[] = [
   },
   {
     id: "filings",
+    tab: "Filings",
     label: "Stay on top of filings",
     ask: "What do I need to file this year?",
     skill: "filings-check",
@@ -113,6 +121,7 @@ export const JOBS: Job[] = [
   },
   {
     id: "brand",
+    tab: "Brand",
     label: "Shape your brand",
     ask: "Make our posts look and sound like us.",
     skill: "brand-board",
@@ -125,38 +134,3 @@ export const JOBS: Job[] = [
     footer: "Every department uses the same board",
   },
 ];
-
-// The jobs as a static list, so the guide reads the same on screen and in its PDF.
-export default function MustechOsJobs() {
-  return (
-    <ol className="grid gap-px bg-[#233219]/12 border border-[#233219]/12 sm:grid-cols-2 print:gap-0 print:bg-transparent print:border-0 [&>*]:print:border [&>*]:print:border-[#233219]/15">
-      {JOBS.map((j) => (
-        <li key={j.id} className="bg-[#fffdf6] p-5 sm:p-6 flex flex-col gap-3 break-inside-avoid">
-          <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#077d95]">{j.label}</span>
-          <span className="text-base sm:text-lg leading-snug">
-            <span className="sr-only">You ask: </span>&ldquo;{j.ask}&rdquo;
-          </span>
-          <div className="border-t border-[#233219]/12 pt-3">
-            <span className="block text-[11px] font-bold uppercase tracking-[0.16em] text-[#233219]/55">What comes back</span>
-            <span className="mt-1 block font-brand font-bold text-lg tracking-[-0.01em]">{j.title}</span>
-            <dl className="mt-2 flex flex-col gap-1.5 text-sm leading-relaxed">
-              {j.lines.slice(0, 3).map((l) => (
-                <div key={l.k} className="grid grid-cols-[6.5rem_1fr] gap-3">
-                  <dt
-                    className={`text-[11px] font-bold uppercase tracking-[0.1em] pt-[0.2em] ${
-                      l.tone === "flag" ? "text-[#a8432f]" : l.tone === "ok" ? "text-[#2f6b3a]" : "text-[#233219]/55"
-                    }`}
-                  >
-                    {l.k}
-                  </dt>
-                  <dd className="text-[#233219]/85">{l.v}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-          <span className="mt-auto text-xs text-[#233219]/60">{j.footer}</span>
-        </li>
-      ))}
-    </ol>
-  );
-}
