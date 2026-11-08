@@ -78,8 +78,8 @@
   --color-surface: #151922;
   --color-surface-elevated: #1d222e;
   
-  --font-brand: "Lao MN", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-brand: "Lao MN", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", Arial, sans-serif;
   
   --tracking-editorial: 0.2em;
   --tracking-editorial-wide: 0.25em;
@@ -142,7 +142,7 @@ button:focus-visible {
   background: var(--brand-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary-light);
+  background: rgba(7, 125, 149, 0.35);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary);

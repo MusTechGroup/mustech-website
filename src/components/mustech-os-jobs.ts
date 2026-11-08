@@ -1,14 +1,15 @@
-// What a founder can ask MusTech OS for at their desk, and the finished work that comes back.
-// Every job names a real skill in the MusTech OS template (founder-course/os-template/.agents/skills/).
-// Names, amounts, and dates are illustrative.
+// High-leverage founder + AI co-execution playbooks in MusTech OS.
+// Names, domains, and figures are illustrative.
 
-type Job = {
+export type Job = {
   id: string;
   label: string;
   tab: string;
+  dept: string;
   ask: string;
   skill: string;
   title: string;
+  summary: string;
   lines: { k: string; v: string; tone?: "flag" | "ok" }[];
   footer: string;
 };
@@ -16,121 +17,73 @@ type Job = {
 export const JOBS: Job[] = [
   {
     id: "website",
-    tab: "Website",
-    label: "Build your website",
-    ask: "I need a proper website for the studio.",
+    tab: "1 · Build a Website",
+    label: "Need a website? Work with your AI to create it.",
+    dept: "Brand House & Product Build",
+    ask: "Co-design and ship halcyonstudio.sg from scratch on your laptop.",
     skill: "site-and-domain",
-    title: "Website plan: halcyonstudio.sg",
+    title: "Production website built with you on localhost",
+    summary:
+      "You set the positioning and visual direction with your AI. It writes the copy, codes the responsive pages, checks contrast and mobile layout, and prepares the live deployment.",
     lines: [
-      { k: "Domain", v: "halcyonstudio.sg via a local SGNIC registrar, about S$45 a year. Registered in your name, not ours." },
-      { k: "Hosting", v: "Three options compared with costs in S$. Recommended: a free static host with a Singapore edge." },
-      { k: "Design", v: "Three directions to pick from, your fonts and colours, every colour pair checked for contrast." },
-      { k: "Sprints", v: "Foundation, pages, then forms and privacy policy. Each sprint ends with a check you can see." },
-      { k: "Go live", v: "Waits for your yes. It prepares the step; you press it.", tone: "ok" },
+      { k: "Co-design", v: "Define your brand board, typography, colour tokens, and page structure together before a line of code is written." },
+      { k: "Build & preview", v: "Your AI codes the full site locally, wires up lead capture forms, and opens a live localhost preview for you to review." },
+      { k: "Quality gate", v: "Mobile responsiveness, page speed, SEO metadata, and contrast ratios are verified automatically across every page." },
+      { k: "Go live", v: "Domain DNS, SSL, and static edge hosting are staged and ready. You give the final go-ahead to publish.", tone: "ok" },
     ],
-    footer: "Tracked as a project with its own scope and sprint register",
+    footer: "You direct the creative call; your AI writes, codes, and tests the build.",
+  },
+  {
+    id: "trends",
+    tab: "2 · Trend Research",
+    label: "Need to research trends? Define the scope and let it run social listening.",
+    dept: "Market Intelligence & Strategy",
+    ask: "Scope a market brief on Q1 demand and run social listening across our niche.",
+    skill: "market-research",
+    title: "Scoped social listening & competitor intelligence brief",
+    summary:
+      "Work with your AI to define the exact research scope, buyer questions, and competitor watchlist. Your AI conducts social listening and distils real market signals into an actionable brief.",
+    lines: [
+      { k: "Define scope", v: "Set the target segment, competitor list, keywords, and decision criteria with your AI in five minutes." },
+      { k: "Social listening", v: "Scans public discussions, customer complaints, and competitor launches to capture the exact phrases buyers use." },
+      { k: "Gap analysis", v: "Maps where competitors are overcharging or under-delivering, and highlights the clearest positioning angle for you.", tone: "flag" },
+      { k: "Actionable output", v: "Delivers a cited strategy brief with content hooks, offer framing, and pricing recommendations.", tone: "ok" },
+    ],
+    footer: "Evidence-backed market intelligence without spending your week in browser tabs.",
   },
   {
     id: "launch",
-    tab: "Launch",
-    label: "Run a launch",
-    ask: "We launch the new retainer package on 1 December.",
+    tab: "3 · Launch a Product",
+    label: "Need to launch a product? Strategy, compliance, testing, and daily project management.",
+    dept: "Go-To-Market, Legal & Delivery",
+    ask: "Orchestrate our 1 December product launch from strategy to go-live.",
     skill: "launch-plan",
-    title: "Launch plan: Growth Retainer, 1 Dec",
+    title: "End-to-end launch: social strategy, privacy checks, testing & daily PM",
+    summary:
+      "Your AI works across departments to propose your social strategy, run regulatory and privacy policy checks, execute final go-to-market testing, and project-manage what needs doing every day and week.",
     lines: [
-      { k: "T-21 days", v: "Offer page, price confirmed from your price list, FAQ drafted." },
-      { k: "T-14 days", v: "Email to 42 past clients, three posts scheduled, partner brief sent for your approval." },
-      { k: "T-7 days", v: "Readiness check: links, payment page, and terms all tested." },
-      { k: "Launch day", v: "Run-of-show by the hour, and who answers which questions." },
-      { k: "T+14 days", v: "What sold, what didn't, and what to change.", tone: "ok" },
+      { k: "Social strategy", v: "Builds your channel rollout, launch narrative, email sequence, and social content calendar around your launch date." },
+      { k: "Privacy & rules", v: "Checks your PDPA privacy policy, terms of service, refund disclosures, and statutory requirements before launch.", tone: "flag" },
+      { k: "GTM testing", v: "Runs final pre-flight checks across checkout links, onboarding emails, mobile flows, and pricing tiers." },
+      { k: "Daily / weekly PM", v: "Breaks the launch into daily and weekly milestones in your Commitments Ledger so nothing slips.", tone: "ok" },
     ],
-    footer: "Every date lands in your Commitments Ledger",
+    footer: "Strategy, compliance, QA, and project management coordinated in one workspace.",
   },
   {
-    id: "cash",
-    tab: "Get paid",
-    label: "Get paid",
-    ask: "Who still owes me money?",
-    skill: "chase-payments",
-    title: "Receivables: S$26,250 outstanding",
+    id: "operations",
+    tab: "4 · Daily & Weekly Ops",
+    label: "Run active projects, retainers, and cash flow without dropping a ball.",
+    dept: "Founder's Office & Finance",
+    ask: "Keep our weekly sprints, client variations, and receivables on track.",
+    skill: "daily-command",
+    title: "Daily and weekly execution across projects, scope, and cash",
+    summary:
+      "Every active project, retainer renewal, scope variation, and invoice lives in one Commitments Ledger. Your AI tracks weekly progress and brings only the calls that need your judgement to your 8 am briefing.",
     lines: [
-      { k: "Kopi Lab", v: "S$12,400, 21 days late. Firm reminder drafted: second chase, statement attached.", tone: "flag" },
-      { k: "Arden & Co", v: "S$8,600, due Fri 14 Nov. Courtesy note drafted for Thursday." },
-      { k: "Halcyon", v: "S$5,250, due Mon 1 Dec. Nothing to send yet." },
+      { k: "Weekly sprints", v: "Tracks deliverables across every client project and flags timeline risks before a deadline is missed." },
+      { k: "Scope protection", v: "Checks extra client requests against your signed agreement and drafts priced variation notices for your approval.", tone: "flag" },
+      { k: "Cash & filings", v: "Reconciles incoming payments, queues overdue invoice reminders, and tracks ACRA and IRAS filing dates.", tone: "ok" },
     ],
-    footer: "Reminders wait in Decide. You press send.",
-  },
-  {
-    id: "scope",
-    tab: "Pricing",
-    label: "Price extra work",
-    ask: "They now want a second landing page too.",
-    skill: "scope-change",
-    title: "Variation notice: Halcyon Studio",
-    lines: [
-      { k: "Signed scope", v: "One landing page (SOW clause 2.1). The request is outside it.", tone: "flag" },
-      { k: "Cost", v: "S$4,800 from your price list, plus 6 working days." },
-      { k: "Reply A", v: "Yes, as a variation at S$4,800, new delivery Fri 28 Nov." },
-      { k: "Reply B", v: "Yes, in Phase 2 starting January, at the same rate." },
-    ],
-    footer: "You choose the reply. Nothing is sent for you.",
-  },
-  {
-    id: "contract",
-    tab: "Contract",
-    label: "Check a contract",
-    ask: "Read this agreement before I sign.",
-    skill: "read-contract",
-    title: "MSA_Halcyon_v3: 2 clauses to push back on",
-    lines: [
-      { k: "Clause 9.2", v: "Work in progress is unpaid if they end early. About S$9,600 at risk on this sprint.", tone: "flag" },
-      { k: "Ask for", v: "Work completed to the termination date is invoiced at agreed rates.", tone: "ok" },
-      { k: "Clause 14", v: "They own all drafts, including rejected concepts. Ask to keep unused work." },
-      { k: "Fine as is", v: "Payment terms, confidentiality, and governing law (Singapore)." },
-    ],
-    footer: "Plain words, with the exact clause quoted",
-  },
-  {
-    id: "call",
-    tab: "Meeting",
-    label: "Prepare a meeting",
-    ask: "I meet Apex Holdings at 2 pm.",
-    skill: "call-prep",
-    title: "Brief: Apex Holdings, 2 pm",
-    lines: [
-      { k: "Last time", v: "They asked for a cheaper option on 12 Oct. You promised a revised quote." },
-      { k: "Likely pushback", v: "Timeline. Your answer: two phases, first one live in four weeks." },
-      { k: "Your prices", v: "S$18,000 standard, S$14,500 for phase one only. No other discount is approved." },
-      { k: "Ask them", v: "Who signs off, and when their budget year starts." },
-    ],
-    footer: "Built from your own notes and price list",
-  },
-  {
-    id: "filings",
-    tab: "Filings",
-    label: "Stay on top of filings",
-    ask: "What do I need to file this year?",
-    skill: "filings-check",
-    title: "Statutory calendar: FY ending 31 Dec",
-    lines: [
-      { k: "IRAS", v: "Estimated Chargeable Income due 31 Mar. Figures pack prepared for your accountant." },
-      { k: "ACRA", v: "Annual return due 7 months after year end. Checklist ready." },
-      { k: "Licences", v: "Business licence renewal in 30 days. On your calendar.", tone: "flag" },
-    ],
-    footer: "From official sources only. You file; it never files for you.",
-  },
-  {
-    id: "brand",
-    tab: "Brand",
-    label: "Shape your brand",
-    ask: "Make our posts look and sound like us.",
-    skill: "brand-board",
-    title: "Brand board and voice guide",
-    lines: [
-      { k: "Look", v: "Your colours, fonts, and logo rules on one board, with contrast checked." },
-      { k: "Voice", v: "How you sound, from your own past messages: three do's and three don'ts." },
-      { k: "Content", v: "A month of posts planned, each one checked against the board before you see it." },
-    ],
-    footer: "Every department uses the same board",
+    footer: "Your company runs on a clear daily and weekly rhythm, with you in command.",
   },
 ];

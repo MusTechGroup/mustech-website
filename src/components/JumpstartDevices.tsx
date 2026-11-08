@@ -205,12 +205,12 @@ interface DeviceProps {
   scroll: number;
 }
 
-// The laptop follows the HQ dashboard: a moss sidebar, a cream page, and one card per Decide or Input with its own answer box.
-const MOSS = "#2A3328";
-const SAGE = "#4A5D3F";
+// The laptop follows the HQ dashboard: a dark charcoal sidebar, a cream page, and one card per Decide or Input with its own answer box.
+const MOSS = "#14181a";
+const SAGE = "#077d95";
 const PAPER = "#FDFCF8";
 const CARD = "#F7F6F2";
-const EDGE = "#E0DDD2";
+const EDGE = "#E4DCCB";
 const DANGER = "#8B3A2F";
 
 function Laptop({
@@ -378,17 +378,28 @@ function Phone({
     </div>
   );
 
+  const companyAccent = "#d95d24";
+  const initial = example.person.charAt(0).toUpperCase();
+
   return (
     <div className="h-full rounded-[34px] bg-[#16150f] p-[9px] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] ring-1 ring-white/15">
       <div className="relative h-full overflow-hidden rounded-[26px] flex flex-col" style={{ background: GROUND, color: INK }}>
         <div className="mx-auto mt-2 mb-1 h-[14px] w-[64px] rounded-full bg-[#16150f]" />
-        <div className="px-3 pb-2 border-b" style={{ borderColor: LINE, background: "#fff" }}>
-          <p className="text-[8px]" style={{ color: FAINT }}>
-            {example.person}&rsquo;s HQ · 8:00
-          </p>
-          <p className="text-[11px] font-bold leading-tight">
-            Morning stand-up · {open} {open === 1 ? "needs" : "need"} you
-          </p>
+        <div className="px-3 py-2 border-b-[2px] flex items-center gap-2" style={{ background: "#0b0b0a", color: "#fdfaf0", borderColor: companyAccent }}>
+          <span
+            className="h-5 w-5 rounded-[3px] grid place-items-center font-brand text-[9px] font-bold text-white shrink-0"
+            style={{ background: companyAccent }}
+          >
+            {initial}
+          </span>
+          <div className="min-w-0">
+            <p className="text-[7px] font-bold uppercase tracking-wider truncate" style={{ color: companyAccent }}>
+              {example.person}&rsquo;s HQ · 8:00
+            </p>
+            <p className="font-brand text-[10.5px] font-bold leading-tight text-[#fdfaf0] truncate">
+              Executive Briefing · {open} {open === 1 ? "needs" : "need"} you
+            </p>
+          </div>
         </div>
         <div className="flex-1 min-h-0">
           <Scroller scroll={scroll}>
@@ -410,7 +421,7 @@ function Phone({
                       <span className="font-mono text-[8.5px] font-bold text-white rounded px-1 py-[1px] whitespace-nowrap shrink-0" style={{ background: INK }}>
                         {a.id}
                       </span>
-                      <span className="text-[8px] font-semibold uppercase tracking-wide" style={{ color: TEAL }}>
+                      <span className="text-[8px] font-semibold uppercase tracking-wide" style={{ color: companyAccent }}>
                         {a.item.dept}
                       </span>
                     </div>
