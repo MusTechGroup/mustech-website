@@ -5,58 +5,58 @@ import Cycler from "@/components/Cycler";
 import { JOBS } from "@/components/mustech-os-jobs";
 
 export const metadata: Metadata = {
-  title: "MusTech OS | Build, Launch, and Run Your Company with AI Departments",
+  title: "MusTech OS | AI Departments That Run Your Business, With You in Charge",
   description:
-    "MusTech OS installs specialist AI departments on your computer. Work with your AI to create production websites, run social listening on market trends, orchestrate product launches, and manage daily and weekly execution.",
+    "MusTech OS installs AI departments on your own computer, calibrated to your business: customer replies, receipts, quotes, chasers, a website, and a daily standup. Nothing leaves without your yes.",
   alternates: { canonical: "/jumpstart/mustech-os" },
   openGraph: {
     type: "website",
     locale: "en_SG",
     url: "https://www.mustechgroup.com/jumpstart/mustech-os",
     siteName: "MusTech Group",
-    title: "MusTech OS | Build, Launch, and Run Your Company with AI Departments",
+    title: "MusTech OS | AI Departments That Run Your Business, With You in Charge",
     description:
-      "Work with specialist AI departments on your computer to build websites, research market trends, launch products, and run daily and weekly operations.",
+      "AI departments on your own computer, calibrated to your business. They draft, chase, and remind; you approve on your dashboard.",
     images: [{ url: "/brand/Logo_Large_ClearBg.png", width: 513, height: 386, alt: "MusTech" }],
   },
 };
 
 const STANDFIRST =
-  "Stop using AI like a chat assistant. MusTech OS turns your laptop into a full operating company: you work with specialist AI departments to build websites, run social listening on market trends, launch products end-to-end, and project-manage daily and weekly execution.";
+  "MusTech OS puts AI departments on your own computer, set up for your business at AI Jumpstart. They keep your ledger, draft your replies, quotes, and chasers, and bring you a standup every morning. You approve on your dashboard; nothing leaves without you.";
 
 const REPORT = [
-  { tag: "Decide", c: "bg-[#f8df98] text-[#5c3d00]", t: "Approve variation notice for Halcyon motion reel (+S$4,800, +6 days)?" },
-  { tag: "Decide", c: "bg-[#f8df98] text-[#5c3d00]", t: "Approve launch social calendar & PDPA privacy policy for 1 Dec?" },
-  { tag: "Input", c: "bg-[#077d95]/12 text-[#065f72]", t: "Confirm Q1 retainer rate for Arden Studio before renewal draft?" },
-  { tag: "Done", c: "bg-[#14181a]/8 text-[#14181a]/75", t: "Website sprint 2 built & verified on localhost; 4 PayNow receipts reconciled." },
+  { tag: "Red", c: "bg-[#a8432f]/15 text-[#7a2f20]", t: "Invoice to Kopi Lab is 14 days late. A chaser is drafted: send it?" },
+  { tag: "Decide", c: "bg-[#f8df98] text-[#5c3d00]", t: "Quote for the Tan wedding order is ready. Approve and send?" },
+  { tag: "Input", c: "bg-[#077d95]/12 text-[#065f72]", t: "When is your last order date before the holiday?" },
+  { tag: "Done", c: "bg-[#14181a]/8 text-[#14181a]/75", t: "3 receipts logged with GST; 2 missed-call replies drafted." },
 ];
 
 const ADVANTAGES = [
   {
     num: "01",
-    name: "Full-Stack Execution, Not Chat Advice",
-    line: "Your AI does not hand you generic tips. It writes production code, conducts scoped social listening, checks regulatory and privacy rules, and manages your launch calendar alongside you.",
-    badge: "Co-build & ship",
+    name: "Real work from your own records",
+    line: "Not generic tips: quotes from your price list, chasers from your ledger, listings in your words. A missing fact is asked for, never made up.",
+    badge: "No invented facts",
   },
   {
     num: "02",
-    name: "You Hold the Pen on Money, Clients & Legal",
-    line: "Departments research, build, test, and draft autonomously, while every client message, price change, public deployment, or payment waits for your one-line sign-off.",
-    badge: "Executive sign-off",
+    name: "Nothing leaves without you",
+    line: "Every message, payment, and publish waits for you. When your AI needs to go past a limit, it asks; you approve on your dashboard, and the gate closes by itself.",
+    badge: "You approve",
   },
   {
     num: "03",
-    name: "Branded to Your Company, Owned by You",
-    line: "Your 8 am Executive Briefing, read-backs, and alerts carry your own company name and brand colours. Everything runs locally on your computer with zero monthly SaaS rent to MusTech.",
-    badge: "100% sovereign",
+    name: "Your business stays on your computer",
+    line: "Your records never go to MusTech. It runs on the AI plan you already pay for, and nothing breaks if you stop paying us.",
+    badge: "Yours to keep",
   },
 ];
 
 const FACTS = [
-  { v: "82", k: "department playbooks across product, GTM, legal & finance" },
-  { v: "S$0/mo", k: "ongoing platform rent to MusTech; runs on your existing AI plan" },
-  { v: "100%", k: "of your client, financial & strategy files stay on your machine" },
-  { v: "2 days", k: "hands-on calibration and live sprint execution at Jumpstart" },
+  { v: "58", k: "things owners asked AI for, from 189 mentions, shaped what it does" },
+  { v: "92", k: "skills to choose from; yours are installed to fit your answers" },
+  { v: "0", k: "business files sent to MusTech: your records stay on your machine" },
+  { v: "2 days", k: "in person at AI Jumpstart, setting it up with you" },
 ];
 
 const flag = (tone?: "flag" | "ok") =>
@@ -68,11 +68,8 @@ function Screen() {
       {/* Hero value proposition */}
       <Block dark className="lg:col-span-5 justify-between gap-6">
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#f8df98] mb-2">
-            Sovereign Founder Operating System
-          </p>
           <h1 className="font-brand font-bold tracking-[-0.03em] leading-[1.04] text-[clamp(2.2rem,4.4vw,3.25rem)]">
-            Build, launch, and run with AI departments.
+            AI departments for your business, with you in charge.
           </h1>
           <p className="mt-4 text-base leading-relaxed text-[#fdfaf0]/85">{STANDFIRST}</p>
         </div>
@@ -85,7 +82,7 @@ function Screen() {
             <dt className="text-[#fdfaf0]/65">Calibrated live at</dt>
             <dd className="mt-1 font-semibold">
               <Link href="/jumpstart" className="underline underline-offset-4 decoration-[#f8df98]/60 hover:decoration-[#f8df98]">
-                AI Jumpstart (2 Half-Days)
+                AI Jumpstart (two days, in person)
               </Link>
             </dd>
           </div>
@@ -93,18 +90,17 @@ function Screen() {
       </Block>
 
       {/* Four high-leverage co-execution playbooks (click tabs, zero auto-cycling) */}
-      <Block label="What you and your AI departments build together" className="lg:col-span-7">
+      <Block label="What it does for you" className="lg:col-span-7">
         <Cycler
           label="Department playbooks"
           tabs={JOBS.map((j) => j.tab)}
           items={JOBS.map((j) => (
             <div key={j.id} className="flex flex-col gap-3">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="text-xs font-bold uppercase tracking-[0.12em] text-[#077d95]">{j.dept}</span>
-                <span className="text-xs font-mono text-[#14181a]/60">Playbook · {j.skill}</span>
-              </div>
               <p className="font-brand font-bold text-xl sm:text-2xl leading-snug text-[#14181a]">{j.label}</p>
               <p className="text-sm leading-relaxed text-[#14181a]/80">{j.summary}</p>
+              <p className="text-xs text-[#14181a]/60">
+                {j.dept} · <span className="font-mono">{j.skill}</span>
+              </p>
               <div className="border-t border-[#14181a]/12 pt-3">
                 <dl className="flex flex-col gap-2 text-sm">
                   {j.lines.map((l) => (
@@ -122,9 +118,9 @@ function Screen() {
       </Block>
 
       {/* 8 am Company-Branded Executive Briefing */}
-      <Block label="8 am · Your Company-Branded Briefing" className="lg:col-span-4">
+      <Block label="Your morning standup" className="lg:col-span-4">
         <p className="text-sm text-[#14181a]/80 mb-3">
-          Every morning at 8 am, your workspace sends a dossier in <strong>your own company&rsquo;s brand colours</strong> with the exact decisions and weekly tasks that need your call:
+          Every morning, by email and on your dashboard, in <strong>your own brand colours</strong>: what is Red, what needs your call, and what is done.
         </p>
         <ul className="flex flex-col gap-2.5 pb-4">
           {REPORT.map((r) => (
@@ -135,12 +131,12 @@ function Screen() {
           ))}
         </ul>
         <p className="mt-auto pt-3 border-t border-[#14181a]/10 text-xs font-semibold text-[#14181a]/70">
-          Approve in one line from your Command Centre (`D-0019 yes`).
+          Answer on your dashboard, or in one line from your phone.
         </p>
       </Block>
 
       {/* Sales-focused Executive Control & Leverage section */}
-      <Block label="Why Founders Run Real Operations on MusTech OS" className="lg:col-span-5">
+      <Block label="Why founders trust it" className="lg:col-span-5">
         <ol className="flex flex-col gap-3.5">
           {ADVANTAGES.map((a) => (
             <li key={a.num} className="border-b border-[#14181a]/10 pb-3 last:border-b-0 last:pb-0">
@@ -160,7 +156,7 @@ function Screen() {
       </Block>
 
       {/* Key metrics */}
-      <Block label="Built for Sovereign Scale" className="lg:col-span-3">
+      <Block label="In numbers" className="lg:col-span-3">
         <dl className="flex flex-col gap-3.5 my-auto">
           {FACTS.map((f) => (
             <div key={f.k} className="border-b border-[#14181a]/10 pb-2.5 last:border-b-0 last:pb-0">
@@ -176,11 +172,11 @@ function Screen() {
 
 function Paper() {
   return (
-    <Sheet title="Build, launch, and run with AI departments.">
+    <Sheet title="AI departments for your business, with you in charge.">
       <p className="mt-[4mm] text-[10.5pt] leading-[1.45] max-w-[172mm]">{STANDFIRST}</p>
 
       <div className="mt-[6mm] grid grid-cols-[1.18fr_1fr] gap-[6mm]">
-        <SheetPart label="Four Founder + AI Co-Execution Playbooks">
+        <SheetPart label="What it does for you">
           <ol className="border-t border-[#14181a]/20">
             {JOBS.map((j) => (
               <li key={j.id} className="py-[2.2mm] border-b border-[#14181a]/12">
@@ -199,9 +195,9 @@ function Paper() {
         </SheetPart>
 
         <div className="flex flex-col gap-[5.5mm]">
-          <SheetPart label="8 am · Company-Branded Executive Briefing">
+          <SheetPart label="Your morning standup">
             <p className="text-[8pt] leading-[1.35] mb-[1.5mm] text-[#14181a]/80">
-              Delivered in your own company&rsquo;s brand palette so you start every morning with clear priorities:
+              By email and on your dashboard, in your own brand colours:
             </p>
             <ul className="bg-[#fdfaf0] border border-[#14181a]/15 px-[3mm] py-[2mm] flex flex-col gap-[1.4mm]">
               {REPORT.map((r) => (
@@ -213,7 +209,7 @@ function Paper() {
             </ul>
           </SheetPart>
 
-          <SheetPart label="Why Founders Run Real Operations on MusTech OS">
+          <SheetPart label="Why founders trust it">
             <ol className="flex flex-col gap-[2.2mm]">
               {ADVANTAGES.map((a) => (
                 <li key={a.num} className="grid grid-cols-[6mm_1fr] gap-[1.5mm] text-[8.2pt] leading-[1.35]">
@@ -238,7 +234,7 @@ function Paper() {
       </div>
 
       <p className="mt-[3.5mm] text-[9pt]">
-        <b>Works with</b> the AI subscription you already use (Claude Code, Codex, or Antigravity). <b>Installed and calibrated with you</b> at AI Jumpstart across two hands-on half-day sessions.
+        <b>Works with</b> the AI plan you already use (Claude Code, Codex, or Antigravity). <b>Set up with you</b> at AI Jumpstart, two days in person. See it play out: mustechgroup.com/jumpstart/how-it-works
       </p>
     </Sheet>
   );

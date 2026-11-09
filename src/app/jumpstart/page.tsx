@@ -10,6 +10,7 @@ import JumpstartDemo from "@/components/JumpstartDemo";
 import JumpstartFlow from "@/components/JumpstartFlow";
 import JumpstartDevices from "@/components/JumpstartDevices";
 import JumpstartSafety from "@/components/JumpstartSafety";
+import JumpstartResearch from "@/components/JumpstartResearch";
 import BrandLogo from "@/components/BrandLogo";
 import Scene from "@/components/Scene";
 import DeckRail from "@/components/DeckRail";
@@ -145,9 +146,6 @@ export default function JumpstartPage() {
           <Scene id="overview" deck="Stack" className="text-[#efe9d8] py-10 sm:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl mb-4 sm:mb-8">
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
-                  What you leave with
-                </span>
                 <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.5rem)] text-balance">
                   Your business, with independent teams reporting to you.
                 </h2>
@@ -183,9 +181,6 @@ export default function JumpstartPage() {
           <Scene id="standup" deck="Stand-up" className="text-[#efe9d8] py-10 sm:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl mb-4 sm:mb-8">
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
-                  The next morning
-                </span>
                 <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(2rem,5vw,3.75rem)] text-balance">
                   Every morning, the business reports in.
                 </h2>
@@ -211,10 +206,26 @@ export default function JumpstartPage() {
                 Rules the AI cannot get round.
               </h2>
               <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/80 leading-relaxed max-w-2xl">
-                Some calls are yours alone. A guard checks each action before it happens and refuses the ones that belong to you. It never just says no: every refusal says what to do instead.
+                Some calls are yours alone. A guard checks each action before it happens and refuses the ones that belong to you. It never just says no: every refusal says what to do instead. When your AI needs to go past a limit, such as sending a message you approved or reading your calendar, it asks: you approve on your dashboard, and the gate closes by itself. Moving money, your bank, and questioning your customers never get a gate.
               </p>
             </div>
             <JumpstartSafety />
+          </div>
+        </Scene>
+
+        {/* Research: what owners asked AI for, and what MusTech OS does about it */}
+        <Scene id="research" deck="Research" className="text-[#efe9d8] py-10 sm:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mb-6 sm:mb-10">
+              <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.5rem)] text-balance">
+                Built on what owners asked AI for.
+              </h2>
+              <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/80 leading-relaxed max-w-2xl">
+                We read 189 mentions of what small business owners want from AI, from owner forums, surveys, and public reports, and sorted
+                them into 58 asks. Here are the most asked, with how many times each came up, and what MusTech OS does about it.
+              </p>
+            </div>
+            <JumpstartResearch />
           </div>
         </Scene>
 
@@ -234,11 +245,8 @@ export default function JumpstartPage() {
                 </div>
               </div>
               <div className="lg:col-span-8 max-w-2xl">
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-4 block">
-                  Your instructor
-                </span>
                 <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.25rem)] text-balance">
-                  Taufiq Rashid
+                  Your instructor: Taufiq Rashid
                 </h2>
                 <p className="mt-4 text-base sm:text-lg text-[#efe9d8]/85 leading-relaxed">
                   Jumpstart teaches the system Taufiq uses to run MusTech Group. One founder and AI tools run Saalihat, jenazah.sg, and TaraBase. Every workflow in this course comes from that operation: how the agents are organised, how their work is checked, and how decisions still reach the founder.
@@ -266,9 +274,6 @@ export default function JumpstartPage() {
         <Scene id="register" deck="Dock" className="py-10 sm:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-xl mx-auto mb-10">
-              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#f5cb1d] mb-3 block">
-                Inaugural cohort
-              </span>
               <h2 className="font-brand font-bold tracking-[-0.02em] text-[#efe9d8] text-[clamp(2rem,5vw,3.5rem)] leading-[1.05]">
                 Register your interest
               </h2>

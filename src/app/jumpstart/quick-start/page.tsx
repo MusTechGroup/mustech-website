@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 import { OnePager, Block, Sheet, SheetPart } from "@/components/OnePager";
 
 export const metadata: Metadata = {
-  title: "MusTech OS Quick Start | Three Phases from Sign-Up to Live Execution",
+  title: "MusTech OS Quick Start | From Sign-Up to Your First Morning Standup",
   description:
-    "How setup works across three balanced phases: enrol and calibrate your business, install MusTech OS and connect your AI engine, then build, launch, and run with your AI departments.",
+    "Nine steps, no Terminal: sign up and answer the questions about your business, install MusTech OS and connect your AI, then set it up with us at AI Jumpstart and run your business with it.",
   alternates: { canonical: "/jumpstart/quick-start" },
   openGraph: {
     type: "website",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://www.mustechgroup.com/jumpstart/quick-start",
     siteName: "MusTech Group",
     title: "MusTech OS Quick Start",
-    description: "Three balanced phases, nine clear steps from checkout to your first live sprint.",
+    description: "Nine steps, no Terminal, from sign-up to your first morning standup.",
     images: [{ url: "/brand/Logo_Large_ClearBg.png", width: 513, height: 386, alt: "MusTech" }],
   },
 };
@@ -42,15 +42,15 @@ type Phase = { phase: string; name: string; time: string; ready: string; steps: 
 
 const PHASES: Phase[] = [
   {
-    phase: "Phase 01",
-    name: "Enrol & Calibrate",
+    phase: "1",
+    name: "1. Sign up and tell us about your business",
     time: "~12 mins · Any device",
-    ready: "Your email address, PayNow or card, and a snapshot of your current offers and clients.",
+    ready: "Your email address, PayNow or card, and a rough picture of what you sell and who buys.",
     steps: [
       {
         num: 1,
         title: "Reserve your Jumpstart seat",
-        body: "Complete checkout via PayNow or card. Your receipt and 1-year signed update licence arrive immediately.",
+        body: "Pay by PayNow or card. Your receipt arrives by email at the address you signed up with.",
         cue: (
           <span className="flex flex-wrap gap-1.5">
             <Pill solid>PayNow SGQR</Pill>
@@ -60,39 +60,39 @@ const PHASES: Phase[] = [
       },
       {
         num: 2,
-        title: "Complete the 10-minute calibration",
-        body: "Answer plain-English questions on your offers, clients, and workflow so we configure the right AI departments.",
+        title: "Answer the questions about your business",
+        body: "About ten minutes of plain questions: what you sell, who buys, what eats your week. Your answers decide which departments you get.",
         cue: <MiniMail subject="Your MusTech OS questionnaire" cta="Start Survey" />,
       },
       {
         num: 3,
-        title: "Receive your tailored workspace email",
-        body: "Your custom MusTech OS workspace is compiled from your answers and sent to your inbox with your install link.",
+        title: "Get your setup email",
+        body: "Your MusTech OS is built from your answers, and the setup link arrives in the email we send to the address you signed up with.",
         cue: <MiniMail subject="Your MusTech OS workspace is ready" cta="Open Setup" />,
       },
     ],
   },
   {
-    phase: "Phase 02",
-    name: "Install & Connect",
+    phase: "2",
+    name: "2. Install and connect",
     time: "~15 mins · Your Mac or PC",
-    ready: "Your laptop, your macOS/Windows login password, and your paid AI subscription.",
+    ready: "Your laptop, its login password, and the AI plan you pay for.",
     steps: [
       {
         num: 4,
-        title: "Run the signed MusTech OS installer",
-        body: "Download the notarised Mac or Windows package from your setup page and double-click to install with zero terminal setup.",
+        title: "Run the installer",
+        body: "Download it for Mac or Windows from your setup page, double-click it, and press Install. No Terminal, nothing else to install.",
         cue: (
           <span className="flex flex-wrap gap-1.5">
             <Pill solid>Download for Mac</Pill>
-            <Pill>Windows (.msi)</Pill>
+            <Pill>Windows 11</Pill>
           </span>
         ),
       },
       {
         num: 5,
-        title: "Unpack & open your Command Centre",
-        body: "Click Set up my workspace on the install page. Your browser opens your local Command Centre; bookmark it for daily use.",
+        title: "Open your dashboard",
+        body: "Press Set up my workspace on the setup page. Your dashboard opens in your browser; bookmark it. It runs on your own computer.",
         cue: (
           <span className="flex flex-wrap gap-1.5">
             <Pill solid>Set up my workspace</Pill>
@@ -102,8 +102,8 @@ const PHASES: Phase[] = [
       },
       {
         num: 6,
-        title: "Connect your AI engine & phone",
-        body: "Select the AI tool you already pay for on the Get Started card, then scan the QR code to pair your phone for quick capture.",
+        title: "Connect your AI and your phone",
+        body: "On the Get started card, pick the AI tool you already pay for, then scan the code with your phone so you can send notes from anywhere.",
         cue: (
           <span className="flex flex-wrap gap-1.5">
             <Pill>Claude Code</Pill>
@@ -115,54 +115,54 @@ const PHASES: Phase[] = [
     ],
   },
   {
-    phase: "Phase 03",
-    name: "Build, Launch & Run",
-    time: "2 half-days + daily rhythm",
-    ready: "Your laptop and charger, plus a real website, trend brief, or product launch you want to ship.",
+    phase: "3",
+    name: "3. Set it up with us, then run it",
+    time: "2 days in person, then daily",
+    ready: "Your laptop and charger, your price list, unpaid invoices, and the dates you must not miss.",
     steps: [
       {
         num: 7,
-        title: "Day 1: Calibrate your brand & live ledger",
-        body: "Load your brand colours, active retainers, unpaid invoices, and statutory deadlines into one live Commitments Ledger.",
+        title: "Day 1: your brand and your ledger",
+        body: "Your brand colours, what you owe, what is owed to you, and your filing dates, all in one ledger. Nothing is guessed: a missing date is asked for.",
         cue: (
           <span className="flex flex-wrap gap-1.5">
-            <Pill>Brand Board</Pill>
-            <Pill>Commitments Ledger</Pill>
+            <Pill>Brand</Pill>
+            <Pill>Ledger</Pill>
           </span>
         ),
       },
       {
         num: 8,
-        title: "Day 2: Ship a live sprint with your AI",
-        body: "Work with your AI to create a website, scope social listening on market trends, or build a full product launch plan.",
+        title: "Day 2: your first real jobs",
+        body: "With your AI: a quote, a payment chaser, your product listings, or your website, from your own records, for you to approve.",
         cue: (
           <span className="flex flex-wrap gap-1.5">
-            <Pill solid>Website Build</Pill>
-            <Pill>Social Listening</Pill>
-            <Pill>Launch PM</Pill>
+            <Pill solid>Quote</Pill>
+            <Pill>Chaser</Pill>
+            <Pill>Website</Pill>
           </span>
         ),
       },
       {
         num: 9,
-        title: "Daily 8 am Executive Briefing",
-        body: "Receive your morning dossier in your own company's brand colours, approve key calls in one line, and track weekly execution.",
-        cue: <MiniMail subject="Daily Executive Briefing." cta="2 Decisions" accent="#d95d24" />,
+        title: "Every morning: your standup",
+        body: "By email and on your dashboard, in your brand colours: what is Red, what needs your call, and what is done. Answer in one line.",
+        cue: <MiniMail subject="Your standup" cta="2 to decide" accent="#d95d24" />,
       },
     ],
   },
 ];
 
 const DAILY = [
-  { k: "8:00 am", t: "Review your company-branded briefing", v: "Approve pending client, pricing, or launch calls (`D-0019 yes`)." },
-  { k: "At your desk", t: "Co-build & execute with your AI", v: "Create pages, run social listening on trends, or check launch compliance." },
-  { k: "On the move", t: "Capture notes & receipts from your phone", v: "Drop a voice note or receipt photo; your workspace files it and sends a read-back." },
+  { k: "Morning", t: "Read your standup", v: "Red first, then what to decide. Answer on your dashboard or in one line." },
+  { k: "At your desk", t: "Work with your AI", v: "Quotes, replies, listings, receipts, or your website, drafted for you to approve." },
+  { k: "On the move", t: "Send notes from your phone", v: "A promise, an order, or a receipt photo; you get a numbered read-back to confirm." },
 ];
 
 const HELP = [
   { k: "“Set up” button did nothing", v: "Run the downloaded installer first, then click Set up my workspace again." },
-  { k: "Setup link expired (48h)", v: "Click Send a new link on the install page for a fresh 48-hour token." },
-  { k: "Closed the Command Centre tab", v: "Reopen your localhost bookmark at any time; the background service stays active." },
+  { k: "Setup link expired", v: "Press Send a new link on the setup page." },
+  { k: "Closed the dashboard tab", v: "Open your bookmark again; MusTech OS keeps running in the background." },
   { k: "Uninstalling or moving laptops", v: "Open MusTech OS in Applications; your local company folder stays intact." },
 ];
 
@@ -178,12 +178,13 @@ function Screen() {
     <div className="grid grid-cols-1 gap-3 lg:grid-cols-12">
       <Block dark className="lg:col-span-12 lg:flex-row lg:items-end lg:justify-between gap-6">
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#f8df98] mb-2">
-            Three Phases · Nine Steps
-          </p>
           <h1 className="font-brand font-bold tracking-[-0.03em] leading-[1.04] text-[clamp(2rem,4vw,3rem)] max-w-2xl">
-            From seat reservation to shipping with your AI departments.
+            From sign-up to your first morning standup, in nine steps.
           </h1>
+          <p className="mt-3 text-sm text-[#fdfaf0]/80 max-w-xl">
+            No Terminal and nothing technical. See how a request plays out:{" "}
+            <a href="/jumpstart/how-it-works" className="underline underline-offset-4 decoration-[#f8df98]/60">make me a website</a>.
+          </p>
         </div>
         <dl className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-3 text-sm lg:max-w-2xl">
           {NEEDS.map((m) => (
@@ -200,10 +201,7 @@ function Screen() {
         <Block key={p.phase} className="lg:col-span-4 flex flex-col justify-between">
           <div>
             <div className="flex items-baseline justify-between gap-2 border-b-2 border-[#077d95] pb-3">
-              <div>
-                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#077d95]">{p.phase}</span>
-                <h2 className="font-brand font-bold text-2xl leading-tight text-[#14181a] mt-0.5">{p.name}</h2>
-              </div>
+              <h2 className="font-brand font-bold text-2xl leading-tight text-[#14181a]">{p.name}</h2>
               <span className="text-xs font-semibold text-[#077d95] bg-[#077d95]/10 px-2.5 py-1 whitespace-nowrap">
                 {p.time}
               </span>
@@ -239,7 +237,7 @@ function Screen() {
         </Block>
       ))}
 
-      <Block label="Your Daily & Weekly Operating Rhythm" className="lg:col-span-7">
+      <Block label="A normal day" className="lg:col-span-7">
         <dl className="grid gap-4 sm:grid-cols-3">
           {DAILY.map((d) => (
             <div key={d.k} className="bg-[#fdfaf0] border border-[#14181a]/12 p-3">
@@ -253,7 +251,7 @@ function Screen() {
         </dl>
       </Block>
 
-      <Block label="Quick Troubleshooting" className="lg:col-span-5">
+      <Block label="If something goes wrong" className="lg:col-span-5">
         <dl className="grid gap-3 sm:grid-cols-2 text-xs leading-relaxed">
           {HELP.map((h) => (
             <div key={h.k} className="bg-[#fdfaf0] border border-[#14181a]/12 p-2.5">
@@ -269,7 +267,7 @@ function Screen() {
 
 function Paper() {
   return (
-    <Sheet title="From seat reservation to shipping with your AI departments.">
+    <Sheet title="From sign-up to your first morning standup, in nine steps.">
       <dl className="mt-[4mm] grid grid-cols-4 gap-[4mm] bg-[#fdfaf0] border border-[#14181a]/15 px-[3mm] py-[2mm]">
         {NEEDS.map((m) => (
           <div key={m.k}>
@@ -279,16 +277,13 @@ function Paper() {
         ))}
       </dl>
 
-      <SheetPart label="Three Phases · Nine Steps (Symmetrical Setup & Execution)" className="mt-[5.5mm]">
+      <SheetPart label="Nine steps, no Terminal" className="mt-[5.5mm]">
         <ol className="grid grid-cols-3 gap-[4.5mm] border-t-[2pt] border-[#077d95] pt-[3mm]">
           {PHASES.map((p) => (
             <li key={p.phase} className="flex flex-col justify-between bg-[#fdfaf0] border border-[#14181a]/15 p-[3mm]">
               <div>
                 <div className="flex items-baseline justify-between border-b border-[#14181a]/15 pb-[1.5mm]">
-                  <div>
-                    <span className="text-[6.5pt] font-bold uppercase tracking-wider text-[#077d95]">{p.phase}</span>
-                    <p className="font-brand font-bold text-[11.5pt] leading-tight">{p.name}</p>
-                  </div>
+                  <p className="font-brand font-bold text-[11.5pt] leading-tight">{p.name}</p>
                   <span className="text-[7pt] font-semibold text-[#077d95]">{p.time}</span>
                 </div>
                 <ol className="mt-[2.2mm] flex flex-col gap-[2.2mm]">
@@ -315,7 +310,7 @@ function Paper() {
       </SheetPart>
 
       <div className="mt-[5mm] grid grid-cols-2 gap-[6mm] border-t border-[#14181a]/20 pt-[3.5mm]">
-        <SheetPart label="Your Daily & Weekly Operating Rhythm">
+        <SheetPart label="A normal day">
           <dl className="flex flex-col gap-[1.4mm] text-[8pt]">
             {DAILY.map((d) => (
               <div key={d.k} className="grid grid-cols-[17mm_1fr] gap-[2mm]">
@@ -327,7 +322,7 @@ function Paper() {
             ))}
           </dl>
         </SheetPart>
-        <SheetPart label="Quick Troubleshooting">
+        <SheetPart label="If something goes wrong">
           <dl className="flex flex-col gap-[1.4mm] text-[8pt]">
             {HELP.map((h) => (
               <div key={h.k}>
