@@ -2,9 +2,9 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
-// "Make me a website": how it plays out in MusTech OS, scene by scene. Traced from the product itself
-// (founder-course, jumpstart/review/audits/2026-11-10-website-flow.md): the site-and-domain skill, which every
-// install has; the dashboard's Decide card; the founder's own purchase and publish; the morning standup.
+// "Make me a website", scene by scene, as the product runs it since 2026-11-10: the request becomes a project
+// (project-management, every install) and goes through design-stages' seven stages, each calling its skill
+// (os-template/.agents/skills/design-stages/SKILL.md); site-and-domain builds and guides going live.
 // Names are illustrative. Plays like a short video; a storyboard when the reader prefers reduced motion.
 
 const SCENE_MS = 8000;
@@ -43,6 +43,35 @@ const Tag = ({ kind }: { kind: "Decide" | "Done" | "Input" }) => (
   </span>
 );
 
+const STAGES: [string, string][] = [
+  ["Brief", "strategize"],
+  ["Structure", "organize, journey"],
+  ["Look", "design-direction"],
+  ["Words", "articulate, clarify"],
+  ["Build", "site-and-domain"],
+  ["Check", "critique, polish, harden, adapt"],
+  ["Go live", "site-and-domain"],
+];
+
+const Stages = ({ at }: { at: number }) => (
+  <ol className="flex flex-col gap-1 text-[12px]">
+    {STAGES.map(([name, skills], n) => (
+      <li
+        key={name}
+        className={`hiw-in flex items-center justify-between gap-3 rounded px-2.5 py-1 ${
+          n === at ? "border border-[#077d95]/50 bg-[#077d95]/8" : "border border-[#14181a]/8"
+        }`}
+        style={{ animationDelay: `${n * 0.15}s` }}
+      >
+        <span className={n < at ? "text-[#14181a]/50 line-through" : "font-semibold"}>
+          {n + 1}. {name}
+        </span>
+        <span className="font-mono text-[10px] text-[#14181a]/60">{skills}</span>
+      </li>
+    ))}
+  </ol>
+);
+
 const SCENES: Scene[] = [
   {
     caption: "Nadia runs a tailoring business and takes orders by chat. At her desk, she types one line to her AI.",
@@ -50,116 +79,123 @@ const SCENES: Scene[] = [
       <Window title="Your AI tool: Claude Code, Codex, or Antigravity">
         <div className="flex flex-col gap-2">
           <Bubble who="you">I need a website.</Bubble>
-          <Bubble who="ai">Happy to. Before anything, let me read what your workspace already knows.</Bubble>
+          <Bubble who="ai">I&rsquo;ll set this up as a project, &ldquo;Nadia&rsquo;s website&rdquo;, with seven stages. OK?</Bubble>
+          <Bubble who="you">OK.</Bubble>
         </div>
       </Window>
     ),
   },
   {
-    caption: "Her AI picks the website skill. It is already installed: every MusTech OS has it. Nothing is downloaded mid-request.",
+    caption: "Her project manager opens the project. Each stage calls the right skill, so the work goes in the right order.",
     render: () => (
-      <Window title="Skills installed for Nadia">
-        <ul className="flex flex-col gap-2">
-          <li className="hiw-in flex items-center justify-between rounded border border-[#077d95]/40 bg-[#077d95]/8 px-3 py-2">
-            <span className="font-mono text-xs">site-and-domain</span>
-            <span className="text-xs font-semibold text-[#077d95]">Installed, in use</span>
-          </li>
-          <li className="hiw-in flex items-center justify-between rounded border border-[#14181a]/10 px-3 py-2 [animation-delay:0.4s]">
-            <span className="font-mono text-xs">write-post, privacy-check</span>
-            <span className="text-xs text-[#14181a]/60">Installed</span>
-          </li>
-          <li className="hiw-in flex items-center justify-between rounded border border-dashed border-[#14181a]/20 px-3 py-2 [animation-delay:0.8s]">
-            <span className="font-mono text-xs">prototype, smoke-test</span>
-            <span className="text-xs text-[#14181a]/60">For builders: offered as a Decide</span>
-          </li>
-        </ul>
+      <Window title="Projects · PJ-0003 · Nadia's website">
+        <Stages at={0} />
       </Window>
     ),
   },
   {
-    caption: "It reads what it already knows: her services, her prices, her hours, and her brand. It asks only for what is missing.",
-    render: () => (
-      <Window title="Read from Nadia's workspace">
-        <ul className="flex flex-col gap-1.5 font-mono text-xs">
-          {["strategy-and-goals/focus.md", "price list: alterations, kebaya, baju kurung", "brand-basics.md: colours and logo", "domains-and-accounts.md: no domain yet"].map((f, i) => (
-            <li key={f} className="hiw-in rounded bg-[#fdfaf0] px-2.5 py-1.5" style={{ animationDelay: `${i * 0.35}s` }}>
-              {f}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-3 flex flex-col gap-2">
-          <Bubble who="ai">Do you already own a domain, and do you want to edit the words yourself?</Bubble>
-        </div>
-      </Window>
-    ),
-  },
-  {
-    caption: "Two routes, compared from the providers' own pages, with today's prices. The choice waits on her dashboard.",
+    caption: "Brief: who the site is for, its one job, and how she will know it works. Drawn from what her workspace already knows.",
     render: () => (
       <Window title="Dashboard · Today · Decide">
-        <div className="hiw-in flex flex-col gap-2">
+        <div className="hiw-in flex flex-col gap-2 text-[13px] leading-snug">
           <p className="flex items-center gap-2">
-            <Tag kind="Decide" /> <span className="font-semibold">Your website: which route?</span>
+            <Tag kind="Decide" /> <span className="font-semibold">Approve the brief?</span>
           </p>
-          <ol className="list-decimal pl-5 text-[13px] leading-snug text-[#14181a]/85">
-            <li>A builder you edit yourself on the web (good for a booking form).</li>
-            <li>A small site your AI builds, in your brand. You ask for changes.</li>
-          </ol>
-          <p className="text-xs text-[#14181a]/60">Two providers each, prices read today, with the date.</p>
-          <span className="self-start rounded bg-[#077d95] px-3 py-1.5 text-xs font-semibold text-white">Answer: 1</span>
+          <p><b>For:</b> women ordering kebaya and baju kurung for weddings and Raya.</p>
+          <p><b>One job:</b> get a fitting booked by chat.</p>
+          <p><b>Working when:</b> more chat orders mention the site.</p>
+          <span className="self-start rounded bg-[#077d95] px-3 py-1.5 text-xs font-semibold text-white">Approve</span>
         </div>
       </Window>
     ),
   },
   {
-    caption: "The pages are written from her records. A fact it does not have is marked for her, never made up.",
+    caption: "Structure: the pages, and the path a customer takes from arriving to booking a fitting.",
     render: () => (
-      <Window title="Draft: Home page">
+      <Window title="Stage 2 · Structure">
+        <div className="flex flex-col gap-3 text-[13px]">
+          <p className="hiw-in">Home · Styles · Prices · How to order · Contact</p>
+          <ol className="flex flex-wrap items-center gap-1.5 text-xs">
+            {["Sees a style", "Checks the price", "Chats to order", "Books a fitting"].map((t, i) => (
+              <li key={t} className="hiw-in rounded border border-[#14181a]/15 bg-[#fdfaf0] px-2 py-1" style={{ animationDelay: `${0.3 + i * 0.3}s` }}>
+                {t}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Window>
+    ),
+  },
+  {
+    caption: "Look: two or three directions, all in her own brand colours. She picks one, and every page follows it.",
+    render: () => (
+      <Window title="Dashboard · Decide · Choose a look">
+        <div className="grid grid-cols-3 gap-2">
+          {[
+            ["Minimal", "#5a2a41", "#f6efe9"],
+            ["High-end", "#2b1620", "#efe2d6"],
+            ["Bold", "#8c2f4f", "#fff5f0"],
+          ].map(([name, ink, bg], i) => (
+            <div key={name} className="hiw-in flex flex-col gap-1.5 rounded border border-[#14181a]/10 p-2" style={{ animationDelay: `${i * 0.3}s`, background: bg }}>
+              <div className="h-2 w-10 rounded" style={{ background: ink }} />
+              <div className="h-1.5 w-14 rounded bg-[#14181a]/15" />
+              <div className="h-8 rounded" style={{ background: `${ink}22` }} />
+              <span className="text-[11px] font-semibold" style={{ color: ink }}>{name}</span>
+            </div>
+          ))}
+        </div>
+      </Window>
+    ),
+  },
+  {
+    caption: "Words: every heading and button in her voice, from her records. A fact it does not have is marked for her, never made up.",
+    render: () => (
+      <Window title="Stage 4 · Words · Home page">
         <div className="hiw-in flex flex-col gap-2 leading-snug">
-          <p className="font-brand text-lg font-bold">Alterations and made-to-measure, in your colours</p>
-          <p className="text-[13px] text-[#14181a]/80">Kebaya and baju kurung, fitted to you. Order by chat, collect in a week.</p>
+          <p className="font-brand text-lg font-bold">Kebaya and baju kurung, fitted to you</p>
+          <p className="text-[13px] text-[#14181a]/80">Choose a style, chat to order, and collect in a week.</p>
           <p className="text-[13px]">
             Open: <mark className="bg-[#f8df98] px-1">[NEED: your Saturday hours]</mark>
           </p>
-          <p className="text-xs text-[#14181a]/60">Home, about, services, how to order, contact. A privacy page if the form collects details.</p>
+          <span className="self-start rounded bg-[#077d95] px-3 py-1.5 text-xs font-semibold text-white">Approve this page</span>
         </div>
       </Window>
     ),
   },
   {
-    caption: "She looks at the preview on her phone and laptop. Nothing goes live on the AI's word.",
+    caption: "Build and check: the pages are made, then checked for what looks generic, what breaks, and how they read on a phone.",
     render: () => (
-      <div className="flex items-end justify-center gap-4">
-        <div className="hiw-in h-40 w-64 rounded-md border-4 border-[#14181a]/80 bg-white p-2 sm:h-48 sm:w-80">
-          <div className="h-3 w-24 rounded bg-[#077d95]/70" />
-          <div className="mt-2 h-2 w-40 rounded bg-[#14181a]/15" />
-          <div className="mt-1 h-2 w-32 rounded bg-[#14181a]/15" />
-          <div className="mt-3 grid grid-cols-3 gap-1.5">
-            {[0, 1, 2].map((n) => (
-              <div key={n} className="h-12 rounded bg-[#f8df98]/70" />
-            ))}
-          </div>
-        </div>
-        <div className="hiw-in h-36 w-20 rounded-xl border-4 border-[#14181a]/80 bg-white p-1.5 [animation-delay:0.5s] sm:h-44 sm:w-24">
-          <div className="h-2 w-12 rounded bg-[#077d95]/70" />
-          <div className="mt-1.5 h-1.5 w-14 rounded bg-[#14181a]/15" />
-          <div className="mt-2 h-10 rounded bg-[#f8df98]/70" />
-          <div className="mt-1 h-10 rounded bg-[#f8df98]/70" />
-        </div>
-      </div>
+      <Window title="Stage 6 · Check">
+        <ul className="flex flex-col gap-1.5 text-[13px]">
+          {[
+            ["Critique", "Hero looked like a template: replaced with her own photos"],
+            ["Polish", "Spacing and type lined up to the chosen look"],
+            ["Harden", "A long style name no longer breaks the price card"],
+            ["Adapt", "Order button reachable by thumb on a phone"],
+          ].map(([k, v], i) => (
+            <li key={k} className="hiw-in flex gap-2" style={{ animationDelay: `${i * 0.35}s` }}>
+              <span className="w-16 shrink-0 font-mono text-[11px] text-[#077d95]">{k}</span>
+              <span>{v}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="hiw-in mt-3 flex items-center gap-2 text-[13px] [animation-delay:1.6s]">
+          <Tag kind="Decide" /> Preview on your phone and laptop. Ready to go live?
+        </p>
+      </Window>
     ),
   },
   {
-    caption: "She buys the domain in her own name and publishes it herself. Her AI gives one plain step at a time and waits.",
+    caption: "Go live: her AI walks her through each click and checks it worked. Her name, her card, her site.",
     render: () => (
-      <Window title="Going live, one step at a time">
+      <Window title="Stage 7 · Going live, guided">
         <ol className="flex flex-col gap-2 text-[13px]">
           {[
-            ["Buy the domain, in your own name, auto-renew on", "You"],
-            ["Turn on two-step sign-in", "You"],
-            ["Add the two records the host shows you", "You"],
-            ["Press Publish", "You"],
-            ["Open it on your phone, Wi-Fi off: padlock showing?", "Checked together"],
+            ["Choose your web address", "Shown on screen"],
+            ["Buy it in your name, auto-renew on", "Guided"],
+            ["Connect it to the site", "Guided, record by record"],
+            ["Press Publish", "Guided"],
+            ["Open it on your phone: padlock showing?", "Checked together"],
           ].map(([t, who], i) => (
             <li key={t} className="hiw-in flex items-center justify-between gap-3 rounded border border-[#14181a]/10 px-2.5 py-1.5" style={{ animationDelay: `${i * 0.4}s` }}>
               <span>{t}</span>
@@ -171,18 +207,18 @@ const SCENES: Scene[] = [
     ),
   },
   {
-    caption: "Next morning, her standup says it is done. If she wants, a morning check of her new pages is one approval away.",
+    caption: "Next morning, her standup closes the project. A daily check of her new pages is one approval away.",
     render: () => (
       <Window title="Your standup · by email and on your dashboard">
         <ul className="flex flex-col gap-2 text-[13px]">
           <li className="hiw-in flex items-start gap-2">
-            <Tag kind="Done" /> <span>Website live on her own domain; renewal date added to her calendar.</span>
+            <Tag kind="Done" /> <span>PJ-0003 Nadia&rsquo;s website: live on her own address, all seven stages done.</span>
           </li>
           <li className="hiw-in flex items-start gap-2 [animation-delay:0.4s]">
             <Tag kind="Input" /> <span>Update the link in your chat profile and your bio? Here is the list.</span>
           </li>
           <li className="hiw-in flex items-start gap-2 [animation-delay:0.8s]">
-            <Tag kind="Decide" /> <span>Check your site&rsquo;s pages each morning? (a gate: you approve, it closes on a date)</span>
+            <Tag kind="Decide" /> <span>Check your site&rsquo;s pages each morning? You approve, and it closes on a date.</span>
           </li>
         </ul>
       </Window>
