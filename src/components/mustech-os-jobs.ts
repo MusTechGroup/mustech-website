@@ -66,7 +66,7 @@ export const JOBS: Job[] = [
       { k: "Ground and shape", v: "What your customers already say, the brief, what happens behind an order, and the path to buy or book." },
       { k: "Look and words", v: "Two or three looks in your brand to choose from; every heading in your voice, gaps marked for you." },
       { k: "Check, every time", v: "Critique, polish, harden, and adapt run before anything goes live, found and fixed before you see it." },
-      { k: "Go live", v: "You are guided through each click to buy your address and publish. Nothing goes live on the AI's word.", tone: "ok" },
+      { k: "Go live", v: "Your AI tells you each step to buy your address and publish; you do the clicking. Nothing goes live on the AI's word.", tone: "ok" },
     ],
     footer: "Builders and developers also get the full build kit: prototypes, browser checks, and a release checklist.",
   },

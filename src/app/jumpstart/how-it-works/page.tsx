@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 };
 
 const WHO = [
-  { k: "Your AI does", v: "Runs it as a project: a sprint plan, the right skills in each sprint, and a written record after every sprint, so the next session picks up exactly where the last one stopped." },
-  { k: "You decide", v: "At five checkpoints on your dashboard: the brief, the plan, the look and words, a first look at the built pages, and when it is ready. Nothing moves to the next sprint without your yes." },
-  { k: "We guide you", v: "When it is time to buy the domain or press Publish, your AI shows you each click and checks it worked. Your name, your card, your site." },
-  { k: "The skills it calls", v: "Every install has the project manager and the website playbook, with guides from Intent and Impeccable: philosopher, investigate, strategize, blueprint, journey, organize, design-direction, articulate, critique, polish, harden, adapt, and more. Founders who build their own app also get prototypes, browser checks, and a scored before and after." },
+  { k: "Your AI does", v: "Treats the request as a project. It plans the work in stages, keeps a written record after each one, and picks up exactly where it stopped, even in a new session." },
+  { k: "You decide", v: "At five checkpoints on your dashboard: the brief, the plan, the look and words, a first look at the built pages, and the go-ahead. Nothing moves forward without your yes." },
+  { k: "You go live", v: "Buying the domain and pressing Publish stay in your hands. Your AI tells you each step in plain words, one at a time, then opens your address itself to check it worked. Your name, your card, your site." },
+  { k: "What sits behind it", v: "The MusTech method. Every install carries its own project manager and website playbook, with our guides for strategy, structure, design, words, and final checks. Founders who build their own app get more." },
 ];
 
 export default function HowItWorksPage() {
