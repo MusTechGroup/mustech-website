@@ -11,6 +11,7 @@ import JumpstartFlow from "@/components/JumpstartFlow";
 import JumpstartDevices from "@/components/JumpstartDevices";
 import JumpstartSafety from "@/components/JumpstartSafety";
 import JumpstartResearch from "@/components/JumpstartResearch";
+import JumpstartTrainerCarousel from "@/components/JumpstartTrainerCarousel";
 import BrandLogo from "@/components/BrandLogo";
 import Scene from "@/components/Scene";
 import DeckRail from "@/components/DeckRail";
@@ -233,15 +234,7 @@ export default function JumpstartPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
               <div className="lg:col-span-4">
-                <div className="relative aspect-[4/5] w-48 sm:w-64 lg:w-full max-w-sm mx-auto lg:mx-0 overflow-hidden">
-                  <Image
-                    src="/jumpstart/founder.jpg"
-                    alt="Taufiq Rashid"
-                    fill
-                    sizes="(max-width: 1024px) 80vw, 400px"
-                    className="object-cover object-top"
-                  />
-                </div>
+                <JumpstartTrainerCarousel />
               </div>
               <div className="lg:col-span-8 max-w-2xl">
                 <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.25rem)] text-balance">
