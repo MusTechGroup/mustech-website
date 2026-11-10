@@ -37,7 +37,7 @@ export default function HowItWorksPage() {
             &ldquo;Make me a website.&rdquo; Here is how it plays out.
           </h1>
           <p className="mt-4 max-w-2xl text-base sm:text-lg text-[#efe9d8]/80 leading-relaxed">
-            One request, start to finish, in about a minute. Every step is what your AI does today after Jumpstart.
+            One request, from the first line to a live site, done properly. Every step is what your AI does today after Jumpstart.
           </p>
           <div className="mt-8 sm:mt-12">
             <JumpstartHowItWorksPlayer />

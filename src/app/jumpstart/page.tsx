@@ -127,7 +127,7 @@ export default function JumpstartPage() {
               &ldquo;Make me a website.&rdquo; Watch it go live.
             </h2>
             <p className="mt-3 mb-6 sm:mb-10 text-sm sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
-              One line to her AI, and a real site on her own address in under a minute. She approves every step and presses Publish herself.
+              One line to her AI starts a proper project: a plan, a checkpoint at every stage, and a real site on her own address. She approves each step and presses Publish herself.
             </p>
             <JumpstartHowItWorksPlayer />
           </div>

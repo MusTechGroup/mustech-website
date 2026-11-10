@@ -33,10 +33,10 @@ export default function JumpstartResearch() {
         className="group flex flex-col gap-2 border border-[#f5cb1d]/40 bg-[#f5cb1d]/[0.06] p-5 sm:p-8 transition-colors hover:border-[#f5cb1d] hover:bg-[#f5cb1d]/10"
       >
         <span className="font-brand font-bold text-[clamp(1.5rem,4vw,2.5rem)] leading-tight text-[#efe9d8]">
-          See one request play out: &ldquo;make me a website&rdquo;
+          Who does what when your AI builds a website
         </span>
         <span className="text-sm sm:text-base font-bold uppercase tracking-wider text-[#f5cb1d]">
-          Watch the film <span className="inline-block transition-transform group-hover:translate-x-1" aria-hidden>→</span>
+          See the breakdown <span className="inline-block transition-transform group-hover:translate-x-1" aria-hidden>→</span>
         </span>
       </Link>
     </div>
