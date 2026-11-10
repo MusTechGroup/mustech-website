@@ -15,6 +15,18 @@ import NadiaSite, { CHOSEN_LOOK, HEADLINE, LOOKS } from "@/components/jumpstart/
 
 const W = 1280;
 const H = 720;
+// On a phone the film is retold on a tall stage: the site stays phone-shaped and each beat's panel sits under it,
+// so the words are large enough to read. Same clock, same beats, same copy.
+const MW = 480;
+const MH = 780;
+const NARROW = "(max-width: 551.98px)";
+const subscribeNarrow = (on: () => void) => {
+  const mq = window.matchMedia(NARROW);
+  mq.addEventListener("change", on);
+  return () => mq.removeEventListener("change", on);
+};
+const useNarrow = () => useSyncExternalStore(subscribeNarrow, () => window.matchMedia(NARROW).matches, () => false);
+const STAGE_BOX = "aspect-[480/780] min-[552px]:aspect-[1280/720]";
 
 type Beat = { id: string; ms: number; sprint: number; caption: string };
 const BEATS: Beat[] = [
@@ -42,6 +54,8 @@ const show = (t: number, a: number, rise = 450): React.CSSProperties => {
 };
 
 const ASK = "Make me a website for my tailoring business.";
+// How far the phone-shaped site scrolls to bring the opening hours into view on the tall stage.
+const M_HOURS_SCROLL = 2250;
 const DOMAIN = "jahitnadia.sg";
 
 const REDUCED = "(prefers-reduced-motion: reduce)";
@@ -92,7 +106,7 @@ const Check = ({ on }: { on: boolean }) => (
 );
 
 /** One frame of the ad at time t (ms). Pure: the same t always draws the same frame. */
-function Frame({ t }: { t: number }) {
+function Frame({ t, m = false }: { t: number; m?: boolean }) {
   // The film plays on /jumpstart and on /jumpstart/how-it-works. On /jumpstart a link back to /jumpstart goes
   // nowhere, so About scrolls on to the next part of the page, and Nadia's site is told where to send people back.
   const onJumpstart = (usePathname() ?? "").replace(/\/$/, "") === "/jumpstart";
@@ -109,16 +123,18 @@ function Frame({ t }: { t: number }) {
   const phone = b >= at("phone");
   const atEnd = id === "end";
   const enter = id === "shape" ? ease(prog(lt, 0, 900)) : 1;
-  const frameW = phone ? 360 : 960;
-  const frameH = phone ? 610 : 560;
-  const frameX = atEnd ? 140 : phone ? 220 : (W - frameW) / 2 + (id === "look" ? 120 : id === "check" ? -110 : id === "words" ? -130 : 0);
-  const frameY = phone ? 36 : 96;
+  const frameW = m || phone ? 360 : 960;
+  const frameH = m ? (atEnd ? 230 : id === "live" ? 330 : 440) : phone ? 610 : 560;
+  const frameX = m ? (MW - frameW) / 2 : atEnd ? 140 : phone ? 220 : (W - frameW) / 2 + (id === "look" ? 120 : id === "check" ? -110 : id === "words" ? -130 : 0);
+  const frameY = m ? 16 : phone ? 36 : 96;
+  // On the tall stage every panel sits under the site.
+  const under = frameY + frameH + 16;
 
   const look = id === "look" ? (lt < 1300 ? 0 : lt < 2500 ? 1 : lt < 3600 ? 2 : CHOSEN_LOOK) : CHOSEN_LOOK;
   const wire = id === "shape" || (id === "look" && lt < 500);
   const headlineChars = id === "words" ? Math.min(HEADLINE.length, Math.floor(prog(lt, 300, 2600) * HEADLINE.length)) : undefined;
   const hoursIn = after("words") || (id === "words" && lt > 4600);
-  const scrollY = id === "phone" ? (lt > 1500 ? 520 : 0) : id === "check" ? (lt > 1800 ? 700 : 0) : id === "words" ? (lt > 2900 ? 1180 : 0) : 0;
+  const scrollY = id === "phone" ? (lt > 1500 ? 520 : 0) : id === "check" ? (lt > 1800 ? 700 : 0) : id === "words" ? (lt > 2900 ? (m ? M_HOURS_SCROLL : 1180) : 0) : 0;
   const urlText = id === "live" ? typed(DOMAIN, lt, 400, 18) : after("live") ? DOMAIN : "preview";
   const secure = (id === "live" && lt > 1600) || atEnd;
   const published = (id === "live" && lt > 3700) || atEnd;
@@ -133,7 +149,7 @@ function Frame({ t }: { t: number }) {
       <div
         className="absolute h-[900px] w-[900px] rounded-full opacity-60 blur-3xl transition-[left,top,background] duration-[1600ms]"
         style={{
-          left: siteOn ? frameX + frameW / 2 - 450 : 190,
+          left: siteOn ? frameX + frameW / 2 - 450 : m ? MW / 2 - 450 : 190,
           top: -120,
           background: `radial-gradient(circle, ${siteOn ? LOOKS[look].accent : "#077d95"}66 0%, transparent 65%)`,
         }}
@@ -142,15 +158,15 @@ function Frame({ t }: { t: number }) {
 
       {/* Beat 1: the ask */}
       {id === "ask" && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-40">
-          <Card className="w-[760px] px-7 py-6" style={show(lt, 0)}>
-            <p className="text-[13px] text-[#14181a]/55">Your AI, at your desk</p>
-            <p className="mt-2 min-h-[2.4rem] text-[30px] font-semibold leading-tight">
+        <div className={`absolute inset-0 flex flex-col items-center justify-center gap-6 ${m ? "px-5" : "px-40"}`}>
+          <Card className={m ? "w-full px-6 py-6" : "w-[760px] px-7 py-6"} style={show(lt, 0)}>
+            <p className={`${m ? "text-[15px]" : "text-[13px]"} text-[#14181a]/55`}>Your AI, at your desk</p>
+            <p className={`mt-2 font-semibold leading-tight ${m ? "min-h-[4.2rem] text-[28px]" : "min-h-[2.4rem] text-[30px]"}`}>
               {typed(ASK, lt, 500)}
               {lt < 2600 && <span className="ml-1 inline-block h-[1.1em] w-[3px] translate-y-1 animate-pulse bg-[#077d95]" />}
             </p>
           </Card>
-          <Card className="w-[760px] border-[#077d95]/40 bg-[#e9f3f4] px-7 py-5" style={show(lt, 3000)}>
+          <Card className={`border-[#077d95]/40 bg-[#e9f3f4] ${m ? "w-full px-6 py-5" : "w-[760px] px-7 py-5"}`} style={show(lt, 3000)}>
             <p className="text-[21px] leading-snug">
               On it. I&rsquo;ll run it as a project, &ldquo;Nadia&rsquo;s website&rdquo;: six sprints, and your yes at each checkpoint.
             </p>
@@ -160,19 +176,19 @@ function Frame({ t }: { t: number }) {
 
       {/* Beat 2: the brief, approved */}
       {id === "brief" && (
-        <div className="absolute inset-0 flex items-center justify-center gap-10">
-          <div className="flex w-[300px] flex-col gap-3 text-[15px]">
+        <div className={`absolute inset-0 flex items-center justify-center ${m ? "flex-col gap-5 px-5" : "gap-10"}`}>
+          <div className={`flex flex-col gap-3 ${m ? "w-full text-[17px]" : "w-[300px] text-[15px]"}`}>
             {["Read 14 chat orders", "Read 6 reviews", "Checked two other ways to do this"].map((s, i) => (
               <p key={s} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3" style={show(lt, 200 + i * 450)}>
                 <Check on={lt > 500 + i * 450} /> {s}
               </p>
             ))}
           </div>
-          <Card className="relative w-[520px] p-7" style={show(lt, 900)}>
+          <Card className={`relative ${m ? "w-full p-6" : "w-[520px] p-7"}`} style={show(lt, 900)}>
             <p className="flex items-center gap-3">
               <Tag kind="Decide" /> <span className="text-[20px] font-semibold">Approve the brief?</span>
             </p>
-            <div className="mt-4 flex flex-col gap-2 text-[16px] leading-snug">
+            <div className={`mt-4 flex flex-col gap-2 leading-snug ${m ? "text-[17px]" : "text-[16px]"}`}>
               <p><b>For:</b> women ordering kebaya and baju kurung for weddings and Raya.</p>
               <p><b>One job:</b> get a fitting booked by chat.</p>
               <p><b>Working when:</b> more chat orders mention the site.</p>
@@ -212,7 +228,7 @@ function Frame({ t }: { t: number }) {
                   <i className="h-3 w-3 rounded-full bg-[#61c554]" />
                 </span>
               )}
-              <span className={`flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-[13px] text-[#14181a]/75 ${phone ? "" : "ml-3 min-w-[280px]"}`}>
+              <span className={`flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-[13px] text-[#14181a]/75 ${phone ? "" : m ? "ml-2 min-w-0 flex-1" : "ml-3 min-w-[280px]"}`}>
                 <span className={`transition-all duration-500 ${secure ? "text-[#1e7a3c] opacity-100" : "opacity-30"}`} aria-hidden>
                   {secure ? "🔒" : "○"}
                 </span>
@@ -245,7 +261,10 @@ function Frame({ t }: { t: number }) {
 
       {/* Side panels, one per beat */}
       {id === "shape" && (
-        <div className="absolute bottom-24 left-1/2 flex -translate-x-1/2 items-center gap-2 text-[15px]">
+        <div
+          className={m ? "absolute inset-x-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-3 text-[17px]" : "absolute bottom-24 left-1/2 flex -translate-x-1/2 items-center gap-2 text-[15px]"}
+          style={m ? { top: under + 8 } : undefined}
+        >
           {["Sees a style", "Asks for a quote", "Chats to order", "Books a fitting"].map((s, i) => (
             <span key={s} className="flex items-center gap-2" style={show(lt, 1200 + i * 550)}>
               {i > 0 && <span className="text-[#f5cb1d]">→</span>}
@@ -256,13 +275,13 @@ function Frame({ t }: { t: number }) {
       )}
 
       {id === "look" && (
-        <Card className="absolute left-10 top-[180px] w-[150px] p-3" style={show(lt, 300)}>
-          <p className="flex items-center gap-2 text-[13px] font-semibold"><Tag kind="Decide" /> Look</p>
-          <div className="mt-2 flex flex-col gap-2">
+        <Card className={m ? "absolute inset-x-5 p-4" : "absolute left-10 top-[180px] w-[150px] p-3"} style={m ? { ...show(lt, 300), top: under } : show(lt, 300)}>
+          <p className={`flex items-center gap-2 font-semibold ${m ? "text-[16px]" : "text-[13px]"}`}><Tag kind="Decide" /> Look</p>
+          <div className={`mt-2 flex gap-2 ${m ? "[&>*]:flex-1 text-[15px]" : "flex-col"}`}>
             {LOOKS.map((L, i) => (
               <div
                 key={L.name}
-                className={`flex items-center gap-2 rounded-lg border p-2 text-[13px] transition-all duration-300 ${
+                className={`flex items-center gap-2 rounded-lg border p-2 transition-all duration-300 ${m ? "" : "text-[13px]"} ${
                   i === look ? "border-[#077d95] bg-[#077d95]/10 font-semibold" : "border-[#14181a]/10"
                 }`}
               >
@@ -271,26 +290,26 @@ function Frame({ t }: { t: number }) {
               </div>
             ))}
           </div>
-          <p className="mt-2 text-[12px] font-semibold text-[#233219]" style={show(lt, 4000)}>✓ Chosen by you</p>
+          <p className={`mt-2 font-semibold text-[#233219] ${m ? "text-[15px]" : "text-[12px]"}`} style={show(lt, 4000)}>✓ Chosen by you</p>
         </Card>
       )}
 
       {id === "words" && (
-        <div className="absolute right-8 top-[200px] flex w-[230px] flex-col gap-3">
-          <Card className="p-4 text-[14px]" style={show(lt, 2700)}>
+        <div className={`absolute flex flex-col gap-3 ${m ? "inset-x-5" : "right-8 top-[200px] w-[230px]"}`} style={m ? { top: under } : undefined}>
+          <Card className={m ? "p-4 text-[17px]" : "p-4 text-[14px]"} style={show(lt, 2700)}>
             <p className="flex items-center gap-2 font-semibold"><Tag kind="Input" /> One gap</p>
             <p className="mt-2 leading-snug">What are your Saturday hours? I won&rsquo;t guess.</p>
           </Card>
-          <p className="ml-auto max-w-[85%] rounded-2xl bg-[#077d95] px-4 py-2.5 text-[14px] text-white" style={show(lt, 3900)}>
+          <p className={`ml-auto max-w-[85%] rounded-2xl bg-[#077d95] px-4 py-2.5 text-white ${m ? "text-[17px]" : "text-[14px]"}`} style={show(lt, 3900)}>
             Saturdays 10 to 4.
           </p>
         </div>
       )}
 
       {id === "check" && (
-        <Card className="absolute right-12 top-[170px] w-[290px] p-5" style={show(lt, 200)}>
-          <p className="text-[15px] font-semibold">Checks, before anything goes live</p>
-          <ul className="mt-3 flex flex-col gap-2.5 text-[14px]">
+        <Card className={m ? "absolute inset-x-5 p-4" : "absolute right-12 top-[170px] w-[290px] p-5"} style={m ? { ...show(lt, 200), top: under } : show(lt, 200)}>
+          <p className={`font-semibold ${m ? "text-[17px]" : "text-[15px]"}`}>Checks, before anything goes live</p>
+          <ul className={m ? "mt-3 grid grid-cols-2 gap-x-3 gap-y-2.5 text-[15px] leading-tight" : "mt-3 flex flex-col gap-2.5 text-[14px]"}>
             {[
               ["Critique", "Swapped a template-looking section"],
               ["Polish", "Spacing matches the chosen look"],
@@ -301,28 +320,28 @@ function Frame({ t }: { t: number }) {
                 <Check on={lt > 900 + i * 800} />
                 <span>
                   <b>{k}</b>
-                  <span className="block text-[12.5px] text-[#14181a]/65">{v}</span>
+                  <span className={`block text-[#14181a]/65 ${m ? "text-[13.5px]" : "text-[12.5px]"}`}>{v}</span>
                 </span>
               </li>
             ))}
           </ul>
-          <p className="mt-3 flex items-center gap-2 text-[13px]" style={show(lt, 4300)}>
+          <p className={`mt-3 flex items-center gap-2 ${m ? "text-[15px]" : "text-[13px]"}`} style={show(lt, 4300)}>
             <Tag kind="Decide" /> First look approved
           </p>
         </Card>
       )}
 
       {id === "phone" && (
-        <div className="absolute left-[640px] top-[230px] w-[480px]" style={show(lt, 900)}>
-          <p className="font-brand text-[44px] font-bold leading-[1.05]">Made for the phone in her customer&rsquo;s hand.</p>
-          <p className="mt-4 text-[18px] text-[#efe9d8]/70">Same pages, same look, rearranged for a thumb.</p>
+        <div className={m ? "absolute inset-x-6" : "absolute left-[640px] top-[230px] w-[480px]"} style={m ? { ...show(lt, 900), top: under + 8 } : show(lt, 900)}>
+          <p className={`font-brand font-bold leading-[1.05] ${m ? "text-[34px]" : "text-[44px]"}`}>Made for the phone in her customer&rsquo;s hand.</p>
+          <p className={`text-[#efe9d8]/70 ${m ? "mt-3 text-[19px]" : "mt-4 text-[18px]"}`}>Same pages, same look, rearranged for a thumb.</p>
         </div>
       )}
 
       {id === "live" && (
-        <Card className="absolute left-[640px] top-[150px] w-[440px] p-6" style={show(lt, 200)}>
-          <p className="text-[18px] font-semibold">Going live, guided</p>
-          <ol className="mt-4 flex flex-col gap-3 text-[15px]">
+        <Card className={m ? "absolute inset-x-5 p-5" : "absolute left-[640px] top-[150px] w-[440px] p-6"} style={m ? { ...show(lt, 200), top: under } : show(lt, 200)}>
+          <p className={`font-semibold ${m ? "text-[20px]" : "text-[18px]"}`}>Going live, guided</p>
+          <ol className={`mt-4 flex flex-col gap-3 leading-snug ${m ? "text-[17px]" : "text-[15px]"}`}>
             {[
               ["Your address, in your name, auto-renew on", 1000],
               ["Connected to the site, record by record", 1700],
@@ -343,26 +362,26 @@ function Frame({ t }: { t: number }) {
           </span>
         </Card>
       )}
-      {id === "live" && <Cursor x={lt < 2600 ? 1180 : 700} y={lt < 2600 ? 640 : 380} down={lt > 3300 && lt < 3700} />}
-      {id === "brief" && <Cursor x={lt < 2400 ? 1100 : 650} y={lt < 2400 ? 640 : 436} down={lt > 3200 && lt < 3500} />}
+      {!m && id === "live" && <Cursor x={lt < 2600 ? 1180 : 700} y={lt < 2600 ? 640 : 380} down={lt > 3300 && lt < 3700} />}
+      {!m && id === "brief" && <Cursor x={lt < 2400 ? 1100 : 650} y={lt < 2400 ? 640 : 436} down={lt > 3200 && lt < 3500} />}
 
       {atEnd && (
-        <div className="absolute left-[600px] top-[150px] w-[600px]">
-          <p className="font-brand text-[52px] font-bold leading-[1.04]" style={show(lt, 300, 700)}>
+        <div className={m ? "absolute inset-x-6" : "absolute left-[600px] top-[150px] w-[600px]"} style={m ? { top: under + 12 } : undefined}>
+          <p className={`font-brand font-bold leading-[1.04] ${m ? "text-[38px]" : "text-[52px]"}`} style={show(lt, 300, 700)}>
             You say it.<br />You approve it.<br />It goes live in your name.
           </p>
-          <p className="mt-6 text-[19px] leading-snug text-[#efe9d8]/75" style={show(lt, 1400)}>
+          <p className={`text-[19px] leading-snug text-[#efe9d8]/75 ${m ? "mt-5" : "mt-6"}`} style={show(lt, 1400)}>
             AI Jumpstart sets up your own AI team at your desk. A website is one thing you can ask for.
           </p>
-          <div className="mt-8 flex items-center gap-5" style={show(lt, 2100)}>
+          <div className={`flex ${m ? "mt-7 flex-col items-stretch gap-4 text-center" : "mt-8 items-center gap-5"}`} style={show(lt, 2100)}>
             <Link
               href={`/jumpstart/how-it-works/example?from=${onJumpstart ? "jumpstart" : "how-it-works"}`}
-              className="hiw-pop rounded-xl bg-[#f5cb1d] px-9 py-5 text-[22px] font-bold text-[#14181a] hover:bg-[#ffd93b]"
+              className="hiw-pop justify-center rounded-xl bg-[#f5cb1d] px-9 py-5 text-[22px] font-bold text-[#14181a] hover:bg-[#ffd93b]"
               style={{ ["--pop" as string]: lt > 2100 ? "running" : "paused" }}
             >
               Open Nadia&rsquo;s site →
             </Link>
-            <Link href={onJumpstart ? "#overview" : "/jumpstart"} className="self-center rounded-lg border border-white/30 px-6 py-3.5 text-[17px] font-bold hover:border-white/70">
+            <Link href={onJumpstart ? "#overview" : "/jumpstart"} className={`rounded-lg border border-white/30 px-6 font-bold hover:border-white/70 ${m ? "py-4 text-[19px]" : "self-center py-3.5 text-[17px]"}`}>
               About AI Jumpstart
             </Link>
           </div>
@@ -371,7 +390,7 @@ function Frame({ t }: { t: number }) {
 
       {/* Where we are: six sprints, a checkpoint at the end of each */}
       {sprint >= 0 && !atEnd && (
-        <ol className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-1.5 text-[12px]">
+        <ol className={`absolute left-1/2 flex -translate-x-1/2 gap-1.5 whitespace-nowrap ${m ? "bottom-4 text-[15px]" : "bottom-6 text-[12px]"}`}>
           {SPRINT_NAMES.map((n, i) => (
             <li
               key={n}
@@ -379,7 +398,8 @@ function Frame({ t }: { t: number }) {
                 i === sprint ? "bg-[#f5cb1d] font-bold text-[#14181a]" : i < sprint ? "bg-white/15 text-[#efe9d8]/80" : "bg-white/5 text-[#efe9d8]/40"
               }`}
             >
-              {i + 1} · {n}
+              {i + 1}
+              {(!m || i === sprint) && ` · ${n}`}
             </li>
           ))}
         </ol>
@@ -392,15 +412,18 @@ export default function JumpstartHowItWorksPlayer() {
   const [t, setT] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [userPaused, setUserPaused] = useState(false);
-  const [scale, setScale] = useState(0.5);
+  const [boxW, setBoxW] = useState(0);
   const reduced = useSyncExternalStore(subscribeReduced, () => window.matchMedia(REDUCED).matches, () => false);
+  const m = useNarrow();
   const box = useRef<HTMLDivElement>(null);
+  const sw = m ? MW : W;
+  const scale = boxW ? boxW / sw : 0.5;
   const done = t >= TOTAL;
 
   useEffect(() => {
     if (!box.current) return;
     const el = box.current;
-    const ro = new ResizeObserver(() => setScale(el.clientWidth / W));
+    const ro = new ResizeObserver(() => setBoxW(el.clientWidth));
     ro.observe(el);
     return () => ro.disconnect();
   }, [reduced]);
@@ -434,7 +457,7 @@ export default function JumpstartHowItWorksPlayer() {
       <ol className="grid gap-6 sm:grid-cols-2">
         {BEATS.map((s, n) => (
           <li key={s.id} className="flex flex-col gap-3">
-            <Still t={STARTS[n] + s.ms - 200} />
+            <Still t={STARTS[n] + s.ms - 200} m={m} />
             <p className="text-sm text-[#efe9d8]">
               <b className="text-[#f5cb1d]">{n + 1}.</b> {s.caption}
             </p>
@@ -451,16 +474,15 @@ export default function JumpstartHowItWorksPlayer() {
     <div className="flex flex-col gap-4">
       <div
         ref={box}
-        className="relative w-full overflow-hidden rounded-xl ring-1 ring-white/10"
-        style={{ aspectRatio: `${W} / ${H}` }}
+        className={`relative w-full overflow-hidden rounded-xl ring-1 ring-white/10 ${STAGE_BOX}`}
         role="img"
         aria-label="A short film: a founder asks her AI for a website and it goes live on her own address, with her approval at each step."
       >
-        <div className="absolute left-0 top-0 origin-top-left" style={{ width: W, height: H, transform: `scale(${scale})` }}>
-          <Frame t={t} />
+        <div className="absolute left-0 top-0 origin-top-left" style={{ width: sw, height: m ? MH : H, transform: `scale(${scale})` }}>
+          <Frame t={t} m={m} />
         </div>
       </div>
-      <p className="min-h-[3.5rem] text-base sm:text-lg leading-snug text-[#efe9d8]" aria-live="polite">
+      <p className="min-h-[4.5rem] min-[552px]:min-h-[3.5rem] text-base sm:text-lg leading-snug text-[#efe9d8]" aria-live="polite">
         {BEATS[b].caption}
       </p>
       <div className="flex items-center gap-3">
@@ -505,20 +527,22 @@ export default function JumpstartHowItWorksPlayer() {
   );
 }
 
-function Still({ t }: { t: number }) {
+function Still({ t, m }: { t: number; m: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(0.4);
+  const [boxW, setBoxW] = useState(0);
+  const sw = m ? MW : W;
+  const scale = boxW ? boxW / sw : 0.4;
   useEffect(() => {
     if (!ref.current) return;
     const el = ref.current;
-    const ro = new ResizeObserver(() => setScale(el.clientWidth / W));
+    const ro = new ResizeObserver(() => setBoxW(el.clientWidth));
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
   return (
-    <div ref={ref} className="relative w-full overflow-hidden rounded-lg ring-1 ring-white/10" style={{ aspectRatio: `${W} / ${H}` }} aria-hidden>
-      <div className="absolute left-0 top-0 origin-top-left" style={{ width: W, height: H, transform: `scale(${scale})` }}>
-        <Frame t={t} />
+    <div ref={ref} className={`relative w-full overflow-hidden rounded-lg ring-1 ring-white/10 ${STAGE_BOX}`} aria-hidden>
+      <div className="absolute left-0 top-0 origin-top-left" style={{ width: sw, height: m ? MH : H, transform: `scale(${scale})` }}>
+        <Frame t={t} m={m} />
       </div>
     </div>
   );

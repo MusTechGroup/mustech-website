@@ -55,7 +55,7 @@ export default function JumpstartTrainerCarousel() {
 
   return (
     <div
-      className="relative aspect-[4/5] w-48 sm:w-64 lg:w-full max-w-sm mx-auto lg:mx-0 overflow-hidden rounded-sm group select-none bg-[#14181a]"
+      className="relative aspect-[4/5] w-72 max-w-full lg:w-full lg:max-w-sm mx-auto lg:mx-0 overflow-hidden rounded-sm group select-none bg-[#14181a]"
       role="region"
       aria-roledescription="carousel"
       aria-label="Taufiq Rashid in lessons and training sessions"

@@ -124,7 +124,8 @@ function Stage({ example, items }: { example: Example; items: StandupItem[] }) {
   );
 
   const scaled = (w: number, h: number, node: ReactNode) => {
-    const k = avail ? Math.min(1, avail / (both ? fullW : w)) : 1;
+    // Alone on a narrow screen the phone grows to fill the width, so its small print can be read.
+    const k = avail ? Math.min(!both && w === PHONE.w ? 1.45 : 1, avail / (both ? fullW : w)) : 1;
     return (
       <div style={{ width: w * k, height: h * k }} className="relative shrink-0">
         <div style={{ width: w, height: h, transform: `scale(${k})`, transformOrigin: "top left" }}>{node}</div>
