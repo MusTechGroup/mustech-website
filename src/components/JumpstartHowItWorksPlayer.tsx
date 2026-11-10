@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 // "Make me a website", scene by scene, as the product runs it since 2026-11-10: the request becomes a project
-// (project-management, every install) and goes through design-stages' seven stages, each calling its skill
-// (os-template/.agents/skills/design-stages/SKILL.md); site-and-domain builds and guides going live.
+// run by project-run (every install) in design-stages' six sprints, each ending at a checkpoint, with the
+// documentation loop between sprints (os-template/.agents/skills/project-run and design-stages).
 // Names are illustrative. Plays like a short video; a storyboard when the reader prefers reduced motion.
 
 const SCENE_MS = 8000;
@@ -43,30 +43,30 @@ const Tag = ({ kind }: { kind: "Decide" | "Done" | "Input" }) => (
   </span>
 );
 
-const STAGES: [string, string][] = [
-  ["Brief", "strategize"],
-  ["Structure", "organize, journey"],
-  ["Look", "design-direction"],
-  ["Words", "articulate, clarify"],
-  ["Build", "site-and-domain"],
-  ["Check", "critique, polish, harden, adapt"],
-  ["Go live", "site-and-domain"],
+const SPRINTS: [string, string, string][] = [
+  ["Ground", "philosopher, investigate, strategize", "Brief"],
+  ["Shape", "blueprint, journey, organize, transpose", "Plan"],
+  ["Look and words", "design-direction, articulate, onboard", "Look, words"],
+  ["Build", "site-and-domain, frontend-design", ""],
+  ["Check", "evaluate, critique, polish, harden, adapt", "Ready?"],
+  ["Go live and learn", "site-and-domain, specify, measure", ""],
 ];
 
-const Stages = ({ at }: { at: number }) => (
+const Sprints = ({ at }: { at: number }) => (
   <ol className="flex flex-col gap-1 text-[12px]">
-    {STAGES.map(([name, skills], n) => (
+    {SPRINTS.map(([name, skills, check], n) => (
       <li
         key={name}
-        className={`hiw-in flex items-center justify-between gap-3 rounded px-2.5 py-1 ${
+        className={`hiw-in grid grid-cols-[1fr_auto] items-center gap-x-3 rounded px-2.5 py-1 ${
           n === at ? "border border-[#077d95]/50 bg-[#077d95]/8" : "border border-[#14181a]/8"
         }`}
         style={{ animationDelay: `${n * 0.15}s` }}
       >
         <span className={n < at ? "text-[#14181a]/50 line-through" : "font-semibold"}>
-          {n + 1}. {name}
+          Sprint {n + 1} · {name}
         </span>
-        <span className="font-mono text-[10px] text-[#14181a]/60">{skills}</span>
+        {check ? <span className="text-[10px] font-bold uppercase tracking-wide text-[#5c3d00]">Checkpoint: {check}</span> : <span />}
+        <span className="col-span-2 font-mono text-[10px] text-[#14181a]/60">{skills}</span>
       </li>
     ))}
   </ol>
@@ -79,22 +79,22 @@ const SCENES: Scene[] = [
       <Window title="Your AI tool: Claude Code, Codex, or Antigravity">
         <div className="flex flex-col gap-2">
           <Bubble who="you">I need a website.</Bubble>
-          <Bubble who="ai">I&rsquo;ll set this up as a project, &ldquo;Nadia&rsquo;s website&rdquo;, with seven stages. OK?</Bubble>
+          <Bubble who="ai">I&rsquo;ll run this as a project, &ldquo;Nadia&rsquo;s website&rdquo;, in six sprints, with your yes at the end of each. OK?</Bubble>
           <Bubble who="you">OK.</Bubble>
         </div>
       </Window>
     ),
   },
   {
-    caption: "Her project manager opens the project. Each stage calls the right skill, so the work goes in the right order.",
+    caption: "Her AI project manager writes the sprint plan. Each sprint calls the right skills in order and ends at a checkpoint for her yes.",
     render: () => (
       <Window title="Projects · PJ-0003 · Nadia's website">
-        <Stages at={0} />
+        <Sprints at={0} />
       </Window>
     ),
   },
   {
-    caption: "Brief: who the site is for, its one job, and how she will know it works. Drawn from what her workspace already knows.",
+    caption: "Sprint 1 grounds it: other ways to solve this, what her customers already say in her messages and reviews, then the brief. Checkpoint 1.",
     render: () => (
       <Window title="Dashboard · Today · Decide">
         <div className="hiw-in flex flex-col gap-2 text-[13px] leading-snug">
@@ -110,9 +110,30 @@ const SCENES: Scene[] = [
     ),
   },
   {
-    caption: "Structure: the pages, and the path a customer takes from arriving to booking a fitting.",
+    caption: "Before the next sprint, the documentation loop: what was done, what she decided, and what the next sprint must know, written on the project page.",
     render: () => (
-      <Window title="Stage 2 · Structure">
+      <Window title="PJ-0003 · after checkpoint 1">
+        <ul className="flex flex-col gap-1.5 text-[12.5px]">
+          {[
+            ["Log", "Brief written from 14 chat orders and 6 reviews"],
+            ["Decisions", "D-0041 · brief approved"],
+            ["Docs", "brief.md"],
+            ["Carried forward", "Raya rush is the busiest month; no prices online until she says"],
+          ].map(([k, v], i) => (
+            <li key={k} className="hiw-in grid grid-cols-[7.5rem_1fr] gap-2" style={{ animationDelay: `${i * 0.35}s` }}>
+              <span className="font-semibold text-[#077d95]">{k}</span>
+              <span>{v}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="hiw-in mt-3 text-xs text-[#14181a]/60 [animation-delay:1.6s]">The next session reads this first, so nothing is lost between days.</p>
+      </Window>
+    ),
+  },
+  {
+    caption: "Sprint 2 shapes it: what happens behind an order, the path a customer takes to book a fitting, and the pages. Checkpoint 2.",
+    render: () => (
+      <Window title="Sprint 2 · Shape">
         <div className="flex flex-col gap-3 text-[13px]">
           <p className="hiw-in">Home · Styles · Prices · How to order · Contact</p>
           <ol className="flex flex-wrap items-center gap-1.5 text-xs">
@@ -127,7 +148,7 @@ const SCENES: Scene[] = [
     ),
   },
   {
-    caption: "Look: two or three directions, all in her own brand colours. She picks one, and every page follows it.",
+    caption: "Sprint 3: two or three looks, all in her own brand colours. She picks one, and every page follows it.",
     render: () => (
       <Window title="Dashboard · Decide · Choose a look">
         <div className="grid grid-cols-3 gap-2">
@@ -148,9 +169,9 @@ const SCENES: Scene[] = [
     ),
   },
   {
-    caption: "Words: every heading and button in her voice, from her records. A fact it does not have is marked for her, never made up.",
+    caption: "Then the words: every heading and button in her voice. A fact it does not have is marked for her, never made up. Checkpoint 3.",
     render: () => (
-      <Window title="Stage 4 · Words · Home page">
+      <Window title="Sprint 3 · Words · Home page">
         <div className="hiw-in flex flex-col gap-2 leading-snug">
           <p className="font-brand text-lg font-bold">Kebaya and baju kurung, fitted to you</p>
           <p className="text-[13px] text-[#14181a]/80">Choose a style, chat to order, and collect in a week.</p>
@@ -163,9 +184,9 @@ const SCENES: Scene[] = [
     ),
   },
   {
-    caption: "Build and check: the pages are made, then checked for what looks generic, what breaks, and how they read on a phone.",
+    caption: "Sprints 4 and 5: the pages are built, then checked. Critique, polish, harden, and adapt run every time; nothing goes live without them. Checkpoint 4.",
     render: () => (
-      <Window title="Stage 6 · Check">
+      <Window title="Sprint 5 · Check (always)">
         <ul className="flex flex-col gap-1.5 text-[13px]">
           {[
             ["Critique", "Hero looked like a template: replaced with her own photos"],
@@ -186,9 +207,9 @@ const SCENES: Scene[] = [
     ),
   },
   {
-    caption: "Go live: her AI walks her through each click and checks it worked. Her name, her card, her site.",
+    caption: "Sprint 6: her AI walks her through each click and checks it worked, then writes a handover: how to change each page.",
     render: () => (
-      <Window title="Stage 7 · Going live, guided">
+      <Window title="Sprint 6 · Going live, guided">
         <ol className="flex flex-col gap-2 text-[13px]">
           {[
             ["Choose your web address", "Shown on screen"],
@@ -212,7 +233,7 @@ const SCENES: Scene[] = [
       <Window title="Your standup · by email and on your dashboard">
         <ul className="flex flex-col gap-2 text-[13px]">
           <li className="hiw-in flex items-start gap-2">
-            <Tag kind="Done" /> <span>PJ-0003 Nadia&rsquo;s website: live on her own address, all seven stages done.</span>
+            <Tag kind="Done" /> <span>PJ-0003 Nadia&rsquo;s website: live on her own address, all six sprints done, handover on the project page.</span>
           </li>
           <li className="hiw-in flex items-start gap-2 [animation-delay:0.4s]">
             <Tag kind="Input" /> <span>Update the link in your chat profile and your bio? Here is the list.</span>

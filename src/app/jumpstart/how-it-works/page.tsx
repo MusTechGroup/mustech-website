@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 };
 
 const WHO = [
-  { k: "Your AI does", v: "Opens a project, works through the stages in order, writes from your own records, marks what is missing, and guides each step." },
-  { k: "You decide", v: "The brief, the look, the words, and when it is ready, on your dashboard. The route and the provider." },
+  { k: "Your AI does", v: "Runs it as a project: a sprint plan, the right skills in each sprint, and a written record after every sprint, so the next session picks up exactly where the last one stopped." },
+  { k: "You decide", v: "At four checkpoints on your dashboard: the brief, the plan, the look and words, and when it is ready. Nothing moves to the next sprint without your yes." },
   { k: "We guide you", v: "When it is time to buy the domain or press Publish, your AI shows you each click and checks it worked. Your name, your card, your site." },
-  { k: "The skills it calls", v: "Every install has the project manager and the seven design stages, with guides from Intent and Impeccable for the brief, structure, look, words, and check. Founders who build their own app also get prototypes, browser checks, and a scored before and after." },
+  { k: "The skills it calls", v: "Every install has the project manager and the website playbook, with guides from Intent and Impeccable: philosopher, investigate, strategize, blueprint, journey, organize, design-direction, articulate, critique, polish, harden, adapt, and more. Founders who build their own app also get prototypes, browser checks, and a scored before and after." },
 ];
 
 export default function HowItWorksPage() {
