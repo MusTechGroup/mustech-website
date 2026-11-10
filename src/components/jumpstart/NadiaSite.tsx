@@ -4,9 +4,9 @@
 // Names, business, and address are illustrative. No prices: the carried-forward note says none online until she says.
 // Its own brand (plum and gold thread), not MusTech's or any other example's.
 
-// Flip to true once the Gemini photos are in public/jumpstart/nadia/ (see docs/JUMPSTART_AD_GEMINI_PROMPTS.md).
-export const HAS_PHOTOS = false;
-const PHOTO = (name: string) => `/jumpstart/nadia/${name}.webp`;
+// Flip to true once the Gemini photos are in public/jumpstart/nadia/ (made 2026-11-10) (see docs/JUMPSTART_AD_GEMINI_PROMPTS.md).
+export const HAS_PHOTOS = true;
+const PHOTO = (name: string) => `/jumpstart/nadia/${name}.jpg`;
 
 export const LOOKS = [
   { name: "Minimal", bg: "#faf7f2", ink: "#2a2326", accent: "#6b4a5a", gold: "#b8975a", soft: "#efe7de" },
