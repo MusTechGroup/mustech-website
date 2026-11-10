@@ -25,7 +25,7 @@ export default function JumpstartRegisterForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [projectStage, setProjectStage] = useState<VentureStage>("idea");
-  // Honeypot: hidden from people, filled in by simple bots.
+  // Honeypot: hidden from people, filled in by simple bots. Named so that no browser autofill fills it.
   const [website, setWebsite] = useState("");
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -86,9 +86,6 @@ export default function JumpstartRegisterForm() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="flex flex-col items-start mb-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#f5cb1d] mb-1 block">
-                Early expression of interest
-              </span>
               <h3 className="font-brand text-2xl sm:text-3xl font-bold text-[#efe9d8] tracking-tight">
                 Your details
               </h3>
@@ -170,12 +167,16 @@ export default function JumpstartRegisterForm() {
 
             {/* Honeypot. Off-screen rather than display:none, which some bots skip. */}
             <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
-              <label htmlFor="founder-website">Website</label>
+              <label htmlFor="founder-ref-code">Leave this empty</label>
               <input
-                id="founder-website"
+                id="founder-ref-code"
+                name="ref-code-confirm"
                 type="text"
                 tabIndex={-1}
                 autoComplete="off"
+                data-1p-ignore="true"
+                data-lpignore="true"
+                data-form-type="other"
                 value={website}
                 onChange={(e) => setWebsite(e.target.value)}
               />
