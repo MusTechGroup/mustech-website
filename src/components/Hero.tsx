@@ -327,7 +327,7 @@ export default function Hero() {
         <div
           ref={mobileTrackRef}
           onScroll={handleMobileTrackScroll}
-          className="flex flex-row gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none touch-pan-x px-4 sm:px-6 py-2"
+          className="flex flex-row gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none px-4 sm:px-6 py-2"
         >
           {HERO_PANELS.map((panel, idx) => {
             const isActive = idx === activeMobileIndex;

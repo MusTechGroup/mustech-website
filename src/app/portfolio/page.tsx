@@ -8,6 +8,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import AnimatedJenazahLogo from "@/components/AnimatedJenazahLogo";
 import AnimatedTarabaseLogo from "@/components/AnimatedTarabaseLogo";
 import Reveal from "@/components/Reveal";
+import ZoomableShot from "@/components/ZoomableShot";
 
 export const metadata: Metadata = {
   title: "Product Ecosystem & Interactive Walkthroughs",
@@ -163,7 +164,7 @@ export default function PortfolioPage() {
                   Swipe platforms →
                 </span>
               </div>
-              <div className="flex gap-3.5 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-2 -mx-4 px-4 touch-pan-x">
+              <div className="flex gap-3.5 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-2 -mx-4 px-4">
                 {/* Saalihat Card */}
                 <a
                   href="#saalihat"
@@ -379,7 +380,7 @@ export default function PortfolioPage() {
 
                   {/* Right 8 Columns: Aligned 3-Step Cards (Swipeable on Mobile, 3-Col Grid on Desktop) */}
                   <div className="lg:col-span-8">
-                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-6 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 touch-pan-x">
+                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-6 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0">
                       {/* 01. Live Animated Boomerang GIF/Video */}
                       <div className="group bg-[#151922] border border-white/15 hover:border-[#d5ad5b]/50 p-5 flex flex-col justify-between transition-colors duration-300 w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
                         <div className="pb-4 mb-4 border-b border-white/10 min-h-0 sm:min-h-[7.5rem]">
@@ -395,28 +396,13 @@ export default function PortfolioPage() {
                             Browse verified mosque events, lecture times, and prayer halls in real time.
                           </p>
                         </div>
-                        <div className="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10">
-                          <video
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            preload="metadata"
-                            poster="/saalihat/clean-screen-1.png"
-                            className="w-full h-full object-contain block"
-                          >
-                            <source src="/saalihat/saalihat_boomerang.webm" type="video/webm" />
-                            <source src="/saalihat/saalihat_boomerang.mp4" type="video/mp4" />
-                            <Image
-                              src="/saalihat/saalihat_boomerang.gif"
-                              alt="Saalihat App Live Animated Walkthrough"
-                              fill
-                              sizes="(max-width: 640px) 90vw, 260px"
-                              className="object-contain"
-                              unoptimized
-                            />
-                          </video>
-                        </div>
+                        <ZoomableShot
+                          src="/saalihat/clean-screen-1.png"
+                          alt="Saalihat App Live Animated Walkthrough"
+                          frameClassName="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10"
+                          mediaClassName="object-contain"
+                          video={{ webm: "/saalihat/saalihat_boomerang.webm", mp4: "/saalihat/saalihat_boomerang.mp4" }}
+                        />
                       </div>
 
                       {/* 02. Mosque & Event Directory (Clean Retina Crop - Masjid Sultan) */}
@@ -434,15 +420,13 @@ export default function PortfolioPage() {
                             Inspect mosque schedules, verified locations, and upcoming lectures by venue.
                           </p>
                         </div>
-                        <div className="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10">
-                          <Image
-                            src="/saalihat/clean-screen-2.png"
-                            alt="Saalihat Mosque Details View"
-                            fill
-                            sizes="(max-width: 640px) 90vw, 260px"
-                            className="object-contain object-top"
-                          />
-                        </div>
+                        <ZoomableShot
+                          src="/saalihat/clean-screen-2.png"
+                          alt="Saalihat Mosque Details View"
+                          sizes="(max-width: 640px) 90vw, 260px"
+                          frameClassName="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10"
+                          mediaClassName="object-contain object-top"
+                        />
                       </div>
 
                       {/* 03. Structured Topic & Category Filter (Clean Retina Crop) */}
@@ -460,15 +444,13 @@ export default function PortfolioPage() {
                             Filter by Fiqh &amp; Aqidah, Seerah, Tasawwuf, or weekly Kuliah classes.
                           </p>
                         </div>
-                        <div className="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10">
-                          <Image
-                            src="/saalihat/clean-screen-3.png"
-                            alt="Saalihat Topic and Category Taxonomy Filter"
-                            fill
-                            sizes="(max-width: 640px) 90vw, 260px"
-                            className="object-contain object-top"
-                          />
-                        </div>
+                        <ZoomableShot
+                          src="/saalihat/clean-screen-3.png"
+                          alt="Saalihat Topic and Category Taxonomy Filter"
+                          sizes="(max-width: 640px) 90vw, 260px"
+                          frameClassName="relative aspect-[1260/1980] w-full overflow-hidden rounded-lg bg-black border border-white/10"
+                          mediaClassName="object-contain object-top"
+                        />
                       </div>
                     </div>
 
@@ -540,7 +522,7 @@ export default function PortfolioPage() {
 
                   {/* Right 8 Columns: Aligned 3-Step Rites Flow Cards */}
                   <div className="lg:col-span-8">
-                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-6 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 touch-pan-x">
+                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-6 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0">
                       {/* Step 1 */}
                       <div className="group bg-[#FDFCF8] border border-black/10 hover:border-[#4A5D3F]/50 p-5 flex flex-col justify-between transition-colors duration-300 w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
                         <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[7.5rem]">
@@ -556,15 +538,13 @@ export default function PortfolioPage() {
                             Start with just the name; add burial plot and mosque details later.
                           </p>
                         </div>
-                        <div className="relative aspect-[780/1688] w-full overflow-hidden rounded-lg bg-white border border-black/10 shadow-sm">
-                          <Image
-                            src="/ecosystem/jenazah/step-1-create.webp"
-                            alt="Step 1 Create Funeral Notice"
-                            fill
-                            sizes="(max-width: 640px) 90vw, 260px"
-                            className="object-contain object-top"
-                          />
-                        </div>
+                        <ZoomableShot
+                          src="/ecosystem/jenazah/step-1-create.webp"
+                          alt="Step 1 Create Funeral Notice"
+                          sizes="(max-width: 640px) 90vw, 260px"
+                          frameClassName="relative aspect-[780/1688] w-full overflow-hidden rounded-lg bg-white border border-black/10 shadow-sm"
+                          mediaClassName="object-contain object-top"
+                        />
                       </div>
 
                       {/* Step 2 */}
@@ -582,15 +562,13 @@ export default function PortfolioPage() {
                             Private link for Waris Terdekat to update rites stages in real time.
                           </p>
                         </div>
-                        <div className="relative aspect-[780/1688] w-full overflow-hidden rounded-lg bg-white border border-black/10 shadow-sm">
-                          <Image
-                            src="/ecosystem/jenazah/step-2-family.webp"
-                            alt="Step 2 Family Coordination View"
-                            fill
-                            sizes="(max-width: 640px) 90vw, 260px"
-                            className="object-contain object-top"
-                          />
-                        </div>
+                        <ZoomableShot
+                          src="/ecosystem/jenazah/step-2-family.webp"
+                          alt="Step 2 Family Coordination View"
+                          sizes="(max-width: 640px) 90vw, 260px"
+                          frameClassName="relative aspect-[780/1688] w-full overflow-hidden rounded-lg bg-white border border-black/10 shadow-sm"
+                          mediaClassName="object-contain object-top"
+                        />
                       </div>
 
                       {/* Step 3 */}
@@ -608,15 +586,13 @@ export default function PortfolioPage() {
                             Shareable link on WhatsApp with live Solat Jenazah &amp; burial status.
                           </p>
                         </div>
-                        <div className="relative aspect-[780/1688] w-full overflow-hidden rounded-lg bg-white border border-black/10 shadow-sm">
-                          <Image
-                            src="/ecosystem/jenazah/step-3-public-after.webp"
-                            alt="Step 3 Public Community Notice"
-                            fill
-                            sizes="(max-width: 640px) 90vw, 260px"
-                            className="object-contain object-top"
-                          />
-                        </div>
+                        <ZoomableShot
+                          src="/ecosystem/jenazah/step-3-public-after.webp"
+                          alt="Step 3 Public Community Notice"
+                          sizes="(max-width: 640px) 90vw, 260px"
+                          frameClassName="relative aspect-[780/1688] w-full overflow-hidden rounded-lg bg-white border border-black/10 shadow-sm"
+                          mediaClassName="object-contain object-top"
+                        />
                       </div>
                     </div>
 
@@ -723,7 +699,7 @@ export default function PortfolioPage() {
                       </video>
                     </div>
 
-                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-5 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0 touch-pan-x">
+                    <div className="flex sm:grid sm:grid-cols-3 gap-4 sm:gap-5 items-stretch overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 sm:pb-0 -mx-5 px-5 sm:mx-0 sm:px-0">
                       {/* Module 1: Live Demo Kitchen */}
                       <div className="border border-black/10 bg-[#FAF8F5] p-5 flex flex-col justify-between w-[78vw] max-w-[280px] sm:w-auto sm:max-w-none shrink-0 snap-start sm:shrink">
                         <div className="pb-4 mb-4 border-b border-black/10 min-h-0 sm:min-h-[6.5rem]">
@@ -739,15 +715,13 @@ export default function PortfolioPage() {
                             Service days cap orders automatically. Production schedule shows live PayNow-verified settlement badges.
                           </p>
                         </div>
-                        <div className="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white">
-                          <Image
-                            src="/ecosystem/tarabase/ui-production-schedule.png"
-                            alt="TaraBase Production Schedule table showing service day orders, buyer names, items, totals, Paid status badges, and handover actions"
-                            fill
-                            sizes="(max-width: 640px) 90vw, 260px"
-                            className="object-cover object-top"
-                          />
-                        </div>
+                        <ZoomableShot
+                          src="/ecosystem/tarabase/ui-production-schedule.png"
+                          alt="TaraBase Production Schedule table showing service day orders, buyer names, items, totals, Paid status badges, and handover actions"
+                          sizes="(max-width: 640px) 90vw, 260px"
+                          frameClassName="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white"
+                          mediaClassName="object-cover object-top"
+                        />
                       </div>
 
                       {/* Module 2: Buyer Telegram Storefront */}
@@ -765,15 +739,13 @@ export default function PortfolioPage() {
                             Buyers pick a service day and collection window directly inside Telegram without downloading an app.
                           </p>
                         </div>
-                        <div className="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white">
-                          <Image
-                            src="/ecosystem/tarabase/ui-telegram-storefront.png"
-                            alt="TaraBase buyer storefront preview showing a welcome message and upcoming service day pickup buttons"
-                            fill
-                            sizes="(max-width: 640px) 90vw, 260px"
-                            className="object-contain object-top"
-                          />
-                        </div>
+                        <ZoomableShot
+                          src="/ecosystem/tarabase/ui-telegram-storefront.png"
+                          alt="TaraBase buyer storefront preview showing a welcome message and upcoming service day pickup buttons"
+                          sizes="(max-width: 640px) 90vw, 260px"
+                          frameClassName="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white"
+                          mediaClassName="object-contain object-top"
+                        />
                       </div>
 
                       {/* Module 3: Live Stall Counter */}
@@ -791,15 +763,13 @@ export default function PortfolioPage() {
                             For bazaars and pop-ups: tap items, turn the tablet around, and generate a fixed-amount PayNow QR offline.
                           </p>
                         </div>
-                        <div className="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white">
-                          <Image
-                            src="/ecosystem/tarabase/ui-paynow-counter.png"
-                            alt="TaraBase Live stall counter with the belah ketupat motif band, booth break-even bar, tapped items, and Charge SGD 68.00 and Cash buttons"
-                            fill
-                            sizes="(max-width: 640px) 90vw, 260px"
-                            className="object-cover object-top"
-                          />
-                        </div>
+                        <ZoomableShot
+                          src="/ecosystem/tarabase/ui-paynow-counter.png"
+                          alt="TaraBase Live stall counter with the belah ketupat motif band, booth break-even bar, tapped items, and Charge SGD 68.00 and Cash buttons"
+                          sizes="(max-width: 640px) 90vw, 260px"
+                          frameClassName="relative aspect-[980/880] w-full overflow-hidden rounded border border-black/10 bg-white"
+                          mediaClassName="object-cover object-top"
+                        />
                       </div>
                     </div>
 

@@ -143,7 +143,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* 4 Cards: Swipeable Track on Mobile (< md:), 4-Col Grid on Desktop (md:+) */}
-                <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 touch-pan-x items-stretch">
+                <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 items-stretch">
                   {/* Card 1 */}
                   <div className="bg-[var(--brand-bg)]/50 border border-black/10 p-5 sm:p-6 flex flex-col justify-between w-[78vw] max-w-[280px] md:w-auto md:max-w-none shrink-0 snap-start md:shrink">
                     <div>
@@ -253,7 +253,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* 3 Homogeneous Pillar Cards: Swipeable Track on Mobile (< md:), 3-Col Grid on Desktop (md:+) */}
-                <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 touch-pan-x items-stretch">
+                <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scrollbar-none pb-3 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0 items-stretch">
                   {/* Pillar 01 */}
                   <div className="bg-[var(--brand-bg)]/40 border border-black/10 p-5 sm:p-6 flex flex-col justify-between w-[78vw] max-w-[300px] md:w-auto md:max-w-none shrink-0 snap-start md:shrink">
                     <div>
