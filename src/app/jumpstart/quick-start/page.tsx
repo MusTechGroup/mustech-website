@@ -62,13 +62,13 @@ const PHASES: Phase[] = [
         num: 2,
         title: "Answer the questions about your business",
         body: "About ten minutes of plain questions: what you sell, who buys, what eats your week. Your answers decide which departments you get.",
-        cue: <MiniMail subject="Your MusTech OS questionnaire" cta="Start Survey" />,
+        cue: <MiniMail subject="Your AI Jumpstart questionnaire" cta="Start Survey" />,
       },
       {
         num: 3,
         title: "Get your setup email",
         body: "Your workspace is built from your answers, and the setup link arrives in the email we send to the address you signed up with.",
-        cue: <MiniMail subject="Your MusTech OS workspace is ready" cta="Open Setup" />,
+        cue: <MiniMail subject="Your AI Jumpstart workspace is ready" cta="Open Setup" />,
       },
     ],
   },
@@ -163,7 +163,7 @@ const HELP = [
   { k: "“Set up” button did nothing", v: "Run the downloaded installer first, then click Set up my workspace again." },
   { k: "Setup link expired", v: "Press Send a new link on the setup page." },
   { k: "Closed the dashboard tab", v: "Open your bookmark again; your dashboard keeps running in the background." },
-  { k: "Uninstalling or moving laptops", v: "Open MusTech OS in Applications; your local company folder stays intact." },
+  { k: "Uninstalling or moving laptops", v: "Open AI Jumpstart in Applications; your local company folder stays intact." },
 ];
 
 const NEEDS = [
