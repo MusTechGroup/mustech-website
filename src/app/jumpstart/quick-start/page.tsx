@@ -3,16 +3,16 @@ import type { ReactNode } from "react";
 import { OnePager, Block, Sheet, SheetPart } from "@/components/OnePager";
 
 export const metadata: Metadata = {
-  title: "MusTech OS Quick Start | From Sign-Up to Your First Morning Standup",
+  title: "AI Jumpstart Quick Start | From Sign-Up to Your First Morning Standup",
   description:
-    "Nine steps, no Terminal: sign up and answer the questions about your business, install MusTech OS and connect your AI, then set it up with us at AI Jumpstart and run your business with it.",
+    "Nine steps, no Terminal: sign up and answer the questions about your business, install the app and connect your AI, then set it up with us at AI Jumpstart and run your business with it.",
   alternates: { canonical: "/jumpstart/quick-start" },
   openGraph: {
     type: "website",
     locale: "en_SG",
     url: "https://www.mustechgroup.com/jumpstart/quick-start",
     siteName: "MusTech Group",
-    title: "MusTech OS Quick Start",
+    title: "AI Jumpstart Quick Start",
     description: "Nine steps, no Terminal, from sign-up to your first morning standup.",
     images: [{ url: "/brand/Logo_Large_ClearBg.png", width: 513, height: 386, alt: "MusTech" }],
   },
@@ -67,7 +67,7 @@ const PHASES: Phase[] = [
       {
         num: 3,
         title: "Get your setup email",
-        body: "Your MusTech OS is built from your answers, and the setup link arrives in the email we send to the address you signed up with.",
+        body: "Your workspace is built from your answers, and the setup link arrives in the email we send to the address you signed up with.",
         cue: <MiniMail subject="Your MusTech OS workspace is ready" cta="Open Setup" />,
       },
     ],
@@ -162,7 +162,7 @@ const DAILY = [
 const HELP = [
   { k: "“Set up” button did nothing", v: "Run the downloaded installer first, then click Set up my workspace again." },
   { k: "Setup link expired", v: "Press Send a new link on the setup page." },
-  { k: "Closed the dashboard tab", v: "Open your bookmark again; MusTech OS keeps running in the background." },
+  { k: "Closed the dashboard tab", v: "Open your bookmark again; your dashboard keeps running in the background." },
   { k: "Uninstalling or moving laptops", v: "Open MusTech OS in Applications; your local company folder stays intact." },
 ];
 
@@ -343,7 +343,7 @@ export default function QuickStartPage() {
       screen={<Screen />}
       sheet={<Paper />}
       pdf="/jumpstart/mustech-os-quick-start.pdf"
-      other={{ href: "/jumpstart/mustech-os", label: "What MusTech OS does" }}
+      other={{ href: "/jumpstart/mustech-os", label: "What you get" }}
     />
   );
 }

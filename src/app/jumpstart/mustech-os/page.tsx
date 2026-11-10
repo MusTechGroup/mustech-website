@@ -5,16 +5,16 @@ import Cycler from "@/components/Cycler";
 import { JOBS } from "@/components/mustech-os-jobs";
 
 export const metadata: Metadata = {
-  title: "MusTech OS | AI Departments That Run Your Business, With You in Charge",
+  title: "AI Jumpstart | AI Departments That Run Your Business, With You in Charge",
   description:
-    "MusTech OS installs AI departments on your own computer, calibrated to your business: customer replies, receipts, quotes, chasers, a website, and a daily standup. Nothing leaves without your yes.",
+    "AI Jumpstart sets up AI departments on your own computer, calibrated to your business: customer replies, receipts, quotes, chasers, a website, and a daily standup. Nothing leaves without your yes.",
   alternates: { canonical: "/jumpstart/mustech-os" },
   openGraph: {
     type: "website",
     locale: "en_SG",
     url: "https://www.mustechgroup.com/jumpstart/mustech-os",
     siteName: "MusTech Group",
-    title: "MusTech OS | AI Departments That Run Your Business, With You in Charge",
+    title: "AI Jumpstart | AI Departments That Run Your Business, With You in Charge",
     description:
       "AI departments on your own computer, calibrated to your business. They draft, chase, and remind; you approve on your dashboard.",
     images: [{ url: "/brand/Logo_Large_ClearBg.png", width: 513, height: 386, alt: "MusTech" }],
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 const STANDFIRST =
-  "MusTech OS puts AI departments on your own computer, set up for your business at AI Jumpstart. They keep your ledger, draft your replies, quotes, and chasers, and bring you a standup every morning. You approve on your dashboard; nothing leaves without you.";
+  "AI Jumpstart puts AI departments on your own computer, set up with you for your business. They keep your ledger, draft your replies, quotes, and chasers, and bring you a standup every morning. You approve on your dashboard; nothing leaves without you.";
 
 const REPORT = [
   { tag: "Red", c: "bg-[#a8432f]/15 text-[#7a2f20]", t: "Invoice to Kopi Lab is 14 days late. A chaser is drafted: send it?" },
@@ -47,14 +47,14 @@ const ADVANTAGES = [
   {
     num: "03",
     name: "Your business stays on your computer",
-    line: "Your records never go to MusTech. It runs on the AI plan you already pay for, and nothing breaks if you stop paying us.",
+    line: "Your records never go to MusTech. It runs on the AI plan you already pay for, with a year of updates included.",
     badge: "Yours to keep",
   },
 ];
 
 const FACTS = [
-  { v: "58", k: "things owners asked AI for, from 189 mentions, shaped what it does" },
-  { v: "92", k: "skills to choose from; yours are installed to fit your answers" },
+  { v: "Research", k: "what owners asked AI for, on forums and in national studies, shaped what it does" },
+  { v: "Fitted", k: "departments and skills installed to fit your answers, not a one-size kit" },
   { v: "0", k: "business files sent to MusTech: your records stay on your machine" },
   { v: "2 days", k: "in person at AI Jumpstart, setting it up with you" },
 ];

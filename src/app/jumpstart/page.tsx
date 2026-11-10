@@ -203,26 +203,25 @@ export default function JumpstartPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mb-4 sm:mb-8">
               <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.5rem)] text-balance">
-                Rules the AI cannot get round.
+                You stay in charge.
               </h2>
               <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/80 leading-relaxed max-w-2xl">
-                Some calls are yours alone. A guard checks each action before it happens and refuses the ones that belong to you. It never just says no: every refusal says what to do instead. When your AI needs to go past a limit, such as sending a message you approved or reading your calendar, it asks: you approve on your dashboard, and the gate closes by itself. Moving money, your bank, and questioning your customers never get a gate.
+                The AI does the work. The calls that matter stay yours.
               </p>
             </div>
             <JumpstartSafety />
           </div>
         </Scene>
 
-        {/* Research: what owners asked AI for, and what MusTech OS does about it */}
+        {/* Research: where we looked, the need, and our fix */}
         <Scene id="research" deck="Research" className="text-[#efe9d8] py-10 sm:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mb-6 sm:mb-10">
               <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.05] text-[clamp(1.75rem,5vw,3.5rem)] text-balance">
-                Built on what owners asked AI for.
+                Built on what owners told us they need.
               </h2>
               <p className="mt-3 text-sm sm:text-lg text-[#efe9d8]/80 leading-relaxed max-w-2xl">
-                We read 189 mentions of what small business owners want from AI, from owner forums, surveys, and public reports, and sorted
-                them into 58 asks. Here are the most asked, with how many times each came up, and what MusTech OS does about it.
+                We studied what small business owners want from AI, and what makes them stop trusting it.
               </p>
             </div>
             <JumpstartResearch />

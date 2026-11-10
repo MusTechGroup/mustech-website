@@ -35,11 +35,14 @@ export interface Example {
   desk: DeskScene;
   /** A short note typed into the dashboard's capture box. */
   capture: string;
+  /** The business's own brand: each HQ dashboard takes its founder's colours (founder, 2026-11-10). */
+  brand: { dark: string; accent: string; onDark: string };
 }
 
 export const EXAMPLES: Example[] = [
   {
     id: "contractor",
+    brand: { dark: "#1f2a24", accent: "#2f6b4f", onDark: "#8fd1ad" },
     tab: "Contractor",
     person: "Roslan",
     role: "Roslan, renovation contractor",
@@ -80,6 +83,7 @@ export const EXAMPLES: Example[] = [
   },
   {
     id: "agency",
+    brand: { dark: "#1a1533", accent: "#5b3fd9", onDark: "#b9a8ff" },
     tab: "Agency",
     person: "Hakim",
     role: "Hakim, creative agency",
@@ -120,6 +124,7 @@ export const EXAMPLES: Example[] = [
   },
   {
     id: "coach",
+    brand: { dark: "#0f2740", accent: "#1d64a8", onDark: "#8cc4f5" },
     tab: "Coach",
     person: "Daniel",
     role: "Daniel, online fitness coach",

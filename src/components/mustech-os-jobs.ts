@@ -1,5 +1,5 @@
-// What a founder does with MusTech OS, from the demand research (founder-course,
-// jumpstart/review/audits/2026-11-09-demand-research.md: 58 asks from 189 mentions) and the skills that ship.
+// What a founder does after AI Jumpstart, from the demand research (founder-course,
+// jumpstart/review/audits/2026-11-09-demand-research.md) and the skills that ship. No counts on the page (founder, 2026-11-10).
 // Every line says what the product does today. Names and figures in examples are illustrative.
 
 export type Job = {
@@ -25,7 +25,7 @@ export const JOBS: Job[] = [
     skill: "answer-kit · missed-call · product-listing",
     title: "Listings, repeat answers, and missed calls, drafted for you to send",
     summary:
-      "The three most-asked jobs in our research: listings with the right search words (8 mentions), answers to repeat questions (8), and missed calls and messages (6). Your AI drafts all three from your own records.",
+      "Among the jobs owners asked for most: listings with the right search words, answers to repeat questions, and missed calls and messages. Your AI drafts all three from your own records.",
     lines: [
       { k: "Listings", v: "Product descriptions in your words, with the words buyers search for. No claim you did not make." },
       { k: "Repeat answers", v: "A kit of answers to the questions you get every week, ready to paste." },
@@ -43,7 +43,7 @@ export const JOBS: Job[] = [
     skill: "receipt-log · proposal-draft · chase-payments · grants-check",
     title: "The paperwork side of the business, kept up to date",
     summary:
-      "Receipts sorted (6 mentions), quotes in minutes (5), and which Singapore grants you may qualify for (4). Payment chasers are drafted when an invoice is late; filing dates sit in your calendar.",
+      "Receipts sorted, quotes in minutes, and which Singapore grants you may qualify for. Payment chasers are drafted when an invoice is late; filing dates sit in your calendar.",
     lines: [
       { k: "Receipts", v: "Photo or PDF in, logged with its date, amount, and GST, ready for your accountant." },
       { k: "Quotes", v: "A proposal from your price list, with every total worked out by a calculation, never by guesswork." },
@@ -75,7 +75,7 @@ export const JOBS: Job[] = [
     tab: "4 · Every day",
     label: "Say it once. It is on the ledger, in your standup, and chased.",
     dept: "Founder's Office",
-    ask: "Kak Lina wants 40 jars for Saturday.",
+    ask: "Kopi Lab wants the revised quote by Friday.",
     skill: "daily command",
     title: "One ledger of what you owe and what is owed to you",
     summary:
@@ -86,6 +86,6 @@ export const JOBS: Job[] = [
       { k: "Standup", v: "Every morning by email and on your dashboard: Red first, then what to decide, then what is done." },
       { k: "Gates", v: "If it needs to go past a limit, it asks. You approve on your dashboard; the gate closes by itself.", tone: "ok" },
     ],
-    footer: "Your business files stay on your computer. Nothing breaks if you stop paying.",
+    footer: "Your business files stay on your computer. A year of updates is included.",
   },
 ];

@@ -14,7 +14,7 @@ type Scene = { caption: string; render: () => React.ReactNode };
 const Window = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="w-full max-w-md rounded-md border border-[#14181a]/15 bg-white shadow-sm overflow-hidden text-left">
     <div className="flex items-center gap-1.5 border-b border-[#14181a]/10 bg-[#fdfaf0] px-3 py-2">
-      <span className="h-2.5 w-2.5 rounded-full bg-[#d95d24]/70" aria-hidden />
+      <span className="h-2.5 w-2.5 rounded-full bg-[#a8432f]/70" aria-hidden />
       <span className="h-2.5 w-2.5 rounded-full bg-[#f8df98]" aria-hidden />
       <span className="h-2.5 w-2.5 rounded-full bg-[#077d95]/60" aria-hidden />
       <span className="ml-2 text-xs text-[#14181a]/60">{title}</span>

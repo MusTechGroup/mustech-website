@@ -5,16 +5,16 @@ import Footer from "@/components/Footer";
 import JumpstartHowItWorksPlayer from "@/components/JumpstartHowItWorksPlayer";
 
 export const metadata: Metadata = {
-  title: "Make Me a Website: How It Plays Out in MusTech OS | MusTech Group",
+  title: "Make Me a Website: How It Plays Out | AI Jumpstart",
   description:
-    "One request, start to finish: what your AI does, what it reads, what you approve on your dashboard, and what you do yourself, when you say \"I need a website\" in MusTech OS.",
+    "One request, start to finish: what your AI does, what it reads, and what you approve on your dashboard, when you say \"I need a website\" after AI Jumpstart.",
   alternates: { canonical: "/jumpstart/how-it-works" },
   openGraph: {
     type: "website",
     locale: "en_SG",
     url: "https://www.mustechgroup.com/jumpstart/how-it-works",
     siteName: "MusTech Group",
-    title: "Make me a website: how it plays out in MusTech OS",
+    title: "Make me a website: how it plays out",
     description: "Your AI drafts and guides. You choose, approve, buy, and publish.",
     images: [{ url: "/brand/Logo_Large_ClearBg.png", width: 513, height: 386, alt: "MusTech" }],
   },
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const WHO = [
   { k: "Your AI does", v: "Reads your workspace, compares providers from their own pages, writes the pages, marks what is missing, and guides each step." },
   { k: "You decide", v: "The route and the provider, on your dashboard. The words, page by page. The preview, on your phone and laptop." },
-  { k: "You do yourself", v: "Buy the domain in your own name, and press Publish. MusTech OS never buys, publishes, or signs for you." },
+  { k: "We guide you", v: "When it is time to buy the domain or press Publish, your AI shows you each click and checks it worked. Your name, your card, your site." },
   { k: "Installed or not", v: "The website skill is in every install. Builders and developers also get prototypes and browser checks; anyone else can ask for them, and they arrive as a Decide." },
 ];
 
@@ -37,7 +37,7 @@ export default function HowItWorksPage() {
             &ldquo;Make me a website.&rdquo; Here is how it plays out.
           </h1>
           <p className="mt-4 max-w-2xl text-base sm:text-lg text-[#efe9d8]/80 leading-relaxed">
-            One request in MusTech OS, start to finish, in about a minute. Every step is what the product does today.
+            One request, start to finish, in about a minute. Every step is what your AI does today after Jumpstart.
           </p>
           <div className="mt-8 sm:mt-12">
             <JumpstartHowItWorksPlayer />
@@ -56,7 +56,7 @@ export default function HowItWorksPage() {
             </Link>
             {" · "}
             <Link href="/jumpstart/mustech-os" className="underline underline-offset-4 decoration-[#f5cb1d]/60 hover:decoration-[#f5cb1d]">
-              What MusTech OS does
+              What you get
             </Link>
             {" · "}
             <Link href="/jumpstart/quick-start" className="underline underline-offset-4 decoration-[#f5cb1d]/60 hover:decoration-[#f5cb1d]">

@@ -206,8 +206,6 @@ interface DeviceProps {
 }
 
 // The laptop follows the HQ dashboard: a dark charcoal sidebar, a cream page, and one card per Decide or Input with its own answer box.
-const MOSS = "#14181a";
-const SAGE = "#077d95";
 const PAPER = "#FDFCF8";
 const CARD = "#F7F6F2";
 const EDGE = "#E4DCCB";
@@ -226,15 +224,16 @@ function Laptop({
   tapAnswer,
 }: DeviceProps & { noteText: string; captured: boolean; tap: boolean; tapAnswer: boolean }) {
   const initial = example.person.charAt(0);
+  const B = example.brand;
   const label = "text-[8px] font-bold uppercase tracking-widest";
   return (
     <div className="h-full flex flex-col">
       <div className="flex-1 min-h-0 rounded-t-[16px] bg-[#16150f] p-[8px] ring-1 ring-white/15">
-        <div className="relative h-full overflow-hidden rounded-[8px] flex" style={{ background: PAPER, color: MOSS }}>
+        <div className="relative h-full overflow-hidden rounded-[8px] flex" style={{ background: PAPER, color: B.dark }}>
         {/* Sidebar */}
-        <aside className="w-[112px] shrink-0 p-3 text-[9px] flex flex-col gap-3" style={{ background: MOSS, color: "#e8eadf" }}>
+        <aside className="w-[112px] shrink-0 p-3 text-[9px] flex flex-col gap-3" style={{ background: B.dark, color: "#e8eadf" }}>
           <div className="flex items-center gap-2">
-            <span className="h-6 w-6 rounded grid place-items-center text-[11px] font-bold" style={{ background: SAGE }}>
+            <span className="h-6 w-6 rounded grid place-items-center text-[11px] font-bold" style={{ background: B.accent }}>
               {initial}
             </span>
             <span className="leading-tight">
@@ -261,7 +260,7 @@ function Laptop({
             <div className="px-4 py-3 space-y-3 text-[10px]">
               <header className="border-b pb-2.5" style={{ borderColor: EDGE }}>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[7px] font-bold px-1.5 py-0.5 rounded text-white tracking-widest uppercase" style={{ background: SAGE }}>
+                  <span className="text-[7px] font-bold px-1.5 py-0.5 rounded text-white tracking-widest uppercase" style={{ background: B.accent }}>
                     Dashboard
                   </span>
                   <span className="font-mono text-[8px] opacity-60">{example.person.toLowerCase()}-hq · Tue 8:00</span>
@@ -300,14 +299,14 @@ function Laptop({
                         <span
                           key={o}
                           className="rounded border px-1.5 py-0.5 text-[8.5px] font-semibold transition-colors duration-500"
-                          style={ok && n === 0 ? { background: SAGE, color: "#fff", borderColor: SAGE } : { borderColor: SAGE, color: SAGE }}
+                          style={ok && n === 0 ? { background: B.accent, color: "#fff", borderColor: B.accent } : { borderColor: B.accent, color: B.accent }}
                         >
                           {o}
                         </span>
                       ))}
                     </div>
                     {ok ? (
-                      <p className="mt-1.5 text-[8.5px] font-semibold" style={{ color: SAGE }}>
+                      <p className="mt-1.5 text-[8.5px] font-semibold" style={{ color: B.accent }}>
                         Answered: yes. Logged.
                       </p>
                     ) : (
@@ -332,11 +331,11 @@ function Laptop({
                   {!captured && noteText && <span className="inline-block w-[1px] h-3 align-middle bg-black animate-pulse" />}
                 </div>
                 <div className="mt-2 flex items-center gap-2">
-                  <span className="rounded px-2 py-1 text-[8.5px] font-bold uppercase tracking-wider text-white" style={{ background: MOSS }}>
+                  <span className="rounded px-2 py-1 text-[8.5px] font-bold uppercase tracking-wider text-white" style={{ background: B.dark }}>
                     Capture
                   </span>
                   {captured && (
-                    <span className="text-[9px]" style={{ color: SAGE }}>
+                    <span className="text-[9px]" style={{ color: B.accent }}>
                       Captured. A read-back is on its way for you to confirm.
                     </span>
                   )}
@@ -378,22 +377,22 @@ function Phone({
     </div>
   );
 
-  const companyAccent = "#d95d24";
+  const B = example.brand;
   const initial = example.person.charAt(0).toUpperCase();
 
   return (
     <div className="h-full rounded-[34px] bg-[#16150f] p-[9px] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] ring-1 ring-white/15">
       <div className="relative h-full overflow-hidden rounded-[26px] flex flex-col" style={{ background: GROUND, color: INK }}>
         <div className="mx-auto mt-2 mb-1 h-[14px] w-[64px] rounded-full bg-[#16150f]" />
-        <div className="px-3 py-2 border-b-[2px] flex items-center gap-2" style={{ background: "#0b0b0a", color: "#fdfaf0", borderColor: companyAccent }}>
+        <div className="px-3 py-2 border-b-[2px] flex items-center gap-2" style={{ background: B.dark, color: "#fdfaf0", borderColor: B.accent }}>
           <span
             className="h-5 w-5 rounded-[3px] grid place-items-center font-brand text-[9px] font-bold text-white shrink-0"
-            style={{ background: companyAccent }}
+            style={{ background: B.accent }}
           >
             {initial}
           </span>
           <div className="min-w-0">
-            <p className="text-[7px] font-bold uppercase tracking-wider truncate" style={{ color: companyAccent }}>
+            <p className="text-[7px] font-bold uppercase tracking-wider truncate" style={{ color: B.onDark }}>
               {example.person}&rsquo;s HQ · 8:00
             </p>
             <p className="font-brand text-[10.5px] font-bold leading-tight text-[#fdfaf0] truncate">
@@ -421,7 +420,7 @@ function Phone({
                       <span className="font-mono text-[8.5px] font-bold text-white rounded px-1 py-[1px] whitespace-nowrap shrink-0" style={{ background: INK }}>
                         {a.id}
                       </span>
-                      <span className="text-[8px] font-semibold uppercase tracking-wide" style={{ color: companyAccent }}>
+                      <span className="text-[8px] font-semibold uppercase tracking-wide" style={{ color: B.accent }}>
                         {a.item.dept}
                       </span>
                     </div>
