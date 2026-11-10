@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import NadiaSite, { CHOSEN_LOOK, HEADLINE, LOOKS } from "@/components/jumpstart/NadiaSite";
 
@@ -92,6 +93,9 @@ const Check = ({ on }: { on: boolean }) => (
 
 /** One frame of the ad at time t (ms). Pure: the same t always draws the same frame. */
 function Frame({ t }: { t: number }) {
+  // The film plays on /jumpstart and on /jumpstart/how-it-works. On /jumpstart a link back to /jumpstart goes
+  // nowhere, so About scrolls on to the next part of the page, and Nadia's site is told where to send people back.
+  const onJumpstart = (usePathname() ?? "").replace(/\/$/, "") === "/jumpstart";
   let b = BEATS.length - 1;
   while (b > 0 && t < STARTS[b]) b--;
   const id = BEATS[b].id;
@@ -352,13 +356,13 @@ function Frame({ t }: { t: number }) {
           </p>
           <div className="mt-8 flex items-center gap-5" style={show(lt, 2100)}>
             <Link
-              href="/jumpstart/how-it-works/example"
+              href={`/jumpstart/how-it-works/example?from=${onJumpstart ? "jumpstart" : "how-it-works"}`}
               className="hiw-pop rounded-xl bg-[#f5cb1d] px-9 py-5 text-[22px] font-bold text-[#14181a] hover:bg-[#ffd93b]"
               style={{ ["--pop" as string]: lt > 2100 ? "running" : "paused" }}
             >
               Open Nadia&rsquo;s site →
             </Link>
-            <Link href="/jumpstart" className="self-center rounded-lg border border-white/30 px-6 py-3.5 text-[17px] font-bold hover:border-white/70">
+            <Link href={onJumpstart ? "#overview" : "/jumpstart"} className="self-center rounded-lg border border-white/30 px-6 py-3.5 text-[17px] font-bold hover:border-white/70">
               About AI Jumpstart
             </Link>
           </div>
