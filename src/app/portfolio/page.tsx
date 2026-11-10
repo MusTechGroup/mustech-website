@@ -9,6 +9,7 @@ import AnimatedJenazahLogo from "@/components/AnimatedJenazahLogo";
 import AnimatedTarabaseLogo from "@/components/AnimatedTarabaseLogo";
 import Reveal from "@/components/Reveal";
 import ZoomableShot from "@/components/ZoomableShot";
+import AppleLogo from "@/components/AppleLogo";
 
 export const metadata: Metadata = {
   title: "Product Ecosystem & Interactive Walkthroughs",
@@ -337,7 +338,7 @@ export default function PortfolioPage() {
                           rel="noopener noreferrer"
                           className="w-full inline-flex items-center justify-center gap-3 px-5 py-3.5 bg-[#d5ad5b] hover:bg-white text-black text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-0.5 active:translate-y-[1px]"
                         >
-                          <span className="text-lg leading-none"></span>
+                          <AppleLogo className="w-[18px] h-[18px] -mt-0.5" />
                           <span>Download on the App Store</span>
                         </a>
                         <a

@@ -5,6 +5,7 @@ import AnimatedJenazahLogo from "@/components/AnimatedJenazahLogo";
 import AnimatedTarabaseLogo from "@/components/AnimatedTarabaseLogo";
 import AnimatedJumpstartLogo from "@/components/AnimatedJumpstartLogo";
 import Reveal from "@/components/Reveal";
+import AppleLogo from "@/components/AppleLogo";
 
 export default function Portfolio() {
   return (
@@ -44,7 +45,7 @@ export default function Portfolio() {
                     rel="noopener noreferrer"
                     className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#d5ad5b] hover:bg-white text-black text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-0.5 active:translate-y-[1px] min-h-[44px]"
                   >
-                    <span className="text-lg leading-none"></span>
+                    <AppleLogo className="w-[18px] h-[18px] -mt-0.5" />
                     <span>Download on iOS</span>
                   </a>
                   <a

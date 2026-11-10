@@ -16,6 +16,8 @@ interface ZoomableShotProps {
   sizes?: string;
   /** Optional looping walkthrough shown in place of the still. */
   video?: { webm: string; mp4: string };
+  /** Smaller enlarge cue, for thumbnails. */
+  compact?: boolean;
 }
 
 /**
@@ -34,6 +36,7 @@ export default function ZoomableShot({
   mediaClassName = "object-contain object-top",
   sizes = "(max-width: 640px) 90vw, 260px",
   video,
+  compact = false,
 }: ZoomableShotProps) {
   const [open, setOpen] = useState(false);
   const [shown, setShown] = useState(false);
@@ -92,9 +95,11 @@ export default function ZoomableShot({
         )}
         <span
           aria-hidden="true"
-          className="absolute bottom-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm transition-transform duration-200 group-hover/shot:scale-110"
+          className={`absolute flex items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm transition-transform duration-200 group-hover/shot:scale-110 ${
+            compact ? "bottom-1 right-1 h-5 w-5" : "bottom-2 right-2 h-8 w-8"
+          }`}
         >
-          <Maximize2 className="h-4 w-4" />
+          <Maximize2 className={compact ? "h-3 w-3" : "h-4 w-4"} />
         </span>
       </button>
 

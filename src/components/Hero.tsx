@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
+import ZoomableShot from "@/components/ZoomableShot";
 
 type BrandKey = "tayyib" | "saalihat" | "jenazah" | "tarabase";
 
@@ -333,13 +334,8 @@ export default function Hero() {
             const isActive = idx === activeMobileIndex;
             const isTayyib = panel.key === "tayyib";
             return (
-              <Link
+              <div
                 key={panel.key}
-                href={panel.href}
-                onClick={() => {
-                  setActiveMobileIndex(idx);
-                  setActiveBrand(panel.key);
-                }}
                 className={`group relative w-[84vw] sm:w-[380px] max-w-[360px] sm:max-w-none h-[370px] sm:h-[400px] shrink-0 snap-center rounded-2xl overflow-hidden border shadow-xl transition-all duration-300 active:scale-[0.99] flex flex-col justify-between p-6 ${
                   isActive
                     ? "border-black/30 ring-2 ring-[var(--color-primary)]/50"
@@ -376,39 +372,47 @@ export default function Hero() {
                   }`}
                 />
 
+                {/* Whole card opens the product page; the preview above it enlarges instead */}
+                <Link
+                  href={panel.href}
+                  onClick={() => {
+                    setActiveMobileIndex(idx);
+                    setActiveBrand(panel.key);
+                  }}
+                  aria-label={`${panel.name}: ${panel.subtitle}`}
+                  className="absolute inset-0 z-[5]"
+                />
+
                 {/* Card Top: Category Badge & Floating Retina App Preview */}
-                <div className="relative z-10 flex items-start justify-between gap-3">
+                <div className="pointer-events-none relative z-10 flex items-start justify-between gap-3">
                   <span className="inline-block px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider backdrop-blur-md bg-black/40 border border-white/20 text-[#fdfaf0]">
                     {panel.category}
                   </span>
 
                   {panel.previewImage && (
-                    <div
-                      className={`relative ${panel.previewAspect} rounded-lg overflow-hidden border border-white/30 shadow-2xl ${
+                    <ZoomableShot
+                      src={panel.previewImage}
+                      alt={panel.previewAlt || panel.name}
+                      sizes="120px"
+                      compact
+                      frameClassName={`pointer-events-auto relative ${panel.previewAspect} rounded-lg overflow-hidden border border-white/30 shadow-2xl ${
                         panel.key === "tarabase"
                           ? "w-28 bg-white"
                           : panel.key === "saalihat"
                             ? "w-20 bg-black"
                             : "w-18 bg-white"
                       }`}
-                    >
-                      <Image
-                        src={panel.previewImage}
-                        alt={panel.previewAlt || panel.name}
-                        fill
-                        sizes="120px"
-                        className={
-                          panel.key === "tarabase"
-                            ? "object-cover"
-                            : "object-cover object-top"
-                        }
-                      />
-                    </div>
+                      mediaClassName={
+                        panel.key === "tarabase"
+                          ? "object-cover"
+                          : "object-cover object-top"
+                      }
+                    />
                   )}
                 </div>
 
                 {/* Card Bottom: Identity & Arrow Action */}
-                <div className="relative z-10 pt-4 flex items-end justify-between gap-3">
+                <div className="pointer-events-none relative z-10 pt-4 flex items-end justify-between gap-3">
                   <div className="min-w-0">
                     <p
                       className={`font-brand text-2xl sm:text-3xl font-bold leading-tight ${
@@ -429,7 +433,7 @@ export default function Hero() {
                     <ArrowRight className="w-5 h-5" />
                   </div>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import AppleLogo from "@/components/AppleLogo";
 
 type ActiveProduct = "static" | "saalihat" | "jenazah" | "tarabase" | "jumpstart";
 
@@ -236,11 +237,8 @@ export default function ShowcaseMatrix() {
                   alt="iOS App Store QR"
                   className="w-24 h-24 sm:w-28 sm:h-28 lg:w-[116px] lg:h-[116px] object-contain"
                 />
-                <span
-                  className="text-[#0e1117] text-sm sm:text-base font-bold leading-none mt-1"
-                  aria-label="Apple iOS"
-                >
-                  
+                <span role="img" aria-label="Apple iOS" className="text-[#0e1117] mt-1 leading-none">
+                  <AppleLogo className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </span>
               </div>
 
