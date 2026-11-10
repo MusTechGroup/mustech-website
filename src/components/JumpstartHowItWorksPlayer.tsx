@@ -47,7 +47,7 @@ const SPRINTS: [string, string, string][] = [
   ["Ground", "philosopher, investigate, strategize", "Brief"],
   ["Shape", "blueprint, journey, organize, transpose", "Plan"],
   ["Look and words", "design-direction, articulate, onboard", "Look, words"],
-  ["Build", "site-and-domain, frontend-design", ""],
+  ["Build", "site-and-domain, frontend-design", "First look"],
   ["Check", "evaluate, critique, polish, harden, adapt", "Ready?"],
   ["Go live and learn", "site-and-domain, specify, measure", ""],
 ];
@@ -184,7 +184,7 @@ const SCENES: Scene[] = [
     ),
   },
   {
-    caption: "Sprints 4 and 5: the pages are built, then checked. Critique, polish, harden, and adapt run every time; nothing goes live without them. Checkpoint 4.",
+    caption: "Sprints 4 and 5: the pages are built, then checked. She takes a first look at the built pages (checkpoint 4), then critique, polish, harden, and adapt run every time; nothing goes live without them. Checkpoint 5.",
     render: () => (
       <Window title="Sprint 5 · Check (always)">
         <ul className="flex flex-col gap-1.5 text-[13px]">
