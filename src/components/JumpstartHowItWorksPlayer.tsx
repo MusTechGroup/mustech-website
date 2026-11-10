@@ -121,6 +121,10 @@ function Frame({ t }: { t: number }) {
 
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#0b0c0c] font-sans text-[#efe9d8]">
+      <style>{`
+        @keyframes hiwPop { 0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,203,29,.55), 0 18px 50px -12px rgba(245,203,29,.6) } 50% { transform: scale(1.06); box-shadow: 0 0 0 14px rgba(245,203,29,0), 0 24px 70px -10px rgba(245,203,29,.8) } }
+        .hiw-pop { display: inline-flex; animation: hiwPop 1.8s ease-in-out infinite; animation-play-state: var(--pop, paused) }
+      `}</style>
       {/* Light that follows the work */}
       <div
         className="absolute h-[900px] w-[900px] rounded-full opacity-60 blur-3xl transition-[left,top,background] duration-[1600ms]"
@@ -346,11 +350,15 @@ function Frame({ t }: { t: number }) {
           <p className="mt-6 text-[19px] leading-snug text-[#efe9d8]/75" style={show(lt, 1400)}>
             AI Jumpstart sets up your own AI team at your desk. A website is one thing you can ask for.
           </p>
-          <div className="mt-8 flex gap-4" style={show(lt, 2100)}>
-            <Link href="/jumpstart/how-it-works/example" className="rounded-lg bg-[#f5cb1d] px-6 py-3.5 text-[17px] font-bold text-[#14181a] hover:bg-[#f8df98]">
-              Open Nadia&rsquo;s site
+          <div className="mt-8 flex items-center gap-5" style={show(lt, 2100)}>
+            <Link
+              href="/jumpstart/how-it-works/example"
+              className="hiw-pop rounded-xl bg-[#f5cb1d] px-9 py-5 text-[22px] font-bold text-[#14181a] hover:bg-[#ffd93b]"
+              style={{ ["--pop" as string]: lt > 2100 ? "running" : "paused" }}
+            >
+              Open Nadia&rsquo;s site →
             </Link>
-            <Link href="/jumpstart" className="rounded-lg border border-white/30 px-6 py-3.5 text-[17px] font-bold hover:border-white/70">
+            <Link href="/jumpstart" className="self-center rounded-lg border border-white/30 px-6 py-3.5 text-[17px] font-bold hover:border-white/70">
               About AI Jumpstart
             </Link>
           </div>

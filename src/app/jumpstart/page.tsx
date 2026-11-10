@@ -11,6 +11,7 @@ import JumpstartFlow from "@/components/JumpstartFlow";
 import JumpstartDevices from "@/components/JumpstartDevices";
 import JumpstartSafety from "@/components/JumpstartSafety";
 import JumpstartResearch from "@/components/JumpstartResearch";
+import JumpstartHowItWorksPlayer from "@/components/JumpstartHowItWorksPlayer";
 import JumpstartTrainerCarousel from "@/components/JumpstartTrainerCarousel";
 import BrandLogo from "@/components/BrandLogo";
 import Scene from "@/components/Scene";
@@ -109,13 +110,26 @@ export default function JumpstartPage() {
                   Register early interest
                 </a>
                 <a
-                  href="#demo"
+                  href="#see-it-work"
                   className="w-full sm:w-auto px-8 py-4 min-h-[48px] flex items-center justify-center border border-white/30 text-[#efe9d8] hover:border-white/70 text-xs font-bold uppercase tracking-wider transition-colors"
                 >
                   See it work
                 </a>
               </div>
             </div>
+          </div>
+        </Scene>
+
+        {/* The film: one request, start to finish (founder, 2026-11-10: a better opener than the desk demo) */}
+        <Scene id="see-it-work" deck="Film" className="text-[#efe9d8] py-10 sm:py-20">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="font-brand font-bold tracking-[-0.02em] leading-[1.02] text-[clamp(2rem,6vw,4.5rem)] text-balance max-w-4xl">
+              &ldquo;Make me a website.&rdquo; Watch it go live.
+            </h2>
+            <p className="mt-3 mb-6 sm:mb-10 text-sm sm:text-lg text-[#efe9d8]/75 leading-relaxed max-w-2xl">
+              One line to her AI, and a real site on her own address in under a minute. She approves every step and presses Publish herself.
+            </p>
+            <JumpstartHowItWorksPlayer />
           </div>
         </Scene>
 
