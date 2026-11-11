@@ -120,12 +120,12 @@ export default function JumpstartTrainerCarousel() {
         </div>
       </div>
 
-      {/* Clean caption below image */}
+      {/* Editorial caption below image (natural case, no aggressive uppercase) */}
       <div className="mt-3 text-center lg:text-left">
-        <span className="inline-block text-[11px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded bg-[#f5cb1d]/10 border border-[#f5cb1d]/20 text-[#f5cb1d]">
-          Keynote Speaker: ESSEC Business School
-        </span>
-        <p className="mt-1 text-xs text-[#efe9d8]/80 leading-normal font-medium">
+        <p className="text-xs sm:text-sm font-medium text-[#efe9d8]">
+          <span className="text-[#f5cb1d] font-semibold">Keynote Speaker:</span> ESSEC Business School
+        </p>
+        <p className="mt-0.5 text-xs text-[#efe9d8]/70 leading-normal">
           {slides[currentIndex].topic}
         </p>
       </div>
