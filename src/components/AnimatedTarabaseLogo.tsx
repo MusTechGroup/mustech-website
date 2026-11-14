@@ -71,13 +71,13 @@ export default function AnimatedTarabaseLogo({
         <div
           className={`relative w-20 h-20 transition-all duration-300 ${
             stage === "sailing"
-              ? "animate-quiet-moor-sail filter drop-shadow-[0_8px_16px_rgba(201,90,68,0.22)]"
+              ? "animate-quiet-moor-sail filter drop-shadow-[0_8px_16px_rgba(168,67,47,0.22)]"
               : "group-hover:scale-105"
           }`}
         >
           {/* Ambient Terracotta Glow while sailing */}
           <div
-            className={`absolute inset-0 rounded-full bg-[#c95a44]/12 blur-lg transition-opacity duration-500 pointer-events-none ${
+            className={`absolute inset-0 rounded-full bg-[#a8432f]/12 blur-lg transition-opacity duration-500 pointer-events-none ${
               stage === "sailing" ? "opacity-100" : "opacity-0"
             }`}
           />
@@ -195,7 +195,7 @@ export default function AnimatedTarabaseLogo({
               {/* Quiet harbor ripple 1 */}
               <path
                 d="M 10 10 Q 30 14, 50 10 T 90 10"
-                stroke="#c95a44"
+                stroke="#a8432f"
                 strokeWidth="1.75"
                 strokeLinecap="round"
                 className="animate-quiet-wave-1"
@@ -204,7 +204,7 @@ export default function AnimatedTarabaseLogo({
               {/* Quiet harbor ripple 2 */}
               <path
                 d="M 20 15 Q 40 11, 60 15 T 80 15"
-                stroke="#814038"
+                stroke="#5c2318"
                 strokeWidth="1.25"
                 strokeLinecap="round"
                 className="animate-quiet-wave-2"
