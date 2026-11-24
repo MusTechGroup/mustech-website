@@ -266,7 +266,7 @@ export default function JumpstartPage() {
                   <li className="border-l-2 border-[#f5cb1d] pl-4"><strong className="text-[#efe9d8]">Google:</strong> ran SQL training for marketers.</li>
                 </ul>
                 <p className="mt-4 text-sm sm:text-base text-[#efe9d8]/80 leading-relaxed">
-                  He speaks business, outcomes, and plain language, never technical for the sake of technical. That is how Jumpstart is taught. He has led enterprise data analytics across APAC for over a decade, and is an academic consultant at SMU, ESSEC, HKU, and City University of Hong Kong.{" "}
+                  He speaks business, outcomes, and plain language, never technical for the sake of technical. That is how Jumpstart is taught. He has led enterprise data analytics across APAC for over a decade, and has been engaged as an academic consultant by SMU, ESSEC, HKU, and City University of Hong Kong for lectures, panels, and mentorship.{" "}
                   <Link href="/about" className="inline-block py-2 -my-2 font-semibold underline hover:text-[#f5cb1d]">
                     Full profile
                   </Link>
