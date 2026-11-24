@@ -51,8 +51,12 @@ export default function Navbar() {
   const [logoDocked, setLogoDocked] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDarkSection, setIsDarkSection] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [homeSpyIdx, setHomeSpyIdx] = useState<number>(-1);
+  const [progressAccent, setProgressAccent] = useState("#077d95");
 
-  const activeIdx = NAV_LINKS.findIndex((l) => isLinkActive(pathname, l.href));
+  const routeActiveIdx = NAV_LINKS.findIndex((l) => isLinkActive(pathname, l.href));
+  const activeIdx = isHome ? homeSpyIdx : routeActiveIdx;
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const [cursorRect, setCursorRect] = useState<{
@@ -88,14 +92,22 @@ export default function Navbar() {
       const y = window.scrollY;
       setScrolled(y > 20);
       setLogoDocked(y > 170);
+
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? Math.min(1, Math.max(0, y / docHeight)) : 0);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("resize", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [pathname]);
 
   useEffect(() => {
-    const checkDarkSections = () => {
+    const checkSections = () => {
       const darkIds = ["saalihat", "philosophy"];
       const navHeight = 64;
       const isOverDark = darkIds.some((id) => {
@@ -105,16 +117,45 @@ export default function Navbar() {
         return rect.top <= navHeight && rect.bottom >= navHeight;
       });
       setIsDarkSection(isOverDark);
+
+      if (!isHome) {
+        setHomeSpyIdx(-1);
+        setProgressAccent(isOverDark ? "#f8df98" : "#077d95");
+        return;
+      }
+
+      const spyY = 160;
+      const saalihatEl = document.getElementById("saalihat");
+      const jenazahEl = document.getElementById("jenazah");
+      const tarabaseEl = document.getElementById("tarabase");
+      const philosophyEl = document.getElementById("philosophy");
+
+      if (philosophyEl && philosophyEl.getBoundingClientRect().top <= spyY) {
+        setHomeSpyIdx(3);
+        setProgressAccent("#f8df98");
+      } else if (tarabaseEl && tarabaseEl.getBoundingClientRect().top <= spyY) {
+        setHomeSpyIdx(0);
+        setProgressAccent("#814038");
+      } else if (jenazahEl && jenazahEl.getBoundingClientRect().top <= spyY) {
+        setHomeSpyIdx(0);
+        setProgressAccent("#4A5D3F");
+      } else if (saalihatEl && saalihatEl.getBoundingClientRect().top <= spyY) {
+        setHomeSpyIdx(0);
+        setProgressAccent("#d5ad5b");
+      } else {
+        setHomeSpyIdx(-1);
+        setProgressAccent("#077d95");
+      }
     };
 
-    checkDarkSections();
-    window.addEventListener("scroll", checkDarkSections, { passive: true });
-    window.addEventListener("resize", checkDarkSections, { passive: true });
+    checkSections();
+    window.addEventListener("scroll", checkSections, { passive: true });
+    window.addEventListener("resize", checkSections, { passive: true });
     return () => {
-      window.removeEventListener("scroll", checkDarkSections);
-      window.removeEventListener("resize", checkDarkSections);
+      window.removeEventListener("scroll", checkSections);
+      window.removeEventListener("resize", checkSections);
     };
-  }, [pathname]);
+  }, [pathname, isHome]);
 
   useEffect(() => {
     if (!mobileMenuOpen) return;
@@ -285,6 +326,22 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Constellation 2px scroll-progress hairline */}
+      <div
+        aria-hidden="true"
+        className={`pointer-events-none absolute bottom-0 left-0 right-0 h-[2px] overflow-hidden transition-opacity duration-300 ${
+          scrolled ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div
+          className="h-full w-full origin-left transition-colors duration-300 motion-reduce:transition-none"
+          style={{
+            backgroundColor: progressAccent,
+            transform: `scaleX(${scrollProgress})`,
+          }}
+        />
+      </div>
+
       {/* Mobile menu dropdown: Matching Constellation diamond pips & active slot highlight */}
       {mobileMenuOpen && (
         <div
@@ -302,8 +359,8 @@ export default function Navbar() {
                 : "bg-[#f4ecd8]/75 border-[#233219]/12"
             }`}
           >
-            {NAV_LINKS.map((link) => {
-              const active = isLinkActive(pathname, link.href);
+            {NAV_LINKS.map((link, idx) => {
+              const active = isHome ? homeSpyIdx === idx : isLinkActive(pathname, link.href);
               const slotColor = isDarkSection ? link.slotDark : link.slotLight;
 
               return (
@@ -311,7 +368,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  aria-current={active ? "page" : undefined}
+                  aria-current={isLinkActive(pathname, link.href) ? "page" : undefined}
                   className={`min-h-[44px] px-3.5 py-2.5 rounded-[4px] flex items-center justify-between text-sm font-semibold tracking-wide transition-colors ${
                     active
                       ? isDarkSection

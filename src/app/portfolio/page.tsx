@@ -10,6 +10,7 @@ import AnimatedTarabaseLogo from "@/components/AnimatedTarabaseLogo";
 import Reveal from "@/components/Reveal";
 import ZoomableShot from "@/components/ZoomableShot";
 import AppleLogo from "@/components/AppleLogo";
+import PortfolioPlatformBar from "@/components/PortfolioPlatformBar";
 
 export const metadata: Metadata = {
   title: "Product Ecosystem & Interactive Walkthroughs",
@@ -124,36 +125,8 @@ export default function PortfolioPage() {
         {/* Deep-Dive Product Directory */}
         <section className="pb-20 sm:pb-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Quick-Jump Platform Navigation */}
-            <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-4 mb-6 sm:mb-12 border-b border-black/10">
-              <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary-dark)]/50 shrink-0 mr-1">
-                Platforms:
-              </span>
-              <a
-                href="#saalihat"
-                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#0e1117] text-[#d5ad5b] shrink-0 hover:opacity-90 transition-opacity"
-              >
-                Saalihat
-              </a>
-              <a
-                href="#jenazah-deep-dive"
-                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#4A5D3F] text-white shrink-0 hover:opacity-90 transition-opacity"
-              >
-                jenazah.sg
-              </a>
-              <a
-                href="#tarabase-deep-dive"
-                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#814038] text-white shrink-0 hover:opacity-90 transition-opacity"
-              >
-                TaraBase
-              </a>
-              <Link
-                href="/jumpstart"
-                className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-black/5 text-[var(--color-primary-dark)] shrink-0 hover:bg-black/10 transition-colors"
-              >
-                MusTech Jumpstart
-              </Link>
-            </div>
+            {/* Quick-Jump Platform Navigation: RPG Select gliding tray */}
+            <PortfolioPlatformBar />
 
             {/* Mobile Platform Overview Swipe Deck (Swipe Boxes across all 4 platforms) */}
             <div className="block lg:hidden mb-10">
@@ -336,7 +309,7 @@ export default function PortfolioPage() {
                           href="https://apps.apple.com/sg/app/saalihat/id6760661366"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full inline-flex items-center justify-center gap-3 px-5 py-3.5 bg-[#d5ad5b] hover:bg-white text-black text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-0.5 active:translate-y-[1px]"
+                          className="w-full inline-flex items-center justify-center gap-3 px-5 py-3.5 rounded-md bg-[#d5ad5b] hover:bg-[#fdfaf0] text-[#0e1117] text-sm font-bold shadow-[0_2px_0_0_rgba(248,223,152,0.45)] transition-all duration-150 active:translate-y-[2px] active:shadow-none"
                         >
                           <AppleLogo className="w-[18px] h-[18px] -mt-0.5" />
                           <span>Download on the App Store</span>
@@ -345,7 +318,7 @@ export default function PortfolioPage() {
                           href="https://play.google.com/store/apps/details?id=com.mustechgroup.saalihat"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full inline-flex items-center justify-center gap-3 px-5 py-3.5 bg-white hover:bg-[#d5ad5b] text-black text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-0.5 active:translate-y-[1px]"
+                          className="w-full inline-flex items-center justify-center gap-3 px-5 py-3.5 rounded-md bg-[#fdfaf0] hover:bg-[#d5ad5b] text-[#0e1117] text-sm font-bold shadow-[0_2px_0_0_rgba(213,173,91,0.55)] transition-all duration-150 active:translate-y-[2px] active:shadow-none"
                         >
                           <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current shrink-0" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 2.5v19l16-9.5z" />
@@ -514,7 +487,7 @@ export default function PortfolioPage() {
                       href="https://jenazah.sg"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-[#4A5D3F] hover:bg-[#233219] text-white text-sm font-semibold transition-colors"
+                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-md bg-[#4A5D3F] hover:bg-[#233219] text-[#fdfaf0] text-sm font-bold shadow-[0_2px_0_0_#92ae94] transition-all duration-150 active:translate-y-[2px] active:shadow-none"
                     >
                       <span>Launch jenazah.sg</span>
                       <ExternalLink className="w-4 h-4" />
@@ -657,7 +630,7 @@ export default function PortfolioPage() {
                         href="https://tarabase.co"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-[#814038] hover:bg-[#5e2d27] text-white text-sm font-semibold transition-colors"
+                        className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-md bg-[#814038] hover:bg-[#5e2d27] text-[#fdfaf0] text-sm font-bold shadow-[0_2px_0_0_#f8df98] transition-all duration-150 active:translate-y-[2px] active:shadow-none"
                       >
                         <span>Launch TaraBase</span>
                         <ExternalLink className="w-4 h-4" />
@@ -666,7 +639,7 @@ export default function PortfolioPage() {
                         href="https://tarabase.co/demo"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#FAF8F5] hover:bg-[#814038]/10 text-[#814038] border border-[#814038]/25 text-sm font-semibold transition-colors"
+                        className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md bg-[#FAF8F5] hover:bg-[#814038]/10 text-[#814038] border border-[#814038]/25 shadow-[0_2px_0_0_rgba(129,64,56,0.2)] text-sm font-semibold transition-all duration-150 active:translate-y-[2px] active:shadow-none"
                       >
                         <span>Explore Demo Kitchen Live</span>
                         <ExternalLink className="w-3.5 h-3.5 text-[#814038]/70" />

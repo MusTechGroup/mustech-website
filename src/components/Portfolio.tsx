@@ -43,7 +43,7 @@ export default function Portfolio() {
                     href="https://apps.apple.com/sg/app/saalihat/id6760661366"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#d5ad5b] hover:bg-white text-black text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-0.5 active:translate-y-[1px] min-h-[44px]"
+                    className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-md bg-[#d5ad5b] hover:bg-[#fdfaf0] text-[#0e1117] text-sm font-bold shadow-[0_2px_0_0_rgba(248,223,152,0.45)] transition-all duration-150 active:translate-y-[2px] active:shadow-none min-h-[44px]"
                   >
                     <AppleLogo className="w-[18px] h-[18px] -mt-0.5" />
                     <span>Download on iOS</span>
@@ -52,7 +52,7 @@ export default function Portfolio() {
                     href="https://play.google.com/store/apps/details?id=com.mustechgroup.saalihat"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#d5ad5b] hover:bg-white text-black text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] hover:-translate-y-0.5 active:translate-y-[1px] min-h-[44px]"
+                    className="flex-1 inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-md bg-[#fdfaf0] hover:bg-[#d5ad5b] text-[#0e1117] text-sm font-bold shadow-[0_2px_0_0_rgba(213,173,91,0.55)] transition-all duration-150 active:translate-y-[2px] active:shadow-none min-h-[44px]"
                   >
                     <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current shrink-0" xmlns="http://www.w3.org/2000/svg">
                       <path d="M4 2.5v19l16-9.5z" />
